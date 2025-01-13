@@ -3,32 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to DataCritus</title>
+    <title>DATACRITUS - Government Performance Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body, html {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f4f4f9;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
         }
-        img {
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
+        .navbar {
+            background-color: #004080;
+        }
+        .navbar-brand {
+            color: #ffffff;
+            font-weight: bold;
+        }
+        .hero-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #e0e0e0;
+        }
+        .hero-section h1 {
+            color: #004080;
+            font-size: 48px;
+        }
+        .hero-section p {
+            font-size: 18px;
+            color: #333;
+        }
+        .dashboard-section {
+            padding: 30px;
+        }
+        .footer {
+            background-color: #004080;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
         }
     </style>
 </head>
 <body>
-    <img src="logo.png" alt="DataCritus Logo">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">DATACRITUS</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1>Welcome to DATACRITUS</h1>
+        <p>Track government performance with real-time KPIs and interactive dashboards.</p>
+        <a href="#dashboard" class="btn btn-primary">Get Started</a>
+    </div>
+
+    <!-- Dashboard Section -->
+    <div class="dashboard-section" id="dashboard">
+        <div class="container">
+            <h2>Interactive Dashboard</h2>
+            <p>Select a KPI to track and visualize data over time.</p>
+
+            <!-- Dummy Dropdown Menu -->
+            <div class="form-group">
+                <label for="kpiSelector">Choose a KPI:</label>
+                <select class="form-control" id="kpiSelector">
+                    <option>GDP Growth</option>
+                    <option>Unemployment Rate</option>
+                    <option>Health Expenditure</option>
+                    <option>Education Spending</option>
+                </select>
+            </div>
+
+            <!-- Dummy Graph Placeholder -->
+            <div class="graph-placeholder" style="height: 300px; background-color: #d3d3d3; text-align: center; line-height: 300px;">
+                <strong>Graph will be displayed here</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 DATACRITUS. All rights reserved.</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
