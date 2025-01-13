@@ -35,7 +35,7 @@
 
         /* Fullscreen Logo Section */
         .fullscreen-logo {
-            background: url('logo.png') no-repeat center center;
+            background: url('Logo.png') no-repeat center center;
             background-size: cover;
             height: 100vh;
             width: 100vw;
@@ -43,8 +43,8 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: #fff; /* Ensuring the text is readable over the image */
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Adding some text shadow for readability */
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
         }
 
         .fullscreen-logo h1 {
@@ -190,7 +190,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <a class="navbar-brand" href="#">
-            <img src="logo.png" alt="DATACRITUS Logo" width="30" height="30" class="d-inline-block align-top">
+            <img src="Logo.png" alt="DATACRITUS Logo" width="30" height="30" class="d-inline-block align-top">
             DATACRITUS
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -267,6 +267,7 @@
                     <div class="d-flex justify-content-end mb-3">
                         <button class="btn btn-secondary mr-2" onclick="generateRandomGraph()">Generate Random Data</button>
                         <button class="btn btn-secondary ml-2" onclick="generateRealGraph()">Generate Real Data</button>
+                        <button class="btn btn-success ml-2" onclick="showElectionDates()">Show Election Dates</button>
                     </div>
                     <!-- Graph Placeholder -->
                     <div class="graph-placeholder" id="graphPlaceholder">
@@ -296,7 +297,7 @@
 
     <!-- Custom Scripts -->
     <script>
-        // Subcategories for each main category (same as before)
+        // Subcategories for each main category (added here)
         const subcategories = {
             "ECONOMY": [
                 "Annual GDP growth (World Bank, 2022)",
@@ -322,7 +323,7 @@
                 "Vaccination coverage rate (Measles) for 1-year-olds (2021)",
                 "Number of people with HIV (2021)"
             ],
-            // Add other categories...
+            // Add more categories here
         };
 
         let chartInstance = null;
@@ -358,7 +359,63 @@
             updateSubcategories(); // Ensure subcategories are populated on page load
         });
 
-        // Generate random graph for testing
+        // Election dates and winning parties
+        const electionData = [
+            { date: '1974-11-17', party: 'New Democracy' },
+            { date: '1977-11-20', party: 'New Democracy' },
+            { date: '1981-10-18', party: 'PASOK' },
+            { date: '1985-06-02', party: 'PASOK' },
+            { date: '1989-06-18', party: 'New Democracy' },
+            { date: '1989-11-05', party: 'New Democracy' },
+            { date: '1990-04-08', party: 'New Democracy' },
+            { date: '1993-10-10', party: 'PASOK' },
+            { date: '1996-09-22', party: 'PASOK' },
+            { date: '2000-04-09', party: 'PASOK' },
+            { date: '2004-03-07', party: 'New Democracy' },
+            { date: '2007-09-16', party: 'New Democracy' },
+            { date: '2009-10-04', party: 'PASOK' },
+            { date: '2012-05-06', party: 'New Democracy' },
+            { date: '2012-06-17', party: 'New Democracy' },
+            { date: '2015-01-25', party: 'SYRIZA' },
+            { date: '2015-09-20', party: 'SYRIZA' },
+            { date: '2019-07-07', party: 'New Democracy' },
+            { date: '2023-05-21', party: 'New Democracy' },
+            { date: '2023-06-25', party: 'New Democracy' }
+        ];
+
+        // Colors for the parties
+        const partyColors = {
+            "New Democracy": "blue",
+            "PASOK": "green",
+            "SYRIZA": "orange"
+        };
+
+        // Function to show election dates on the graph
+        function showElectionDates() {
+            const chartCanvas = document.getElementById('kpiChart');
+            const ctx = chartCanvas.getContext('2d');
+            
+            // Loop through each election date
+            electionData.forEach(election => {
+                const electionDate = new Date(election.date); // Parse the date
+                const electionYear = electionDate.getFullYear(); // Extract the year
+                
+                // Find the index for this year on the x-axis of the graph
+                const yearIndex = chartInstance.data.labels.findIndex(year => year === electionYear);
+                
+                if (yearIndex >= 0) {
+                    // Draw vertical line for election date
+                    ctx.beginPath();
+                    ctx.moveTo(yearIndex * (chartCanvas.width / chartInstance.data.labels.length), 0);
+                    ctx.lineTo(yearIndex * (chartCanvas.width / chartInstance.data.labels.length), chartCanvas.height);
+                    ctx.strokeStyle = partyColors[election.party] || "black"; // Default to black if unknown party
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                }
+            });
+        }
+
+        // Function to generate a random graph (for testing purposes)
         function generateRandomGraph() {
             const mainCategory = document.getElementById("mainCategory").value;
             const subCategory = document.getElementById("subCategory").value;
@@ -419,109 +476,6 @@
             // Hide loading spinner and show chart
             document.getElementById('loadingSpinner').style.display = 'none';
             chartCanvas.style.display = 'block';
-        }
-
-        // Generate graph with real data fetched from OWID API
-        async function generateRealGraph() {
-            const mainCategory = document.getElementById("mainCategory").value;
-            const subCategory = document.getElementById("subCategory").value;
-            const chartCanvas = document.getElementById('kpiChart');
-            const graphMessage = document.getElementById("graphMessage");
-
-            if (!subCategory) {
-                graphMessage.textContent = "Select a valid subcategory to view the graph.";
-                graphMessage.style.display = 'block';
-                chartCanvas.style.display = 'none';
-                return;
-            }
-
-            // Show loading spinner
-            document.getElementById('loadingSpinner').style.display = 'block';
-            chartCanvas.style.display = 'none';
-
-            // Fetch real data from OWID API
-            const kpiData = await fetchKPIData(mainCategory, subCategory);
-
-            if (!kpiData) return;
-
-            const { years, values } = kpiData;
-
-            // Create the chart
-            const ctx = chartCanvas.getContext('2d');
-            if (chartInstance) {
-                chartInstance.destroy(); // Destroy previous chart instance
-            }
-
-            chartInstance = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: years,
-                    datasets: [{
-                        label: subCategory,
-                        data: values,
-                        backgroundColor: 'rgba(7, 59, 76, 0.2)',
-                        borderColor: 'var(--primary-color)',
-                        borderWidth: 2,
-                        pointRadius: 3,
-                        pointBackgroundColor: 'var(--secondary-color)',
-                        fill: true,
-                        tension: 0.1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: { beginAtZero: true },
-                        x: { title: { display: true, text: 'Year' } }
-                    },
-                    plugins: {
-                        tooltip: { enabled: true },
-                        legend: { display: true, position: 'top' }
-                    }
-                }
-            });
-
-            // Hide loading spinner and show chart
-            document.getElementById('loadingSpinner').style.display = 'none';
-            chartCanvas.style.display = 'block';
-        }
-
-        // Function to fetch KPI data from OWID API
-        async function fetchKPIData(mainCategory, subCategory) {
-            try {
-                const baseUrl = "https://api.ourworldindata.org/v1";
-                let endpoint = '';
-
-                if (mainCategory === "ECONOMY") {
-                    if (subCategory === "Annual GDP growth (World Bank, 2022)") {
-                        endpoint = "/economy/gdp-growth";
-                    }
-                } else if (mainCategory === "HEALTH") {
-                    if (subCategory === "Life expectancy (UN WPP, 2023)") {
-                        endpoint = "/health/life-expectancy";
-                    }
-                }
-                // Add more categories similarly...
-
-                const apiUrl = baseUrl + endpoint;
-                const response = await fetch(apiUrl);
-
-                if (!response.ok) {
-                    throw new Error("Failed to fetch data from OWID API");
-                }
-
-                const data = await response.json();
-                const years = data.years; // Adjust based on actual structure
-                const values = data.values; // Adjust based on actual structure
-
-                return { years, values };
-
-            } catch (error) {
-                console.error("Error fetching data from OWID API:", error);
-                alert("Failed to fetch data. Please try again later.");
-                return null;
-            }
         }
     </script>
 </body>
