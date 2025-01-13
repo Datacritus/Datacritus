@@ -1,79 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta Tags and Title -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DATACRITUS - Government Performance Dashboard</title>
+    
+    <!-- Import Custom Font (Similar to the font used in your logo) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <!-- Custom Styles -->
     <style>
+        /* CSS Variables for Colors and Fonts */
+        :root {
+            --primary-color: #073B4C; /* Blue from your logo (Now primary) */
+            --secondary-color: #FFD166; /* Yellow from your logo (Now secondary) */
+            --font-family: 'Poppins', sans-serif; /* Font similar to logo font */
+            --background-color: #ffffff; /* Default background color */
+            --text-color: #333333; /* Default text color */
+            --button-hover-color: #FFB84D; /* Slightly darker yellow for hover effect */
+        }
+        
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-color: var(--background-color);
+            color: var(--text-color);
         }
-        .navbar {
-            background-color: #004080;
+
+        /* Fullscreen Logo Section */
+        .fullscreen-logo {
+            background: url('Logo.png') no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff; /* Ensuring the text is readable over the image */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Adding some text shadow for readability */
         }
-        .navbar-brand {
-            color: #ffffff;
-            font-weight: bold;
-        }
-        .hero-section {
-            text-align: center;
-            padding: 50px 20px;
-            background-color: #e0e0e0;
-        }
-        .hero-section h1 {
-            color: #004080;
+
+        .fullscreen-logo h1 {
             font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
         }
+
+        .fullscreen-logo a {
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            background-color: var(--secondary-color);
+            padding: 15px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .fullscreen-logo a:hover {
+            background-color: var(--button-hover-color);
+            color: var(--primary-color);
+        }
+
+        /* Hero Section Styling */
+        .hero-section {
+            padding: 60px 0;
+            background-color: var(--secondary-color);
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
         .hero-section p {
             font-size: 18px;
-            color: #333;
+            margin-bottom: 30px;
         }
+
+        .hero-section .btn {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .hero-section .btn:hover {
+            background-color: var(--button-hover-color);
+            border-color: var(--button-hover-color);
+        }
+
+        /* Dashboard Section */
         .dashboard-section {
-            padding: 30px;
+            padding: 60px 0;
+            background-color: #f9f9f9;
         }
-        .footer {
-            background-color: #004080;
-            color: #ffffff;
+
+        .dashboard-section h2 {
+            color: var(--primary-color);
+        }
+
+        /* Graph Placeholder */
+        .graph-placeholder {
+            position: relative;
+            height: 400px;
+            background-color: #d3d3d3;
             text-align: center;
-            padding: 10px 0;
+            line-height: 300px;
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .navbar .navbar-brand,
+        .navbar .nav-link {
+            color: #fff;
+        }
+
+        .navbar .nav-link:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .navbar {
+            background-color: #1f1f1f;
+        }
+
+        body.dark-mode .hero-section {
+            background-color: #1e1e1e;
+        }
+
+        body.dark-mode .footer {
+            background-color: #1f1f1f;
+            color: #e0e0e0;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .fullscreen-logo h1 {
+                font-size: 32px;
+            }
+
+            .fullscreen-logo a {
+                font-size: 18px;
+                padding: 10px 20px;
+            }
+
+            .hero-section h1 {
+                font-size: 28px;
+            }
+
+            .hero-section p {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Fullscreen Logo Section -->
+    <div class="fullscreen-logo">
+        <!-- The Logo is now a full-screen background, so no need for h1 and enter button -->
+    </div>
+
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="#">DATACRITUS</a>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <a class="navbar-brand" href="#">
+            <img src="Logo.png" alt="DATACRITUS Logo" width="30" height="30" class="d-inline-block align-top">
+            DATACRITUS
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#dashboard">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="#favorites">Favorites</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
     <!-- Hero Section -->
-    <div class="hero-section">
-        <h1>Welcome to DATACRITUS</h1>
-        <p>Track government performance with real-time KPIs and interactive dashboards.</p>
-        <a href="#dashboard" class="btn btn-primary">Get Started</a>
+    <div class="hero-section" id="hero">
+        <div class="container">
+            <h1>Welcome to DATACRITUS</h1>
+            <p>Track government performance with real-time KPIs and interactive dashboards.</p>
+            <a href="#dashboard" class="btn btn-primary">Get Started</a>
+        </div>
     </div>
 
     <!-- Dashboard Section -->
     <div class="dashboard-section" id="dashboard">
         <div class="container">
-            <h2>Interactive Dashboard</h2>
-            <p>Select a KPI to track and visualize data over time.</p>
-
-            <!-- Dummy Dropdown Menu -->
-            <div class="form-group">
-                <label for="kpiSelector">Choose a KPI:</label>
-                <select class="form-control" id="kpiSelector">
-                    <option>GDP Growth</option>
-                    <option>Unemployment Rate</option>
-                    <option>Health Expenditure</option>
-                    <option>Education Spending</option>
-                </select>
+            <h2 class="text-center mb-4">Interactive Dashboard</h2>
+            <p class="text-center mb-5">Select a KPI to track and visualize data over time.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Dropdown Menu for Main Categories -->
+                    <div class="form-group">
+                        <label for="mainCategory">Main Category:</label>
+                        <select class="form-control" id="mainCategory" onchange="updateSubcategories()">
+                            <option value="ECONOMY">ECONOMY</option>
+                            <option value="HEALTH">HEALTH</option>
+                            <option value="EDUCATION">EDUCATION</option>
+                            <option value="ENVIRONMENT">ENVIRONMENT</option>
+                            <option value="INFRASTRUCTURE">INFRASTRUCTURE</option>
+                            <option value="GOVERNANCE_AND_SOCIETY">GOVERNANCE AND SOCIETY</option>
+                            <option value="BUSINESS_AND_INNOVATION">BUSINESS AND INNOVATION</option>
+                            <option value="WELL_BEING_AND_QUALITY_OF_LIFE">WELL-BEING AND QUALITY OF LIFE</option>
+                            <option value="CULTURE_AND_LEISURE">CULTURE AND LEISURE</option>
+                            <option value="HOUSING_AND_LIVING_CONDITIONS">HOUSING AND LIVING CONDITIONS</option>
+                            <option value="PERSONAL_SECURITY_AND_RESILIENCE">PERSONAL SECURITY AND RESILIENCE</option>
+                            <option value="DIGITAL_SOCIETY_AND_INNOVATION_ADOPTION">DIGITAL SOCIETY AND INNOVATION ADOPTION</option>
+                            <option value="DEMOGRAPHICS_AND_POPULATION">DEMOGRAPHICS AND POPULATION</option>
+                            <option value="PUBLIC_FINANCE_AND_DEBT">PUBLIC FINANCE AND DEBT</option>
+                            <option value="INNOVATION_AND_TECHNOLOGICAL_READINESS">INNOVATION AND TECHNOLOGICAL READINESS</option>
+                            <option value="JUSTICE_AND_RULE_OF_LAW">JUSTICE AND RULE OF LAW</option>
+                            <option value="ENERGY_AND_RESOURCE_MANAGEMENT">ENERGY AND RESOURCE MANAGEMENT</option>
+                            <option value="TRANSPORTATION_AND_MOBILITY">TRANSPORTATION AND MOBILITY</option>
+                            <option value="RESILIENCE_AND_SUSTAINABILITY">RESILIENCE AND SUSTAINABILITY</option>
+                            <option value="INTERNATIONAL_REPUTATION_AND_INFLUENCE">INTERNATIONAL REPUTATION AND INFLUENCE</option>
+                            <option value="FREEDOM">FREEDOM</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- Dropdown Menu for Subcategories -->
+                    <div class="form-group">
+                        <label for="subCategory">Subcategory:</label>
+                        <select class="form-control" id="subCategory" onchange="generateChart()">
+                            <!-- Subcategories will be dynamically populated -->
+                        </select>
+                    </div>
+                </div>
             </div>
-
-            <!-- Dummy Graph Placeholder -->
-            <div class="graph-placeholder" style="height: 300px; background-color: #d3d3d3; text-align: center; line-height: 300px;">
-                <strong>Graph will be displayed here</strong>
+            <div class="row">
+                <div class="col-12">
+                    <!-- Buttons to fetch data and generate graphs -->
+                    <div class="d-flex justify-content-end mb-3">
+                        <button class="btn btn-secondary mr-2" onclick="generateRandomGraph()">Generate Random Data</button>
+                        <button class="btn btn-secondary ml-2" onclick="generateRealGraph()">Generate Real Data</button>
+                    </div>
+                    <!-- Graph Placeholder -->
+                    <div class="graph-placeholder" id="graphPlaceholder">
+                        <div id="loadingSpinner" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        <canvas id="kpiChart" width="400" height="300" style="display: none;"></canvas>
+                        <strong id="graphMessage">Select a subcategory to view the graph.</strong>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -84,7 +289,240 @@
     </div>
 
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXd45yfIMIXcSCzM/p8rePrKr+gVMZ8aP/qn0SSpxUHS2M+gGczk/fhjQoFqkCM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDuWns5Hq6g7MsmT1O/SyYixc6QZGqkgbIsvKNR3LYQ55qZwl" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-XJ1jeSLRHXBb47mrrPuHPRc3sO5Z8pYvL1IrT2kbqjEmaVBrBAfJ4CjjaLjy5kQn" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom Scripts -->
+    <script>
+        // Subcategories for each main category (same as before)
+        const subcategories = {
+            "ECONOMY": [
+                "Annual GDP growth (World Bank, 2022)",
+                "GDP per capita (World Bank, constant US$, 2022)",
+                "GDP (Nominal and PPP) (2022)",
+                "Unemployment rate (ILO, 2022)",
+                "Female labor force participation rates (ILO, 2022)",
+                "Inflation of consumer prices (2022)",
+                "Consumer price index (2022)",
+                "Trade as a share of GDP (2022)",
+                "Foreign direct investment, net inflows as share of GDP (2022)",
+                "Exports of goods and services (2022)"
+            ],
+            "HEALTH": [
+                "Life expectancy (UN WPP, 2023)",
+                "Healthy life expectancy (WHO GHO data, 2019)",
+                "Infant mortality rate (UN IGME, 2022)",
+                "Maternal mortality ratio (2020)",
+                "Hospital beds per 1,000 people (2018)",
+                "Coverage of essential health services (WHO, 2021)",
+                "Health expenditure per capita (2022)",
+                "Obesity in adults (Crude rate, 2016)",
+                "Vaccination coverage rate (Measles) for 1-year-olds (2021)",
+                "Number of people with HIV (2021)"
+            ],
+            // Add other categories...
+        };
+
+        let chartInstance = null;
+
+        // Function to update subcategories based on selected main category
+        function updateSubcategories() {
+            const mainCategory = document.getElementById("mainCategory").value;
+            const subCategoryDropdown = document.getElementById("subCategory");
+
+            // Clear existing options
+            subCategoryDropdown.innerHTML = "";
+
+            // Populate subcategories
+            if (subcategories[mainCategory]) {
+                subcategories[mainCategory].forEach(sub => {
+                    const option = document.createElement("option");
+                    option.value = sub;
+                    option.textContent = sub;
+                    subCategoryDropdown.appendChild(option);
+                });
+                // Generate chart for the first subcategory
+                generateRandomGraph();  // Start with random graph initially
+            } else {
+                const option = document.createElement("option");
+                option.value = "";
+                option.textContent = "No subcategories available";
+                subCategoryDropdown.appendChild(option);
+            }
+        }
+
+        // Automatically call this function when the page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            updateSubcategories(); // Ensure subcategories are populated on page load
+        });
+
+        // Generate random graph for testing
+        function generateRandomGraph() {
+            const mainCategory = document.getElementById("mainCategory").value;
+            const subCategory = document.getElementById("subCategory").value;
+            const chartCanvas = document.getElementById('kpiChart');
+            const graphMessage = document.getElementById("graphMessage");
+
+            if (!subCategory) {
+                graphMessage.textContent = "Select a valid subcategory to view the graph.";
+                graphMessage.style.display = 'block';
+                chartCanvas.style.display = 'none';
+                return;
+            }
+
+            // Show loading spinner
+            document.getElementById('loadingSpinner').style.display = 'block';
+            chartCanvas.style.display = 'none';
+
+            // Simulate fetching random data for demonstration
+            const years = Array.from({ length: 51 }, (_, i) => 1974 + i);
+            const values = years.map(() => Math.floor(Math.random() * 100));
+
+            // Create the chart
+            const ctx = chartCanvas.getContext('2d');
+            if (chartInstance) {
+                chartInstance.destroy(); // Destroy previous chart instance
+            }
+
+            chartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: years,
+                    datasets: [{
+                        label: subCategory,
+                        data: values,
+                        backgroundColor: 'rgba(7, 59, 76, 0.2)',
+                        borderColor: 'var(--primary-color)',
+                        borderWidth: 2,
+                        pointRadius: 3,
+                        pointBackgroundColor: 'var(--secondary-color)',
+                        fill: true,
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { beginAtZero: true },
+                        x: { title: { display: true, text: 'Year' } }
+                    },
+                    plugins: {
+                        tooltip: { enabled: true },
+                        legend: { display: true, position: 'top' }
+                    }
+                }
+            });
+
+            // Hide loading spinner and show chart
+            document.getElementById('loadingSpinner').style.display = 'none';
+            chartCanvas.style.display = 'block';
+        }
+
+        // Generate graph with real data fetched from OWID API
+        async function generateRealGraph() {
+            const mainCategory = document.getElementById("mainCategory").value;
+            const subCategory = document.getElementById("subCategory").value;
+            const chartCanvas = document.getElementById('kpiChart');
+            const graphMessage = document.getElementById("graphMessage");
+
+            if (!subCategory) {
+                graphMessage.textContent = "Select a valid subcategory to view the graph.";
+                graphMessage.style.display = 'block';
+                chartCanvas.style.display = 'none';
+                return;
+            }
+
+            // Show loading spinner
+            document.getElementById('loadingSpinner').style.display = 'block';
+            chartCanvas.style.display = 'none';
+
+            // Fetch real data from OWID API
+            const kpiData = await fetchKPIData(mainCategory, subCategory);
+
+            if (!kpiData) return;
+
+            const { years, values } = kpiData;
+
+            // Create the chart
+            const ctx = chartCanvas.getContext('2d');
+            if (chartInstance) {
+                chartInstance.destroy(); // Destroy previous chart instance
+            }
+
+            chartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: years,
+                    datasets: [{
+                        label: subCategory,
+                        data: values,
+                        backgroundColor: 'rgba(7, 59, 76, 0.2)',
+                        borderColor: 'var(--primary-color)',
+                        borderWidth: 2,
+                        pointRadius: 3,
+                        pointBackgroundColor: 'var(--secondary-color)',
+                        fill: true,
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { beginAtZero: true },
+                        x: { title: { display: true, text: 'Year' } }
+                    },
+                    plugins: {
+                        tooltip: { enabled: true },
+                        legend: { display: true, position: 'top' }
+                    }
+                }
+            });
+
+            // Hide loading spinner and show chart
+            document.getElementById('loadingSpinner').style.display = 'none';
+            chartCanvas.style.display = 'block';
+        }
+
+        // Function to fetch KPI data from OWID API
+        async function fetchKPIData(mainCategory, subCategory) {
+            try {
+                const baseUrl = "https://api.ourworldindata.org/v1";
+                let endpoint = '';
+
+                if (mainCategory === "ECONOMY") {
+                    if (subCategory === "Annual GDP growth (World Bank, 2022)") {
+                        endpoint = "/economy/gdp-growth";
+                    }
+                } else if (mainCategory === "HEALTH") {
+                    if (subCategory === "Life expectancy (UN WPP, 2023)") {
+                        endpoint = "/health/life-expectancy";
+                    }
+                }
+                // Add more categories similarly...
+
+                const apiUrl = baseUrl + endpoint;
+                const response = await fetch(apiUrl);
+
+                if (!response.ok) {
+                    throw new Error("Failed to fetch data from OWID API");
+                }
+
+                const data = await response.json();
+                const years = data.years; // Adjust based on actual structure
+                const values = data.values; // Adjust based on actual structure
+
+                return { years, values };
+
+            } catch (error) {
+                console.error("Error fetching data from OWID API:", error);
+                alert("Failed to fetch data. Please try again later.");
+                return null;
+            }
+        }
+    </script>
 </body>
 </html>
