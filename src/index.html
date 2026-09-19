@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="theme-color" content="#073b4c">
+ <title>DATACRITUS — Greece in data</title>
+ <meta name="description" content="Explore Greece’s economy, health, education and society through sourced historical indicators. Compare European countries and view Greek governments and elections since 1974.">
+ <link rel="canonical" href="https://www.datacritus.gr/">
+ <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23073b4c'/%3E%3Cpath d='M8 8h6c14 0 14 16 0 16H8z' fill='none' stroke='%23ffd166' stroke-width='4'/%3E%3C/svg%3E">
+ <style>/*__STYLE__*/</style>
+</head>
+<body>
+ <a class="skip" href="#main">Skip to dashboard</a>
+ <header class="masthead">
+  <a class="brand" href="#" aria-label="DATACRITUS home"><span class="brand-d">D</span><span>DATACRITUS<small>DATA · DECISION · DEMOCRACY</small></span></a>
+  <nav aria-label="Main navigation" id="navigation">
+   <button data-page="explore" class="active" data-i18n="explore">Explore</button>
+   <button data-page="governments" data-i18n="governments">Governments</button>
+   <button data-page="sources" data-i18n="sources">Sources</button>
+   <button data-page="about" data-i18n="about">About</button>
+  </nav>
+  <div class="header-actions"><button id="favoriteNav" class="quiet" aria-label="Show saved indicators" title="Saved indicators">☆ <span data-i18n="saved">Saved</span><b id="savedCount">0</b></button><button id="language" class="language" aria-label="Switch language to Greek">ΕΛ</button></div>
+ </header>
+ <div class="workspace">
+  <aside id="sidebar" class="sidebar" aria-label="Indicator categories">
+   <div class="sidebar-heading"><span data-i18n="browse">BROWSE INDICATORS</span><span id="metricCount"></span></div>
+   <label for="search" class="sr-only" data-i18n="searchLabel">Search indicators</label>
+   <div class="search-wrap"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search indicators…" autocomplete="off"></div>
+   <div id="categoryList" class="category-list"></div>
+   <div class="sidebar-foot"><strong data-i18n="officialData">Official data. Open context.</strong><p data-i18n="annualData">Annual observations, with their original sources and publication lags.</p><span id="snapshotDate"></span></div>
+  </aside>
+  <main id="main" tabindex="-1">
+   <section id="page-explore" class="page">
+    <div class="page-heading"><div><p class="eyebrow" data-i18n="greeceSince">GREECE · SINCE 1974</p><h1 data-i18n="headline">Greece, in perspective.</h1><p class="lede" data-i18n="subhead">Follow the indicators. Compare the context.</p></div><button id="copyLink" class="outline" data-i18n="share">Copy view link</button></div>
+    <div class="mobile-category"><label for="mobileSearch" class="sr-only" data-i18n="searchLabel">Search indicators</label><input id="mobileSearch" type="search" placeholder="Search indicators…" autocomplete="off"><label for="mobileCategory" data-i18n="category">Category</label><select id="mobileCategory"></select></div>
+    <div id="searchResults" class="search-results" hidden></div>
+    <div id="savedPanel" class="saved-panel" hidden></div>
+    <div id="explorerContent">
+     <div class="indicator-select-row"><div class="field wide"><label for="indicator" data-i18n="indicator">Indicator</label><select id="indicator"></select></div><button id="saveIndicator" class="outline save-indicator" aria-pressed="false" data-i18n="save">☆ Save indicator</button></div>
+     <p id="categoryNote" class="category-note" hidden></p>
+     <div id="stats" class="stats"></div>
+     <article class="chart-card">
+      <div class="chart-heading"><div><h2 id="chartTitle"></h2><p id="chartSubtitle"></p></div><div class="chart-actions"><button id="downloadCsv" class="outline compact" data-i18n="csv">↓ CSV</button><button id="downloadChart" class="outline compact" data-i18n="chartDownload">↓ Chart</button></div></div>
+      <div class="chart-toolbar"><fieldset id="countryControls"><legend data-i18n="compare">Compare with</legend><div id="countryChoices"></div></fieldset><div class="range-controls"><div class="field"><label for="startYear" data-i18n="from">From</label><select id="startYear"></select></div><div class="field"><label for="endYear" data-i18n="to">To</label><select id="endYear"></select></div><button id="fullRange" class="quiet" data-i18n="allYears">All years</button></div></div>
+      <div class="chart-options"><label><input id="showGovernments" type="checkbox" checked><span data-i18n="governmentBands">Government periods</span></label><label><input id="showElections" type="checkbox"><span data-i18n="electionMarkers">Election dates</span></label><div class="view-toggle" role="group" aria-label="Chart or table"><button id="chartView" aria-pressed="true" data-i18n="chart">Chart</button><button id="tableView" aria-pressed="false" data-i18n="table">Table</button></div></div>
+      <div id="chartWrap" class="chart-wrap"><svg id="chart" viewBox="0 0 1000 390" role="img" aria-labelledby="svgTitle svgDescription" tabindex="0"></svg><div id="chartTooltip" class="chart-tooltip" hidden></div></div>
+      <div id="dataTableWrap" class="table-wrap" hidden></div>
+      <div id="chartLegend" class="chart-legend"></div><p id="dataWarning" class="data-warning" hidden></p>
+      <div class="chart-footer"><span id="chartSource"></span><span data-i18n="gaps">Gaps mean unavailable data.</span></div>
+     </article>
+     <div class="context-grid"><section class="context-card"><div class="section-title"><span class="section-number">01</span><h2 data-i18n="politicalContext">Political context</h2></div><label for="governmentSelect" data-i18n="chooseGovernment">Explore a government period</label><select id="governmentSelect"></select><div id="governmentDetail"></div><p class="note" data-i18n="causality">Changes during a government’s term do not establish that its policies caused them.</p></section>
+      <section class="context-card"><div class="section-title"><span class="section-number">02</span><h2 data-i18n="behindNumber">Behind the number</h2></div><div id="metricDetails"></div></section></div>
+    </div>
+   </section>
+   <section id="page-governments" class="page" hidden><div class="page-heading"><div><p class="eyebrow" data-i18n="politicalHistory">POLITICAL HISTORY</p><h1 data-i18n="governmentTitle">Governments & elections.</h1><p class="lede" data-i18n="govIntro">Cabinet dates, coalition context, and annual observations.</p></div></div><div id="governmentSummary" class="notice"></div><div id="governmentTable" class="table-wrap government-table"></div><details class="context-card"><summary data-i18n="allElections">All parliamentary elections since 1974</summary><div id="electionsList"></div></details></section>
+   <section id="page-sources" class="page" hidden><div class="page-heading"><div><p class="eyebrow" data-i18n="traceability">TRACEABILITY</p><h1 data-i18n="sourcesTitle">Every number has a source.</h1><p class="lede" data-i18n="sourcesIntro">Definitions, data coverage and retrieval dates for the complete catalogue.</p></div><button id="downloadAll" class="outline" data-i18n="downloadData">Download dataset</button></div><div id="sourceOverview" class="source-overview"></div><div id="sourceList" class="source-list"></div></section>
+   <section id="page-about" class="page" hidden><div class="page-heading"><div><p class="eyebrow">DATACRITUS</p><h1 data-i18n="aboutTitle">Data. Decision. Democracy.</h1></div></div><div id="aboutContent" class="about-content"></div></section>
+   <footer class="site-footer"><span>© <span id="copyrightYear"></span> DATACRITUS</span><span data-i18n="footerNote">An independent view of public data.</span><button class="quiet" data-page="about" data-i18n="methodology">Methodology & privacy</button></footer>
+  </main>
+ </div>
+ <div id="toast" role="status" aria-live="polite" hidden></div>
+ <noscript><p>This dashboard requires JavaScript. The full observations and source details are available in <a href="data/indicators.json">the JSON dataset</a>.</p></noscript>
+ <script id="dataset" type="application/json">/*__DATA__*/</script>
+ <script id="historyData" type="application/json">/*__HISTORY__*/</script>
+ <script>/*__CORE__*/</script>
+ <script>/*__APP__*/</script>
+</body>
+</html>
