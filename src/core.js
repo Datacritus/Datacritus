@@ -12,6 +12,14 @@
  function segments(rows,start,end){const map=new Map(rows),out=[];let segment=[];for(let y=start;y<=end;y++){const v=map.get(y);if(typeof v==='number'&&Number.isFinite(v))segment.push([y,v]);else if(segment.length){out.push(segment);segment=[];}}if(segment.length)out.push(segment);return out;}
  function csvCell(x){let s=x==null?'':String(x);if(/^[=+@]/.test(s))s="'"+s;return '"'+s.replaceAll('"','""')+'"';}
  function csv(rows){return '\uFEFF'+rows.map(r=>r.map(csvCell).join(',')).join('\r\n');}
- const api={valid,within,latest,change,sameYearGap,yearFraction,fullYears,termStats,segments,csv};
+ function axisTicks(values){
+  const finite=values.filter(Number.isFinite);let min=finite.length?Math.min(...finite):0,max=finite.length?Math.max(...finite):1;
+  if(min===max){const pad=Math.abs(min)*.1||1;min-=pad;max+=pad;}
+  const raw=(max-min)/4,power=10**Math.floor(Math.log10(raw)),scaled=raw/power;
+  const step=(scaled<=1?1:scaled<=2?2:scaled<=2.5?2.5:scaled<=5?5:10)*power;
+  const low=Math.floor(min/step)*step,high=Math.ceil(max/step)*step;
+  return Array.from({length:Math.round((high-low)/step)+1},(_,i)=>Number((low+i*step).toPrecision(12)));
+ }
+ const api={valid,within,latest,change,sameYearGap,yearFraction,fullYears,termStats,segments,csv,axisTicks};
  if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.DatacritusCore=api;
 })(typeof window!=='undefined'?window:globalThis);

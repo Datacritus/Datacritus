@@ -2,7 +2,7 @@
 
 [www.datacritus.gr](https://www.datacritus.gr) makes Greece’s public statistics explorable in Greek and English. It combines 59 indicators across 21 topics with European comparisons, 26 cabinet periods and 20 parliamentary elections since 1974.
 
-The dashboard includes charts and accessible tables, date filters, government bands, election dates, search, local saved indicators, shareable URLs, CSV and SVG exports, and a source catalogue. Everything required to display it is embedded in `index.html`; no runtime framework, paid API, API keys, tracking or accounts are required.
+The dashboard includes charts and accessible tables, date filters and quick ranges, an expanded chart view, government bands, election dates, search, local saved indicators, shareable URLs, CSV and SVG exports, and a source catalogue. Datacritus Studio turns the selected indicator, countries and dates into a branded landscape or portrait infographic, with an editable headline and PNG/SVG downloads. Sources, units, actual observation years and quality flags remain attached. Everything required to display it is embedded in `index.html`; no runtime framework, paid API, API keys, tracking or accounts are required.
 
 ## Develop and build
 
@@ -12,11 +12,21 @@ Python 3.12+ and Node 22+ are used for the data pipeline and checks. There are n
 python scripts/refresh_data.py
 python tests/check_data.py
 node tests/core.test.cjs
+node tests/infographic.test.cjs
 python scripts/build.py
 python -m http.server 8765
 ```
 
 For a UI-only change, skip the refresh and rebuild against the committed snapshot. Edit `src/`, never the generated root `index.html`. Commit the regenerated index with source changes. `CNAME` preserves the existing custom domain; GitHub Pages publishes the main branch root.
+
+## Next development phases
+
+1. Readability and sharing: larger typography, clearer controls and single-indicator infographic exports.
+2. Data coverage: map the uploaded KPI shortlist to the existing catalogue, verify additional sources and add missing topics in small batches.
+3. Political-period analysis: summarise observed changes alongside common-year European comparisons and major external shocks. No invented causal government score.
+4. Scenario exploration: add explicit assumptions and uncertainty only after a defensible model and adequate data coverage exist.
+
+The infographic builder currently covers one indicator with multiple countries. It does not combine unrelated units, recreate government bands or infer policy effects. Multi-indicator story layouts belong to a later phase.
 
 ## Data and interpretation
 

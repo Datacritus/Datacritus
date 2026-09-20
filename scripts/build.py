@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 """Build a standalone GitHub Pages index. No npm or remote browser dependencies."""
-import json,shutil
+import base64,json,shutil
 from pathlib import Path
 from build_history import build as build_history
 ROOT=Path(__file__).resolve().parents[1]
 def build():
     build_history()
     template=(ROOT/'src/index.html').read_text()
-    for marker,path in [('STYLE','src/style.css'),('DATA','data/indicators.json'),('HISTORY','data/history.json'),('CORE','src/core.js'),('APP','src/app.js')]:
+    template=template.replace('/*__LOGO__*/','data:image/png;base64,'+base64.b64encode((ROOT/'logo.png').read_bytes()).decode())
+    for marker,path in [('STYLE','src/style.css'),('DATA','data/indicators.json'),('HISTORY','data/history.json'),('CORE','src/core.js'),('INFOGRAPHIC','src/infographic.js'),('APP','src/app.js')]:
         value=(ROOT/path).read_text()
         if marker in ('DATA','HISTORY'):value=value.replace('<','\\u003c').replace('>','\\u003e').replace('&','\\u0026')
-        if marker in ('CORE','APP') and '</script' in value.lower():raise ValueError('Unsafe inline script closing tag')
+        if marker in ('CORE','INFOGRAPHIC','APP') and '</script' in value.lower():raise ValueError('Unsafe inline script closing tag')
         template=template.replace('/*__'+marker+'__*/',value)
     if '/*__' in template:raise ValueError('Unresolved build marker')
     (ROOT/'index.html').write_text(template,encoding='utf-8')

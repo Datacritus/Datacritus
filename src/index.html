@@ -13,7 +13,7 @@
 <body>
  <a class="skip" href="#main">Skip to dashboard</a>
  <header class="masthead">
-  <a class="brand" href="#" aria-label="DATACRITUS home"><span class="brand-d">D</span><span>DATACRITUS<small>DATA · DECISION · DEMOCRACY</small></span></a>
+  <a class="brand" href="#" aria-label="DATACRITUS home"><img id="brandLogo" class="brand-logo" src="/*__LOGO__*/" alt="DATACRITUS — Data Decision Democracy" width="216" height="64"></a>
   <nav aria-label="Main navigation" id="navigation">
    <button data-page="explore" class="active" data-i18n="explore">Explore</button>
    <button data-page="governments" data-i18n="governments">Governments</button>
@@ -33,6 +33,7 @@
   <main id="main" tabindex="-1">
    <section id="page-explore" class="page">
     <div class="page-heading"><div><p class="eyebrow" data-i18n="greeceSince">GREECE · SINCE 1974</p><h1 data-i18n="headline">Greece, in perspective.</h1><p class="lede" data-i18n="subhead">Follow the indicators. Compare the context.</p></div><button id="copyLink" class="outline" data-i18n="share">Copy view link</button></div>
+    <div class="explore-shortcuts"><span data-i18n="startWith">Start with</span><button data-metric="NY.GDP.MKTP.KD.ZG" data-i18n="shortcutGrowth">Growth</button><button data-metric="SL.UEM.TOTL.ZS" data-i18n="shortcutJobs">Employment</button><button data-metric="FP.CPI.TOTL.ZG" data-i18n="shortcutPrices">Prices</button><button data-metric="ESTAT.HOUSING.OVERBURDEN" data-i18n="shortcutHousing">Housing</button></div>
     <div class="mobile-category"><label for="mobileSearch" class="sr-only" data-i18n="searchLabel">Search indicators</label><input id="mobileSearch" type="search" placeholder="Search indicators…" autocomplete="off"><label for="mobileCategory" data-i18n="category">Category</label><select id="mobileCategory"></select></div>
     <div id="searchResults" class="search-results" hidden></div>
     <div id="savedPanel" class="saved-panel" hidden></div>
@@ -41,8 +42,9 @@
      <p id="categoryNote" class="category-note" hidden></p>
      <div id="stats" class="stats"></div>
      <article class="chart-card">
-      <div class="chart-heading"><div><h2 id="chartTitle"></h2><p id="chartSubtitle"></p></div><div class="chart-actions"><button id="downloadCsv" class="outline compact" data-i18n="csv">↓ CSV</button><button id="downloadChart" class="outline compact" data-i18n="chartDownload">↓ Chart</button></div></div>
+      <div class="chart-heading"><div><p class="chart-eyebrow" data-i18n="annualTrend">THE ANNUAL TREND</p><h2 id="chartTitle"></h2><p id="chartSubtitle"></p></div><div class="chart-actions"><button id="openInfographic" class="primary" data-i18n="createGraphic">Create infographic</button><button id="focusChart" class="outline compact" aria-pressed="false" data-i18n="expandChart">Expand</button><details class="download-menu"><summary data-i18n="download">Download</summary><div><button id="downloadCsv" data-i18n="csv">↓ CSV</button><button id="downloadChart" data-i18n="chartDownload">↓ Chart</button></div></details></div></div>
       <div class="chart-toolbar"><fieldset id="countryControls"><legend data-i18n="compare">Compare with</legend><div id="countryChoices"></div></fieldset><div class="range-controls"><div class="field"><label for="startYear" data-i18n="from">From</label><select id="startYear"></select></div><div class="field"><label for="endYear" data-i18n="to">To</label><select id="endYear"></select></div><button id="fullRange" class="quiet" data-i18n="allYears">All years</button></div></div>
+      <div class="quick-range" role="group" aria-label="Quick date ranges"><span data-i18n="quickRange">Quick range</span><button data-years="5">5Y</button><button data-years="10">10Y</button><button data-years="25">25Y</button></div>
       <div class="chart-options"><label><input id="showGovernments" type="checkbox" checked><span data-i18n="governmentBands">Government periods</span></label><label><input id="showElections" type="checkbox"><span data-i18n="electionMarkers">Election dates</span></label><div class="view-toggle" role="group" aria-label="Chart or table"><button id="chartView" aria-pressed="true" data-i18n="chart">Chart</button><button id="tableView" aria-pressed="false" data-i18n="table">Table</button></div></div>
       <div id="chartWrap" class="chart-wrap"><svg id="chart" viewBox="0 0 1000 390" role="img" aria-labelledby="svgTitle svgDescription" tabindex="0"></svg><div id="chartTooltip" class="chart-tooltip" hidden></div></div>
       <div id="dataTableWrap" class="table-wrap" hidden></div>
@@ -59,11 +61,20 @@
    <footer class="site-footer"><span>© <span id="copyrightYear"></span> DATACRITUS</span><span data-i18n="footerNote">An independent view of public data.</span><button class="quiet" data-page="about" data-i18n="methodology">Methodology & privacy</button></footer>
   </main>
  </div>
+ <dialog id="infographicDialog" aria-labelledby="infographicHeading">
+  <div class="infographic-top"><div><p class="eyebrow">DATACRITUS STUDIO</p><h2 id="infographicHeading" data-i18n="createGraphic">Create infographic</h2></div><form method="dialog"><button class="outline" data-i18n="close">Close</button></form></div>
+  <p class="studio-intro" data-i18n="graphicIntro">Turn your selected indicator, countries and dates into a graphic you can share.</p>
+  <div class="studio-controls"><div class="field"><label for="graphicTitle" data-i18n="graphicTitle">Headline</label><input id="graphicTitle" type="text" maxlength="80"></div><div class="field"><label for="graphicFormat" data-i18n="graphicFormat">Layout</label><select id="graphicFormat"><option value="landscape" data-i18n="landscape">Landscape · 1600 × 1000</option><option value="portrait" data-i18n="portrait">Portrait · 1080 × 1350</option></select></div></div>
+  <div id="graphicPreview" class="graphic-preview"></div>
+  <div class="studio-footer"><p data-i18n="graphicSources">Your sources, units and observation dates stay with the graphic.</p><div><button id="graphicSvg" class="outline" data-i18n="saveSvg">Download SVG</button><button id="graphicPng" class="primary" data-i18n="savePng">Download PNG</button></div></div>
+  <p id="graphicStatus" role="status" aria-live="polite"></p>
+ </dialog>
  <div id="toast" role="status" aria-live="polite" hidden></div>
  <noscript><p>This dashboard requires JavaScript. The full observations and source details are available in <a href="data/indicators.json">the JSON dataset</a>.</p></noscript>
  <script id="dataset" type="application/json">/*__DATA__*/</script>
  <script id="historyData" type="application/json">/*__HISTORY__*/</script>
  <script>/*__CORE__*/</script>
+ <script>/*__INFOGRAPHIC__*/</script>
  <script>/*__APP__*/</script>
 </body>
 </html>
