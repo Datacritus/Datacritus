@@ -2,6 +2,8 @@
 
 [www.datacritus.gr](https://www.datacritus.gr) makes Greece’s public statistics explorable in Greek and English. It combines 59 indicators across 21 topics with European comparisons, 26 cabinet periods and 20 parliamentary elections since 1974.
 
+A larger Datacritus logo remains visible while scrolling and returns to Explore from every page, expanded chart and Studio. The interface uses 20px base text, stronger button borders, a gold primary action and clear keyboard focus.
+
 The dashboard includes charts and accessible tables, date filters and quick ranges, an expanded chart view, government bands, election dates, search, local saved indicators, shareable URLs, CSV and SVG exports, and a source catalogue. Datacritus Studio turns the selected indicator, countries and dates into a branded landscape or portrait infographic, with an editable headline and PNG/SVG downloads. Sources, units, actual observation years and quality flags remain attached. Everything required to display it is embedded in `index.html`; no runtime framework, paid API, API keys, tracking or accounts are required.
 
 ## Develop and build

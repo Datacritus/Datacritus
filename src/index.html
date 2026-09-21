@@ -13,7 +13,7 @@
 <body>
  <a class="skip" href="#main">Skip to dashboard</a>
  <header class="masthead">
-  <a class="brand" href="#" aria-label="DATACRITUS home"><img id="brandLogo" class="brand-logo" src="/*__LOGO__*/" alt="DATACRITUS — Data Decision Democracy" width="216" height="64"></a>
+  <a class="brand" href="./" data-home aria-label="DATACRITUS home"><img id="brandLogo" class="brand-logo" src="/*__LOGO__*/" alt="DATACRITUS — Data Decision Democracy" width="320" height="95"></a>
   <nav aria-label="Main navigation" id="navigation">
    <button data-page="explore" class="active" data-i18n="explore">Explore</button>
    <button data-page="governments" data-i18n="governments">Governments</button>
@@ -62,7 +62,8 @@
   </main>
  </div>
  <dialog id="infographicDialog" aria-labelledby="infographicHeading">
-  <div class="infographic-top"><div><p class="eyebrow">DATACRITUS STUDIO</p><h2 id="infographicHeading" data-i18n="createGraphic">Create infographic</h2></div><form method="dialog"><button class="outline" data-i18n="close">Close</button></form></div>
+  <div class="studio-brand-row"><a class="brand" href="./" data-home aria-label="DATACRITUS home"><img class="brand-logo" src="/*__LOGO__*/" alt="DATACRITUS — Data Decision Democracy" width="320" height="95"></a><form method="dialog"><button class="outline" data-i18n="close">Close</button></form></div>
+  <div class="infographic-top"><div><p class="eyebrow">DATACRITUS STUDIO</p><h2 id="infographicHeading" data-i18n="createGraphic">Create infographic</h2></div></div>
   <p class="studio-intro" data-i18n="graphicIntro">Turn your selected indicator, countries and dates into a graphic you can share.</p>
   <div class="studio-controls"><div class="field"><label for="graphicTitle" data-i18n="graphicTitle">Headline</label><input id="graphicTitle" type="text" maxlength="80"></div><div class="field"><label for="graphicFormat" data-i18n="graphicFormat">Layout</label><select id="graphicFormat"><option value="landscape" data-i18n="landscape">Landscape · 1600 × 1000</option><option value="portrait" data-i18n="portrait">Portrait · 1080 × 1350</option></select></div></div>
   <div id="graphicPreview" class="graphic-preview"></div>
