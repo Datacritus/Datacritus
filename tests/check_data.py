@@ -3,7 +3,7 @@ import datetime as dt, hashlib, json, math, sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
-from eurostat import parse_payload
+from eurostat import parse_payload, transform_series
 from catalog import METRICS
 from eurostat import CATALOG
 D=json.loads((ROOT/'data/indicators.json').read_text());H=json.loads((ROOT/'data/history.json').read_text())
@@ -12,6 +12,13 @@ assert {m['code'] for m in D['metrics']}==expected
 assert len(D['metrics'])==len(expected)
 assert len(D['categories'])==21
 countries=set(D['countries']);cats={c['id'] for c in D['categories']}
+# Unit conversions must preserve missing observations and real zero values.
+assert transform_series({'GRC':[[2020,500],[2021,None],[2022,0]]},{'scale':0.01})=={'GRC':[[2020,5],[2021,None],[2022,0]]}
+by_code={m['code']:m for m in D['metrics']}
+assert by_code['ESTAT.POLICE.DENSITY']['unit']=='officers per 1,000 people'
+assert by_code['ESTAT.POLICE.DENSITY']['change']=='absolute'
+assert by_code['ESTAT.MOTHERS.AGE']['change']=='absolute'
+assert by_code['ESTAT.GOV.EXPENDITURE']['change']=='pp'
 assert countries=={'GRC','EUU','DEU','FRA','ESP','PRT'}
 assert {c for m in D['metrics'] for c in m['categories']}==cats
 count=0
@@ -41,7 +48,7 @@ for m in D['metrics']:
  if m['sha256'] not in raw:continue
  payload=json.loads(raw[m['sha256']].read_text())
  if m['source']=='Eurostat':
-  series,flags=parse_payload(payload);assert series==m['series'];assert flags==m['flags']
+  series,flags=parse_payload(payload);assert transform_series(series,m)==m['series'];assert flags==m['flags']
  else:
   upstream={c:{} for c in countries}
   for p in payload[1]:

@@ -30,4 +30,4 @@ for(const metric of D.metrics)for(const lang of ['en','el'])for(const format of 
  assert.ok(!/NaN|Infinity|undefined/.test(result.svg),metric.code);
  assert.ok(result.svg.includes(metric.code)&&result.svg.includes(metric.sourceUrl.replaceAll('&','&amp;')));
 }
-console.log('Infographic checks passed: gaps, zero values, common-year comparisons, escaped titles, flags, axes and 236 catalogue exports');
+console.log(`Infographic checks passed: gaps, zero values, common-year comparisons, escaped titles, flags, axes and ${D.metrics.length*4} catalogue exports`);

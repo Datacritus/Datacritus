@@ -86,7 +86,55 @@ ROWS = [
  ('PV.EST','Political stability & absence of violence','Πολιτική σταθερότητα & απουσία βίας','WGI estimate','security,resilience','absolute'),
  ('RQ.EST','Regulatory quality','Ποιότητα κανονιστικού πλαισίου','WGI estimate','business,governance','absolute'),
 ]
-METRICS = [dict(code='GOV_WGI_'+c if c.endswith('.EST') else c,title={'en':en,'el':el},unit=u,categories=cat.split(','),change=change,source='3' if c.endswith('.EST') else '2') for c,en,el,u,cat,change in ROWS]
+# First audited expansion, 27 September 2026. Counts and rates stay separate.
+ROWS += [
+ ('FP.CPI.TOTL','Consumer price index','Δείκτης τιμών καταναλωτή','2010 = 100','economy,wellbeing','absolute'),
+ ('NE.EXP.GNFS.CD','Exports, current value','Αξία εξαγωγών, τρέχουσες τιμές','current US$','economy,international','absolute'),
+ ('SE.PRM.ENRR','Primary enrolment, gross','Εγγραφές στην πρωτοβάθμια, ακαθάριστο ποσοστό','%','education','pp'),
+ ('SE.PRM.CMPT.ZS','Primary school completion','Ολοκλήρωση πρωτοβάθμιας εκπαίδευσης','% of relevant age group','education','pp'),
+ ('SE.SEC.CMPT.LO.ZS','Lower-secondary completion','Ολοκλήρωση κατώτερης δευτεροβάθμιας','% of relevant age group','education','pp'),
+ ('SE.PRM.TCHR.FE.ZS','Women among primary teachers','Γυναίκες εκπαιδευτικοί πρωτοβάθμιας','% of primary teachers','education,freedom','pp'),
+ ('AG.LND.FRST.K2','Forest area, total','Συνολική δασική έκταση','km²','environment,resilience','absolute'),
+ ('AG.LND.AGRI.ZS','Agricultural land share','Μερίδιο γεωργικής γης','% of land area','environment','pp'),
+ ('ER.H2O.FWTL.K3','Freshwater withdrawals','Αντλήσεις γλυκού νερού','billion m³/year','environment,resilience','absolute'),
+ ('IS.RRS.PASG.KM','Rail passenger distance','Επιβατικό έργο σιδηροδρόμων','million passenger-km','infrastructure,transport','absolute'),
+ ('IS.AIR.GOOD.MT.K1','Air freight distance','Εμπορευματικό έργο αερομεταφορών','million tonne-km','infrastructure,transport','absolute'),
+ ('SH.H2O.BASW.ZS','At least basic drinking water','Τουλάχιστον βασικές υπηρεσίες πόσιμου νερού','% of population','housing,infrastructure','pp'),
+ ('BM.KLT.DINV.WD.GD.ZS','Foreign direct investment outflows','Εκροές άμεσων ξένων επενδύσεων','% of GDP','economy,business,international','pp'),
+ ('IP.JRN.ARTC.SC','Scientific & technical articles','Επιστημονικά και τεχνικά άρθρα','articles','business,technology,education','absolute'),
+ ('SL.GDP.PCAP.EM.KD','GDP per employed person','ΑΕΠ ανά εργαζόμενο','constant 2021 international $','business,economy','absolute'),
+ ('EN.POP.DNST','Population density','Πυκνότητα πληθυσμού','people/km² of land','demographics,housing','absolute'),
+ ('SP.DYN.CBRT.IN','Crude birth rate','Ακαθάριστος δείκτης γεννήσεων','births per 1,000 people','demographics','absolute'),
+ ('SP.DYN.CDRT.IN','Crude death rate','Ακαθάριστος δείκτης θανάτων','deaths per 1,000 people','demographics,health','absolute'),
+ ('SP.POP.DPND.OL','Old-age dependency ratio','Δείκτης εξάρτησης ηλικιωμένων','% of working-age population','demographics','pp'),
+ ('SP.POP.DPND.YG','Youth dependency ratio','Δείκτης εξάρτησης νέων','% of working-age population','demographics','pp'),
+ ('SP.POP.TOTL.FE.ZS','Female population share','Ποσοστό γυναικών στον πληθυσμό','% of population','demographics','pp'),
+]
+RESEARCH_IDS = dict(zip([r[0] for r in ROWS[-21:]], [7,10,22,26,27,30,36,38,39,44,46,59,63,66,68,122,123,124,126,127,129]))
+DEFINITIONS_EL = {
+ 'FP.CPI.TOTL':'Δείκτης τιμών καταναλωτή με έτος βάσης 2010 = 100. Μετρά το επίπεδο τιμών, όχι τον ετήσιο ρυθμό πληθωρισμού.',
+ 'NE.EXP.GNFS.CD':'Εξαγωγές αγαθών και υπηρεσιών σε τρέχοντα δολάρια ΗΠΑ. Οι μεταβολές περιλαμβάνουν επιδράσεις τιμών και συναλλαγματικών ισοτιμιών· δεν μετρούν μόνο όγκο εξαγωγών.',
+ 'SE.PRM.ENRR':'Σύνολο εγγεγραμμένων στην πρωτοβάθμια, ανεξαρτήτως ηλικίας, ως ποσοστό του πληθυσμού της επίσημης ηλικίας φοίτησης. Μπορεί να υπερβαίνει το 100%.',
+ 'SE.PRM.CMPT.ZS':'Νέοι εισερχόμενοι στην τελευταία τάξη της πρωτοβάθμιας, χωρίς επαναλαμβάνοντες, ως ποσοστό του πληθυσμού της επίσημης ηλικίας εισόδου στην τάξη. Ο ακαθάριστος δείκτης μπορεί να υπερβαίνει το 100%.',
+ 'SE.SEC.CMPT.LO.ZS':'Νέοι εισερχόμενοι στην τελευταία τάξη της κατώτερης δευτεροβάθμιας, χωρίς επαναλαμβάνοντες, ως ποσοστό του πληθυσμού της αντίστοιχης επίσημης ηλικίας. Δεν είναι διαχρονική παρακολούθηση μιας μαθητικής γενιάς.',
+ 'SE.PRM.TCHR.FE.ZS':'Γυναίκες εκπαιδευτικοί ως ποσοστό του συνόλου των εκπαιδευτικών πρωτοβάθμιας εκπαίδευσης.',
+ 'AG.LND.FRST.K2':'Συνολική δασική έκταση σε τετραγωνικά χιλιόμετρα, σύμφωνα με τον ορισμό FAO. Δεν είναι ποσοστό της χώρας ούτε άμεση ετήσια μέτρηση αποψίλωσης.',
+ 'AG.LND.AGRI.ZS':'Γεωργική γη ως ποσοστό της χερσαίας έκτασης: αρόσιμη γη, μόνιμες καλλιέργειες και μόνιμοι βοσκότοποι.',
+ 'ER.H2O.FWTL.K3':'Ετήσιες αντλήσεις γλυκού νερού από υπόγειες και επιφανειακές πηγές, σε δισεκατομμύρια κυβικά μέτρα. Δεν είναι ο όγκος διαθέσιμων υδάτινων πόρων.',
+ 'IS.RRS.PASG.KM':'Επιβατικό έργο σιδηροδρόμων σε εκατομμύρια επιβατοχιλιόμετρα: επιβάτες επί διανυθείσα απόσταση. Δεν είναι αριθμός επιβατών.',
+ 'IS.AIR.GOOD.MT.K1':'Αεροπορικό εμπορευματικό έργο σε εκατομμύρια τονοχιλιόμετρα. Ακολουθεί την κάλυψη αερομεταφορέων του παρόχου· δεν είναι μόνο διακίνηση ελληνικών αεροδρομίων.',
+ 'SH.H2O.BASW.ZS':'Ποσοστό πληθυσμού με τουλάχιστον βασικές υπηρεσίες πόσιμου νερού: βελτιωμένη πηγή με χρόνο συλλογής έως 30 λεπτά με επιστροφή. Περιλαμβάνει και ασφαλώς διαχειριζόμενες υπηρεσίες.',
+ 'BM.KLT.DINV.WD.GD.ZS':'Καθαρές εκροές άμεσων ξένων επενδύσεων ως ποσοστό του ΑΕΠ. Αφορά επενδύσεις προς το εξωτερικό, όχι εισροές στη χώρα.',
+ 'IP.JRN.ARTC.SC':'Επιστημονικά και τεχνικά άρθρα στους κλάδους που καλύπτει η βιβλιομετρική πηγή της Παγκόσμιας Τράπεζας. Δεν περιλαμβάνει κάθε δημοσίευση ή κάθε επιστημονικό πεδίο.',
+ 'SL.GDP.PCAP.EM.KD':'ΑΕΠ ανά απασχολούμενο σε σταθερά διεθνή δολάρια 2021, με προσαρμογή ισοτιμίας αγοραστικής δύναμης. Είναι μέτρο παραγωγικότητας, όχι μισθού.',
+ 'EN.POP.DNST':'Πληθυσμός ανά τετραγωνικό χιλιόμετρο χερσαίας έκτασης, χωρίς εσωτερικά ύδατα.',
+ 'SP.DYN.CBRT.IN':'Ζώντες γεννήσεις ανά 1.000 κατοίκους σε ένα έτος. Δεν είναι γεννήσεις ανά γυναίκα.',
+ 'SP.DYN.CDRT.IN':'Θάνατοι ανά 1.000 κατοίκους σε ένα έτος. Ο δείκτης δεν είναι ηλικιακά προτυποποιημένος και επηρεάζεται από τη γήρανση του πληθυσμού.',
+ 'SP.POP.DPND.OL':'Πληθυσμός ηλικίας 65+ ως ποσοστό του πληθυσμού ηλικίας 15–64. Δημογραφικός λόγος, όχι αριθμός συνταξιούχων ανά εργαζόμενο.',
+ 'SP.POP.DPND.YG':'Πληθυσμός ηλικίας κάτω των 15 ετών ως ποσοστό του πληθυσμού ηλικίας 15–64. Δημογραφικός λόγος, όχι μέτρηση οικονομικής εξάρτησης.',
+ 'SP.POP.TOTL.FE.ZS':'Γυναίκες ως ποσοστό του συνολικού πληθυσμού, σύμφωνα με τις πληθυσμιακές εκτιμήσεις του παρόχου.',
+}
+METRICS = [dict(code='GOV_WGI_'+c if c.endswith('.EST') else c,title={'en':en,'el':el},unit=u,categories=cat.split(','),change=change,source='3' if c.endswith('.EST') else '2',**({'researchId':RESEARCH_IDS[c],'definitionEl':DEFINITIONS_EL[c]} if c in RESEARCH_IDS else {})) for c,en,el,u,cat,change in ROWS]
 
 CATEGORY_NOTES = {
  'culture': {'en':'Cultural employment, tourism and travel describe selected aspects of this category; they do not measure cultural quality.','el':'Πολιτιστική απασχόληση, τουρισμός και ταξίδια καλύπτουν επιμέρους πτυχές, όχι την ποιότητα του πολιτισμού.'},
