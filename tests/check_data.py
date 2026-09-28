@@ -10,7 +10,10 @@ D=json.loads((ROOT/'data/indicators.json').read_text());H=json.loads((ROOT/'data
 expected={m['code'] for m in METRICS+CATALOG}
 assert {m['code'] for m in D['metrics']}==expected
 assert len(D['metrics'])==len(expected)
-assert len(D['categories'])==21
+assert len(D['categories'])==12
+from taxonomy import PRIMARY, classify
+assert set(PRIMARY)==expected
+assert all(m['categories']==[m['primaryCategory']] and classify(m)==m for m in D['metrics'])
 countries=set(D['countries']);cats={c['id'] for c in D['categories']}
 # Unit conversions must preserve missing observations and real zero values.
 assert transform_series({'GRC':[[2020,500],[2021,None],[2022,0]]},{'scale':0.01})=={'GRC':[[2020,5],[2021,None],[2022,0]]}

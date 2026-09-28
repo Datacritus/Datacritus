@@ -14,8 +14,9 @@ from pathlib import Path
 import time
 import urllib.parse
 import urllib.request
-from catalog import CATEGORIES, CATEGORY_NOTES, COUNTRIES, METRICS
+from catalog import COUNTRIES, METRICS
 from eurostat import collect_all
+from taxonomy import classify, categories
 
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / 'data' / 'raw'
@@ -92,6 +93,7 @@ def main():
         metrics.append(item)
         print(m['code'],len(greek),greek[-1] if greek else 'No Greece observations',flush=True)
     metrics.extend(collect_all(RAW))
+    metrics=[classify(m) for m in metrics]
     if sum(bool(m['coverage']['observations']) for m in metrics)<40:raise ValueError('Insufficient real data; refusing to replace snapshot')
     previous_path=ROOT/'data'/'indicators.json'
     if previous_path.exists():
@@ -102,7 +104,7 @@ def main():
             if old_count and m['coverage']['observations']<old_count*0.8:
                 raise ValueError(f"Unexpected coverage loss for {m['code']}; review upstream change")
     dataset={'schemaVersion':1,'retrievedAt':NOW.isoformat(),'countries':COUNTRIES,
-             'categories':[{'id':i,'title':{'en':en,'el':el},'note':CATEGORY_NOTES.get(i)} for i,en,el in CATEGORIES],
+             'categories':categories(),
              'metrics':metrics,'licenceUrl':'https://www.worldbank.org/en/about/legal/terms-of-use-for-datasets',
              'licenceNote':'World Bank dataset terms and Eurostat reuse policy apply to their respective series; individual third-party sources may have additional terms. See source attribution for every series.'}
     temp=previous_path.with_suffix('.tmp')

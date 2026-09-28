@@ -1,6 +1,6 @@
 # DATACRITUS
 
-[www.datacritus.gr](https://www.datacritus.gr) makes Greece’s public statistics explorable in Greek and English. It combines 108 indicators across 21 topics with European comparisons, 26 cabinet periods and 20 parliamentary elections since 1974.
+[www.datacritus.gr](https://www.datacritus.gr) makes Greece’s public statistics explorable in Greek and English. It combines 108 indicators across 12 topics with European comparisons, 26 cabinet periods and 20 parliamentary elections since 1974.
 
 A larger Datacritus logo remains visible while scrolling and returns to Explore from every page, expanded chart and Studio. The interface uses 20px base text, stronger button borders, a gold primary action and clear keyboard focus.
 

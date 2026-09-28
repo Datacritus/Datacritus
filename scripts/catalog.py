@@ -7,26 +7,7 @@ COUNTRIES = {
     'ESP': {'en': 'Spain', 'el': 'Ισπανία', 'color': '#d46534'},
     'PRT': {'en': 'Portugal', 'el': 'Πορτογαλία', 'color': '#32826e'},
 }
-CATEGORIES = [
- ('economy','Economy','Οικονομία'), ('health','Health','Υγεία'),
- ('education','Education','Παιδεία'), ('environment','Environment','Περιβάλλον'),
- ('infrastructure','Infrastructure','Υποδομές'), ('governance','Governance & society','Διακυβέρνηση & κοινωνία'),
- ('business','Business & innovation','Επιχειρήσεις & καινοτομία'),
- ('wellbeing','Well-being & quality of life','Ευημερία & ποιότητα ζωής'),
- ('culture','Culture & leisure','Πολιτισμός & αναψυχή'),
- ('housing','Housing & living conditions','Στέγαση & συνθήκες διαβίωσης'),
- ('security','Personal security & resilience','Ασφάλεια & ανθεκτικότητα'),
- ('digital','Digital society','Ψηφιακή κοινωνία'),
- ('demographics','Demographics & population','Δημογραφία & πληθυσμός'),
- ('finance','Public finance & debt','Δημόσια οικονομικά & χρέος'),
- ('technology','Technological readiness','Τεχνολογική ετοιμότητα'),
- ('justice','Justice & rule of law','Δικαιοσύνη & κράτος δικαίου'),
- ('energy','Energy & resources','Ενέργεια & πόροι'),
- ('transport','Transportation & mobility','Μεταφορές & κινητικότητα'),
- ('resilience','Resilience & sustainability','Ανθεκτικότητα & βιωσιμότητα'),
- ('international','International engagement','Διεθνής παρουσία'),
- ('freedom','Freedom & participation','Ελευθερία & συμμετοχή'),
-]
+from taxonomy import CATEGORIES, CATEGORY_NOTES
 # code, short English label, Greek label, unit, categories, change unit.
 # Changes in percentages are percentage points, never percentage growth.
 ROWS = [
@@ -272,10 +253,3 @@ DEFINITIONS_EL.update({'NY.GDP.MKTP.CD': 'Συνολικό ΑΕΠ σε τρέχ�
  'FI.RES.TOTL.MO': 'Συνολικά αποθεματικά εκφρασμένα σε μήνες εισαγωγών αγαθών και υπηρεσιών. Η συμμετοχή σε '
                    'νομισματική ένωση έχει σημασία για την ερμηνεία.'})
 METRICS = [dict(code='GOV_WGI_'+c if c.endswith('.EST') else c,title={'en':en,'el':el},unit=u,categories=cat.split(','),change=change,source='3' if c.endswith('.EST') else '2',**({'researchId':RESEARCH_IDS[c],'definitionEl':DEFINITIONS_EL[c]} if c in RESEARCH_IDS else {})) for c,en,el,u,cat,change in ROWS]
-
-CATEGORY_NOTES = {
- 'culture': {'en':'Cultural employment, tourism and travel describe selected aspects of this category; they do not measure cultural quality.','el':'Πολιτιστική απασχόληση, τουρισμός και ταξίδια καλύπτουν επιμέρους πτυχές, όχι την ποιότητα του πολιτισμού.'},
- 'international': {'en':'Trade, investment and tourism measure international engagement; they are not a reputation score.','el':'Εμπόριο, επενδύσεις και τουρισμός αποτυπώνουν τη διεθνή παρουσία· δεν αποτελούν δείκτη φήμης.'},
- 'freedom': {'en':'Voice & accountability is a perception-based governance estimate, not a complete measure of individual freedoms.','el':'Η φωνή πολιτών και η λογοδοσία είναι εκτίμηση διακυβέρνησης βάσει αντιλήψεων, όχι πλήρης μέτρηση ατομικών ελευθεριών.'},
- 'housing': {'en':'Housing cost overburden is the share of people in households spending more than 40% of disposable income on housing, net of housing allowances.','el':'Υπερβολική επιβάρυνση στέγασης: ποσοστό πληθυσμού σε νοικοκυριά που δαπανούν πάνω από 40% του διαθέσιμου εισοδήματος για στέγαση, μετά την αφαίρεση στεγαστικών επιδομάτων.'}
-}
