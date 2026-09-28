@@ -134,6 +134,143 @@ DEFINITIONS_EL = {
  'SP.POP.DPND.YG':'Πληθυσμός ηλικίας κάτω των 15 ετών ως ποσοστό του πληθυσμού ηλικίας 15–64. Δημογραφικός λόγος, όχι μέτρηση οικονομικής εξάρτησης.',
  'SP.POP.TOTL.FE.ZS':'Γυναίκες ως ποσοστό του συνολικού πληθυσμού, σύμφωνα με τις πληθυσμιακές εκτιμήσεις του παρόχου.',
 }
+
+# Second audited expansion: explicit units and research crosswalk.
+ROWS += [('NY.GDP.MKTP.CD', 'GDP, current prices', 'ΑΕΠ σε τρέχουσες τιμές', 'current US$', 'economy', 'absolute'),
+ ('NY.GDP.MKTP.PP.CD',
+  'GDP at purchasing power parity',
+  'ΑΕΠ σε ισοτιμία αγοραστικής δύναμης',
+  'current international $',
+  'economy',
+  'absolute'),
+ ('SH.ALC.PCAP.LI',
+  'Alcohol consumption, ages 15+',
+  'Κατανάλωση αλκοόλ, ηλικίες 15+',
+  'litres of pure alcohol/person aged 15+',
+  'health,wellbeing',
+  'absolute'),
+ ('SH.STA.ODFC.ZS',
+  'Open defecation',
+  'Αφόδευση σε ανοικτούς χώρους',
+  '% of population',
+  'housing,health',
+  'pp'),
+ ('SH.STA.BASS.UR.ZS',
+  'Basic sanitation, urban population',
+  'Βασική αποχέτευση στον αστικό πληθυσμό',
+  '% of urban population',
+  'housing,infrastructure',
+  'pp'),
+ ('SH.H2O.BASW.RU.ZS',
+  'Basic drinking water, rural population',
+  'Βασικό πόσιμο νερό στον αγροτικό πληθυσμό',
+  '% of rural population',
+  'housing,infrastructure',
+  'pp'),
+ ('SP.URB.TOTL.IN.ZS',
+  'Urban population share',
+  'Ποσοστό αστικού πληθυσμού',
+  '% of population',
+  'housing,demographics',
+  'pp'),
+ ('SM.POP.RHCR.EA',
+  'Refugees hosted, UNHCR mandate',
+  'Φιλοξενούμενοι πρόσφυγες υπό την εντολή της UNHCR',
+  'people',
+  'security,international',
+  'absolute'),
+ ('IT.MLT.MAIN.P2',
+  'Fixed telephone subscriptions',
+  'Συνδρομές σταθερής τηλεφωνίας',
+  'per 100 people',
+  'digital,infrastructure',
+  'absolute'),
+ ('FB.ATM.TOTL.P5',
+  'ATM availability',
+  'Διαθεσιμότητα ΑΤΜ',
+  'ATMs per 100,000 adults',
+  'digital,finance',
+  'absolute'),
+ ('SM.POP.TOTL',
+  'International migrant stock',
+  'Πληθυσμός διεθνών μεταναστών',
+  'people',
+  'demographics,international',
+  'absolute'),
+ ('GC.REV.XGRT.GD.ZS',
+  'Government revenue excluding grants',
+  'Κρατικά έσοδα χωρίς επιχορηγήσεις',
+  '% of GDP',
+  'finance',
+  'pp'),
+ ('DC.ODA.TLDC.CD',
+  'Development aid to least developed countries',
+  'Αναπτυξιακή βοήθεια προς λιγότερο ανεπτυγμένες χώρες',
+  'current US$',
+  'finance,international',
+  'absolute'),
+ ('SP.POP.SCIE.RD.P6',
+  'Researchers per million people',
+  'Ερευνητές ανά εκατομμύριο κατοίκους',
+  'researchers (FTE) per million people',
+  'technology,business,education',
+  'absolute'),
+ ('EG.EGY.PRIM.PP.KD',
+  'Primary energy intensity',
+  'Ένταση πρωτογενούς ενέργειας',
+  'MJ per constant 2021 PPP $ of GDP',
+  'energy,resilience',
+  'absolute'),
+ ('DC.ODA.TOTL.CD',
+  'Net development aid provided',
+  'Καθαρή αναπτυξιακή βοήθεια που παρέχεται',
+  'current US$',
+  'international,finance',
+  'absolute'),
+ ('FI.RES.TOTL.MO',
+  'Reserves in months of imports',
+  'Συναλλαγματικά διαθέσιμα σε μήνες εισαγωγών',
+  'months of imports',
+  'international,finance,resilience',
+  'absolute')]
+RESEARCH_IDS.update({'NY.GDP.MKTP.CD': 3, 'NY.GDP.MKTP.PP.CD': 3, 'SH.ALC.PCAP.LI': 76, 'SH.STA.ODFC.ZS': 94, 'SH.STA.BASS.UR.ZS': 96, 'SH.H2O.BASW.RU.ZS': 97, 'SP.URB.TOTL.IN.ZS': 99, 'SM.POP.RHCR.EA': 109, 'IT.MLT.MAIN.P2': 116, 'FB.ATM.TOTL.P5': 118, 'SM.POP.TOTL': 128, 'GC.REV.XGRT.GD.ZS': 134, 'DC.ODA.TLDC.CD': 140, 'SP.POP.SCIE.RD.P6': 142, 'EG.EGY.PRIM.PP.KD': 162, 'DC.ODA.TOTL.CD': 192, 'FI.RES.TOTL.MO': 200})
+DEFINITIONS_EL.update({'NY.GDP.MKTP.CD': 'Συνολικό ΑΕΠ σε τρέχοντα δολάρια ΗΠΑ. Επηρεάζεται από τιμές και συναλλαγματικές '
+                   'ισοτιμίες· δεν είναι πραγματική οικονομική μεγέθυνση.',
+ 'NY.GDP.MKTP.PP.CD': 'ΑΕΠ σε τρέχοντα διεθνή δολάρια με ισοτιμία αγοραστικής δύναμης. Δεν είναι σειρά '
+                      'σταθερών τιμών.',
+ 'SH.ALC.PCAP.LI': 'Εκτιμώμενη συνολική ετήσια κατανάλωση καθαρής αλκοόλης ανά άτομο ηλικίας 15+, σε λίτρα. '
+                   'Περιλαμβάνει καταγεγραμμένη και μη καταγεγραμμένη κατανάλωση· αφορά εκτιμήσεις του '
+                   'παρόχου.',
+ 'SH.STA.ODFC.ZS': 'Ποσοστό πληθυσμού που αφοδεύει σε ανοικτούς χώρους, κατά τις εκτιμήσεις WHO/UNICEF. '
+                   'Μηδενική τιμή δεν σημαίνει απουσία άλλων προβλημάτων αποχέτευσης.',
+ 'SH.STA.BASS.UR.ZS': 'Αστικός πληθυσμός με τουλάχιστον βασικές υπηρεσίες αποχέτευσης: βελτιωμένες '
+                      'εγκαταστάσεις που δεν μοιράζονται με άλλα νοικοκυριά.',
+ 'SH.H2O.BASW.RU.ZS': 'Αγροτικός πληθυσμός με τουλάχιστον βασικές υπηρεσίες πόσιμου νερού: βελτιωμένη πηγή '
+                      'με χρόνο συλλογής έως 30 λεπτά με επιστροφή.',
+ 'SP.URB.TOTL.IN.ZS': 'Πληθυσμός σε αστικές περιοχές ως ποσοστό του συνόλου. Οι εθνικοί ορισμοί του αστικού '
+                      'πληθυσμού διαφέρουν.',
+ 'SM.POP.RHCR.EA': 'Πρόσφυγες υπό την εντολή της UNHCR ανά χώρα ασύλου. Είναι πληθυσμιακό απόθεμα, όχι '
+                   'ετήσιες αφίξεις ή το σύνολο μεταναστών.',
+ 'IT.MLT.MAIN.P2': 'Συνδρομές σταθερής τηλεφωνίας ανά 100 κατοίκους. Μετρά συνδρομές, όχι μοναδικούς '
+                   'χρήστες.',
+ 'FB.ATM.TOTL.P5': 'Αυτόματες ταμειολογιστικές μηχανές ανά 100.000 ενήλικους κατοίκους. Δεν είναι συνολικός '
+                   'αριθμός ΑΤΜ.',
+ 'SM.POP.TOTL': 'Διεθνείς μετανάστες που διαμένουν στη χώρα, κυρίως βάσει χώρας γέννησης ή υπηκοότητας όπου '
+                'απαιτείται. Είναι απόθεμα σε έτη αναφοράς, όχι ετήσιες μεταναστευτικές ροές· τα ενδιάμεσα '
+                'κενά παραμένουν.',
+ 'GC.REV.XGRT.GD.ZS': 'Έσοδα χωρίς επιχορηγήσεις ως ποσοστό του ΑΕΠ, βάσει της σειράς δημοσιονομικών '
+                      'στατιστικών της Παγκόσμιας Τράπεζας. Η θεσμική κάλυψη του παρόχου δεν ταυτίζεται κατ’ '
+                      'ανάγκη με τη γενική κυβέρνηση της Eurostat.',
+ 'DC.ODA.TLDC.CD': 'Καθαρή επίσημη αναπτυξιακή βοήθεια που παρέχεται στις λιγότερο ανεπτυγμένες χώρες, σε '
+                   'τρέχοντα δολάρια ΗΠΑ. Δεν είναι βοήθεια που λαμβάνει η χώρα.',
+ 'SP.POP.SCIE.RD.P6': 'Ερευνητές έρευνας και ανάπτυξης σε ισοδύναμα πλήρους απασχόλησης ανά εκατομμύριο '
+                      'κατοίκους. Δεν είναι απλή καταμέτρηση προσώπων.',
+ 'EG.EGY.PRIM.PP.KD': 'Πρωτογενής ενέργεια ανά μονάδα ΑΕΠ σε σταθερά δολάρια 2021 αγοραστικής δύναμης. '
+                      'Επηρεάζεται από τη δομή της οικονομίας, όχι μόνο από την ενεργειακή απόδοση.',
+ 'DC.ODA.TOTL.CD': 'Συνολική καθαρή επίσημη αναπτυξιακή βοήθεια που παρέχει η χώρα, σε τρέχοντα δολάρια ΗΠΑ. '
+                   'Πρόκειται για καθαρές ροές.',
+ 'FI.RES.TOTL.MO': 'Συνολικά αποθεματικά εκφρασμένα σε μήνες εισαγωγών αγαθών και υπηρεσιών. Η συμμετοχή σε '
+                   'νομισματική ένωση έχει σημασία για την ερμηνεία.'})
 METRICS = [dict(code='GOV_WGI_'+c if c.endswith('.EST') else c,title={'en':en,'el':el},unit=u,categories=cat.split(','),change=change,source='3' if c.endswith('.EST') else '2',**({'researchId':RESEARCH_IDS[c],'definitionEl':DEFINITIONS_EL[c]} if c in RESEARCH_IDS else {})) for c,en,el,u,cat,change in ROWS]
 
 CATEGORY_NOTES = {

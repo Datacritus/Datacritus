@@ -47,3 +47,37 @@ This release adds the first 24 approved research requests to the existing 59 ind
 The refresh pipeline fetches provider metadata and observations, then checks every retained value against its raw response. Data checks also cover the police-unit conversion, null/zero preservation and absolute versus percentage-point change units. Existing calculation and infographic checks cover the entire expanded catalogue in Greek and English, landscape and portrait.
 
 The completed research audit contained 210 requests, not 210 unique deployable indicators. Conditional, unavailable and duplicate items are outside this release. The larger logo, 20px base type, strong buttons and infographic Studio already existed and are preserved.
+
+## Second batch — 25 additional series
+
+This batch expands 83 to 108 metrics, fulfilling 24 more research requests (GDP nominal and PPP are separate series for item 3). All additions use the existing automatic World Bank/Eurostat refresh, source checksums and quality flags. Sparse observations remain gaps.
+
+| Research item | Series | Indicator |
+| --- | --- | --- |
+| 3 | NY.GDP.MKTP.CD | GDP, current prices |
+| 3 | NY.GDP.MKTP.PP.CD | GDP at purchasing power parity |
+| 76 | SH.ALC.PCAP.LI | Alcohol consumption, ages 15+ |
+| 94 | SH.STA.ODFC.ZS | Open defecation |
+| 96 | SH.STA.BASS.UR.ZS | Basic sanitation, urban population |
+| 97 | SH.H2O.BASW.RU.ZS | Basic drinking water, rural population |
+| 99 | SP.URB.TOTL.IN.ZS | Urban population share |
+| 109 | SM.POP.RHCR.EA | Refugees hosted, UNHCR mandate |
+| 116 | IT.MLT.MAIN.P2 | Fixed telephone subscriptions |
+| 118 | FB.ATM.TOTL.P5 | ATM availability |
+| 128 | SM.POP.TOTL | International migrant stock |
+| 134 | GC.REV.XGRT.GD.ZS | Government revenue excluding grants |
+| 140 | DC.ODA.TLDC.CD | Development aid to least developed countries |
+| 142 | SP.POP.SCIE.RD.P6 | Researchers per million people |
+| 162 | EG.EGY.PRIM.PP.KD | Primary energy intensity |
+| 192 | DC.ODA.TOTL.CD | Net development aid provided |
+| 200 | FI.RES.TOTL.MO | Reserves in months of imports |
+| 40 | ESTAT.WASTE.RECYCLING | Municipal waste recycling rate |
+| 81 | ESTAT.HOTELS.NONRESIDENT | Non-resident arrivals at hotels |
+| 82 | ESTAT.HOTELS.RESIDENT | Resident arrivals at hotels |
+| 85 | ESTAT.TOUR.TRIPS | Resident overnight tourist trips, domestic and abroad |
+| 71 | ESTAT.LIFE.SATISFACTION | Overall life satisfaction, ages 16+ |
+| 98 | ESTAT.HOUSEHOLDS.SINGLE | Single-person households |
+| 171 | ESTAT.CO2.TRANSPORT | Transport CO2 emissions, domestic inventory |
+| 179 | ESTAT.CO2.DOMESTIC.AVIATION | Domestic aviation CO2 emissions |
+
+Interpretation: migrant stock is not annual migration; hotel arrivals are not unique visitors; alcohol data are provider estimates and may lag; ATM rates use adults; energy intensity uses constant 2021 PPP GDP; monetary current-price series are not inflation-adjusted. Transport and domestic aviation emissions exclude international bunkers. Life satisfaction is a 0–10 rating. Government revenue coverage follows World Bank metadata, not an assumed Eurostat general-government definition.

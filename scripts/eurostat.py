@@ -13,6 +13,110 @@ CATALOG=[
  {'code':'ESTAT.CULTURE.EMPLOYMENT','dataset':'cult_emp_sex','title':{'en':'Cultural employment','el':'Πολιτιστική απασχόληση'},'unit':'% of employment','categories':['culture','business'],'params':{'unit':'PC_EMP','sex':'T'},'definition':'Employment in cultural economic activities and cultural occupations as a percentage of total employment. Both sexes; EU Labour Force Survey. Eurostat cultural employment definition applies; survey breaks and reliability flags are retained.'},
 ]
 
+CATALOG += [{'code': 'ESTAT.WASTE.RECYCLING',
+  'dataset': 'sdg_11_60',
+  'researchId': 40,
+  'title': {'en': 'Municipal waste recycling rate', 'el': 'Ανακύκλωση αστικών αποβλήτων'},
+  'categories': ['environment', 'resilience'],
+  'unit': '% of municipal waste',
+  'change': 'pp',
+  'params': {'unit': 'PC'},
+  'definition': 'Municipal waste recycled as a percentage of municipal waste generated. Includes material '
+                'recycling, composting and anaerobic digestion; not all industrial waste.',
+  'definitionEl': 'Ανακυκλωμένα αστικά απόβλητα ως ποσοστό των παραγόμενων αστικών αποβλήτων. Περιλαμβάνει '
+                  'ανακύκλωση υλικών, κομποστοποίηση και αναερόβια χώνευση.'},
+ {'code': 'ESTAT.HOTELS.NONRESIDENT',
+  'dataset': 'tour_occ_arnat',
+  'researchId': 81,
+  'title': {'en': 'Non-resident arrivals at hotels', 'el': 'Αφίξεις μη κατοίκων σε ξενοδοχεία'},
+  'categories': ['culture', 'international'],
+  'unit': 'arrivals',
+  'change': 'absolute',
+  'params': {'c_resid': 'FOR', 'unit': 'NR', 'nace_r2': 'I551'},
+  'definition': 'Arrivals of non-residents at hotels and similar accommodation (NACE I551). Counts '
+                'check-ins, not unique visitors or all border arrivals.',
+  'definitionEl': 'Αφίξεις μη κατοίκων σε ξενοδοχεία και παρόμοια καταλύματα (NACE I551). Μετρά αφίξεις σε '
+                  'καταλύματα, όχι μοναδικά πρόσωπα ή όλες τις συνοριακές αφίξεις.'},
+ {'code': 'ESTAT.HOTELS.RESIDENT',
+  'dataset': 'tour_occ_arnat',
+  'researchId': 82,
+  'title': {'en': 'Resident arrivals at hotels', 'el': 'Αφίξεις κατοίκων σε ξενοδοχεία'},
+  'categories': ['culture'],
+  'unit': 'arrivals',
+  'change': 'absolute',
+  'params': {'c_resid': 'DOM', 'unit': 'NR', 'nace_r2': 'I551'},
+  'definition': 'Arrivals of residents at hotels and similar accommodation (NACE I551). A person may be '
+                'counted on more than one trip.',
+  'definitionEl': 'Αφίξεις κατοίκων σε ξενοδοχεία και παρόμοια καταλύματα (NACE I551). Το ίδιο άτομο μπορεί '
+                  'να καταμετρηθεί σε περισσότερα ταξίδια.'},
+ {'code': 'ESTAT.TOUR.TRIPS',
+  'dataset': 'tour_dem_tttot',
+  'researchId': 85,
+  'title': {'en': 'Resident overnight tourist trips, domestic and abroad',
+            'el': 'Τουριστικά ταξίδια κατοίκων'},
+  'categories': ['culture'],
+  'unit': 'trips',
+  'change': 'absolute',
+  'params': {'c_dest': 'WORLD', 'purpose': 'TOTAL', 'duration': 'N_GE1', 'unit': 'NR'},
+  'definition': 'Overnight tourism trips by residents aged 15 or over, all destinations and purposes, '
+                'lasting at least one night. Not inbound arrivals or same-day visits.',
+  'definitionEl': 'Τουριστικά ταξίδια κατοίκων ηλικίας 15+ με τουλάχιστον μία διανυκτέρευση, για όλους τους '
+                  'προορισμούς και σκοπούς. Δεν είναι εισερχόμενες αφίξεις ή αυθημερόν επισκέψεις.'},
+ {'code': 'ESTAT.LIFE.SATISFACTION',
+  'dataset': 'ilc_pw01',
+  'researchId': 71,
+  'title': {'en': 'Overall life satisfaction, ages 16+', 'el': 'Συνολική ικανοποίηση από τη ζωή'},
+  'categories': ['wellbeing'],
+  'unit': '0–10 rating',
+  'change': 'absolute',
+  'params': {'statinfo': 'AVG',
+             'unit': 'RTG',
+             'isced11': 'TOTAL',
+             'life_sat': 'LIFE',
+             'sex': 'T',
+             'age': 'Y_GE16'},
+  'definition': 'Average self-reported overall life satisfaction among people aged 16 or over, from 0 (not '
+                'at all satisfied) to 10 (fully satisfied). Survey observations are not annual throughout '
+                'the series.',
+  'definitionEl': 'Μέση αυτοαναφερόμενη ικανοποίηση από τη ζωή για ηλικίες 16+, από 0 (καθόλου) έως 10 '
+                  '(πλήρως). Οι διαθέσιμες έρευνες δεν καλύπτουν κάθε έτος.'},
+ {'code': 'ESTAT.HOUSEHOLDS.SINGLE',
+  'dataset': 'ilc_lvph02',
+  'researchId': 98,
+  'title': {'en': 'Single-person households', 'el': 'Μονοπρόσωπα νοικοκυριά'},
+  'categories': ['housing', 'demographics'],
+  'unit': '% of households',
+  'change': 'pp',
+  'params': {'hhcomp': 'A1', 'unit': 'PC'},
+  'definition': 'One-person households as a percentage of private households. Household share, not the share '
+                'of people living alone.',
+  'definitionEl': 'Μονοπρόσωπα νοικοκυριά ως ποσοστό των ιδιωτικών νοικοκυριών. Δεν είναι ποσοστό ατόμων που '
+                  'ζουν μόνα.'},
+ {'code': 'ESTAT.CO2.TRANSPORT',
+  'dataset': 'env_air_gge',
+  'researchId': 171,
+  'title': {'en': 'Transport CO2 emissions, domestic inventory', 'el': 'Εκπομπές CO₂ από μεταφορές'},
+  'categories': ['transport', 'environment'],
+  'unit': 'million tonnes CO₂',
+  'change': 'absolute',
+  'params': {'unit': 'MIO_T', 'airpol': 'CO2', 'src_crf': 'CRF1A3'},
+  'definition': 'CO2 emissions from domestic-inventory transport (CRF 1A3), excluding international aviation '
+                'and shipping bunkers. Territorial inventory, not a consumption footprint.',
+  'definitionEl': 'Εκπομπές CO₂ από μεταφορές στην εθνική απογραφή (CRF 1A3), χωρίς διεθνή αεροπορικά και '
+                  'ναυτιλιακά καύσιμα. Δεν είναι αποτύπωμα κατανάλωσης.'},
+ {'code': 'ESTAT.CO2.DOMESTIC.AVIATION',
+  'dataset': 'env_air_gge',
+  'researchId': 179,
+  'title': {'en': 'Domestic aviation CO2 emissions', 'el': 'Εκπομπές CO₂ από εγχώρια αεροπορία'},
+  'categories': ['transport', 'environment'],
+  'unit': 'thousand tonnes CO₂',
+  'change': 'absolute',
+  'params': {'unit': 'THS_T', 'airpol': 'CO2', 'src_crf': 'CRF1A3A'},
+  'definition': 'CO2 emissions from domestic civil aviation (CRF 1A3A). Excludes international aviation '
+                'bunkers; not the full climate impact of flying.',
+  'definitionEl': 'Εκπομπές CO₂ από εγχώρια πολιτική αεροπορία (CRF 1A3A). Δεν περιλαμβάνει διεθνή αεροπορία '
+                  'ή άλλες κλιματικές επιδράσεις των πτήσεων.'}]
+
 def parse_payload(payload):
     ids=payload['id'];sizes=payload['size'];dims=payload['dimension']
     geo_idx=ids.index('geo');time_idx=ids.index('time')
