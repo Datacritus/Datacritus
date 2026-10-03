@@ -16,6 +16,7 @@
   <a class="brand" href="./" data-home aria-label="DATACRITUS home"><img id="brandLogo" class="brand-logo" src="/*__LOGO__*/" alt="DATACRITUS — Data Decision Democracy" width="320" height="95"></a>
   <nav aria-label="Main navigation" id="navigation">
    <button data-page="explore" class="active" data-i18n="explore">Explore</button>
+   <button data-page="comparison" class="nav-compare" data-i18n="compareGovernments">Compare governments</button>
    <button data-page="governments" data-i18n="governments">Governments</button>
    <button data-page="sources" data-i18n="sources">Sources</button>
    <button data-page="about" data-i18n="about">About</button>
@@ -33,6 +34,7 @@
   <main id="main" tabindex="-1">
    <section id="page-explore" class="page">
     <div class="page-heading"><div><p class="eyebrow" data-i18n="greeceSince">GREECE · SINCE 1974</p><h1 data-i18n="headline">Greece, in perspective.</h1><p class="lede" data-i18n="subhead">Follow the indicators. Compare the context.</p></div><button id="copyLink" class="outline" data-i18n="share">Copy view link</button></div>
+    <section class="comparison-launch" aria-labelledby="comparisonLaunchTitle"><div><p class="eyebrow">DATACRITUS STUDIO</p><h2 id="comparisonLaunchTitle" data-i18n="comparisonLaunchTitle">Two governments. One clear comparison.</h2><p data-i18n="comparisonLaunchIntro">Choose a KPI and two periods. Create a sourced infographic in seconds.</p></div><button id="launchComparison" class="primary comparison-launch-button" data-i18n="compareGovernments">Compare governments</button></section>
     <div class="explore-shortcuts"><span data-i18n="startWith">Start with</span><button data-metric="NY.GDP.MKTP.KD.ZG" data-i18n="shortcutGrowth">Growth</button><button data-metric="SL.UEM.TOTL.ZS" data-i18n="shortcutJobs">Employment</button><button data-metric="FP.CPI.TOTL.ZG" data-i18n="shortcutPrices">Prices</button><button data-metric="ESTAT.HOUSING.OVERBURDEN" data-i18n="shortcutHousing">Housing</button></div>
     <div class="mobile-category"><label for="mobileSearch" class="sr-only" data-i18n="searchLabel">Search indicators</label><input id="mobileSearch" type="search" placeholder="Search indicators…" autocomplete="off"><label for="mobileCategory" data-i18n="category">Category</label><select id="mobileCategory"></select></div>
     <div id="searchResults" class="search-results" hidden></div>
@@ -55,6 +57,21 @@
       <section class="context-card"><div class="section-title"><span class="section-number">02</span><h2 data-i18n="behindNumber">Behind the number</h2></div><div id="metricDetails"></div></section></div>
     </div>
    </section>
+   <section id="page-comparison" class="page" hidden aria-labelledby="comparisonHeading">
+    <div class="page-heading"><div><p class="eyebrow">DATACRITUS STUDIO</p><h1 id="comparisonHeading" data-i18n="compareGovernments">Compare governments</h1><p class="lede" data-i18n="comparisonIntro">Pick one indicator and two cabinet periods. Your comparison updates instantly.</p></div><button class="outline" data-page="explore" data-i18n="explore">Explore</button></div>
+    <div class="comparison-controls">
+     <fieldset><legend><span>1</span> <span data-i18n="comparisonChooseMetric">Choose your indicator</span></legend><div class="comparison-fields"><div class="field"><label for="comparisonCategory" data-i18n="category">Category</label><select id="comparisonCategory"></select></div><div class="field"><label for="comparisonMetric" data-i18n="indicator">Indicator</label><select id="comparisonMetric"></select></div></div></fieldset>
+     <fieldset><legend><span>2</span> <span data-i18n="comparisonChoosePeriods">Choose two periods</span></legend><div class="comparison-fields"><div class="field"><label for="comparisonA" data-i18n="comparisonPeriodA">Government period A</label><select id="comparisonA"></select></div><div class="field"><label for="comparisonB" data-i18n="comparisonPeriodB">Government period B</label><select id="comparisonB"></select></div></div><button id="comparisonSwap" class="quiet" data-i18n="comparisonSwap">⇄ Swap periods</button></fieldset>
+    </div>
+    <p id="comparisonNotice" class="notice" role="status" aria-live="polite" hidden></p>
+    <div class="comparison-results-heading"><div><h2 id="comparisonMetricTitle"></h2><p id="comparisonUnit"></p></div><button id="comparisonLink" class="outline" data-i18n="share">Copy view link</button></div>
+    <div id="comparisonCards" class="comparison-cards" aria-live="polite"></div>
+    <p class="note" data-i18n="comparisonMethod">Only full calendar years are used. Both charts share the same vertical scale. Averages use available observations; missing years stay missing.</p>
+    <div class="comparison-export-bar"><div><strong data-i18n="comparisonExportTitle">Make it yours. Share the evidence.</strong><p data-i18n="comparisonExportIntro">Download your branded infographic with sources and observation years attached.</p></div><div class="comparison-export-actions"><label for="comparisonFormat" class="sr-only" data-i18n="graphicFormat">Layout</label><select id="comparisonFormat"><option value="landscape" data-i18n="comparisonLandscape">Landscape · 1600 × 1100</option><option value="portrait" data-i18n="comparisonPortrait">Portrait · 1080 × 1740</option></select><button id="comparisonSvg" class="outline" data-i18n="saveSvg">Download SVG</button><button id="comparisonPng" class="primary" data-i18n="savePng">Download PNG</button><button id="comparisonCsv" class="quiet" data-i18n="csv">↓ CSV</button></div></div>
+    <p id="comparisonExportStatus" role="status" aria-live="polite"></p>
+    <details class="comparison-preview"><summary data-i18n="comparisonPreview">Preview your infographic</summary><div id="comparisonPreview" class="graphic-preview"></div></details>
+    <section class="context-card comparison-context"><h2 data-i18n="behindNumber">Behind the number</h2><p id="comparisonCaveat"></p><details><summary data-i18n="definition">Definition & interpretation</summary><p id="comparisonDefinition"></p></details><p id="comparisonProvenance"></p><div id="comparisonSourceLinks" class="source-links"></div><p class="note" data-i18n="causality">Changes during a government’s term do not establish that its policies caused them.</p></section>
+   </section>
    <section id="page-governments" class="page" hidden><div class="page-heading"><div><p class="eyebrow" data-i18n="politicalHistory">POLITICAL HISTORY</p><h1 data-i18n="governmentTitle">Governments & elections.</h1><p class="lede" data-i18n="govIntro">Cabinet dates, coalition context, and annual observations.</p></div></div><div id="governmentSummary" class="notice"></div><div id="governmentTable" class="table-wrap government-table"></div><details class="context-card"><summary data-i18n="allElections">All parliamentary elections since 1974</summary><div id="electionsList"></div></details></section>
    <section id="page-sources" class="page" hidden><div class="page-heading"><div><p class="eyebrow" data-i18n="traceability">TRACEABILITY</p><h1 data-i18n="sourcesTitle">Every number has a source.</h1><p class="lede" data-i18n="sourcesIntro">Definitions, data coverage and retrieval dates for the complete catalogue.</p></div><button id="downloadAll" class="outline" data-i18n="downloadData">Download dataset</button></div><div id="sourceOverview" class="source-overview"></div><div id="sourceList" class="source-list"></div></section>
    <section id="page-about" class="page" hidden><div class="page-heading"><div><p class="eyebrow">DATACRITUS</p><h1 data-i18n="aboutTitle">Data. Decision. Democracy.</h1></div></div><div id="aboutContent" class="about-content"></div></section>
@@ -76,6 +93,7 @@
  <script id="historyData" type="application/json">/*__HISTORY__*/</script>
  <script>/*__CORE__*/</script>
  <script>/*__INFOGRAPHIC__*/</script>
+ <script>/*__GOVCOMPARISON__*/</script>
  <script>/*__APP__*/</script>
 </body>
 </html>

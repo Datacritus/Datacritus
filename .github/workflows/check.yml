@@ -19,7 +19,9 @@ jobs:
       - run: |
           node --check src/app.js
           node --check src/infographic.js
+          node --check src/government-comparison.js
           node tests/core.test.cjs
+          node tests/government-comparison.test.cjs
           node tests/infographic.test.cjs
           python tests/check_data.py
           python scripts/build.py

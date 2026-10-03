@@ -32,6 +32,7 @@ jobs:
         run: |
           python tests/check_data.py
           node tests/core.test.cjs
+          node tests/government-comparison.test.cjs
       - name: Build standalone site
         run: python scripts/build.py
       - name: Commit validated snapshot

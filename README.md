@@ -15,6 +15,7 @@ python scripts/refresh_data.py
 python tests/check_data.py
 node tests/core.test.cjs
 node tests/infographic.test.cjs
+node tests/government-comparison.test.cjs
 python scripts/build.py
 python -m http.server 8765
 ```
@@ -25,10 +26,12 @@ For a UI-only change, skip the refresh and rebuild against the committed snapsho
 
 1. Readability and sharing: larger typography, clearer controls and single-indicator infographic exports.
 2. Data coverage: 97 audited additions are integrated across three batches (156 indicators total). The latest batch adds 48 distinct headline measures across all 12 categories. Continue with the remaining verified shortlist; conditional and unverified items remain excluded.
-3. Political-period analysis: summarise observed changes alongside common-year European comparisons and major external shocks. No invented causal government score.
+3. Political-period analysis: the two-period infographic tool is implemented. Add deeper context and common-year European comparisons next. No invented causal government score.
 4. Scenario exploration: add explicit assumptions and uncertainty only after a defensible model and adequate data coverage exist.
 
-The infographic builder currently covers one indicator with multiple countries. It does not combine unrelated units, recreate government bands or infer policy effects. Multi-indicator story layouts belong to a later phase.
+The homepage highlights **Compare governments**, the main Studio entry. Choose one indicator and two cabinet periods to see first/last values, observed annual averages, changes and charts with a shared vertical scale. Full calendar years, missing data, short cabinets and differing period lengths remain explicit. Download branded landscape/portrait SVG or PNG, export the underlying CSV, or share a URL preserving the choices and language. No political ranking or causal government score is computed.
+
+The original Studio also supports one indicator with multiple countries. Multi-indicator story layouts belong to a later phase. See `KPI_SCALE_PLAN.md` for the family catalogue and on-demand data architecture recommended before expanding to thousands of detailed series.
 
 ## Data and interpretation
 

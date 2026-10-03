@@ -8,10 +8,10 @@ def build():
     build_history()
     template=(ROOT/'src/index.html').read_text()
     template=template.replace('/*__LOGO__*/','data:image/png;base64,'+base64.b64encode((ROOT/'logo.png').read_bytes()).decode())
-    for marker,path in [('STYLE','src/style.css'),('DATA','data/indicators.json'),('HISTORY','data/history.json'),('CORE','src/core.js'),('INFOGRAPHIC','src/infographic.js'),('APP','src/app.js')]:
+    for marker,path in [('STYLE','src/style.css'),('DATA','data/indicators.json'),('HISTORY','data/history.json'),('CORE','src/core.js'),('INFOGRAPHIC','src/infographic.js'),('GOVCOMPARISON','src/government-comparison.js'),('APP','src/app.js')]:
         value=(ROOT/path).read_text()
         if marker in ('DATA','HISTORY'):value=value.replace('<','\\u003c').replace('>','\\u003e').replace('&','\\u0026')
-        if marker in ('CORE','INFOGRAPHIC','APP') and '</script' in value.lower():raise ValueError('Unsafe inline script closing tag')
+        if marker in ('CORE','INFOGRAPHIC','GOVCOMPARISON','APP') and '</script' in value.lower():raise ValueError('Unsafe inline script closing tag')
         template=template.replace('/*__'+marker+'__*/',value)
     if '/*__' in template:raise ValueError('Unresolved build marker')
     (ROOT/'index.html').write_text(template,encoding='utf-8')
