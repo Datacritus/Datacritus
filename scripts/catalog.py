@@ -253,3 +253,7 @@ DEFINITIONS_EL.update({'NY.GDP.MKTP.CD': 'Συνολικό ΑΕΠ σε τρέχ�
  'FI.RES.TOTL.MO': 'Συνολικά αποθεματικά εκφρασμένα σε μήνες εισαγωγών αγαθών και υπηρεσιών. Η συμμετοχή σε '
                    'νομισματική ένωση έχει σημασία για την ερμηνεία.'})
 METRICS = [dict(code='GOV_WGI_'+c if c.endswith('.EST') else c,title={'en':en,'el':el},unit=u,categories=cat.split(','),change=change,source='3' if c.endswith('.EST') else '2',**({'researchId':RESEARCH_IDS[c],'definitionEl':DEFINITIONS_EL[c]} if c in RESEARCH_IDS else {})) for c,en,el,u,cat,change in ROWS]
+
+# Reviewed expansion uses the same provider metadata and refresh pipeline.
+from expansion import WORLD_BANK
+METRICS += WORLD_BANK

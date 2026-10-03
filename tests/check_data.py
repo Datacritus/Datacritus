@@ -60,3 +60,29 @@ for m in D['metrics']:
  checked+=1
 if raw:assert checked==len(D['metrics'])
 print(f'Validated {len(D["metrics"])} indicators, {count} observations, 26 cabinet periods; {checked} raw source matches')
+
+# Expansion gate: publication keeps the audited coverage, interpretation and unique slices.
+from expansion import WORLD_BANK, EUROSTAT
+from urllib.parse import urlparse, parse_qs
+slices=set()
+for metric in D['metrics']:
+ if metric['source']=='Eurostat':
+  url=urlparse(metric['apiUrl']);params=parse_qs(url.query)
+  signature=(url.path,tuple(sorted((k,tuple(v)) for k,v in params.items() if k not in ('geo','lang'))))
+  assert signature not in slices, f'Duplicate Eurostat slice: {metric["code"]}'
+  slices.add(signature)
+for config in WORLD_BANK+EUROSTAT:
+ m=by_code[config['code']]
+ assert m['title']['en'] and m['title']['el'] and m['definitionEl']
+ assert m['auditCode']==config['auditCode']
+ assert m['change']==('pp' if m['unit'].startswith('%') else 'absolute')
+ years={c:{y for y,v in m['series'][c] if v is not None and y<=2024} for c in ('GRC','ESP','PRT')}
+ assert len(set.intersection(*years.values()))>=5,m['code']
+ g=[(y,v) for y,v in m['series']['GRC'] if v is not None]
+ assert len(g)>=10 and g[-1][0]>=2020 and len({v for y,v in g})>1,m['code']
+ assert len(g)/(g[-1][0]-g[0][0]+1)>=0.7,m['code']
+assert by_code['ESTAT.SALARY.FTE']['change']=='absolute'
+assert by_code['ESTAT.INCOME.MEDIAN']['change']=='absolute'
+assert by_code['ESTAT.UNEMPLOYMENT.LONGTERM']['unit']=='% of labour force ages 15–74'
+assert by_code['ESTAT.JUSTICE.PRISON.RATE']['change']=='absolute'
+print(f'Validated {len(WORLD_BANK)+len(EUROSTAT)} additions: coverage, bilingual definitions and unique source slices')

@@ -41,10 +41,14 @@ TAG_GROUPS = {
  ('tourism','Tourism','Τουρισμός'): 'ST.INT.ARVL ST.INT.RCPT.CD ESTAT.HOTELS.NONRESIDENT ESTAT.HOTELS.RESIDENT ESTAT.TOUR.TRIPS IS.AIR.PSGR',
 }
 CATEGORY_NOTES = {
- 'jobs': {'en':'Current coverage: unemployment and labour participation. Earnings and working-hours series are not yet included.','el':'Τρέχουσα κάλυψη: ανεργία και συμμετοχή στην εργασία. Δεν περιλαμβάνονται ακόμη σειρές αποδοχών και ωρών εργασίας.'},
+ 'jobs': {'en':'Employment, unemployment, labour participation and nominal gross salary describe different aspects of work. Salary is not take-home pay or purchasing power.','el':'Απασχόληση, ανεργία, συμμετοχή στην εργασία και ονομαστικός μικτός μισθός καλύπτουν διαφορετικές πτυχές. Ο μισθός δεν είναι καθαρό εισόδημα ή αγοραστική δύναμη.'},
  'governance': {'en':'Institutional estimates, representation and public safety describe different aspects; they are not a single government score.','el':'Θεσμικές εκτιμήσεις, εκπροσώπηση και δημόσια ασφάλεια καλύπτουν διαφορετικές πτυχές· δεν αποτελούν ενιαία βαθμολογία κυβέρνησης.'},
- 'culture': {'en':'Cultural employment and tourism are separate aspects, not measures of cultural quality.','el':'Πολιτιστική απασχόληση και τουρισμός είναι διαφορετικές πτυχές, όχι μέτρα πολιτιστικής ποιότητας.'},
+ 'culture': {'en':'Cultural employment, tourism and recreation/culture/religion spending are separate aspects, not measures of cultural quality.','el':'Πολιτιστική απασχόληση, τουρισμός και δαπάνες αναψυχής/πολιτισμού/θρησκείας είναι διαφορετικές πτυχές, όχι μέτρα πολιτιστικής ποιότητας.'},
 }
+from expansion import WORLD_BANK, EUROSTAT
+for metric in WORLD_BANK + EUROSTAT:
+    GROUPS[metric['categories'][0]] += ' ' + metric['code']
+
 PRIMARY = {code:cat for cat,codes in GROUPS.items() for code in codes.split()}
 assert len(PRIMARY) == sum(len(codes.split()) for codes in GROUPS.values())
 LEGACY = {'housing':'wellbeing','security':'governance','digital':'business','technology':'education','justice':'governance','energy':'environment','infrastructure':'transport','resilience':'environment','international':'business','freedom':'governance'}

@@ -117,6 +117,9 @@ CATALOG += [{'code': 'ESTAT.WASTE.RECYCLING',
   'definitionEl': 'Εκπομπές CO₂ από εγχώρια πολιτική αεροπορία (CRF 1A3A). Δεν περιλαμβάνει διεθνή αεροπορία '
                   'ή άλλες κλιματικές επιδράσεις των πτήσεων.'}]
 
+from expansion import EUROSTAT
+CATALOG += EUROSTAT
+
 def parse_payload(payload):
     ids=payload['id'];sizes=payload['size'];dims=payload['dimension']
     geo_idx=ids.index('geo');time_idx=ids.index('time')
