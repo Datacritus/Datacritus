@@ -40,6 +40,23 @@ def fetch(url):
             if attempt<2: time.sleep(1+attempt)
     raise RuntimeError(f'{url}: {error}')
 
+def fetch_metadata(source):
+    # The source/3 catalogue endpoint intermittently times out or returns 502.
+    # Fetch only the governance identifiers we use via the indicator endpoint.
+    if source != '3':
+        return fetch(f'https://api.worldbank.org/v2/source/{source}/indicator?format=json&per_page=2000')
+    codes = [m['code'] for m in METRICS if m['source'] == source]
+    rows = []
+    for code in codes:
+        payload, _ = fetch(f'https://api.worldbank.org/v2/indicator/{code}?source={source}&format=json')
+        matches = [row for row in (payload[1] or [])
+                   if row.get('id') == code and str(row.get('source', {}).get('id')) == source]
+        if len(matches) != 1:
+            raise ValueError(f'Missing or ambiguous metadata for {code} in source {source}')
+        rows.extend(matches)
+    payload = [{'page': 1, 'pages': 1, 'per_page': len(rows), 'total': len(rows)}, rows]
+    return payload, json.dumps(payload, ensure_ascii=False).encode('utf-8')
+
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--cached-metadata',action='store_true',help='Use already fetched metadata for this build only')
@@ -50,7 +67,7 @@ def main():
         path=RAW/f'metadata-{source}.json'
         if args.cached_metadata and path.exists(): payload=json.loads(path.read_text())
         else:
-            payload,raw=fetch(f'https://api.worldbank.org/v2/source/{source}/indicator?format=json&per_page=20000')
+            payload,raw=fetch_metadata(source)
             path.write_bytes(raw)
         metadata[source]={m['id']:m for m in payload[1]}
     invalid=[m['code'] for m in METRICS if m['code'] not in metadata[m['source']]]
