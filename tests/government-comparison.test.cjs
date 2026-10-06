@@ -13,3 +13,14 @@ for(const lang of ['en','el'])for(const format of ['landscape','portrait']){cons
 const data=require('../data/indicators.json'),history=require('../data/history.json');let exportCount=0;
 for(const item of data.metrics){const cmp=G.model({metric:item,terms:history.governments.filter(t=>['2015-09-21','2019-07-08'].includes(t.id)),asOf:history.verifiedAt});for(const lang of ['en','el'])for(const format of ['landscape','portrait']){const image=G.build({comparison:cmp,lang,format});assert.ok(!/NaN|undefined/.test(image.svg),item.code);assert.ok(image.svg.includes(item.code));exportCount++;}}
 console.log(`Government comparison: correct full years, gaps, zero, averages, flags, pp, escaped text, CSV and ${exportCount} catalogue exports`);
+
+// Annual credible bounds belong to source estimates, not arithmetic term averages.
+const estimate={...metric,unit:'model index',change:'absolute',license:'CC BY-SA 4.0',termsUrl:'https://creativecommons.org/licenses/by-sa/4.0/',attribution:'V-Dem Project, Dataset v16',sourceVersion:'16',uncertaintyLevel:.68,uncertainty:{GRC:{2019:[-2,10],2021:[-3,2],2023:[4,11],2024:[6,14],2025:[15,25]}}};
+const em=G.model({metric:estimate,terms,asOf:'2026-10-03'});
+assert.ok(em.ticks[0]<=-3&&em.ticks.at(-1)>=25,'Bounds must fit the shared axis');
+assert.equal(em.periods[0].mean,4,'Keep the mean of point estimates');
+assert.equal(em.periods[0].meanUncertainty,undefined,'Do not invent a confidence interval for the mean');
+assert.match(G.chart({period:em.periods[0],ticks:em.ticks}),/opacity=".35"/);
+assert.match(G.csv(em),/uncertainty_low/);assert.match(G.csv(em),/"-2","10","0.68"/);
+const eg=G.build({comparison:em});assert.ok(eg.svg.includes(estimate.termsUrl));assert.match(eg.svg,/not intervals for term averages/);
+assert.equal(eg.height,1250,'Credit and uncertainty notes get their own space');

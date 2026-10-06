@@ -1,6 +1,6 @@
-# Datacritus: grow beyond 156 headline indicators
+# Datacritus: grow beyond 419 reviewed indicators
 
-The 3 October scan tested all 1,498 current World Bank WDI catalogue codes for Greece, Spain and Portugal, reconciled the 1,496-code upload, and refreshed 42 exact Eurostat extracts. Its 814 strong-coverage candidates include age, sex, unit and other variants. The current site publishes 156 reviewed headline indicators, including 48 selected from that expansion audit. The 814 count predates those 48 integrations; it is not 814 additional candidates remaining today. It is not a validated count of independent KPI concepts.
+The 3 October scan tested all 1,498 current World Bank WDI catalogue codes for Greece, Spain and Portugal, reconciled the 1,496-code upload, and refreshed 42 exact Eurostat extracts. Its 814 strong-coverage candidates include age, sex, unit and other variants. Before the October 2026 provider expansion, the site published 156 reviewed headline indicators, including 48 selected from that expansion audit. The 814 count predates those 48 integrations; it is not 814 additional candidates remaining today. It is not a validated count of independent KPI concepts.
 
 ## Recommended next implementation
 
@@ -21,3 +21,7 @@ Duplicate detection uses provider, dataset, exact dimensions and units, with edi
 Work toward **1,000+ validated detailed series**, with a much smaller curated headline layer. This is an engineering and editorial target, not a claim that 1,000 suitable Greek series have already passed validation. The confirmed audit pool is the starting point; additional Eurostat dimensions and specialist sources need further checks. Expand category depth according to available evidence rather than forcing equal counts in every category.
 
 The next concrete deliverable should be the family catalogue and on-demand data loading, followed by the next validated batch. The government comparison tool will then consume that same catalogue without a separate manual import.
+
+## October 2026 implementation
+
+The 263 vetted additions (V-Dem 207, UIS 24, PWT 18, UNDP 14) expand the site from 156 to 419 reviewed definitions. The 140 named conditional candidates are excluded. The 23,670-entry inventory is not a distinct-KPI count. Source-based groups keep the larger catalogue navigable. Composites and components are related; the product does not combine them into politician rankings.

@@ -6,8 +6,9 @@ sys.path.insert(0,str(ROOT/'scripts'))
 from eurostat import parse_payload, transform_series
 from catalog import METRICS
 from eurostat import CATALOG
+from vetted import MANIFEST, metrics_from_receipt
 D=json.loads((ROOT/'data/indicators.json').read_text());H=json.loads((ROOT/'data/history.json').read_text())
-expected={m['code'] for m in METRICS+CATALOG}
+expected={m['code'] for m in METRICS+CATALOG+MANIFEST}
 assert {m['code'] for m in D['metrics']}==expected
 assert len(D['metrics'])==len(expected)
 assert len(D['categories'])==12
@@ -47,7 +48,23 @@ assert len(H['elections'])==20
 assert len({e['date'] for e in H['elections']})==20
 raw={hashlib.sha256(p.read_bytes()).hexdigest():p for p in (ROOT/'data/raw').glob('*.json')}
 checked=0
+receipts={}
+upstream_hashes={hashlib.sha256(p.read_bytes()).hexdigest() for p in (ROOT/'data/raw').glob('vetted-*-source.*')}
+upstream_hashes.update(hashlib.sha256(p.read_bytes()).hexdigest() for p in (ROOT/'data/raw').glob('vetted-*-metadata.*'))
 for m in D['metrics']:
+ if m.get('auditId'):
+  path=raw.get(m['rawReceiptSha256'])
+  if path:
+   assert set(m['upstreamHashes'].values())<=upstream_hashes, 'Missing original source bytes'
+   provider=m['code'].split('.')[0].lower()
+   if provider not in receipts:
+    payload=json.loads(path.read_text());payload['receiptSha256']=hashlib.sha256(path.read_bytes()).hexdigest()
+    receipts[provider]={x['code']:x for x in metrics_from_receipt(payload)}
+   replay=receipts[provider][m['code']]
+   for key in ('series','flags','uncertainty','unit','change','definition','coverage','upstreamHashes','transformation'):
+    assert replay[key]==m[key],(m['code'],key)
+   checked+=1
+  continue
  if m['sha256'] not in raw:continue
  payload=json.loads(raw[m['sha256']].read_text())
  if m['source']=='Eurostat':
@@ -86,3 +103,19 @@ assert by_code['ESTAT.INCOME.MEDIAN']['change']=='absolute'
 assert by_code['ESTAT.UNEMPLOYMENT.LONGTERM']['unit']=='% of labour force ages 15–74'
 assert by_code['ESTAT.JUSTICE.PRISON.RATE']['change']=='absolute'
 print(f'Validated {len(WORLD_BANK)+len(EUROSTAT)} additions: coverage, bilingual definitions and unique source slices')
+
+for config in MANIFEST:
+ m=by_code[config['code']]
+ assert m['auditId']==config['auditId'] and m['license']==config['license']
+ assert m['termsUrl'].startswith('https://') and m['attribution'] and m['sourceVersion']
+ assert m['interpretation']['en'] and m['interpretation']['el']
+ assert m['series']['EUU']==[], 'Never invent an EU aggregate'
+ if config['provider']=='vdem':
+  assert m['uncertaintyLevel']==(.68 if any(m['uncertainty'].values()) else None) and m['change']=='absolute'
+  for c,years in m['uncertainty'].items():
+   values=dict(m['series'][c])
+   for year,(low,high) in years.items():
+    assert math.isfinite(low) and math.isfinite(high) and low<=high and int(year) in values
+ assert m['coverage']['observations']>=10 and m['coverage']['end']>=2020
+assert len(MANIFEST)==263
+print('Validated all 263 reviewed additions, source versions, licences, units and uncertainty')

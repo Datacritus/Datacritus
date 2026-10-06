@@ -13,6 +13,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Install reviewed source readers
+        run: pip install -r scripts/requirements.txt
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -24,5 +26,6 @@ jobs:
           node tests/government-comparison.test.cjs
           node tests/infographic.test.cjs
           python tests/check_data.py
+          python tests/vetted.test.py
           python scripts/build.py
           git diff --exit-code -- index.html data/history.json

@@ -31,3 +31,6 @@ for(const metric of D.metrics)for(const lang of ['en','el'])for(const format of 
  assert.ok(result.svg.includes(metric.code)&&result.svg.includes(metric.sourceUrl.replaceAll('&','&amp;')));
 }
 console.log(`Infographic checks passed: gaps, zero values, common-year comparisons, escaped titles, flags, axes and ${D.metrics.length*4} catalogue exports`);
+
+const estimated={...fixture,unit:'index',change:'absolute',license:'CC BY-SA 4.0',termsUrl:'https://creativecommons.org/licenses/by-sa/4.0/',attribution:'Research source',sourceVersion:'16',uncertaintyLevel:.68,uncertainty:{GRC:{2020:[-2,9],2021:[-1,3]}}};
+const bounded=I.build({...options,metric:estimated});assert.match(bounded.svg,/annual 68% uncertainty bounds/);assert.ok(bounded.svg.includes(estimated.termsUrl));assert.match(bounded.svg,/opacity=".35"/);assert.equal(bounded.height,1150);

@@ -1,0 +1,4814 @@
+[
+  {
+    "provider": "uis",
+    "sourceCode": "26637",
+    "category": "education",
+    "unit": "number",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://databrowser.uis.unesco.org/terms-and-conditions",
+    "code": "UIS.26637",
+    "title": "Total inbound internationally mobile students, both sexes (number)",
+    "auditId": "uis:88e693e7506537b986",
+    "minimumGreekObservations": 18
+  },
+  {
+    "provider": "uis",
+    "sourceCode": "OE.5T8.40510",
+    "category": "education",
+    "unit": "number",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://databrowser.uis.unesco.org/terms-and-conditions",
+    "code": "UIS.OE.5T8.40510",
+    "title": "Total outbound internationally mobile tertiary students studying abroad, all countries, both sexes (UIS estimate) (number)",
+    "auditId": "uis:721ecf96f6849e85b2",
+    "minimumGreekObservations": 26
+  },
+  {
+    "provider": "uis",
+    "sourceCode": "MOR.5T8.40510",
+    "category": "education",
+    "unit": "%",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://databrowser.uis.unesco.org/terms-and-conditions",
+    "code": "UIS.MOR.5T8.40510",
+    "title": "Outbound mobility ratio, all regions, both sexes (UIS estimate) (%)",
+    "auditId": "uis:2ae0b1e28f9d6749cf",
+    "minimumGreekObservations": 23
+  },
+  {
+    "provider": "uis",
+    "sourceCode": "AIR.1.GLAST",
+    "category": "education",
+    "unit": "%",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://databrowser.uis.unesco.org/terms-and-conditions",
+    "code": "UIS.AIR.1.GLAST",
+    "title": "Gross intake ratio to the last grade of primary education, both sexes (%)",
+    "auditId": "uis:a16965b9031ea4dd0b",
+    "minimumGreekObservations": 18
+  },
+  {
+    "provider": "uis",
+    "sourceCode": "AIR.2.GPV.GLAST",
+    "category": "education",
+    "unit": "%",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://databrowser.uis.unesco.org/terms-and-conditions",
+    "code": "UIS.AIR.2.GPV.GLAST",
+    "title": "Gross intake ratio to the last grade of lower secondary general education, both sexes (%)",
+    "auditId": "uis:3fdad6000866dc37b2",
+    "minimumGreekObservations": 17
+  },
+  {
+    "provider": "uis",
+    "sourceCode": "CR.3",
+    "category": "education",
+    "unit": "%",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://databrowser.uis.unesco.org/terms-and-conditions",
+    "code": "UIS.CR.3",
+    "title": "Completion rate, upper secondary education, both sexes (%)",
+    "auditId": "uis:0d8fc721c301e18346",
+    "minimumGreekObservations": 16
+  },
+  {
+    "provider": "uis",
+    "sourceCode": "ETOIP.02.PR",
+    "category": "education",
+    "unit": "%",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://databrowser.uis.unesco.org/terms-and-conditions",
+    "code": "UIS.ETOIP.02.PR",
+    "title": "Percentage of enrolment in pre-primary education in private institutions, both sexes (%)",
+    "auditId": "uis:5f68c803ead99de75a",
+    "minimumGreekObservations": 48
+  },
+  {
+    "provider": "uis",
+    "sourceCode": "ETOIP.1.PR",
+    "category": "education",
+    "unit": "%",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://databrowser.uis.unesco.org/terms-and-conditions",
+    "code": "UIS.ETOIP.1.PR",
+    "title": "Percentage of enrolment in primary education in private institutions, both sexes (%)",
+    "auditId": "uis:28fd00a673c472c689",
+    "minimumGreekObservations": 43
+  },
+  {
+    "provider": "uis",
+    "sourceCode": "ETOIP.2.PR",
+    "category": "education",
+    "unit": "%",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://databrowser.uis.unesco.org/terms-and-conditions",
+    "code": "UIS.ETOIP.2.PR",
+    "title": "Percentage of enrolment in lower secondary education in private institutions, both sexes (%)",
+    "auditId": "uis:8d541ebef5eae4abd2",
+    "minimumGreekObservations": 24
+  },
+  {
+    "provider": "uis",
+    "sourceCode": "ETOIP.3.PR",
+    "category": "education",
+    "unit": "%",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://databrowser.uis.unesco.org/terms-and-conditions",
+    "code": "UIS.ETOIP.3.PR",
+    "title": "Percentage of enrolment in upper secondary education in private institutions, both sexes (%)",
+    "auditId": "uis:bd3ef143a48fddd6ae",
+    "minimumGreekObservations": 24
+  },
+  {
+    "provider": "uis",
+    "sourceCode": "GER.2",
+    "category": "education",
+    "unit": "%",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://databrowser.uis.unesco.org/terms-and-conditions",
+    "code": "UIS.GER.2",
+    "title": "Gross enrolment ratio, lower secondary, both sexes (%)",
+    "auditId": "uis:ac10b84724545118ad",
+    "minimumGreekObservations": 22
+  },
+  {
+    "provider": "uis",
+    "sourceCode": "GER.3",
+    "category": "education",
+    "unit": "%",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://databrowser.uis.unesco.org/terms-and-conditions",
+    "code": "UIS.GER.3",
+    "title": "Gross enrolment ratio, upper secondary, both sexes (%)",
+    "auditId": "uis:14c100679ba899de8f",
+    "minimumGreekObservations": 22
+  },
+  {
+    "provider": "uis",
+    "sourceCode": "GGR.6T7",
+    "category": "education",
+    "unit": "%",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://databrowser.uis.unesco.org/terms-and-conditions",
+    "code": "UIS.GGR.6T7",
+    "title": "Gross graduation ratio from first degree programmes (ISCED 6 and 7) in tertiary education, both sexes (%)",
+    "auditId": "uis:92e1940886ed769ed6",
+    "minimumGreekObservations": 14
+  },
+  {
+    "provider": "uis",
+    "sourceCode": "NER.02.CP",
+    "category": "education",
+    "unit": "%",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://databrowser.uis.unesco.org/terms-and-conditions",
+    "code": "UIS.NER.02.CP",
+    "title": "Net enrolment rate, pre-primary, both sexes (%)",
+    "auditId": "uis:2edfee6cc777042866",
+    "minimumGreekObservations": 21
+  },
+  {
+    "provider": "uis",
+    "sourceCode": "NERA.AGM1.CP",
+    "category": "education",
+    "unit": "%",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://databrowser.uis.unesco.org/terms-and-conditions",
+    "code": "UIS.NERA.AGM1.CP",
+    "title": "Adjusted net enrolment rate, one year before the official primary entry age, both sexes (%)",
+    "auditId": "uis:523ab280117cb4a55c",
+    "minimumGreekObservations": 22
+  },
+  {
+    "provider": "uis",
+    "sourceCode": "ROFST.1.CP",
+    "category": "education",
+    "unit": "%",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://databrowser.uis.unesco.org/terms-and-conditions",
+    "code": "UIS.ROFST.1.CP",
+    "title": "Out-of-school rate for children of primary school age, both sexes (%)",
+    "auditId": "uis:37eaf53541f2be19cd",
+    "minimumGreekObservations": 22
+  },
+  {
+    "provider": "uis",
+    "sourceCode": "ROFST.2.CP",
+    "category": "education",
+    "unit": "%",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://databrowser.uis.unesco.org/terms-and-conditions",
+    "code": "UIS.ROFST.2.CP",
+    "title": "Out-of-school rate for adolescents of lower secondary school age, both sexes (%)",
+    "auditId": "uis:8e6f19696bc2990f72",
+    "minimumGreekObservations": 20
+  },
+  {
+    "provider": "uis",
+    "sourceCode": "ROFST.3.CP",
+    "category": "education",
+    "unit": "%",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://databrowser.uis.unesco.org/terms-and-conditions",
+    "code": "UIS.ROFST.3.CP",
+    "title": "Out-of-school rate for youth of upper secondary school age, both sexes (%)",
+    "auditId": "uis:341523ffa90e65cc0b",
+    "minimumGreekObservations": 20
+  },
+  {
+    "provider": "uis",
+    "sourceCode": "ROFST.AGM1.CP",
+    "category": "education",
+    "unit": "%",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://databrowser.uis.unesco.org/terms-and-conditions",
+    "code": "UIS.ROFST.AGM1.CP",
+    "title": "Out-of-school rate for children one year before the official primary entry age, both sexes (%)",
+    "auditId": "uis:6a80071911d74634c9",
+    "minimumGreekObservations": 22
+  },
+  {
+    "provider": "uis",
+    "sourceCode": "SLE.02",
+    "category": "education",
+    "unit": "years",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://databrowser.uis.unesco.org/terms-and-conditions",
+    "code": "UIS.SLE.02",
+    "title": "School life expectancy, pre-primary, both sexes (years)",
+    "auditId": "uis:05392ec43fbd6c6e27",
+    "minimumGreekObservations": 22
+  },
+  {
+    "provider": "uis",
+    "sourceCode": "SLE.1",
+    "category": "education",
+    "unit": "years",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://databrowser.uis.unesco.org/terms-and-conditions",
+    "code": "UIS.SLE.1",
+    "title": "School life expectancy, primary, both sexes (years)",
+    "auditId": "uis:def3d03e98cbe4b520",
+    "minimumGreekObservations": 22
+  },
+  {
+    "provider": "uis",
+    "sourceCode": "SLE.2T3",
+    "category": "education",
+    "unit": "years",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://databrowser.uis.unesco.org/terms-and-conditions",
+    "code": "UIS.SLE.2T3",
+    "title": "School life expectancy, secondary, both sexes (years)",
+    "auditId": "uis:7d2c5393d7d80b4764",
+    "minimumGreekObservations": 22
+  },
+  {
+    "provider": "uis",
+    "sourceCode": "SLE.4",
+    "category": "education",
+    "unit": "years",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://databrowser.uis.unesco.org/terms-and-conditions",
+    "code": "UIS.SLE.4",
+    "title": "School life expectancy, post-secondary non-tertiary, both sexes (years)",
+    "auditId": "uis:b766c872598fbe347b",
+    "minimumGreekObservations": 17
+  },
+  {
+    "provider": "uis",
+    "sourceCode": "SLE.5T8",
+    "category": "education",
+    "unit": "years",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://databrowser.uis.unesco.org/terms-and-conditions",
+    "code": "UIS.SLE.5T8",
+    "title": "School life expectancy, tertiary, both sexes (years)",
+    "auditId": "uis:6a7aa2849076d4de7a",
+    "minimumGreekObservations": 21
+  },
+  {
+    "provider": "pwt",
+    "sourceCode": "avh",
+    "category": "jobs",
+    "unit": "hours per engaged person per year",
+    "license": "CC BY 4.0",
+    "termsUrl": "https://www.rug.nl/ggdc/productivity/pwt/",
+    "code": "PWT.avh",
+    "title": "Average annual hours worked by persons engaged",
+    "auditId": "pwt:1cada62893091fa3a7",
+    "minimumGreekObservations": 50
+  },
+  {
+    "provider": "pwt",
+    "sourceCode": "hc",
+    "category": "education",
+    "unit": "human capital index",
+    "license": "CC BY 4.0",
+    "termsUrl": "https://www.rug.nl/ggdc/productivity/pwt/",
+    "code": "PWT.hc",
+    "title": "Human capital index, based on years of schooling and returns to education; see Human capital in PWT9.",
+    "auditId": "pwt:850f9ef8d53cf47685",
+    "minimumGreekObservations": 50
+  },
+  {
+    "provider": "pwt",
+    "sourceCode": "rconna",
+    "category": "economy",
+    "unit": "million 2021 US dollars, constant national prices",
+    "license": "CC BY 4.0",
+    "termsUrl": "https://www.rug.nl/ggdc/productivity/pwt/",
+    "code": "PWT.rconna",
+    "title": "Real consumption at constant 2021 national prices (in mil. 2021US$)",
+    "auditId": "pwt:0a0cd8e624cf961142",
+    "minimumGreekObservations": 50
+  },
+  {
+    "provider": "pwt",
+    "sourceCode": "rdana",
+    "category": "economy",
+    "unit": "million 2021 US dollars, constant national prices",
+    "license": "CC BY 4.0",
+    "termsUrl": "https://www.rug.nl/ggdc/productivity/pwt/",
+    "code": "PWT.rdana",
+    "title": "Real domestic absorption at constant 2021 national prices (in mil. 2021US$)",
+    "auditId": "pwt:a4ff92c4f0ce66cb2a",
+    "minimumGreekObservations": 50
+  },
+  {
+    "provider": "pwt",
+    "sourceCode": "rnna",
+    "category": "economy",
+    "unit": "million 2021 US dollars, constant national prices",
+    "license": "CC BY 4.0",
+    "termsUrl": "https://www.rug.nl/ggdc/productivity/pwt/",
+    "code": "PWT.rnna",
+    "title": "Capital stock at constant 2021 national prices (in mil. 2021US$)",
+    "auditId": "pwt:f0442a38638588582f",
+    "minimumGreekObservations": 50
+  },
+  {
+    "provider": "pwt",
+    "sourceCode": "rkna",
+    "category": "economy",
+    "unit": "index, 2021=1",
+    "license": "CC BY 4.0",
+    "termsUrl": "https://www.rug.nl/ggdc/productivity/pwt/",
+    "code": "PWT.rkna",
+    "title": "Capital services at constant 2021 national prices (2021=1)",
+    "auditId": "pwt:9ecc21ebeb7eb8e70a",
+    "minimumGreekObservations": 50
+  },
+  {
+    "provider": "pwt",
+    "sourceCode": "rtfpna",
+    "category": "economy",
+    "unit": "index, 2021=1",
+    "license": "CC BY 4.0",
+    "termsUrl": "https://www.rug.nl/ggdc/productivity/pwt/",
+    "code": "PWT.rtfpna",
+    "title": "TFP at constant national prices (2021=1)",
+    "auditId": "pwt:5c1cbec6b25498db62",
+    "minimumGreekObservations": 50
+  },
+  {
+    "provider": "pwt",
+    "sourceCode": "rwtfpna",
+    "category": "economy",
+    "unit": "index, 2021=1",
+    "license": "CC BY 4.0",
+    "termsUrl": "https://www.rug.nl/ggdc/productivity/pwt/",
+    "code": "PWT.rwtfpna",
+    "title": "Welfare-relevant TFP at constant national prices (2021=1)",
+    "auditId": "pwt:31fec4869aa5ec381c",
+    "minimumGreekObservations": 50
+  },
+  {
+    "provider": "pwt",
+    "sourceCode": "labsh",
+    "category": "jobs",
+    "unit": "share (fraction of GDP)",
+    "license": "CC BY 4.0",
+    "termsUrl": "https://www.rug.nl/ggdc/productivity/pwt/",
+    "code": "PWT.labsh",
+    "title": "Share of labour compensation in GDP at current national prices",
+    "auditId": "pwt:a13df0a3e71efe80a6",
+    "minimumGreekObservations": 50
+  },
+  {
+    "provider": "pwt",
+    "sourceCode": "irr",
+    "category": "economy",
+    "unit": "rate (fraction)",
+    "license": "CC BY 4.0",
+    "termsUrl": "https://www.rug.nl/ggdc/productivity/pwt/",
+    "code": "PWT.irr",
+    "title": "Real internal rate of return",
+    "auditId": "pwt:8ce1249e693f6a1c59",
+    "minimumGreekObservations": 50
+  },
+  {
+    "provider": "pwt",
+    "sourceCode": "delta",
+    "category": "economy",
+    "unit": "rate (fraction)",
+    "license": "CC BY 4.0",
+    "termsUrl": "https://www.rug.nl/ggdc/productivity/pwt/",
+    "code": "PWT.delta",
+    "title": "Average depreciation rate of the capital stock",
+    "auditId": "pwt:4f4a9410ffcdf895c4",
+    "minimumGreekObservations": 50
+  },
+  {
+    "provider": "pwt",
+    "sourceCode": "pl_c",
+    "category": "economy",
+    "unit": "price level relative to USA GDPo in 2021=1",
+    "license": "CC BY 4.0",
+    "termsUrl": "https://www.rug.nl/ggdc/productivity/pwt/",
+    "code": "PWT.pl_c",
+    "title": "Price level of household consumption,  price level of USA GDPo in 2021=1",
+    "auditId": "pwt:30fdd2c07229b58b30",
+    "minimumGreekObservations": 50
+  },
+  {
+    "provider": "pwt",
+    "sourceCode": "pl_i",
+    "category": "economy",
+    "unit": "price level relative to USA GDPo in 2021=1",
+    "license": "CC BY 4.0",
+    "termsUrl": "https://www.rug.nl/ggdc/productivity/pwt/",
+    "code": "PWT.pl_i",
+    "title": "Price level of capital formation,  price level of USA GDPo in 2021=1",
+    "auditId": "pwt:a14abeea16f3f0eb70",
+    "minimumGreekObservations": 50
+  },
+  {
+    "provider": "pwt",
+    "sourceCode": "pl_g",
+    "category": "economy",
+    "unit": "price level relative to USA GDPo in 2021=1",
+    "license": "CC BY 4.0",
+    "termsUrl": "https://www.rug.nl/ggdc/productivity/pwt/",
+    "code": "PWT.pl_g",
+    "title": "Price level of government consumption,  price level of USA GDPo in 2021=1",
+    "auditId": "pwt:01d0ceb9b8c06955fe",
+    "minimumGreekObservations": 50
+  },
+  {
+    "provider": "pwt",
+    "sourceCode": "pl_x",
+    "category": "economy",
+    "unit": "price level relative to USA GDPo in 2021=1",
+    "license": "CC BY 4.0",
+    "termsUrl": "https://www.rug.nl/ggdc/productivity/pwt/",
+    "code": "PWT.pl_x",
+    "title": "Price level of exports, price level of USA GDPo in 2021=1",
+    "auditId": "pwt:c0beeeb95d38ffd391",
+    "minimumGreekObservations": 50
+  },
+  {
+    "provider": "pwt",
+    "sourceCode": "pl_m",
+    "category": "economy",
+    "unit": "price level relative to USA GDPo in 2021=1",
+    "license": "CC BY 4.0",
+    "termsUrl": "https://www.rug.nl/ggdc/productivity/pwt/",
+    "code": "PWT.pl_m",
+    "title": "Price level of imports, price level of USA GDPo in 2021=1",
+    "auditId": "pwt:717bd74befeac39348",
+    "minimumGreekObservations": 50
+  },
+  {
+    "provider": "pwt",
+    "sourceCode": "pl_n",
+    "category": "economy",
+    "unit": "price level relative to USA in 2021=1",
+    "license": "CC BY 4.0",
+    "termsUrl": "https://www.rug.nl/ggdc/productivity/pwt/",
+    "code": "PWT.pl_n",
+    "title": "Price level of the capital stock, price level of USA in 2021=1",
+    "auditId": "pwt:a4a019b8e5b7e86eaa",
+    "minimumGreekObservations": 50
+  },
+  {
+    "provider": "pwt",
+    "sourceCode": "pl_k",
+    "category": "economy",
+    "unit": "price level relative to USA in 2021=1",
+    "license": "CC BY 4.0",
+    "termsUrl": "https://www.rug.nl/ggdc/productivity/pwt/",
+    "code": "PWT.pl_k",
+    "title": "Price level of the capital services, price level of USA=1",
+    "auditId": "pwt:60c854a68e68bb01dc",
+    "minimumGreekObservations": 50
+  },
+  {
+    "provider": "undp",
+    "sourceCode": "hdi",
+    "category": "wellbeing",
+    "unit": "index (0–1)",
+    "license": "CC BY 3.0 IGO",
+    "termsUrl": "https://hdr.undp.org/copyright-and-terms-use",
+    "code": "UNDP.hdi",
+    "title": "Human Development Index",
+    "auditId": "undp:c6a13a77b68443c76c",
+    "minimumGreekObservations": 34
+  },
+  {
+    "provider": "undp",
+    "sourceCode": "gdi",
+    "category": "wellbeing",
+    "unit": "female HDI / male HDI ratio",
+    "license": "CC BY 3.0 IGO",
+    "termsUrl": "https://hdr.undp.org/copyright-and-terms-use",
+    "code": "UNDP.gdi",
+    "title": "Gender Development Index",
+    "auditId": "undp:9cb934b00b089d64f3",
+    "minimumGreekObservations": 34
+  },
+  {
+    "provider": "undp",
+    "sourceCode": "ihdi",
+    "category": "wellbeing",
+    "unit": "index (0–1)",
+    "license": "CC BY 3.0 IGO",
+    "termsUrl": "https://hdr.undp.org/copyright-and-terms-use",
+    "code": "UNDP.ihdi",
+    "title": "Inequality-adjusted Human Development Index",
+    "auditId": "undp:15210de18cffe9747c",
+    "minimumGreekObservations": 14
+  },
+  {
+    "provider": "undp",
+    "sourceCode": "coef_ineq",
+    "category": "wellbeing",
+    "unit": "percent",
+    "license": "CC BY 3.0 IGO",
+    "termsUrl": "https://hdr.undp.org/copyright-and-terms-use",
+    "code": "UNDP.coef_ineq",
+    "title": "Coefficient of human inequality",
+    "auditId": "undp:0a2c98149c0d8c5ba1",
+    "minimumGreekObservations": 14
+  },
+  {
+    "provider": "undp",
+    "sourceCode": "loss",
+    "category": "wellbeing",
+    "unit": "percent",
+    "license": "CC BY 3.0 IGO",
+    "termsUrl": "https://hdr.undp.org/copyright-and-terms-use",
+    "code": "UNDP.loss",
+    "title": "Human development loss due to inequality",
+    "auditId": "undp:2ea71c18131a7f0383",
+    "minimumGreekObservations": 14
+  },
+  {
+    "provider": "undp",
+    "sourceCode": "ineq_le",
+    "category": "health",
+    "unit": "percent",
+    "license": "CC BY 3.0 IGO",
+    "termsUrl": "https://hdr.undp.org/copyright-and-terms-use",
+    "code": "UNDP.ineq_le",
+    "title": "Inequality in life expectancy",
+    "auditId": "undp:39688f43e75e163d90",
+    "minimumGreekObservations": 14
+  },
+  {
+    "provider": "undp",
+    "sourceCode": "ineq_edu",
+    "category": "education",
+    "unit": "percent",
+    "license": "CC BY 3.0 IGO",
+    "termsUrl": "https://hdr.undp.org/copyright-and-terms-use",
+    "code": "UNDP.ineq_edu",
+    "title": "Inequality in education",
+    "auditId": "undp:4dbbc2f0d432f2eb6b",
+    "minimumGreekObservations": 14
+  },
+  {
+    "provider": "undp",
+    "sourceCode": "ineq_inc",
+    "category": "wellbeing",
+    "unit": "percent",
+    "license": "CC BY 3.0 IGO",
+    "termsUrl": "https://hdr.undp.org/copyright-and-terms-use",
+    "code": "UNDP.ineq_inc",
+    "title": "Inequality in income",
+    "auditId": "undp:2221788922d1882e71",
+    "minimumGreekObservations": 14
+  },
+  {
+    "provider": "undp",
+    "sourceCode": "gii",
+    "category": "wellbeing",
+    "unit": "index (0–1)",
+    "license": "CC BY 3.0 IGO",
+    "termsUrl": "https://hdr.undp.org/copyright-and-terms-use",
+    "code": "UNDP.gii",
+    "title": "Gender Inequality Index",
+    "auditId": "undp:f95732f27705816947",
+    "minimumGreekObservations": 34
+  },
+  {
+    "provider": "undp",
+    "sourceCode": "phdi",
+    "category": "environment",
+    "unit": "index (0–1)",
+    "license": "CC BY 3.0 IGO",
+    "termsUrl": "https://hdr.undp.org/copyright-and-terms-use",
+    "code": "UNDP.phdi",
+    "title": "Planetary pressures-adjusted HDI",
+    "auditId": "undp:ffa6d5a5a1e9e30221",
+    "minimumGreekObservations": 34
+  },
+  {
+    "provider": "undp",
+    "sourceCode": "diff_hdi_phdi",
+    "category": "environment",
+    "unit": "percent",
+    "license": "CC BY 3.0 IGO",
+    "termsUrl": "https://hdr.undp.org/copyright-and-terms-use",
+    "code": "UNDP.diff_hdi_phdi",
+    "title": "HDI reduction due to planetary pressures",
+    "auditId": "undp:a72750fba8d023d104",
+    "minimumGreekObservations": 34
+  },
+  {
+    "provider": "undp",
+    "sourceCode": "mf",
+    "category": "environment",
+    "unit": "tonnes per capita",
+    "license": "CC BY 3.0 IGO",
+    "termsUrl": "https://hdr.undp.org/copyright-and-terms-use",
+    "code": "UNDP.mf",
+    "title": "Material footprint per person",
+    "auditId": "undp:9a7955ea45b1c71fb3",
+    "minimumGreekObservations": 34
+  },
+  {
+    "provider": "undp",
+    "sourceCode": "eys",
+    "category": "education",
+    "unit": "years",
+    "license": "CC BY 3.0 IGO",
+    "termsUrl": "https://hdr.undp.org/copyright-and-terms-use",
+    "code": "UNDP.eys",
+    "title": "Expected years of schooling",
+    "auditId": "undp:c34b3cc608ba869232",
+    "minimumGreekObservations": 34
+  },
+  {
+    "provider": "undp",
+    "sourceCode": "mys",
+    "category": "education",
+    "unit": "years",
+    "license": "CC BY 3.0 IGO",
+    "termsUrl": "https://hdr.undp.org/copyright-and-terms-use",
+    "code": "UNDP.mys",
+    "title": "Mean years of schooling",
+    "auditId": "undp:33606a4f1f687422b5",
+    "minimumGreekObservations": 34
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2caassemb",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2caassemb",
+    "title": "Freedom of peaceful assembly",
+    "auditId": "vdem:bcc59bc373c1a9d48c",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2cacamps",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2cacamps",
+    "title": "Political polarization",
+    "auditId": "vdem:42ca70f15b12d648b9",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2cacritic",
+    "category": "education",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2cacritic",
+    "title": "Academics as critics",
+    "auditId": "vdem:49c03f27a8cced7cb5",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2cafexch",
+    "category": "education",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2cafexch",
+    "title": "Freedom of academic exchange and dissemination",
+    "auditId": "vdem:9c6e2eb80523bff0cc",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2cafres",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2cafres",
+    "title": "Freedom to research and teach",
+    "auditId": "vdem:22df7068d897908374",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2cainsaut",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2cainsaut",
+    "title": "Institutional autonomy",
+    "auditId": "vdem:32d435fc38d2e45d3b",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2canonpol",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2canonpol",
+    "title": "Engagement in independent non-political associations",
+    "auditId": "vdem:fc6c70e9056aefed52",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2capolit",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2capolit",
+    "title": "Engagement in independent political associations",
+    "auditId": "vdem:c684178fe713d1b64f",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2casurv",
+    "category": "education",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2casurv",
+    "title": "Campus integrity",
+    "auditId": "vdem:ae778c75bbf41687c7",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2catrauni",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2catrauni",
+    "title": "Engagement in independent trade unions",
+    "auditId": "vdem:5b08f409e8457c3ac4",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2caviol",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2caviol",
+    "title": "Political violence",
+    "auditId": "vdem:d8207c29c01b3fedb6",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2clacfree",
+    "category": "education",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2clacfree",
+    "title": "Freedom of academic and cultural expression",
+    "auditId": "vdem:d234725d674bd3b5d0",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2clacjust",
+    "category": "wellbeing",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2clacjust",
+    "title": "Social class equality in respect for civil liberty",
+    "auditId": "vdem:8cc54fdb0e4c8f46f0",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2clfmove",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2clfmove",
+    "title": "Freedom of foreign movement",
+    "auditId": "vdem:55541234c54b9f10f6",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2clgeocl",
+    "category": "wellbeing",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2clgeocl",
+    "title": "Urban-rural location equality in respect for civil liberties",
+    "auditId": "vdem:b94d936d425bf54298",
+    "minimumGreekObservations": 50,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2clkill",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2clkill",
+    "title": "Freedom from political killings",
+    "auditId": "vdem:161f46bd4b1e0614f0",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2clpolcl",
+    "category": "wellbeing",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2clpolcl",
+    "title": "Political group equality in respect for civil liberties",
+    "auditId": "vdem:92e7de8c591de158c9",
+    "minimumGreekObservations": 50,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2clrelig",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2clrelig",
+    "title": "Freedom of religion",
+    "auditId": "vdem:9e281d17d1ae328264",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2clrgunev",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2clrgunev",
+    "title": "Subnational civil liberties unevenness",
+    "auditId": "vdem:42f19317a02f490b32",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2clrspct",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2clrspct",
+    "title": "Rigorous and impartial public administration",
+    "auditId": "vdem:3297739b9591f38130",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2clsnlpct",
+    "category": "governance",
+    "unit": "Interval.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2clsnlpct",
+    "title": "Weaker civil liberties population",
+    "auditId": "vdem:063930662c8ead55ba",
+    "minimumGreekObservations": 47,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2clsocgrp",
+    "category": "wellbeing",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2clsocgrp",
+    "title": "Social group equality in respect for civil liberties",
+    "auditId": "vdem:be0ea45d7db15b362d",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2clstown",
+    "category": "economy",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2clstown",
+    "title": "State ownership of economy",
+    "auditId": "vdem:79292a1101e4985484",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2cltort",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2cltort",
+    "title": "Freedom from torture",
+    "auditId": "vdem:4e1b26be5c14211784",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2cltrnslw",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2cltrnslw",
+    "title": "Transparent laws with predictable enforcement",
+    "auditId": "vdem:72f2a3c5642ce698d7",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2cscnsult",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2cscnsult",
+    "title": "CSO consultation",
+    "auditId": "vdem:4753dbef96938558d0",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2cseeorgs",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2cseeorgs",
+    "title": "CSO entry and exit",
+    "auditId": "vdem:86d256e1d25a750086",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2csprtcpt",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2csprtcpt",
+    "title": "CSO participatory environment",
+    "auditId": "vdem:c0f888d890cb2eb074",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2csreprss",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2csreprss",
+    "title": "CSO repression",
+    "auditId": "vdem:194273434434a9cb10",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2csrlgcon",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2csrlgcon",
+    "title": "Religious organization consultation",
+    "auditId": "vdem:64bd95d884f447fc32",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2csrlgrep",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2csrlgrep",
+    "title": "Religious organization repression",
+    "auditId": "vdem:3d7b9c423de1e0a8db",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2dlcommon",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2dlcommon",
+    "title": "Common good",
+    "auditId": "vdem:a4513008cac652e72b",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2dlconslt",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2dlconslt",
+    "title": "Range of consultation",
+    "auditId": "vdem:15a15e9ba74da9a29d",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2dlcountr",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2dlcountr",
+    "title": "Respect counterarguments",
+    "auditId": "vdem:672aa5c37e65085b19",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2dlencmps",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2dlencmps",
+    "title": "Particularistic or public goods",
+    "auditId": "vdem:bd0eac3fccde48fcdc",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2dlengage",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2dlengage",
+    "title": "Engaged society",
+    "auditId": "vdem:021945a31f7e76973f",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2dlreason",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2dlreason",
+    "title": "Reasoned justification",
+    "auditId": "vdem:bbd2293d03a3a600cc",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2dlunivl",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2dlunivl",
+    "title": "Means-tested v. universalistic policy",
+    "auditId": "vdem:7ea8c50d0fb87e1c3a",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2edcentcurrlm",
+    "category": "education",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2edcentcurrlm",
+    "title": "Centralized curriculum",
+    "auditId": "vdem:4d2433a47ab76408a6",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2edcritical",
+    "category": "education",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2edcritical",
+    "title": "Critical engagement with education content",
+    "auditId": "vdem:20ff492a7886231958",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2edmath",
+    "category": "education",
+    "unit": "Binary, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2edmath",
+    "title": "Mathematics and science education",
+    "auditId": "vdem:82425bde8a081fe1ef",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2edplural",
+    "category": "education",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2edplural",
+    "title": "Pluralism in the curriculum",
+    "auditId": "vdem:81aa434a25b4efdad3",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2edpoledprim",
+    "category": "education",
+    "unit": "Binary, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2edpoledprim",
+    "title": "Political education, primary school",
+    "auditId": "vdem:4ad5e6d1ad9975503a",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2edpoledrights",
+    "category": "education",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2edpoledrights",
+    "title": "Political rights and duties in the curriculum",
+    "auditId": "vdem:0f79647198e6d80cde",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2edpoledsec",
+    "category": "education",
+    "unit": "Binary, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2edpoledsec",
+    "title": "Political education, secondary school",
+    "auditId": "vdem:2b9ac649d8249d2494",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2edteautonomy",
+    "category": "education",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2edteautonomy",
+    "title": "Teacher autonomy in the classroom",
+    "auditId": "vdem:e074d380e0ea4fcf75",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2edtefire",
+    "category": "education",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2edtefire",
+    "title": "Political teacher firing",
+    "auditId": "vdem:d5e0fe1acba37a61cb",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2edtehire",
+    "category": "education",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2edtehire",
+    "title": "Political teacher hiring",
+    "auditId": "vdem:a909ecb067c2170bf5",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2edtequal",
+    "category": "education",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2edtequal",
+    "title": "Education requirements for primary school teachers",
+    "auditId": "vdem:26a47dbb45cd632c3f",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2edteunion",
+    "category": "education",
+    "unit": "Binary, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2edteunion",
+    "title": "Presence of teacher unions",
+    "auditId": "vdem:71ca3de654a227b010",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2edteunionindp",
+    "category": "education",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2edteunionindp",
+    "title": "Independent teacher unions",
+    "auditId": "vdem:9cb981bd6e85cd98d7",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2eldonate",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2eldonate",
+    "title": "Disclosure of campaign donations",
+    "auditId": "vdem:dd730b7c735dc49808",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "elections",
+      "title": {
+        "en": "Elections & parties",
+        "el": "Εκλογές & κόμματα"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2elembaut",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2elembaut",
+    "title": "EMB autonomy",
+    "auditId": "vdem:cde55b9c7c44d152b8",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "elections",
+      "title": {
+        "en": "Elections & parties",
+        "el": "Εκλογές & κόμματα"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2elembcap",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2elembcap",
+    "title": "EMB capacity",
+    "auditId": "vdem:1063ca5fccaeea6d87",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "elections",
+      "title": {
+        "en": "Elections & parties",
+        "el": "Εκλογές & κόμματα"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2elffelr",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2elffelr",
+    "title": "Subnational elections free and fair",
+    "auditId": "vdem:28b85aed8a30ac336a",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "elections",
+      "title": {
+        "en": "Elections & parties",
+        "el": "Εκλογές & κόμματα"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2elfrfair",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2elfrfair",
+    "title": "Election free and fair",
+    "auditId": "vdem:feb2ebc9b21eb15bb6",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "elections",
+      "title": {
+        "en": "Elections & parties",
+        "el": "Εκλογές & κόμματα"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2elintim",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2elintim",
+    "title": "Election government intimidation",
+    "auditId": "vdem:4a0c0afa45b228e2f2",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "elections",
+      "title": {
+        "en": "Elections & parties",
+        "el": "Εκλογές & κόμματα"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2elirreg",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2elirreg",
+    "title": "Election other voting irregularities",
+    "auditId": "vdem:0053867242eef5fa81",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "elections",
+      "title": {
+        "en": "Elections & parties",
+        "el": "Εκλογές & κόμματα"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2elpeace",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2elpeace",
+    "title": "Election other electoral violence",
+    "auditId": "vdem:750527062c7c135c03",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "elections",
+      "title": {
+        "en": "Elections & parties",
+        "el": "Εκλογές & κόμματα"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2elpubfin",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2elpubfin",
+    "title": "Public campaign finance",
+    "auditId": "vdem:7ae641569d60b461ec",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "elections",
+      "title": {
+        "en": "Elections & parties",
+        "el": "Εκλογές & κόμματα"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2elrgstry",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2elrgstry",
+    "title": "Election voter registry",
+    "auditId": "vdem:7a1ee55250871ef761",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "elections",
+      "title": {
+        "en": "Elections & parties",
+        "el": "Εκλογές & κόμματα"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2elsnlsff",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2elsnlsff",
+    "title": "Subnational election unevenness",
+    "auditId": "vdem:85242020b8ae7c12f9",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "elections",
+      "title": {
+        "en": "Elections & parties",
+        "el": "Εκλογές & κόμματα"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2elvotbuy",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2elvotbuy",
+    "title": "Election vote buying",
+    "auditId": "vdem:83aabf3d1a61814182",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "elections",
+      "title": {
+        "en": "Elections & parties",
+        "el": "Εκλογές & κόμματα"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2exbribe",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2exbribe",
+    "title": "Executive bribery and corrupt exchanges",
+    "auditId": "vdem:1cedfd7b8759f5e070",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2excrptps",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2excrptps",
+    "title": "Public sector corrupt exchanges",
+    "auditId": "vdem:33af4a01834730a09e",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2exembez",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2exembez",
+    "title": "Executive embezzlement and theft",
+    "auditId": "vdem:239f9e35087dc6d2d4",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2exrescon",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2exrescon",
+    "title": "Executive respects constitution",
+    "auditId": "vdem:3d2161b9e48db2eb81",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2exthftps",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2exthftps",
+    "title": "Public sector theft",
+    "auditId": "vdem:8896e57a651dbc69f6",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2juaccnt",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2juaccnt",
+    "title": "Judicial accountability",
+    "auditId": "vdem:78e0fbe4569982920e",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "justice",
+      "title": {
+        "en": "Justice & rule of law",
+        "el": "Δικαιοσύνη & κράτος δικαίου"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2jucomp",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2jucomp",
+    "title": "Compliance with judiciary",
+    "auditId": "vdem:5dda3afe05d5e09b93",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "justice",
+      "title": {
+        "en": "Justice & rule of law",
+        "el": "Δικαιοσύνη & κράτος δικαίου"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2jucorrdc",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2jucorrdc",
+    "title": "Judicial corruption decision",
+    "auditId": "vdem:2472788cab34b3164d",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "justice",
+      "title": {
+        "en": "Justice & rule of law",
+        "el": "Δικαιοσύνη & κράτος δικαίου"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2juhccomp",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2juhccomp",
+    "title": "Compliance with high court",
+    "auditId": "vdem:4f940466373e619d07",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "justice",
+      "title": {
+        "en": "Justice & rule of law",
+        "el": "Δικαιοσύνη & κράτος δικαίου"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2juhcind",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2juhcind",
+    "title": "High court independence",
+    "auditId": "vdem:aa0150bec582c435b7",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "justice",
+      "title": {
+        "en": "Justice & rule of law",
+        "el": "Δικαιοσύνη & κράτος δικαίου"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2juncind",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2juncind",
+    "title": "Lower court independence",
+    "auditId": "vdem:586f7afa263a428543",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "justice",
+      "title": {
+        "en": "Justice & rule of law",
+        "el": "Δικαιοσύνη & κράτος δικαίου"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2jupack",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2jupack",
+    "title": "Court packing",
+    "auditId": "vdem:16ce72efda012f32f5",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "justice",
+      "title": {
+        "en": "Justice & rule of law",
+        "el": "Δικαιοσύνη & κράτος δικαίου"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2jupoatck",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2jupoatck",
+    "title": "Government attacks on judiciary",
+    "auditId": "vdem:1f6949d4eb8fb2cbff",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "justice",
+      "title": {
+        "en": "Justice & rule of law",
+        "el": "Δικαιοσύνη & κράτος δικαίου"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2jupurge",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2jupurge",
+    "title": "Judicial purges",
+    "auditId": "vdem:abb8699297dd0be126",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "justice",
+      "title": {
+        "en": "Justice & rule of law",
+        "el": "Δικαιοσύνη & κράτος δικαίου"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2jureform",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2jureform",
+    "title": "Judicial reform",
+    "auditId": "vdem:5ea3b67d2c92b637cb",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "justice",
+      "title": {
+        "en": "Justice & rule of law",
+        "el": "Δικαιοσύνη & κράτος δικαίου"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2lgcomslo",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2lgcomslo",
+    "title": "Lower chamber committees",
+    "auditId": "vdem:1490682234462b0614",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2lgcrrpt",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2lgcrrpt",
+    "title": "Legislature corrupt activities",
+    "auditId": "vdem:99e6813acba5bf96ef",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2lgdsadlo",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2lgdsadlo",
+    "title": "Representation of disadvantaged social groups",
+    "auditId": "vdem:e4a4ba2943676f121c",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2lginvstp",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2lginvstp",
+    "title": "Legislature investigates in practice",
+    "auditId": "vdem:d23f003d5462de9fa1",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2lglegplo",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2lglegplo",
+    "title": "Lower chamber legislates in practice",
+    "auditId": "vdem:70fc29d3911d15d424",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2lgoppart",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2lgoppart",
+    "title": "Legislature opposition parties",
+    "auditId": "vdem:e51ed18914411efe0d",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2lgotovst",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2lgotovst",
+    "title": "Executive oversight",
+    "auditId": "vdem:6d7df35f270b9bfabf",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2mebias",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2mebias",
+    "title": "Media bias",
+    "auditId": "vdem:1862a296db6b44240b",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2mecenefi",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2mecenefi",
+    "title": "Internet censorship effort",
+    "auditId": "vdem:2a751b970dcb02298d",
+    "minimumGreekObservations": 33,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2mecenefm",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2mecenefm",
+    "title": "Government censorship effort --- Media",
+    "auditId": "vdem:5e412d7fa403b73a1b",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2mecorrpt",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2mecorrpt",
+    "title": "Media corrupt",
+    "auditId": "vdem:c37fda948d4d64074b",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2mecrit",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2mecrit",
+    "title": "Print/broadcast media critical",
+    "auditId": "vdem:fde1e0624276b74121",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2medpolnonstate",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2medpolnonstate",
+    "title": "Political influence, non state-owned media",
+    "auditId": "vdem:8a626b54a0abb523ac",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2medpolstate",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2medpolstate",
+    "title": "Political influence, state-owned media",
+    "auditId": "vdem:8faa3dbaa2056840fa",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2medstatebroad",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2medstatebroad",
+    "title": "State-owned broadcast media",
+    "auditId": "vdem:b1c36941b8a3c56fbe",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2medstateprint",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2medstateprint",
+    "title": "State-owned print media",
+    "auditId": "vdem:a1a2f1f5c834011d69",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2mefemjrn",
+    "category": "governance",
+    "unit": "Interval.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2mefemjrn",
+    "title": "Female journalists",
+    "auditId": "vdem:b5a5449e765bd1772b",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2meharjrn",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2meharjrn",
+    "title": "Harassment of journalists",
+    "auditId": "vdem:111f16cdcdb0171655",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2merange",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2merange",
+    "title": "Print/broadcast media perspectives",
+    "auditId": "vdem:0e687f3b5b609beeb4",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2meslfcen",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2meslfcen",
+    "title": "Media self-censorship",
+    "auditId": "vdem:097745adc90393b394",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2peapsecon",
+    "category": "economy",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2peapsecon",
+    "title": "Access to public services distributed by socio-economic position",
+    "auditId": "vdem:136dce3ab791ae7438",
+    "minimumGreekObservations": 50,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2peapsgen",
+    "category": "wellbeing",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2peapsgen",
+    "title": "Access to public services distributed by gender",
+    "auditId": "vdem:82e94ae113d2100ca6",
+    "minimumGreekObservations": 50,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2peapsgeo",
+    "category": "wellbeing",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2peapsgeo",
+    "title": "Access to public services distributed by urban-rural location",
+    "auditId": "vdem:4afeff96f5f37297b2",
+    "minimumGreekObservations": 50,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2peapspol",
+    "category": "wellbeing",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2peapspol",
+    "title": "Access to public services distributed by political group",
+    "auditId": "vdem:037d47ae892b40513f",
+    "minimumGreekObservations": 50,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2peapssoc",
+    "category": "wellbeing",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2peapssoc",
+    "title": "Access to public services distributed by social group",
+    "auditId": "vdem:100ec0154120696f8d",
+    "minimumGreekObservations": 50,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2peasbecon",
+    "category": "economy",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2peasbecon",
+    "title": "Access to state business opportunities by socio-economic position",
+    "auditId": "vdem:b4169ada8051c51b34",
+    "minimumGreekObservations": 50,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2peasbegeo",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2peasbegeo",
+    "title": "Access to state business opportunities by urban-rural location",
+    "auditId": "vdem:565b442cfa3ddec5ba",
+    "minimumGreekObservations": 50,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2peasbepol",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2peasbepol",
+    "title": "Access to state business opportunities by political group",
+    "auditId": "vdem:69f00e03129a22eb24",
+    "minimumGreekObservations": 50,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2peasbgen",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2peasbgen",
+    "title": "Access to state business opportunities by gender",
+    "auditId": "vdem:9897415527aa76c606",
+    "minimumGreekObservations": 50,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2peasbsoc",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2peasbsoc",
+    "title": "Access to state business opportunities by social group",
+    "auditId": "vdem:4073c15d09606f21ee",
+    "minimumGreekObservations": 50,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2peasjgen",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2peasjgen",
+    "title": "Access to state jobs by gender",
+    "auditId": "vdem:0206b0e0012dbbab6b",
+    "minimumGreekObservations": 50,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2peasjgeo",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2peasjgeo",
+    "title": "Access to state jobs by urban-rural location",
+    "auditId": "vdem:81d9aeffe2821620d5",
+    "minimumGreekObservations": 50,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2peasjpol",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2peasjpol",
+    "title": "Access to state jobs by political group",
+    "auditId": "vdem:47b64af227ce6c4718",
+    "minimumGreekObservations": 50,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2peasjsoc",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2peasjsoc",
+    "title": "Access to state jobs by social group",
+    "auditId": "vdem:0b8553271ba128e65f",
+    "minimumGreekObservations": 50,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2peasjsoecon",
+    "category": "economy",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2peasjsoecon",
+    "title": "Access to state jobs by socio-economic position",
+    "auditId": "vdem:30e7eaae68c0ff0a19",
+    "minimumGreekObservations": 50,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2peedueq",
+    "category": "education",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2peedueq",
+    "title": "Educational equality",
+    "auditId": "vdem:6e790c8d19922230d4",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2pehealth",
+    "category": "health",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2pehealth",
+    "title": "Health equality",
+    "auditId": "vdem:d308936244fdf576d2",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2pepwrgen",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2pepwrgen",
+    "title": "Power distributed by gender",
+    "auditId": "vdem:d5310d61bbf9ffd651",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2pepwrgeo",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2pepwrgeo",
+    "title": "Power distributed by urban-rural location",
+    "auditId": "vdem:d71baeda502b555a81",
+    "minimumGreekObservations": 50,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2pepwrort",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2pepwrort",
+    "title": "Power distributed by sexual orientation",
+    "auditId": "vdem:f4edf56c6b46500b27",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2pepwrses",
+    "category": "economy",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2pepwrses",
+    "title": "Power distributed by socioeconomic position",
+    "auditId": "vdem:6b9feada28acb59a09",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2pepwrsoc",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2pepwrsoc",
+    "title": "Power distributed by social group",
+    "auditId": "vdem:97ae614ec9f9200638",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2psbars",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2psbars",
+    "title": "Barriers to parties",
+    "auditId": "vdem:4b1d551fbe51ed0ab6",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "elections",
+      "title": {
+        "en": "Elections & parties",
+        "el": "Εκλογές & κόμματα"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2psoppaut",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2psoppaut",
+    "title": "Opposition parties autonomy",
+    "auditId": "vdem:0609d762b187f2610e",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "elections",
+      "title": {
+        "en": "Elections & parties",
+        "el": "Εκλογές & κόμματα"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2psparban",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2psparban",
+    "title": "Party ban",
+    "auditId": "vdem:4ced6b602e2c1847bf",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "elections",
+      "title": {
+        "en": "Elections & parties",
+        "el": "Εκλογές & κόμματα"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2smdefabu",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2smdefabu",
+    "title": "Abuse of defamation and copyright law by elites",
+    "auditId": "vdem:63e7fec663aa20aad2",
+    "minimumGreekObservations": 26,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2smgovab",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2smgovab",
+    "title": "Government dissemination of false information abroad",
+    "auditId": "vdem:b2e4a8a0184db15e6c",
+    "minimumGreekObservations": 26,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2smgovcapsec",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2smgovcapsec",
+    "title": "Government cyber security capacity",
+    "auditId": "vdem:7cbfe2888386561622",
+    "minimumGreekObservations": 26,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2smgovdom",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2smgovdom",
+    "title": "Government dissemination of false information domestic",
+    "auditId": "vdem:72665fc726bbe28066",
+    "minimumGreekObservations": 26,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2smgovfilcap",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2smgovfilcap",
+    "title": "Government Internet filtering capacity",
+    "auditId": "vdem:bfc5a0a0771970e3ac",
+    "minimumGreekObservations": 26,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2smgovfilprc",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2smgovfilprc",
+    "title": "Government Internet filtering in practice",
+    "auditId": "vdem:ef02e2bb082cd3059f",
+    "minimumGreekObservations": 26,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2smgovsmcenprc",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2smgovsmcenprc",
+    "title": "Government social media censorship in practice",
+    "auditId": "vdem:6b82a78361bc437601",
+    "minimumGreekObservations": 26,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2smgovsmmon",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2smgovsmmon",
+    "title": "Government social media monitoring",
+    "auditId": "vdem:e7a23a5beafb7f93d9",
+    "minimumGreekObservations": 26,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2smlawpr",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2smlawpr",
+    "title": "Defamation protection",
+    "auditId": "vdem:64b7214611566826f2",
+    "minimumGreekObservations": 26,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2smmefra",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2smmefra",
+    "title": "Online media fractionalization",
+    "auditId": "vdem:9de8541a96d4e76e36",
+    "minimumGreekObservations": 26,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2smonper",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2smonper",
+    "title": "Online media perspectives",
+    "auditId": "vdem:7186500cb6d10120e7",
+    "minimumGreekObservations": 26,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2smorgviol",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2smorgviol",
+    "title": "Use of social media to organize offline violence",
+    "auditId": "vdem:7a33860c616c8b7a69",
+    "minimumGreekObservations": 26,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2smpolhate",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2smpolhate",
+    "title": "Political parties hate speech",
+    "auditId": "vdem:87a58aa985146793a6",
+    "minimumGreekObservations": 26,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2smpolsoc",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2smpolsoc",
+    "title": "Polarization of society",
+    "auditId": "vdem:13eb234f95ca0150c7",
+    "minimumGreekObservations": 26,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2smregcap",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2smregcap",
+    "title": "Government capacity to regulate online content",
+    "auditId": "vdem:cacdc44b15a6386d87",
+    "minimumGreekObservations": 26,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2svdomaut",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2svdomaut",
+    "title": "Domestic autonomy",
+    "auditId": "vdem:c472220963736c33a5",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2svinlaut",
+    "category": "governance",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2svinlaut",
+    "title": "International autonomy",
+    "auditId": "vdem:c02a148ffe5db5b180",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2svstterr",
+    "category": "governance",
+    "unit": "Interval.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2svstterr",
+    "title": "State authority over territory",
+    "auditId": "vdem:111a80c591ee8839b9",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2temonitor",
+    "category": "education",
+    "unit": "Ordinal, converted to interval by the measurement model.",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "C",
+    "code": "VDEM.v2temonitor",
+    "title": "Teacher inspection",
+    "auditId": "vdem:8bea776c7738cf36fd",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_accountability",
+    "category": "governance",
+    "unit": "We provide two versions of this index. The first is the normalized output from the the hierarchical latent variable analysis. It is on an unbounded interval scale. The second, denoted by *_osp, is a version of this output which we scale using a standard normal cumulative distribution function. It is thus scaled low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_accountability",
+    "title": "Accountability index",
+    "auditId": "vdem:67b8efe0a98c66d897",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_civlib",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_civlib",
+    "title": "Civil liberties index",
+    "auditId": "vdem:3362c3474b3ef69343",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_clphy",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_clphy",
+    "title": "Physical violence index",
+    "auditId": "vdem:8d1482725c8aab4392",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_clpol",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_clpol",
+    "title": "Political civil liberties index",
+    "auditId": "vdem:f73b89e83ea7e11222",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_clpriv",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_clpriv",
+    "title": "Private civil liberties index",
+    "auditId": "vdem:5f60ecae43af4248ca",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_cspart",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_cspart",
+    "title": "Civil society participation index",
+    "auditId": "vdem:387e9b2d68872eafd8",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_delibdem",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_delibdem",
+    "title": "Deliberative democracy index",
+    "auditId": "vdem:c32c5992936aa11f0f",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "democracy",
+      "title": {
+        "en": "Democracy indices",
+        "el": "Δείκτες δημοκρατίας"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_diagacc",
+    "category": "governance",
+    "unit": "We provide two versions of this index. The first is the normalized output from the the hierarchical latent variable analysis. It is on an unbounded interval scale. The second, denoted by *_osp, is a version of this output which we scale using a standard normal cumulative distribution function. It is thus scaled low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_diagacc",
+    "title": "Diagonal accountability index",
+    "auditId": "vdem:f2533fc28246fff3b7",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_egal",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_egal",
+    "title": "Egalitarian component index",
+    "auditId": "vdem:4ae61fa4b7c4113514",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "democracy",
+      "title": {
+        "en": "Democracy indices",
+        "el": "Δείκτες δημοκρατίας"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_egaldem",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_egaldem",
+    "title": "Egalitarian democracy index",
+    "auditId": "vdem:bbf60b10ccc190fd55",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "democracy",
+      "title": {
+        "en": "Democracy indices",
+        "el": "Δείκτες δημοκρατίας"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_electoral_integrity",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1)",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_electoral_integrity",
+    "title": "Electoral Integrity Index",
+    "auditId": "vdem:fbbf4158852d5ea402",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "elections",
+      "title": {
+        "en": "Elections & parties",
+        "el": "Εκλογές & κόμματα"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_frassoc_thick",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_frassoc_thick",
+    "title": "Freedom of association thick index",
+    "auditId": "vdem:34b94a557822b4dc51",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_freexp",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_freexp",
+    "title": "Freedom of expression index",
+    "auditId": "vdem:f35c82b59cbf467fd2",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_freexp_altinf",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_freexp_altinf",
+    "title": "Freedom of Expression and Alternative Sources of Information index",
+    "auditId": "vdem:e8f45cff9f72d92cef",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_gencl",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_gencl",
+    "title": "Women civil liberties index",
+    "auditId": "vdem:e076854f3e1f33561f",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_gencs",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_gencs",
+    "title": "Women civil society participation index",
+    "auditId": "vdem:bc97b9242f9e9fa1d6",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_gender",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_gender",
+    "title": "Women political empowerment index",
+    "auditId": "vdem:da184dc4138a6defad",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_genpp",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_genpp",
+    "title": "Women political participation index",
+    "auditId": "vdem:ebdbe7a318bf43257e",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_horacc",
+    "category": "governance",
+    "unit": "We provide two versions of this index. The first is the normalized output from the the hierarchical latent variable analysis. It is on an unbounded interval scale. The second, denoted by *_osp, is a version of this output which we scale using a standard normal cumulative distribution function. It is thus scaled low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_horacc",
+    "title": "Horizontal accountability index",
+    "auditId": "vdem:b5dcf93688affaac2c",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_jucon",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_jucon",
+    "title": "Judicial constraints on the executive index",
+    "auditId": "vdem:9ed91ca0ed267fdfa3",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "justice",
+      "title": {
+        "en": "Justice & rule of law",
+        "el": "Δικαιοσύνη & κράτος δικαίου"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_libdem",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_libdem",
+    "title": "Liberal democracy index",
+    "auditId": "vdem:a7cf1e450b338e0167",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "democracy",
+      "title": {
+        "en": "Democracy indices",
+        "el": "Δείκτες δημοκρατίας"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_liberal",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_liberal",
+    "title": "Liberal component index",
+    "auditId": "vdem:10abde1f654ce28c56",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "democracy",
+      "title": {
+        "en": "Democracy indices",
+        "el": "Δείκτες δημοκρατίας"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_partip",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_partip",
+    "title": "Participatory component index",
+    "auditId": "vdem:1f1478cbb03da3a08f",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "democracy",
+      "title": {
+        "en": "Democracy indices",
+        "el": "Δείκτες δημοκρατίας"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_partipdem",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_partipdem",
+    "title": "Participatory democracy index",
+    "auditId": "vdem:05b4d318d871347c26",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "democracy",
+      "title": {
+        "en": "Democracy indices",
+        "el": "Δείκτες δημοκρατίας"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_polyarchy",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_polyarchy",
+    "title": "Electoral democracy index",
+    "auditId": "vdem:1925cab0fa9f178889",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "elections",
+      "title": {
+        "en": "Elections & parties",
+        "el": "Εκλογές & κόμματα"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_pubcorr",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_pubcorr",
+    "title": "Public sector corruption index",
+    "auditId": "vdem:def33b97909b228845",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2x_veracc",
+    "category": "governance",
+    "unit": "We provide two versions of this index. The first is the normalized output from the the hierarchical latent variable analysis. It is on an unbounded interval scale. The second, denoted by *_osp, is a version of this output which we scale using a standard normal cumulative distribution function. It is thus scaled low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2x_veracc",
+    "title": "Vertical accountability index",
+    "auditId": "vdem:d3bda03c6b02192264",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xca_academ",
+    "category": "education",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xca_academ",
+    "title": "Academic Freedom Index",
+    "auditId": "vdem:d60849a5bed95d5cba",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xcl_acjst",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xcl_acjst",
+    "title": "Access to justice",
+    "auditId": "vdem:458eab4dc19c37965e",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xcl_disc",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xcl_disc",
+    "title": "Freedom of discussion",
+    "auditId": "vdem:39e7bdc97c7915dc2f",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xcl_dmove",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xcl_dmove",
+    "title": "Freedom of domestic movement",
+    "auditId": "vdem:58322fe229af0e932c",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xcl_prpty",
+    "category": "economy",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xcl_prpty",
+    "title": "Property rights",
+    "auditId": "vdem:1dec32b85687cda9fb",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xcl_rol",
+    "category": "wellbeing",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xcl_rol",
+    "title": "Equality before the law and individual liberty index",
+    "auditId": "vdem:5b17307bcc3d89009a",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "justice",
+      "title": {
+        "en": "Justice & rule of law",
+        "el": "Δικαιοσύνη & κράτος δικαίου"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xcl_slave",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xcl_slave",
+    "title": "Freedom from forced labor",
+    "auditId": "vdem:5c86bdf4de446e2e73",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xcs_ccsi",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xcs_ccsi",
+    "title": "Core civil society index",
+    "auditId": "vdem:e89932d16b33fe1058",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "civil",
+      "title": {
+        "en": "Civil society & freedoms",
+        "el": "Κοινωνία πολιτών & ελευθερίες"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xdd_dd",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xdd_dd",
+    "title": "Direct popular vote index",
+    "auditId": "vdem:fa2f7cc083d03be100",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "elections",
+      "title": {
+        "en": "Elections & parties",
+        "el": "Εκλογές & κόμματα"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xdd_i_pl",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-2).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xdd_i_pl",
+    "title": "Plebiscite index",
+    "auditId": "vdem:b278ae2e678bba226d",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "elections",
+      "title": {
+        "en": "Elections & parties",
+        "el": "Εκλογές & κόμματα"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xdd_toc",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xdd_toc",
+    "title": "Top-Down component of direct popular vote index",
+    "auditId": "vdem:5146ca3508140a1baa",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "elections",
+      "title": {
+        "en": "Elections & parties",
+        "el": "Εκλογές & κόμματα"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xdl_delib",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xdl_delib",
+    "title": "Deliberative component index",
+    "auditId": "vdem:464015cc2f4c1ab967",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "democracy",
+      "title": {
+        "en": "Democracy indices",
+        "el": "Δείκτες δημοκρατίας"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xed_ed_cent",
+    "category": "education",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xed_ed_cent",
+    "title": "Centralization of the education system",
+    "auditId": "vdem:5f61d293b3be8d40a9",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xed_ed_con",
+    "category": "education",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xed_ed_con",
+    "title": "Indoctrination content in education",
+    "auditId": "vdem:431a595b8161ab81ef",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xed_ed_ctag",
+    "category": "education",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xed_ed_ctag",
+    "title": "Control over educational agents",
+    "auditId": "vdem:e528797b7a2bfadc49",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xed_ed_dmcon",
+    "category": "education",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xed_ed_dmcon",
+    "title": "Democratic indoctrination content in education",
+    "auditId": "vdem:d94170a13ac4997c5e",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xed_ed_inco",
+    "category": "education",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xed_ed_inco",
+    "title": "Indoctrination coherence in education",
+    "auditId": "vdem:ed905d6228262afeda",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xed_ed_inpt",
+    "category": "education",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xed_ed_inpt",
+    "title": "Indoctrination potential in education",
+    "auditId": "vdem:085e4770196aaafdbc",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xed_ed_poed",
+    "category": "education",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xed_ed_poed",
+    "title": "Political education effort in education",
+    "auditId": "vdem:7ffd01e6f6c803dfdf",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xed_ed_ptcon",
+    "category": "education",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xed_ed_ptcon",
+    "title": "Patriotic indoctrination content in education",
+    "auditId": "vdem:9d64eadb723fb1c745",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xed_ptcon",
+    "category": "education",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xed_ptcon",
+    "title": "Patriotic indoctrination content in education and the media",
+    "auditId": "vdem:083de14f90ec26a566",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xedvd_inpt",
+    "category": "education",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xedvd_inpt",
+    "title": "Indoctrination potential in education and the media",
+    "auditId": "vdem:0f93f14fe2e16c8a7b",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xedvd_me_cent",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xedvd_me_cent",
+    "title": "Centralization of media control",
+    "auditId": "vdem:af0e8a84983469709d",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xedvd_me_ctag",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xedvd_me_ctag",
+    "title": "Control over media agents",
+    "auditId": "vdem:2627372d62c22bcff3",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xedvd_me_inco",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xedvd_me_inco",
+    "title": "Indoctrination coherence (potential) in the media",
+    "auditId": "vdem:827a85760fa9dda6fb",
+    "minimumGreekObservations": 48,
+    "subtopic": {
+      "id": "education",
+      "title": {
+        "en": "Education & academic freedom",
+        "el": "Εκπαίδευση & ακαδημαϊκή ελευθερία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xeg_eqaccess",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xeg_eqaccess",
+    "title": "Equal access index",
+    "auditId": "vdem:a574f05fce3a620bdb",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xeg_eqdr",
+    "category": "wellbeing",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xeg_eqdr",
+    "title": "Equal distribution of resources index",
+    "auditId": "vdem:d21eb0125db7d01269",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xeg_eqprotec",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xeg_eqprotec",
+    "title": "Equal protection index",
+    "auditId": "vdem:8624d871db7d6f67f1",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xel_frefair",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xel_frefair",
+    "title": "Clean elections index",
+    "auditId": "vdem:4d2b930620e16bd120",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "elections",
+      "title": {
+        "en": "Elections & parties",
+        "el": "Εκλογές & κόμματα"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xel_locelec",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xel_locelec",
+    "title": "Local government index",
+    "auditId": "vdem:4284b5083c603ac4c2",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "elections",
+      "title": {
+        "en": "Elections & parties",
+        "el": "Εκλογές & κόμματα"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xel_regelec",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xel_regelec",
+    "title": "Regional government index",
+    "auditId": "vdem:e2f8646a2318f6b2e2",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "elections",
+      "title": {
+        "en": "Elections & parties",
+        "el": "Εκλογές & κόμματα"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xlg_legcon",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xlg_legcon",
+    "title": "Legislative constraints on the executive index",
+    "auditId": "vdem:6c3646964e7897f092",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "institutions",
+      "title": {
+        "en": "Institutions & accountability",
+        "el": "Θεσμοί & λογοδοσία"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xme_altinf",
+    "category": "governance",
+    "unit": "Interval, from low to high (0-1).",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xme_altinf",
+    "title": "Alternative sources of information index",
+    "auditId": "vdem:ddf22efffef7f37352",
+    "minimumGreekObservations": 52,
+    "subtopic": {
+      "id": "media",
+      "title": {
+        "en": "Media & information",
+        "el": "Μέσα & πληροφόρηση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xpe_exlecon",
+    "category": "economy",
+    "unit": "Interval, from low to high (0-1)",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xpe_exlecon",
+    "title": "Exclusion by Socio-Economic Group",
+    "auditId": "vdem:b72760ee164024f697",
+    "minimumGreekObservations": 50,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xpe_exlgender",
+    "category": "wellbeing",
+    "unit": "Interval, from low to high (0-1)",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xpe_exlgender",
+    "title": "Exclusion by Gender index",
+    "auditId": "vdem:d3dfc3804451167b24",
+    "minimumGreekObservations": 50,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xpe_exlgeo",
+    "category": "wellbeing",
+    "unit": "Interval, from low to high (0-1)",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xpe_exlgeo",
+    "title": "Exclusion by Urban-Rural Location index",
+    "auditId": "vdem:9d328becc8678faab0",
+    "minimumGreekObservations": 50,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xpe_exlpol",
+    "category": "wellbeing",
+    "unit": "Interval, from low to high (0-1)",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xpe_exlpol",
+    "title": "Exclusion by Political Group index",
+    "auditId": "vdem:f838253d6d4a6d2998",
+    "minimumGreekObservations": 50,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  },
+  {
+    "provider": "vdem",
+    "sourceCode": "v2xpe_exlsocgr",
+    "category": "wellbeing",
+    "unit": "Interval, from low to high (0-1)",
+    "license": "CC BY-SA 4.0",
+    "termsUrl": "https://www.v-dem.net/data/the-v-dem-dataset/",
+    "measurementType": "D",
+    "code": "VDEM.v2xpe_exlsocgr",
+    "title": "Exclusion by Social Group index",
+    "auditId": "vdem:c803b2c7756e7ae69e",
+    "minimumGreekObservations": 50,
+    "subtopic": {
+      "id": "equality",
+      "title": {
+        "en": "Equality & access",
+        "el": "Ισότητα & πρόσβαση"
+      }
+    }
+  }
+]

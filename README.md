@@ -1,6 +1,6 @@
 # DATACRITUS
 
-[www.datacritus.gr](https://www.datacritus.gr) makes Greece’s public statistics explorable in Greek and English. It combines 156 indicators across 12 topics with European comparisons, 26 cabinet periods and 20 parliamentary elections since 1974.
+[www.datacritus.gr](https://www.datacritus.gr) makes Greece’s public statistics explorable in Greek and English. It combines 419 reviewed indicators across 12 topics with European comparisons, 26 cabinet periods and 20 parliamentary elections since 1974.
 
 A larger Datacritus logo remains visible while scrolling and returns to Explore from every page, expanded chart and Studio. The interface uses 20px base text, stronger button borders, a gold primary action and clear keyboard focus.
 
@@ -25,7 +25,7 @@ For a UI-only change, skip the refresh and rebuild against the committed snapsho
 ## Next development phases
 
 1. Readability and sharing: larger typography, clearer controls and single-indicator infographic exports.
-2. Data coverage: 97 audited additions are integrated across three batches (156 indicators total). The latest batch adds 48 distinct headline measures across all 12 categories. Continue with the remaining verified shortlist; conditional and unverified items remain excluded.
+2. Data coverage: the previous 156 series are retained. A further 263 vetted definitions from four providers bring the catalogue to 419. Conditional and unverified items remain excluded; related research components are clearly identified.
 3. Political-period analysis: the two-period infographic tool is implemented. Add deeper context and common-year European comparisons next. No invented causal government score.
 4. Scenario exploration: add explicit assumptions and uncertainty only after a defensible model and adequate data coverage exist.
 
@@ -35,7 +35,7 @@ The original Studio also supports one indicator with multiple countries. Multi-i
 
 ## Data and interpretation
 
-Statistics come from World Bank WDI/WGI APIs and Eurostat's JSON-stat API. `scripts/catalog.py`, `scripts/eurostat.py` and `scripts/expansion.py` define the series, dimensions, units and bilingual labels. `data/indicators.json` records provider definitions, original API URLs, retrieval/update dates, full country series, quality flags and SHA-256 hashes of raw responses. Raw responses are downloaded into ignored `data/raw/`; validation compares every retained observation with the raw source when present.
+Statistics come from World Bank WDI/WGI and Eurostat APIs, UNESCO UIS, UNDP HDR 2025, Penn World Table 11.0 and V-Dem v16. The 263 new definitions (207 V-Dem, 24 UIS, 18 PWT, 14 UNDP) are the exact vetted research list, not the 140 conditional candidates. V-Dem composites/components are related measures, not independent evidence or government rankings. `scripts/catalog.py`, `scripts/eurostat.py` and `scripts/expansion.py` define the series, dimensions, units and bilingual labels. `data/indicators.json` records provider definitions, original API URLs, retrieval/update dates, full country series, quality flags and SHA-256 hashes of raw responses. Raw responses are downloaded into ignored `data/raw/`; validation compares every retained observation with the raw source when present.
 
 Missing values stay missing. Changes in percentage-based metrics are percentage points, not relative changes. Country comparisons use the latest common year in the selected interval. Government comparisons use only complete calendar years within each cabinet term, require two observations for a change and identify the years used. Timing is not evidence of causation. No overall government score or political ranking is invented.
 
@@ -45,6 +45,10 @@ Government and election dates are maintained separately in `scripts/build_histor
 
 ## Automatic refresh
 
-`Refresh official data` runs Mondays at 06:17 UTC and can be run manually in GitHub Actions. It fetches official data, checks schema/coverage/provenance and calculations, builds, commits and requests a Pages build. API failures, unexpected coverage loss and validation failures stop publication, leaving the previous site intact. No paid service is required. GitHub may disable scheduled workflows in inactive public repositories after 60 days; re-enable the workflow if needed. Monitor failed runs in the repository's Actions tab. Concurrent source edits can stop the refresh push safely; rerun after reviewing the change.
+`Refresh official data` runs Mondays at 06:17 UTC and can be run manually in GitHub Actions. It fetches official data, checks schema/coverage/provenance and calculations, builds, commits and requests a Pages build. API failures, unexpected coverage loss and validation failures stop publication, leaving the previous site intact. No paid service or API key is required. Install the pinned source readers with `pip install -r scripts/requirements.txt`. Research releases are pinned as whole vintages; upgrading them requires reviewing definitions, scales and licences. UIS quality codes preserve missing values; PWT fractions convert to percentages; V-Dem annual 68% bounds are displayed and exported without inventing confidence intervals for cabinet averages. Provider-specific attribution and licences accompany exports. No EU aggregate is manufactured for the new sources. GitHub may disable scheduled workflows in inactive public repositories after 60 days; re-enable the workflow if needed. Monitor failed runs in the repository's Actions tab. Concurrent source edits can stop the refresh push safely; rerun after reviewing the change.
 
 `Validate dashboard` checks pull requests and main-branch pushes. To roll back a UI or data update, revert its commit and let Pages rebuild. Original website versions remain in Git history.
+
+## Expansion source register
+
+`scripts/vetted_manifest.json` contains all 263 reviewed source identifiers and category/subtopic assignments. `scripts/vetted.py` retrieves full official source releases and metadata, records SHA-256 digests, writes replay receipts to ignored `data/raw/`, and rejects duplicate observations, unknown UIS flags, V-Dem scale changes, HTML error pages and coverage losses. `tests/vetted.test.py` guards source semantics. Research definitions remain in their original language; all editorial indicator labels are bilingual. The previous 156 indicators, cabinet dates and comparison tool are retained.

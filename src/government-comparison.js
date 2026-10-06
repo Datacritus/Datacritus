@@ -5,7 +5,7 @@
  const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const wrap=(s,n)=>{const lines=[];let line='';for(const word of String(s).split(/\s+/)){if(line&&(line+' '+word).length>n){lines.push(line);line=word;}else line+=(line?' ':'')+word;}if(line)lines.push(line);return lines;};
  const label=(o,lang)=>typeof o==='object'?(o[lang]||o.en):o;
- const format=(n,lang)=>n==null?'—':new Intl.NumberFormat(lang==='el'?'el-GR':'en-GB',{maximumFractionDigits:Math.abs(n)>=1000?0:2,notation:Math.abs(n)>=1e6?'compact':'standard'}).format(Object.is(n,-0)?0:n);
+ const format=(n,lang)=>n==null?'—':new Intl.NumberFormat(lang==='el'?'el-GR':'en-GB',{maximumFractionDigits:Math.abs(n)>=1000?0:Math.abs(n)<10?4:2,notation:Math.abs(n)>=1e6?'compact':'standard'}).format(Object.is(n,-0)?0:n);
  function model({metric,terms,asOf}){
   if(!metric||!Array.isArray(terms)||terms.length!==2||!terms.every(Boolean))throw new Error('Choose a metric and two valid cabinet periods');
   const periods=terms.map(term=>{
@@ -13,9 +13,9 @@
    const missing=stats.eligible.filter(y=>!observed.has(y));
    const mean=stats.points.length?stats.points.reduce((n,p)=>n+p[1],0)/stats.points.length:null;
    const flags=stats.points.filter(p=>metric.flags?.GRC?.[p[0]]).map(p=>({year:p[0],flag:metric.flags.GRC[p[0]]}));
-   return{term,...stats,mean,missing,flags};
+   return{term,...stats,mean,missing,flags,uncertainty:metric.uncertainty?.GRC||{}};
   });
-  return{metric,periods,asOf,sameTerm:terms[0].id===terms[1].id,ticks:C.axisTicks(periods.flatMap(p=>p.points.map(x=>x[1])))};
+  return{metric,periods,asOf,sameTerm:terms[0].id===terms[1].id,ticks:C.axisTicks(periods.flatMap(p=>p.points.flatMap(x=>[x[1],...(p.uncertainty[x[0]]||[])])))};
  }
  function chart({period,ticks,color='#086a88',lang='en'}){
   const el=lang==='el',points=period.points,years=period.eligible;
@@ -27,18 +27,18 @@
   for(const year of [...new Set([first,last])])out+=`<text x="${x(year)}" y="${B+32}" text-anchor="middle" fill="#526a73" font-size="19">${year}</text>`;
   for(const segment of C.segments(points,first,last)){
    out+=`<path d="${segment.map((p,i)=>(i?'L':'M')+x(p[0]).toFixed(2)+','+y(p[1]).toFixed(2)).join(' ')}" fill="none" stroke="${escape(color)}" stroke-width="4" stroke-linecap="round"/>`;
-   for(const p of segment)out+=`<circle cx="${x(p[0])}" cy="${y(p[1])}" r="5" fill="${escape(color)}"><title>${p[0]}: ${escape(format(p[1],lang))}</title></circle>`;
+   for(const p of segment){const b=period.uncertainty?.[p[0]];if(b)out+=`<line x1="${x(p[0])}" x2="${x(p[0])}" y1="${y(b[0])}" y2="${y(b[1])}" stroke="${escape(color)}" stroke-width="2" opacity=".35"/>`;out+=`<circle cx="${x(p[0])}" cy="${y(p[1])}" r="5" fill="${escape(color)}"><title>${p[0]}: ${escape(format(p[1],lang))}</title></circle>`;}
   }
   return out+'</svg>';
  }
  function build({comparison,lang='en',format:layout='landscape',logoUri=''}){
-  const el=lang==='el',portrait=layout==='portrait',W=portrait?1080:1600,H=portrait?1740:1100,M=52;
+  const el=lang==='el',portrait=layout==='portrait',W=portrait?1080:1600,H=portrait?1740:1100,exportH=H+(comparison.metric.license?150:0),M=52;
   const {metric:m,periods,asOf}=comparison,ink='#123b48',muted='#526a73',navy='#073b4c',gold='#ffd166';
-  const out=[`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="Arial, sans-serif" role="img"><title>${escape(label(m.title,lang))}: ${escape(periods.map(p=>label(p.term.name,lang)).join(' vs '))}</title><desc>${escape(el?'Σύγκριση παρατηρούμενων τιμών σε πλήρη ημερολογιακά έτη. Δεν αποτελεί αιτιώδη αξιολόγηση.':'Comparison of observed values in full calendar years. Not a causal assessment.')}</desc>`];
+  const out=[`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${exportH}" viewBox="0 0 ${W} ${exportH}" font-family="Arial, sans-serif" role="img"><title>${escape(label(m.title,lang))}: ${escape(periods.map(p=>label(p.term.name,lang)).join(' vs '))}</title><desc>${escape(el?'Σύγκριση παρατηρούμενων τιμών σε πλήρη ημερολογιακά έτη. Δεν αποτελεί αιτιώδη αξιολόγηση.':'Comparison of observed values in full calendar years. Not a causal assessment.')}</desc>`];
   const rect=(x,y,w,h,fill,rx=0)=>out.push(`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fill}" rx="${rx}"/>`);
   const text=(x,y,s,size=24,color=ink,weight=400,extra='')=>out.push(`<text x="${x}" y="${y}" font-size="${size}" fill="${color}" font-weight="${weight}" ${extra}>${escape(s)}</text>`);
   const lines=(x,y,s,size,width,color=ink,weight=400)=>wrap(s,Math.max(12,Math.floor(width/(size*.6)))).forEach((v,i)=>text(x,y+i*size*1.3,v,size,color,weight));
-  rect(0,0,W,H,'#fff');rect(0,0,W,242,navy);rect(0,242,W,5,gold);
+  rect(0,0,W,exportH,'#fff');rect(0,0,W,242,navy);rect(0,242,W,5,gold);
   if(logoUri)out.push(`<image href="${escape(logoUri)}" x="${M}" y="20" width="285" height="85" preserveAspectRatio="xMidYMid slice"/>`);else text(M,77,'DATACRITUS',36,gold,700);
   text(W-M,72,el?'ΣΥΓΚΡΙΣΗ ΚΥΒΕΡΝΗΣΕΩΝ':'GOVERNMENT COMPARISON',portrait?19:24,'#cce0e6',600,'text-anchor="end"');
   const title=label(m.title,lang);let size=portrait?39:44;while(size>22&&wrap(title,Math.floor((W-2*M)/(size*.85))).length>2)size-=2;
@@ -64,16 +64,17 @@
   const footer=portrait?1528:910;rect(M,footer-18,W-2*M,1,'#dce5e9');
   lines(M,footer+10,el?'Πλήρη ημερολογιακά έτη μόνο · ίδια κατακόρυφη κλίμακα · τα κενά δεν συμπληρώνονται.':'Full calendar years only · shared vertical scale · missing years remain gaps.',portrait?19:21,W-2*M,muted);
   const flags=[...new Set(periods.flatMap(p=>p.flags.map(f=>f.flag)))];
-  text(M,footer+68,`${m.sourceName} · ${m.code} · ${el?'Ανάκτηση':'Retrieved'} ${m.retrievedAt.slice(0,10)}${flags.length?' · '+(el?'Σημάνσεις':'Flags')+': '+flags.join(', '):''}`,portrait?16:18,muted);
+  lines(M,footer+68,`${m.sourceName} · ${m.code} · ${el?'Ανάκτηση':'Retrieved'} ${m.retrievedAt.slice(0,10)}${flags.length?' · '+(el?'Σημάνσεις':'Flags')+': '+flags.join(', '):''}`,portrait?14:16,W-2*M,muted);
   text(M,footer+96,m.sourceUrl,portrait?15:17,muted);
   text(M,footer+123,`${el?'Χρονολόγιο ελέγχθηκε':'Timeline verified'}: ${asOf} · gslegal.gov.gr`,portrait?16:18,muted);
   lines(M,footer+151,el?'Οι μεταβολές κατά τη θητεία δεν αποδεικνύουν αιτιότητα.':'Changes during a term do not establish causation.',portrait?18:20,W-2*M-220,muted);
+  if(m.license){out.push(`<a href="${escape(m.termsUrl)}" target="_blank">`);lines(M,H+18,`${m.license} · ${m.attribution} · ${m.sourceVersion}`,portrait?15:17,W-2*M,muted);out.push('</a>');lines(M,H+82,m.uncertaintyLevel?(el?'Ερευνητικές εκτιμήσεις · ετήσια όρια αβεβαιότητας 68%, όχι όρια μέσου όρου θητείας.':'Research estimates · annual 68% uncertainty bounds, not intervals for term averages.'):(el?'Διατηρήστε την αναφορά πηγής και τους όρους άδειας κατά την αναδημοσίευση.':'Retain source attribution and licence terms when republishing.'),portrait?16:18,W-2*M,muted);}
   text(W-M,H-24,'www.datacritus.gr',19,navy,700,'text-anchor="end"');out.push('</svg>');
-  return{svg:out.join(''),width:W,height:H};
+  return{svg:out.join(''),width:W,height:exportH};
  }
  function csv(comparison){
-  const m=comparison.metric,rows=[['indicator_code','indicator','period_id','government','term_start','term_end','year','value','unit','source_status','source_url','retrieved_at','timeline_verified_at']];
-  for(const p of comparison.periods){const values=new Map(p.points);for(const year of p.eligible)rows.push([m.code,m.providerTitle,p.term.id,p.term.name.en,p.term.start,p.term.end||'',year,values.get(year)??'',m.unit,m.flags?.GRC?.[year]||'',m.sourceUrl,m.retrievedAt,comparison.asOf]);}
+  const m=comparison.metric,rows=[['indicator_code','indicator','period_id','government','term_start','term_end','year','value','unit','source_status','source_url','retrieved_at','timeline_verified_at','uncertainty_low','uncertainty_high','uncertainty_level','source_version','licence','terms_url','attribution']];
+  for(const p of comparison.periods){const values=new Map(p.points);for(const year of p.eligible)rows.push([m.code,m.providerTitle,p.term.id,p.term.name.en,p.term.start,p.term.end||'',year,values.get(year)??'',m.unit,m.flags?.GRC?.[year]||'',m.sourceUrl,m.retrievedAt,comparison.asOf,...(m.uncertainty?.GRC?.[year]||['','']),m.uncertaintyLevel??'',m.sourceVersion||'',m.license||'',m.termsUrl||'',m.attribution||'']);}
   return C.csv(rows);
  }
  const api={model,chart,build,csv};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.DatacritusGovernmentComparison=api;

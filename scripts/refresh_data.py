@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fetch official World Bank observations atomically. No API keys or dependencies.
+"""Fetch statistical APIs and reviewed research releases atomically. No API keys.
 
 A failed response never replaces the published snapshot. Retain provider nulls;
 do not interpolate, carry forward, generate, or splice different series.
@@ -17,6 +17,7 @@ import urllib.request
 from catalog import COUNTRIES, METRICS
 from eurostat import collect_all
 from taxonomy import classify, categories
+from vetted import collect_all as collect_vetted
 
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / 'data' / 'raw'
@@ -60,6 +61,7 @@ def fetch_metadata(source):
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--cached-metadata',action='store_true',help='Use already fetched metadata for this build only')
+    parser.add_argument('--cached-vetted',action='store_true',help='Replay downloaded research receipts for local verification only')
     args=parser.parse_args()
     RAW.mkdir(parents=True,exist_ok=True)
     metadata={}
@@ -110,6 +112,7 @@ def main():
         metrics.append(item)
         print(m['code'],len(greek),greek[-1] if greek else 'No Greece observations',flush=True)
     metrics.extend(collect_all(RAW))
+    metrics.extend(collect_vetted(RAW, args.cached_vetted))
     metrics=[classify(m) for m in metrics]
     if sum(bool(m['coverage']['observations']) for m in metrics)<40:raise ValueError('Insufficient real data; refusing to replace snapshot')
     previous_path=ROOT/'data'/'indicators.json'
@@ -123,7 +126,7 @@ def main():
     dataset={'schemaVersion':1,'retrievedAt':NOW.isoformat(),'countries':COUNTRIES,
              'categories':categories(),
              'metrics':metrics,'licenceUrl':'https://www.worldbank.org/en/about/legal/terms-of-use-for-datasets',
-             'licenceNote':'World Bank dataset terms and Eurostat reuse policy apply to their respective series; individual third-party sources may have additional terms. See source attribution for every series.'}
+             'licenceNote':'Provider-specific licences apply: World Bank, Eurostat, UNESCO UIS (CC BY-SA 4.0), V-Dem (CC BY-SA 4.0), PWT (CC BY 4.0), UNDP (CC BY 3.0 IGO). Retain attribution and share-alike terms on adapted data exports. See each series.'}
     temp=previous_path.with_suffix('.tmp')
     temp.write_text(json.dumps(dataset,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
     temp.replace(previous_path)
