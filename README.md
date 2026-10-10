@@ -21,7 +21,7 @@ python scripts/build.py
 python -m http.server 8765
 ```
 
-For a UI-only change, skip the refresh and rebuild against the committed snapshot. Edit `src/`, never generated `index.html` or `dashboard.html`. The root intro rotates mottos every 3.5 seconds and links to the dashboard. Commit both regenerated pages with source changes. `CNAME` preserves the existing custom domain; GitHub Pages publishes the main branch root.
+For a UI-only change, skip the refresh and rebuild against the committed snapshot. Edit `src/`, never generated `index.html` or `dashboard.html`. The root intro rotates mottos every 5 seconds and links to the dashboard. Commit both regenerated pages with source changes. `CNAME` preserves the existing custom domain; GitHub Pages publishes the main branch root.
 
 ## Next development phases
 

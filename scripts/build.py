@@ -16,6 +16,12 @@ def build():
     if '/*__' in template:raise ValueError('Unresolved build marker')
     (ROOT/'dashboard.html').write_text(template,encoding='utf-8')
     landing=(ROOT/'src/landing.html').read_text().replace('/*__LOGO__*/','data:image/png;base64,'+base64.b64encode((ROOT/'logo.png').read_bytes()).decode())
+    snapshot=json.loads((ROOT/'data/indicators.json').read_text())
+    metrics={m['code']:m for m in snapshot['metrics']}
+    unemployment=dict(metrics['SL.UEM.TOTL.ZS']['series']['GRC'])
+    internet=[p for p in metrics['ESTAT.INTERNET.HOUSEHOLDS']['series']['GRC'] if p[1] is not None][-1]
+    for marker,value in {'KPI_COUNT':len(metrics),'UNEMP_A':f"{sum(unemployment[y] for y in (2016,2017,2018))/3:.1f}",'UNEMP_B':f"{sum(unemployment[y] for y in (2020,2021,2022))/3:.1f}",'INTERNET':f"{internet[1]:.2f}",'INTERNET_YEAR':internet[0]}.items():
+        landing=landing.replace('/*__'+marker+'__*/',str(value))
     if '/*__' in landing:raise ValueError('Unresolved landing marker')
     (ROOT/'index.html').write_text(landing,encoding='utf-8')
     (ROOT/'.nojekyll').touch()
