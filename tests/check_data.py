@@ -8,8 +8,9 @@ from catalog import METRICS
 from eurostat import CATALOG
 from vetted import MANIFEST, metrics_from_receipt
 from oecd import MANIFEST as OECD_MANIFEST, metrics_from_receipt as replay_oecd
+from ilo import MANIFEST as ILO_MANIFEST, metrics_from_receipt as replay_ilo, parse_csv as parse_ilo
 D=json.loads((ROOT/'data/indicators.json').read_text());H=json.loads((ROOT/'data/history.json').read_text())
-expected={m['code'] for m in METRICS+CATALOG+MANIFEST+OECD_MANIFEST}
+expected={m['code'] for m in METRICS+CATALOG+MANIFEST+OECD_MANIFEST+ILO_MANIFEST}
 assert {m['code'] for m in D['metrics']}==expected
 assert len(D['metrics'])==len(expected)
 assert len(D['categories'])==12
@@ -53,6 +54,23 @@ receipts={}
 upstream_hashes={hashlib.sha256(p.read_bytes()).hexdigest() for p in (ROOT/'data/raw').glob('vetted-*-source.*')}
 upstream_hashes.update(hashlib.sha256(p.read_bytes()).hexdigest() for p in (ROOT/'data/raw').glob('vetted-*-metadata.*'))
 for m in D['metrics']:
+ if m.get('iloSelectionId'):
+  path=raw.get(m['rawReceiptSha256'])
+  if path:
+   if 'ilo' not in receipts:
+    payload=json.loads(path.read_text());payload['receiptSha256']=hashlib.sha256(path.read_bytes()).hexdigest()
+    receipts['ilo']={x['code']:x for x in replay_ilo(payload)}
+   replay=receipts['ilo'][m['code']]
+   for key in ('series','flags','unit','change','definition','coverage','upstreamHashes','transformation','sourceUpdatedAt'):
+    assert replay[key]==m[key],(m['code'],key)
+   for key,digest in m['upstreamHashes'].items():
+    original=ROOT/'data/raw'/('ilo-metadata-toc.csv' if key=='metadata' else 'ilo-source-'+key+'.csv')
+    assert original.exists() and hashlib.sha256(original.read_bytes()).hexdigest()==digest
+   config=next(c for c in ILO_MANIFEST if c['code']==m['code'])
+   original=ROOT/'data/raw'/('ilo-source-'+config['indicator']+'.csv')
+   assert parse_ilo(original.read_bytes(),config)==payload['observations'][m['code']]
+   checked+=1
+  continue
  if m.get('oecdAuditId'):
   path=raw.get(m['rawReceiptSha256'])
   if path:
@@ -145,3 +163,15 @@ for config in OECD_MANIFEST:
  for c in ('GRC','DEU','FRA','ESP','PRT'):
   assert len([p for p in m['series'][c] if p[1] is not None])>=5,(m['code'],c)
 print('Validated 25 selected OECD indicators: exact slices, bilingual context, source terms and comparison coverage')
+
+assert len(ILO_MANIFEST)==3
+for config in ILO_MANIFEST:
+ m=by_code[config['code']]
+ assert m['source']=='ILO' and m['publicationReady'] and m['primaryCategory']=='jobs'
+ assert m['title']['el'] and m['definitionEl'] and m['interpretation']['el']
+ assert m['license']=='CC BY 4.0' and m['sourceRightsBasis'] and m['sourceUpdatedAt']
+ assert m['series']['EUU']==[] and m['coverage']['observations']>=10
+ for c in config['sources']:
+  assert len([p for p in m['series'][c] if p[1] is not None])>=10
+ assert m['change']==('absolute' if config['indicator']=='HOW_TEMP_SEX_NB' else 'pp')
+print('Validated 3 reviewed ILO indicators: exact source slices, retained survey notes and Greek/English definitions')

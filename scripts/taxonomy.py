@@ -55,6 +55,10 @@ MANIFEST = json.loads(Path(__file__).with_name("vetted_manifest.json").read_text
 for metric in MANIFEST:
     GROUPS[metric['category']] += ' ' + metric['code']
 
+ILO_MANIFEST = json.loads(Path(__file__).with_name('ilo_selection.json').read_text())
+for metric in ILO_MANIFEST:
+    GROUPS[metric['category']] += ' ' + metric['code']
+
 OECD_MANIFEST = json.loads(Path(__file__).with_name('oecd_selection.json').read_text())
 for metric in OECD_MANIFEST:
     GROUPS[metric['category']] += ' ' + metric['code']

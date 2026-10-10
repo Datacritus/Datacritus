@@ -1,6 +1,6 @@
 # DATACRITUS
 
-[www.datacritus.gr](https://www.datacritus.gr) makes Greece’s public statistics explorable in Greek and English. It combines 419 reviewed indicators across 12 topics with European comparisons, 26 cabinet periods and 20 parliamentary elections since 1974.
+[www.datacritus.gr](https://www.datacritus.gr) makes Greece’s public statistics explorable in Greek and English. It combines 447 reviewed indicators across 12 topics with European comparisons, 26 cabinet periods and 20 parliamentary elections since 1974.
 
 A larger Datacritus logo remains visible while scrolling and returns to Explore from every page, expanded chart and Studio. The interface uses 20px base text, stronger button borders, a gold primary action and clear keyboard focus.
 
@@ -13,6 +13,7 @@ Python 3.12+ and Node 22+ are used for the data pipeline and checks. There are n
 ```sh
 python scripts/refresh_data.py
 python tests/check_data.py
+python tests/ilo.test.py
 node tests/core.test.cjs
 node tests/infographic.test.cjs
 node tests/government-comparison.test.cjs
@@ -25,7 +26,7 @@ For a UI-only change, skip the refresh and rebuild against the committed snapsho
 ## Next development phases
 
 1. Readability and sharing: larger typography, clearer controls and single-indicator infographic exports.
-2. Data coverage: the previous 156 series are retained. A further 263 vetted definitions from four providers bring the catalogue to 419. Conditional and unverified items remain excluded; related research components are clearly identified.
+2. Data coverage: the previous 156 series are retained. A further 263 vetted definitions from four providers plus 25 selected OECD indicators and three ILOSTAT indicators bring the catalogue to 447. Conditional and unverified items remain excluded; related research components are clearly identified.
 3. Political-period analysis: the two-period infographic tool is implemented. Add deeper context and common-year European comparisons next. No invented causal government score.
 4. Scenario exploration: add explicit assumptions and uncertainty only after a defensible model and adequate data coverage exist.
 
@@ -35,7 +36,7 @@ The original Studio also supports one indicator with multiple countries. Multi-i
 
 ## Data and interpretation
 
-Statistics come from World Bank WDI/WGI and Eurostat APIs, UNESCO UIS, UNDP HDR 2025, Penn World Table 11.0 and V-Dem v16. The 263 new definitions (207 V-Dem, 24 UIS, 18 PWT, 14 UNDP) are the exact vetted research list, not the 140 conditional candidates. V-Dem composites/components are related measures, not independent evidence or government rankings. `scripts/catalog.py`, `scripts/eurostat.py` and `scripts/expansion.py` define the series, dimensions, units and bilingual labels. `data/indicators.json` records provider definitions, original API URLs, retrieval/update dates, full country series, quality flags and SHA-256 hashes of raw responses. Raw responses are downloaded into ignored `data/raw/`; validation compares every retained observation with the raw source when present.
+Statistics come from World Bank WDI/WGI and Eurostat APIs, UNESCO UIS, UNDP HDR 2025, Penn World Table 11.0, V-Dem v16, OECD Government at a Glance 2025 and ILOSTAT annual aggregates. The 263 new definitions (207 V-Dem, 24 UIS, 18 PWT, 14 UNDP) are the exact vetted research list, not the 140 conditional candidates. V-Dem composites/components are related measures, not independent evidence or government rankings. `scripts/catalog.py`, `scripts/eurostat.py` and `scripts/expansion.py` define the series, dimensions, units and bilingual labels. `data/indicators.json` records provider definitions, original API URLs, retrieval/update dates, full country series, quality flags and SHA-256 hashes of raw responses. Raw responses are downloaded into ignored `data/raw/`; validation compares every retained observation with the raw source when present.
 
 Missing values stay missing. Changes in percentage-based metrics are percentage points, not relative changes. Country comparisons use the latest common year in the selected interval. Government comparisons use only complete calendar years within each cabinet term, require two observations for a change and identify the years used. Timing is not evidence of causation. No overall government score or political ranking is invented.
 
@@ -52,3 +53,9 @@ Government and election dates are maintained separately in `scripts/build_histor
 ## Expansion source register
 
 `scripts/vetted_manifest.json` contains all 263 reviewed source identifiers and category/subtopic assignments. `scripts/vetted.py` retrieves full official source releases and metadata, records SHA-256 digests, writes replay receipts to ignored `data/raw/`, and rejects duplicate observations, unknown UIS flags, V-Dem scale changes, HTML error pages and coverage losses. `tests/vetted.test.py` guards source semantics. Research definitions remain in their original language; all editorial indicator labels are bilingual. The previous 156 indicators, cabinet dates and comparison tool are retained.
+
+## Reviewed ILOSTAT batch
+
+Three indicators cover hours-defined part-time employment, temporary contracts and actual weekly hours in the main job. `scripts/ilo_selection.json` pins indicator dimensions and national survey IDs; `scripts/ilo.py` refreshes current aggregate data and metadata through the public ILOSTAT API. Greek history ends in 2025; the reviewed Spanish/Portuguese source IDs end in 2024, with newer IDs awaiting continuity review. Source notes and breaks remain visible. Unreliable, imputed and model-extrapolated observations are suppressed, not converted to zero. Aggregate data updated after 3 May 2023 falls under ILO CC BY 4.0; restricted microdata is not redistributed.
+
+`data/audits/ilo-2026-10-10/selection-review.json` records the five-candidate review. Both injury candidates remain unpublished: Greek coverage changes in 2024 from compensated injuries to reported injuries including commuting accidents, and the non-fatal series has an unreliable value. Weekly hours and PWT annual hours are distinct measures, not duplicate KPIs. Future ILO additions require the same definition, source continuity, licence and duplicate checks.

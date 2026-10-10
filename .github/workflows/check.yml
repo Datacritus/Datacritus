@@ -28,5 +28,6 @@ jobs:
           python tests/check_data.py
           python tests/vetted.test.py
           python tests/oecd.test.py
+          python tests/ilo.test.py
           python scripts/build.py
           git diff --exit-code -- index.html data/history.json

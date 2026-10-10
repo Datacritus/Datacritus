@@ -1,0 +1,224 @@
+{
+  "retrievedAt": "2026-10-10T15:30:49.869211+00:00",
+  "reviewedCandidates": 5,
+  "publicationReadyCount": 3,
+  "selected": [
+    {
+      "code": "ILO.EMP_PTER_SEX_RT",
+      "indicator": "EMP_PTER_SEX_RT",
+      "title": {
+        "en": "Part-time employment: under 35 actual weekly hours",
+        "el": "Μερική απασχόληση: κάτω από 35 πραγματικές ώρες εβδομαδιαίως"
+      },
+      "category": "jobs",
+      "categories": [
+        "jobs"
+      ],
+      "unit": "% of employment",
+      "change": "pp",
+      "definition": "Employed persons working fewer than 35 actual hours in the reference week, as a percentage of total employment, both sexes. ILO hours-based measure; differs from self-reported part-time status and does not measure involuntary part-time work.",
+      "definitionEl": "Απασχολούμενοι με λιγότερες από 35 πραγματικές ώρες εργασίας την εβδομάδα αναφοράς, ως ποσοστό της συνολικής απασχόλησης, και για τα δύο φύλα. Μέτρο του ILO βάσει ωρών, διαφορετικό από την αυτοαναφερόμενη μερική απασχόληση. Δεν μετρά την ακούσια μερική απασχόληση.",
+      "sources": {
+        "GRC": "BA:317",
+        "DEU": "BA:2242",
+        "FRA": "BA:148",
+        "ESP": "BA:2244",
+        "PRT": "BA:2252"
+      },
+      "dimensions": {
+        "sex": "SEX_T",
+        "classif1": "",
+        "classif2": ""
+      },
+      "publicationReady": true,
+      "license": "CC BY 4.0",
+      "termsUrl": "https://www.ilo.org/rights-and-permissions",
+      "methodologyUrl": "https://ilostat.ilo.org/methods/concepts-and-definitions/description-wages-and-working-time-statistics/",
+      "sourceRightsBasis": "Current published ILOSTAT aggregate dataset and referential metadata under the ILO post-3-May-2023 CC BY 4.0 policy; no restricted microdata redistributed."
+    },
+    {
+      "code": "ILO.EES_XTMP_SEX_RT",
+      "indicator": "EES_XTMP_SEX_RT",
+      "title": {
+        "en": "Employees on temporary contracts",
+        "el": "Μισθωτοί με προσωρινές συμβάσεις"
+      },
+      "category": "jobs",
+      "categories": [
+        "jobs"
+      ],
+      "unit": "% of employees",
+      "change": "pp",
+      "definition": "Temporary employees as a percentage of all employees, both sexes, including fixed-term, project/task-based, seasonal and casual contracts. Denominator is employees, not all employed persons. National contract definitions differ.",
+      "definitionEl": "Μισθωτοί με προσωρινές συμβάσεις ως ποσοστό όλων των μισθωτών, και για τα δύο φύλα. Περιλαμβάνει συμβάσεις ορισμένου χρόνου, έργου, εποχικές και περιστασιακές. Ο παρονομαστής είναι οι μισθωτοί, όχι όλοι οι απασχολούμενοι. Οι εθνικοί ορισμοί διαφέρουν.",
+      "sources": {
+        "GRC": "BA:317",
+        "DEU": "BA:2242",
+        "FRA": "BA:148",
+        "ESP": "BA:2244",
+        "PRT": "BA:2252"
+      },
+      "dimensions": {
+        "sex": "SEX_T",
+        "classif1": "",
+        "classif2": ""
+      },
+      "publicationReady": true,
+      "license": "CC BY 4.0",
+      "termsUrl": "https://www.ilo.org/rights-and-permissions",
+      "methodologyUrl": "https://ilostat.ilo.org/methods/concepts-and-definitions/description-labour-force-statistics/",
+      "sourceRightsBasis": "Current published ILOSTAT aggregate dataset and referential metadata under the ILO post-3-May-2023 CC BY 4.0 policy; no restricted microdata redistributed."
+    },
+    {
+      "code": "ILO.HOW_TEMP_SEX_NB",
+      "indicator": "HOW_TEMP_SEX_NB",
+      "title": {
+        "en": "Actual weekly working hours per employed person",
+        "el": "Πραγματικές εβδομαδιαίες ώρες ανά απασχολούμενο"
+      },
+      "category": "jobs",
+      "categories": [
+        "jobs"
+      ],
+      "unit": "hours per week",
+      "change": "absolute",
+      "definition": "Average weekly hours actually worked per employed person, both sexes, in the main job currently held. Includes full-time and part-time workers. Actual hours differ from contractual/usual hours; this weekly measure is not PWT average annual hours and is not a productivity measure.",
+      "definitionEl": "Μέσες πραγματικές εβδομαδιαίες ώρες εργασίας ανά απασχολούμενο, και για τα δύο φύλα, στην κύρια τρέχουσα εργασία. Περιλαμβάνει πλήρη και μερική απασχόληση. Διαφέρει από τις συμβατικές ή συνήθεις ώρες, από τις ετήσιες ώρες του PWT και δεν μετρά παραγωγικότητα.",
+      "sources": {
+        "GRC": "BA:317",
+        "DEU": "BA:2242",
+        "FRA": "BA:148",
+        "ESP": "BA:2244",
+        "PRT": "BA:2252"
+      },
+      "dimensions": {
+        "sex": "SEX_T",
+        "classif1": "",
+        "classif2": ""
+      },
+      "publicationReady": true,
+      "license": "CC BY 4.0",
+      "termsUrl": "https://www.ilo.org/rights-and-permissions",
+      "methodologyUrl": "https://ilostat.ilo.org/methods/concepts-and-definitions/description-wages-and-working-time-statistics/",
+      "sourceRightsBasis": "Current published ILOSTAT aggregate dataset and referential metadata under the ILO post-3-May-2023 CC BY 4.0 policy; no restricted microdata redistributed."
+    }
+  ],
+  "sourceReview": {
+    "licence": "Current ILOSTAT aggregate datasets and referential metadata, updated October 2026, covered by ILO CC BY 4.0 policy. Restricted microdata not redistributed.",
+    "duplicateCheck": "No existing exact concept duplicate. PWT.avh is annual hours worked, distinct from weekly hours in the main job; not interchangeable or a direct independent validation of the same statistic.",
+    "sourceChanges": "Spain BA:2244 and Portugal BA:2252 through 2024 retained. New 2025 IDs BA:246/BA:199 excluded pending source continuity review. Greece BA:317 extends through 2025. France B flags retained.",
+    "unitReview": "Part-time means less than 35 actual weekly hours. Temporary employment denominator is employees, not all employment. Actual weekly hours are not usual/contracted hours."
+  },
+  "deferred": [
+    {
+      "indicator": "SDG_F881_SEX_MIG_RT",
+      "publicationReady": false,
+      "reason": "Greek coverage changes from compensated injuries to reported injuries including commuting accidents in 2024; country scopes differ. Requires continuity and denominator review before government or country comparisons. Unreliable values must not be published as normal observations.",
+      "sha256": "7c2b0fab56648cc2ba1c0ceabc297e332c8efeab03c941d000a5ce5cdf644c7b",
+      "unreliable": [],
+      "recentEvidence": [
+        {
+          "ref_area": "GRC",
+          "ref_area.label": "Greece",
+          "source": "FA:1189",
+          "source.label": "ADM-IR - Insurance Records",
+          "indicator": "SDG_F881_SEX_MIG_RT",
+          "indicator.label": "SDG indicator 8.8.1: Fatal occupational injuries per 100'000 workers by sex and migrant status",
+          "sex": "SEX_T",
+          "sex.label": "Total",
+          "classif1": "MIG_STATUS_TOTAL",
+          "classif1.label": "Migrant status: Total",
+          "time": "2024",
+          "obs_value": "1.33",
+          "obs_status": "",
+          "obs_status.label": "",
+          "note_indicator": "T13:149_T14:155",
+          "note_indicator.label": "Coverage of occupational injuries: Reported injuries | Type of cases of occupational injuries: Including cases of injury due to commuting accidents",
+          "note_source": "",
+          "note_source.label": ""
+        },
+        {
+          "ref_area": "GRC",
+          "ref_area.label": "Greece",
+          "source": "FA:1189",
+          "source.label": "ADM-IR - Insurance Records",
+          "indicator": "SDG_F881_SEX_MIG_RT",
+          "indicator.label": "SDG indicator 8.8.1: Fatal occupational injuries per 100'000 workers by sex and migrant status",
+          "sex": "SEX_T",
+          "sex.label": "Total",
+          "classif1": "MIG_STATUS_TOTAL",
+          "classif1.label": "Migrant status: Total",
+          "time": "2023",
+          "obs_value": "1.48",
+          "obs_status": "",
+          "obs_status.label": "",
+          "note_indicator": "T13:149_T14:155",
+          "note_indicator.label": "Coverage of occupational injuries: Reported injuries | Type of cases of occupational injuries: Including cases of injury due to commuting accidents",
+          "note_source": "",
+          "note_source.label": ""
+        }
+      ]
+    },
+    {
+      "indicator": "SDG_N881_SEX_MIG_RT",
+      "publicationReady": false,
+      "reason": "Greek coverage changes from compensated injuries to reported injuries including commuting accidents in 2024; country scopes differ. Requires continuity and denominator review before government or country comparisons. Unreliable values must not be published as normal observations.",
+      "sha256": "4cd1c4e27ee8ca7e94c250e56583291468672fd6d6785d5137bd8dc37eb740d7",
+      "unreliable": [
+        {
+          "year": "2023",
+          "status": "U"
+        }
+      ],
+      "recentEvidence": [
+        {
+          "ref_area": "GRC",
+          "ref_area.label": "Greece",
+          "source": "FA:1189",
+          "source.label": "ADM-IR - Insurance Records",
+          "indicator": "SDG_N881_SEX_MIG_RT",
+          "indicator.label": "SDG indicator 8.8.1: Non-fatal occupational injuries per 100'000 workers by sex and migrant status",
+          "sex": "SEX_T",
+          "sex.label": "Total",
+          "classif1": "MIG_STATUS_TOTAL",
+          "classif1.label": "Migrant status: Total",
+          "time": "2024",
+          "obs_value": "126.98",
+          "obs_status": "",
+          "obs_status.label": "",
+          "note_indicator": "T13:149_T14:155",
+          "note_indicator.label": "Coverage of occupational injuries: Reported injuries | Type of cases of occupational injuries: Including cases of injury due to commuting accidents",
+          "note_source": "",
+          "note_source.label": ""
+        },
+        {
+          "ref_area": "GRC",
+          "ref_area.label": "Greece",
+          "source": "FA:1189",
+          "source.label": "ADM-IR - Insurance Records",
+          "indicator": "SDG_N881_SEX_MIG_RT",
+          "indicator.label": "SDG indicator 8.8.1: Non-fatal occupational injuries per 100'000 workers by sex and migrant status",
+          "sex": "SEX_T",
+          "sex.label": "Total",
+          "classif1": "MIG_STATUS_TOTAL",
+          "classif1.label": "Migrant status: Total",
+          "time": "2023",
+          "obs_value": "115.42",
+          "obs_status": "U",
+          "obs_status.label": "Unreliable",
+          "note_indicator": "T13:149_T14:155",
+          "note_indicator.label": "Coverage of occupational injuries: Reported injuries | Type of cases of occupational injuries: Including cases of injury due to commuting accidents",
+          "note_source": "",
+          "note_source.label": ""
+        }
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.ilo.org/rights-and-permissions",
+    "https://rplumber.ilo.org/openapi.json",
+    "https://ilostat.ilo.org/methods/concepts-and-definitions/description-wages-and-working-time-statistics/",
+    "https://ilostat.ilo.org/methods/concepts-and-definitions/description-labour-force-statistics/",
+    "https://ilostat.ilo.org/methods/concepts-and-definitions/description-sustainable-development-labour-market-indicators/"
+  ]
+}
