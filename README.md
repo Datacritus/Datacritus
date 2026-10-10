@@ -4,7 +4,7 @@
 
 A larger Datacritus logo remains visible while scrolling and returns to Explore from every page, expanded chart and Studio. The interface uses 20px base text, stronger button borders, a gold primary action and clear keyboard focus.
 
-The dashboard includes charts and accessible tables, date filters and quick ranges, an expanded chart view, government bands, election dates, search, local saved indicators, shareable URLs, CSV and SVG exports, and a source catalogue. Datacritus Studio turns the selected indicator, countries and dates into a branded landscape or portrait infographic, with an editable headline and PNG/SVG downloads. Sources, units, actual observation years and quality flags remain attached. Everything required to display it is embedded in `index.html`; no runtime framework, paid API, API keys, tracking or accounts are required.
+The dashboard includes charts and accessible tables, date filters and quick ranges, an expanded chart view, government bands, election dates, search, local saved indicators, shareable URLs, CSV and SVG exports, and a source catalogue. Datacritus Studio turns the selected indicator, countries and dates into a branded landscape or portrait infographic, with an editable headline and PNG/SVG downloads. Sources, units, actual observation years and quality flags remain attached. Everything required to display it is embedded in `dashboard.html`; no runtime framework, paid API, API keys, tracking or accounts are required.
 
 ## Develop and build
 
@@ -21,7 +21,7 @@ python scripts/build.py
 python -m http.server 8765
 ```
 
-For a UI-only change, skip the refresh and rebuild against the committed snapshot. Edit `src/`, never the generated root `index.html`. Commit the regenerated index with source changes. `CNAME` preserves the existing custom domain; GitHub Pages publishes the main branch root.
+For a UI-only change, skip the refresh and rebuild against the committed snapshot. Edit `src/`, never generated `index.html` or `dashboard.html`. The root intro rotates mottos every 3.5 seconds and links to the dashboard. Commit both regenerated pages with source changes. `CNAME` preserves the existing custom domain; GitHub Pages publishes the main branch root.
 
 ## Next development phases
 

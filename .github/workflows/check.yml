@@ -31,4 +31,5 @@ jobs:
           python tests/ilo.test.py
           python tests/eurostat_expansion.test.py
           python scripts/build.py
-          git diff --exit-code -- index.html data/history.json
+          node tests/landing.test.cjs
+          git diff --exit-code -- index.html dashboard.html data/history.json
