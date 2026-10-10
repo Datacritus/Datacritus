@@ -18,11 +18,11 @@ WARNING={
 'el':'Συγκεντρωτικά στοιχεία Έρευνας Εργατικού Δυναμικού με εναρμονισμένους ορισμούς του ILO (σειρές 13ου ICLS). Ώρες, προσωρινές συμβάσεις και μερική απασχόληση περιγράφουν διαφορετικές συνθήκες, όχι βαθμολογία κυβέρνησης. Ορισμοί και μέθοδοι μεταβάλλονται· διατηρούνται σημειώσεις και ασυνέχειες. Οι εθνικές πηγές είναι συγκεκριμένες: νέοι κωδικοί Ισπανίας/Πορτογαλίας απαιτούν έλεγχο. Χωρίς προέκταση μοντέλου, αναξιόπιστες τιμές, συμπλήρωση, παρεμβολή ή τεχνητό σύνολο ΕΕ. Οι μεταβολές στη θητεία δεν αποδεικνύουν αιτιότητα.'}
 
 def api_url(config):
-    return 'https://rplumber.ilo.org/data/indicator?id='+config['indicator']+'_A&ref_area=GRC%2BDEU%2BFRA%2BESP%2BPRT&sex=SEX_T&timefrom=1974&timeto='+str(dt.date.today().year)+'&type=both&format=.csv'
+    return 'https://rplumber.ilo.org/data/indicator?id='+config['indicator']+'_A&ref_area=GRC%2BDEU%2BFRA%2BESP%2BPRT'+('&sex='+config['dimensions']['sex'] if config['dimensions']['sex'] else '')+'&timefrom=1974&timeto='+str(dt.date.today().year)+'&type=both&format=.csv'
 
 def parse_csv(raw, config):
     rows=list(csv.DictReader(io.StringIO(raw.decode('utf-8-sig'))))
-    required={'ref_area','source','indicator','sex','time','obs_value','obs_status','note_indicator.label','note_source.label'}
+    required={'ref_area','source','indicator','time','obs_value','obs_status','note_indicator.label','note_source.label'}
     if not rows or not required.issubset(rows[0]):raise ValueError('Empty or invalid ILO response')
     out={c:{} for c in COUNTRIES}
     for row in rows:
@@ -55,12 +55,12 @@ def metrics_from_receipt(receipt):
         upstream=receipt['files'][config['indicator']]
         meta=receipt['metadata'][config['indicator']]
         credit='ILO, ILOSTAT; '+meta['indicator.label']+'; '+config['indicator']+'; https://ilostat.ilo.org/data/ (accessed '+receipt['retrievedAt'][:10]+'). CC BY 4.0. English/Greek labels adapted by DATACRITUS; not reviewed or endorsed by the ILO.'
-        metrics.append({**config,'iloSelectionId':config['indicator'],'source':'ILO','sourceName':'ILOSTAT — '+meta['database.label'],'provider':'ILO; national Labour Force Surveys','providerTitle':meta['indicator.label'],
+        metrics.append({**config,'iloSelectionId':config['indicator'],'source':'ILO','sourceName':'ILOSTAT — '+meta['database.label'],'provider':config.get('provider','ILO; national Labour Force Surveys'),'providerTitle':meta['indicator.label'],
           'sourceUrl':'https://ilostat.ilo.org/data/','apiUrl':upstream['url'],'metadataUrl':config['methodologyUrl'],'accessMethod':'api','sourceVersion':'ILOSTAT annual best-source aggregates; reviewed national source IDs; 13th ICLS','sourceUpdatedAt':dt.datetime.strptime(meta['last.update'],'%d/%m/%Y %H:%M:%S').isoformat(),
-          'retrievedAt':receipt['retrievedAt'],'sha256':upstream['sha256'],'rawReceiptSha256':receipt.get('receiptSha256'),'upstreamHashes':{config['indicator']:upstream['sha256'],'metadata':receipt['metadataSha256']},'attribution':credit,'measurementType':'harmonised labour-force survey aggregate','interpretation':WARNING,
-          'transformation':'Exact annual indicator, total sex, empty classifications and pinned country/source IDs. Original units. M/U/I values suppressed, flags and source notes retained. No interpolation or EU aggregate.',
+          'retrievedAt':receipt['retrievedAt'],'sha256':upstream['sha256'],'rawReceiptSha256':receipt.get('receiptSha256'),'upstreamHashes':{config['indicator']:upstream['sha256'],'metadata':receipt['metadataSha256']},'attribution':credit,'measurementType':config.get('measurementType','harmonised labour-force survey aggregate'),'interpretation':config.get('interpretation',WARNING),
+          'transformation':'Exact annual indicator, reviewed sex/classification dimensions and pinned country/source IDs. Original units. M/U/I values suppressed, flags and source notes retained. No interpolation or EU aggregate.',
           'series':series,'flags':{c:{y:p['flags'] for y,p in points[c].items() if p['flags']} for c in COUNTRIES},'uncertainty':{c:{} for c in COUNTRIES},'uncertaintyLevel':None,
-          'coverage':{'start':greek[0][0],'end':greek[-1][0],'observations':len(greek)},'subtopic':{'id':'working-conditions','title':{'en':'Working conditions','el':'Συνθήκες εργασίας'}}})
+          'coverage':{'start':greek[0][0],'end':greek[-1][0],'observations':len(greek)},'subtopic':config.get('subtopic',{'id':'working-conditions','title':{'en':'Working conditions','el':'Συνθήκες εργασίας'}})})
     return metrics
 
 def fetch(url):

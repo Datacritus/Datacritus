@@ -29,7 +29,7 @@ GROUPS = {
 }
 # Deliberate cross-topic views, not duplicate entries in the main navigation.
 TAG_GROUPS = {
- ('gender','Gender equality','Ισότητα φύλων'): 'SL.TLF.CACT.FE.ZS SG.GEN.PARL.ZS SE.PRM.TCHR.FE.ZS',
+ ('gender','Gender equality','Ισότητα φύλων'): 'SL.TLF.CACT.FE.ZS SG.GEN.PARL.ZS SE.PRM.TCHR.FE.ZS ILO.SDG_0552_NOC_RT',
  ('migration','Migration & asylum','Μετανάστευση & άσυλο'): 'SM.POP.RHCR.EA SM.POP.TOTL',
  ('resilience','Resilience','Ανθεκτικότητα'): 'SH.IMM.MEAS ER.LND.PTLD.ZS EG.FEC.RNEW.ZS EG.IMP.CONS.ZS ER.H2O.FWTL.K3 EG.EGY.PRIM.PP.KD FI.RES.TOTL.MO ESTAT.WASTE.RECYCLING',
  ('banking','Banking access','Πρόσβαση σε τραπεζικές υπηρεσίες'): 'FB.ATM.TOTL.P5',

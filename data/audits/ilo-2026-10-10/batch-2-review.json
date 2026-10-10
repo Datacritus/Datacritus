@@ -1,0 +1,149 @@
+{
+  "retrievedAt": "2026-10-10T16:15:21.468949+00:00",
+  "candidateCount": 4,
+  "publicationReadyCount": 2,
+  "candidates": [
+    {
+      "indicator": "EAR_GGAP_OCU_RT",
+      "publicationReady": false,
+      "reason": "Only six Greek observations, 2015–2020, in the reviewed total-occupation survey slice. Fails minimum 10-year history; no source blending or derived substitute.",
+      "rawSha256": "ce0c1e44b28135ea48b4137452bb644d78c954d23c541de9b29533ad825ebbc4",
+      "greekSourceSlices": [
+        {
+          "dimensions": [
+            "BA:317",
+            "",
+            "OCU_SKILL_TOTAL",
+            ""
+          ],
+          "observations": 6,
+          "firstYear": 2015,
+          "lastYear": 2020,
+          "statuses": {
+            "": 6
+          }
+        },
+        {
+          "dimensions": [
+            "BA:317",
+            "",
+            "OCU_ISCO08_TOTAL",
+            ""
+          ],
+          "observations": 6,
+          "firstYear": 2015,
+          "lastYear": 2020,
+          "statuses": {
+            "": 6
+          }
+        }
+      ]
+    },
+    {
+      "indicator": "EAR_XTLP_SEX_RT",
+      "publicationReady": false,
+      "reason": "Seven Greek observations over 2002–2024 from BB:319 and six over 2015–2020 from BA:317. Each source fails minimum history/density. Do not splice incompatible surveys to manufacture a continuous series.",
+      "rawSha256": "8ad8dafa5ed68615bf85aaf816b51fd5cb59b1f1a497d91a8f721fc3a2f7278c",
+      "greekSourceSlices": [
+        {
+          "dimensions": [
+            "BB:319",
+            "SEX_T",
+            "",
+            ""
+          ],
+          "observations": 7,
+          "firstYear": 2002,
+          "lastYear": 2024,
+          "statuses": {
+            "": 7
+          }
+        },
+        {
+          "dimensions": [
+            "BA:317",
+            "SEX_T",
+            "",
+            ""
+          ],
+          "observations": 6,
+          "firstYear": 2015,
+          "lastYear": 2020,
+          "statuses": {
+            "": 6
+          }
+        }
+      ]
+    },
+    {
+      "indicator": "SDG_0831_SEX_ECO_RT",
+      "publicationReady": true,
+      "reason": "Publish one all-sector, total-sex EU-SILC slice per country. German source excluded (three years only). Equivalent ECO_AGGREGATE_TOTAL view not counted as another KPI. Do not mix 13th/19th ICLS definitions.",
+      "rawSha256": "37866f2cc195fa76cf1b03134b5ec3ff153ab1b7a6aca52c76629f52e27e3dd3",
+      "greekSourceSlices": [
+        {
+          "dimensions": [
+            "BB:319",
+            "SEX_T",
+            "ECO_SECTOR_TOTAL",
+            ""
+          ],
+          "observations": 19,
+          "firstYear": 2007,
+          "lastYear": 2025,
+          "statuses": {
+            "": 19
+          }
+        },
+        {
+          "dimensions": [
+            "BB:319",
+            "SEX_T",
+            "ECO_AGGREGATE_TOTAL",
+            ""
+          ],
+          "observations": 19,
+          "firstYear": 2007,
+          "lastYear": 2025,
+          "statuses": {
+            "": 19
+          }
+        }
+      ],
+      "sourceUpdatedAt": "07/10/2026 07:09:03",
+      "apiUrl": "https://rplumber.ilo.org/data/indicator?id=SDG_0831_SEX_ECO_RT_A&ref_area=GRC%2BDEU%2BFRA%2BESP%2BPRT&sex=SEX_T&timefrom=1974&timeto=2026&type=both&format=.csv"
+    },
+    {
+      "indicator": "SDG_0552_NOC_RT",
+      "publicationReady": true,
+      "reason": "Publish senior/middle management only, exact empty sex/classification dimensions and reviewed LFS source IDs. Distinct from women in parliament and total management. ISCO-88/08 comparability caution retained; no invented break year. Portugal newer 2025 source ID not blended.",
+      "rawSha256": "4e4c62a5fb8364b5a1b260553b53b357cc38184ae915926c86a0198ced9b070d",
+      "greekSourceSlices": [
+        {
+          "dimensions": [
+            "BA:317",
+            "",
+            "",
+            ""
+          ],
+          "observations": 26,
+          "firstYear": 2000,
+          "lastYear": 2025,
+          "statuses": {
+            "": 26
+          }
+        }
+      ],
+      "sourceUpdatedAt": "02/10/2026 07:10:05",
+      "apiUrl": "https://rplumber.ilo.org/data/indicator?id=SDG_0552_NOC_RT_A&ref_area=GRC%2BDEU%2BFRA%2BESP%2BPRT&timefrom=1974&timeto=2026&type=both&format=.csv"
+    }
+  ],
+  "sources": [
+    "https://www.ilo.org/rights-and-permissions",
+    "https://unstats.un.org/sdgs/metadata/files/Metadata-05-05-02.pdf",
+    "https://unstats.un.org/sdgs/metadata/files/Metadata-08-03-01.pdf",
+    "https://ilostat.ilo.org/methods/concepts-and-definitions/description-wages-and-working-time-statistics/"
+  ],
+  "informalityDuplicateCheck": "ECO_SECTOR_TOTAL and ECO_AGGREGATE_TOTAL values matched exactly for all four selected countries. Only ECO_SECTOR_TOTAL retained.",
+  "metadataSha256": "2a4065b821e923693e75f389ae28e6835d2584904a74c6bf3a6d888aa5c2b184"
+}

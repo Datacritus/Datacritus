@@ -164,7 +164,7 @@ for config in OECD_MANIFEST:
   assert len([p for p in m['series'][c] if p[1] is not None])>=5,(m['code'],c)
 print('Validated 25 selected OECD indicators: exact slices, bilingual context, source terms and comparison coverage')
 
-assert len(ILO_MANIFEST)==3
+assert len(ILO_MANIFEST)==5
 for config in ILO_MANIFEST:
  m=by_code[config['code']]
  assert m['source']=='ILO' and m['publicationReady'] and m['primaryCategory']=='jobs'
@@ -174,4 +174,10 @@ for config in ILO_MANIFEST:
  for c in config['sources']:
   assert len([p for p in m['series'][c] if p[1] is not None])>=10
  assert m['change']==('absolute' if config['indicator']=='HOW_TEMP_SEX_NB' else 'pp')
-print('Validated 3 reviewed ILO indicators: exact source slices, retained survey notes and Greek/English definitions')
+print('Validated 5 reviewed ILO indicators: exact source slices, retained survey notes and Greek/English definitions')
+
+assert by_code['ILO.SDG_0831_SEX_ECO_RT']['series']['DEU']==[]
+assert 'EU-SILC' in by_code['ILO.SDG_0831_SEX_ECO_RT']['provider']
+assert by_code['ILO.SDG_0831_SEX_ECO_RT']['dimensions']['classif1']=='ECO_SECTOR_TOTAL'
+assert by_code['ILO.SDG_0552_NOC_RT']['dimensions']['sex']==''
+assert by_code['ILO.SDG_0552_NOC_RT']['unit']=='% of senior/middle management positions'

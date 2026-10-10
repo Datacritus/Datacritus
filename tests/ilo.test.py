@@ -17,6 +17,14 @@ class Parser(unittest.TestCase):
    p=parse_csv(raw([{'obs_status':flag,'obs_value':'5'}]),CONFIG)['GRC']['2024'];self.assertIsNone(p['value']);self.assertIn(flag+':',p['flags'])
  def test_break_retained(self):
   p=parse_csv(raw([{'obs_status':'B','obs_value':'3.2'}]),CONFIG)['GRC']['2024'];self.assertEqual(p['value'],3.2);self.assertIn('Break in series',p['flags'])
+ def test_management_has_no_sex_dimension(self):
+  config=next(m for m in MANIFEST if m['indicator']=='SDG_0552_NOC_RT')
+  rows=raw([{'indicator':config['indicator'],'sex':'','obs_value':'35'}])
+  self.assertEqual(parse_csv(rows,config)['GRC']['2024']['value'],35)
+ def test_informality_total_views_are_not_doubled(self):
+  config=next(m for m in MANIFEST if m['indicator']=='SDG_0831_SEX_ECO_RT')
+  rows=raw([{'indicator':config['indicator'],'source':'BB:319','classif1':'ECO_SECTOR_TOTAL','obs_value':'4.2'},{'indicator':config['indicator'],'source':'BB:319','classif1':'ECO_AGGREGATE_TOTAL','obs_value':'4.2'}])
+  points=parse_csv(rows,config)['GRC'];self.assertEqual(len(points),1);self.assertEqual(points['2024']['value'],4.2)
  def test_fail_duplicate_unknown_nonannual_and_invalid(self):
   for rows in [[{},{}],[{'obs_status':'X'}],[{'time':'2024Q1'}],[{'obs_value':'nan'}],[{'obs_value':'101'}]]:
    with self.assertRaises(ValueError):parse_csv(raw(rows),CONFIG)

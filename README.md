@@ -1,6 +1,6 @@
 # DATACRITUS
 
-[www.datacritus.gr](https://www.datacritus.gr) makes Greece’s public statistics explorable in Greek and English. It combines 447 reviewed indicators across 12 topics with European comparisons, 26 cabinet periods and 20 parliamentary elections since 1974.
+[www.datacritus.gr](https://www.datacritus.gr) makes Greece’s public statistics explorable in Greek and English. It combines 449 reviewed indicators across 12 topics with European comparisons, 26 cabinet periods and 20 parliamentary elections since 1974.
 
 A larger Datacritus logo remains visible while scrolling and returns to Explore from every page, expanded chart and Studio. The interface uses 20px base text, stronger button borders, a gold primary action and clear keyboard focus.
 
@@ -26,7 +26,7 @@ For a UI-only change, skip the refresh and rebuild against the committed snapsho
 ## Next development phases
 
 1. Readability and sharing: larger typography, clearer controls and single-indicator infographic exports.
-2. Data coverage: the previous 156 series are retained. A further 263 vetted definitions from four providers plus 25 selected OECD indicators and three ILOSTAT indicators bring the catalogue to 447. Conditional and unverified items remain excluded; related research components are clearly identified.
+2. Data coverage: the previous 156 series are retained. A further 263 vetted definitions from four providers plus 25 selected OECD indicators and five ILOSTAT indicators bring the catalogue to 449. Conditional and unverified items remain excluded; related research components are clearly identified.
 3. Political-period analysis: the two-period infographic tool is implemented. Add deeper context and common-year European comparisons next. No invented causal government score.
 4. Scenario exploration: add explicit assumptions and uncertainty only after a defensible model and adequate data coverage exist.
 
@@ -59,3 +59,5 @@ Government and election dates are maintained separately in `scripts/build_histor
 Three indicators cover hours-defined part-time employment, temporary contracts and actual weekly hours in the main job. `scripts/ilo_selection.json` pins indicator dimensions and national survey IDs; `scripts/ilo.py` refreshes current aggregate data and metadata through the public ILOSTAT API. Greek history ends in 2025; the reviewed Spanish/Portuguese source IDs end in 2024, with newer IDs awaiting continuity review. Source notes and breaks remain visible. Unreliable, imputed and model-extrapolated observations are suppressed, not converted to zero. Aggregate data updated after 3 May 2023 falls under ILO CC BY 4.0; restricted microdata is not redistributed.
 
 `data/audits/ilo-2026-10-10/selection-review.json` records the five-candidate review. Both injury candidates remain unpublished: Greek coverage changes in 2024 from compensated injuries to reported injuries including commuting accidents, and the non-fatal series has an unreliable value. Weekly hours and PWT annual hours are distinct measures, not duplicate KPIs. Future ILO additions require the same definition, source continuity, licence and duplicate checks.
+
+The second ILO batch adds senior/middle management female representation and one all-sector informality measure. Greece informality uses EU-SILC (minimum age 16), rather than LFS; it is not the shadow-economy share of GDP or a count of undeclared workers. Germany is excluded from this measure because its reviewed source has only three years. Alternate total classifications and 19th-ICLS variants are not separate duplicate KPIs. `batch-2-review.json` records the review: Greek pay-gap and low-pay feeds have insufficient source-consistent history and remain unpublished.

@@ -97,5 +97,96 @@
     "termsUrl": "https://www.ilo.org/rights-and-permissions",
     "methodologyUrl": "https://ilostat.ilo.org/methods/concepts-and-definitions/description-wages-and-working-time-statistics/",
     "sourceRightsBasis": "Current published ILOSTAT aggregate dataset and referential metadata under the ILO post-3-May-2023 CC BY 4.0 policy; no restricted microdata redistributed."
+  },
+  {
+    "code": "ILO.SDG_0552_NOC_RT",
+    "indicator": "SDG_0552_NOC_RT",
+    "title": {
+      "en": "Women in senior and middle management",
+      "el": "Γυναίκες σε ανώτερες και μεσαίες διοικητικές θέσεις"
+    },
+    "category": "jobs",
+    "categories": [
+      "jobs"
+    ],
+    "unit": "% of senior/middle management positions",
+    "change": "pp",
+    "definition": "Women as a percentage of all persons employed in senior and middle management, across the economy. Excludes junior management: ISCO-08 groups 11–13 or ISCO-88 groups 11–12. Not the percentage of employed women who are managers, and not a measure of female ministers or public-sector managers only. The reviewed 13th-ICLS series is kept separate from its 19th-ICLS alternative.",
+    "definitionEl": "Γυναίκες ως ποσοστό όλων των απασχολουμένων σε ανώτερες και μεσαίες διοικητικές θέσεις, σε όλη την οικονομία. Εξαιρεί κατώτερες διοικητικές θέσεις: ομάδες 11–13 του ISCO-08 ή 11–12 του ISCO-88. Δεν είναι το ποσοστό των εργαζόμενων γυναικών που είναι διευθυντικά στελέχη, ούτε μετρά μόνο υπουργούς ή δημόσια στελέχη. Η σειρά του 13ου ICLS διατηρείται χωριστά από την εναλλακτική του 19ου ICLS.",
+    "sources": {
+      "GRC": "BA:317",
+      "DEU": "BA:2242",
+      "FRA": "BA:148",
+      "ESP": "BA:2244",
+      "PRT": "BA:2252"
+    },
+    "dimensions": {
+      "sex": "",
+      "classif1": "",
+      "classif2": ""
+    },
+    "publicationReady": true,
+    "license": "CC BY 4.0",
+    "termsUrl": "https://www.ilo.org/rights-and-permissions",
+    "methodologyUrl": "https://ilostat.ilo.org/methods/concepts-and-definitions/description-sustainable-development-labour-market-indicators/",
+    "sourceRightsBasis": "Current published ILOSTAT aggregate dataset and referential metadata under the ILO post-3-May-2023 CC BY 4.0 policy; no restricted microdata redistributed.",
+    "measurementType": "harmonised household-survey aggregate",
+    "provider": "ILO; national Labour Force Surveys",
+    "subtopic": {
+      "id": "gender-equality",
+      "title": {
+        "en": "Gender equality at work",
+        "el": "Ισότητα φύλων στην εργασία"
+      }
+    },
+    "interpretation": {
+      "en": "ISCO-88 and ISCO-08 management classifications differ; use caution in historical comparisons. Senior/middle management is distinct from all management. National survey revisions and source flags remain visible. Changes during a term do not establish causation.",
+      "el": "Οι ορισμοί διοικητικών θέσεων ISCO-88 και ISCO-08 διαφέρουν· χρειάζεται προσοχή στις ιστορικές συγκρίσεις. Ανώτερες/μεσαίες θέσεις διαφέρουν από το σύνολο διοικητικών θέσεων. Διατηρούνται οι αναθεωρήσεις και σημάνσεις εθνικών ερευνών. Οι μεταβολές στη θητεία δεν αποδεικνύουν αιτιότητα."
+    }
+  },
+  {
+    "code": "ILO.SDG_0831_SEX_ECO_RT",
+    "indicator": "SDG_0831_SEX_ECO_RT",
+    "title": {
+      "en": "Informal employment share",
+      "el": "Ποσοστό άτυπης απασχόλησης"
+    },
+    "category": "jobs",
+    "categories": [
+      "jobs"
+    ],
+    "unit": "% of employment",
+    "change": "pp",
+    "definition": "Informal employment as a percentage of total employment, both sexes and all economic sectors. ILO harmonised household-survey measure includes informal jobs in formal enterprises, own-account/employer activity in informal enterprises and contributing family work. Greece uses EU-SILC, with minimum age 16. Informality is not identical to undeclared employment, self-employment or the shadow-economy share of GDP. Retains the reviewed 13th-ICLS definition; not spliced with 19th-ICLS data.",
+    "definitionEl": "Άτυπη απασχόληση ως ποσοστό της συνολικής απασχόλησης, και για τα δύο φύλα και όλους τους κλάδους. Εναρμονισμένο μέτρο του ILO από έρευνες νοικοκυριών: περιλαμβάνει άτυπες θέσεις σε επίσημες επιχειρήσεις, δραστηριότητα αυτοαπασχολούμενων/εργοδοτών σε άτυπες επιχειρήσεις και συμβοηθούντα μέλη οικογένειας. Για την Ελλάδα χρησιμοποιείται EU-SILC, με ελάχιστη ηλικία 16 ετών. Δεν ταυτίζεται με αδήλωτη εργασία, αυτοαπασχόληση ή παραοικονομία ως ποσοστό ΑΕΠ. Δεν συνενώνεται με τη διαφορετική σειρά του 19ου ICLS.",
+    "sources": {
+      "GRC": "BB:319",
+      "FRA": "BB:3067",
+      "ESP": "BB:3071",
+      "PRT": "BB:201"
+    },
+    "dimensions": {
+      "sex": "SEX_T",
+      "classif1": "ECO_SECTOR_TOTAL",
+      "classif2": ""
+    },
+    "publicationReady": true,
+    "license": "CC BY 4.0",
+    "termsUrl": "https://www.ilo.org/rights-and-permissions",
+    "methodologyUrl": "https://ilostat.ilo.org/methods/concepts-and-definitions/description-sustainable-development-labour-market-indicators/",
+    "sourceRightsBasis": "Current published ILOSTAT aggregate dataset and referential metadata under the ILO post-3-May-2023 CC BY 4.0 policy; no restricted microdata redistributed.",
+    "measurementType": "harmonised household-survey aggregate",
+    "provider": "ILO; EU Statistics on Income and Living Conditions (EU-SILC)",
+    "subtopic": {
+      "id": "working-conditions",
+      "title": {
+        "en": "Working conditions",
+        "el": "Συνθήκες εργασίας"
+      }
+    },
+    "interpretation": {
+      "en": "EU-SILC household-survey informality, not a count of labour-inspection offences or a government score. Age coverage and national survey methods matter; source notes are retained. Germany is not published here: the reviewed feed has only three years. Changes during a term do not establish causation.",
+      "el": "Μέτρο άτυπης απασχόλησης από έρευνα νοικοκυριών EU-SILC, όχι αριθμός παραβάσεων επιθεώρησης εργασίας ή βαθμολογία κυβέρνησης. Η ηλικιακή κάλυψη και οι εθνικές μέθοδοι έχουν σημασία· διατηρούνται οι σημειώσεις. Η Γερμανία δεν δημοσιεύεται εδώ: η ελεγμένη πηγή έχει μόνο τρία έτη. Οι μεταβολές στη θητεία δεν αποδεικνύουν αιτιότητα."
+    }
   }
 ]
