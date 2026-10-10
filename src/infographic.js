@@ -6,7 +6,7 @@
  function wrap(value,max){const out=[];let line='';const words=String(value).split(/\s+/).flatMap(word=>word.length>max?word.match(new RegExp('.{1,'+max+'}','gu')):word);for(const word of words){if(line&&(line+' '+word).length>max){out.push(line);line=word;}else line+=(line?' ':'')+word;}if(line)out.push(line);return out;}
  function build({metric:m,countries,countryInfo,from,to,lang='en',title='',format='landscape',logoUri=''}){
   const el=lang==='el',portrait=format==='portrait',W=portrait?1080:1600,H=portrait?1350:1000,M=64;
-  const credit=`${m.license} · ${m.attribution} · ${m.sourceVersion}`,creditSize=portrait?15:17,creditHeight=wrap(credit,Math.max(8,Math.floor((W-2*M)/(creditSize*.62)))).length*creditSize*1.3,noteY=H+18+creditHeight+14,exportH=H+(m.license?Math.max(150,Math.ceil(noteY-H+70)):0);
+  const credit=[m.license,m.attribution,m.sourceVersion].filter(Boolean).join(' · '),creditSize=portrait?15:17,creditHeight=wrap(credit,Math.max(8,Math.floor((W-2*M)/(creditSize*.62)))).length*creditSize*1.3,noteY=H+18+creditHeight+14,exportH=H+(m.license?Math.max(150,Math.ceil(noteY-H+70)):0);
   const label=o=>typeof o==='object'?(o[lang]||o.en):o;
   const fmt=n=>n===null||n===undefined?'—':new Intl.NumberFormat(el?'el-GR':'en-GB',{maximumFractionDigits:Math.abs(n)>=1000?0:Math.abs(n)<10?4:2,notation:Math.abs(n)>=1e6?'compact':'standard'}).format(Object.is(n,-0)?0:n);
   const signed=n=>(n>0?'+':'')+fmt(n),unit=m.change==='pp'?(el?'π.μ.':'pp'):m.unit;

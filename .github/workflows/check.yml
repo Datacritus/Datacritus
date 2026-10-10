@@ -29,5 +29,6 @@ jobs:
           python tests/vetted.test.py
           python tests/oecd.test.py
           python tests/ilo.test.py
+          python tests/eurostat_expansion.test.py
           python scripts/build.py
           git diff --exit-code -- index.html data/history.json

@@ -34,7 +34,7 @@
  function build({comparison,lang='en',format:layout='landscape',logoUri=''}){
   const el=lang==='el',portrait=layout==='portrait',W=portrait?1080:1600,H=portrait?1740:1100,M=52;
   const {metric:m,periods,asOf}=comparison,ink='#123b48',muted='#526a73',navy='#073b4c',gold='#ffd166';
-  const credit=`${m.license} · ${m.attribution} · ${m.sourceVersion}`,creditSize=portrait?15:17,creditHeight=wrap(credit,Math.max(12,Math.floor((W-2*M)/(creditSize*.6)))).length*creditSize*1.3,noteY=H+18+creditHeight+14,exportH=H+(m.license?Math.max(150,Math.ceil(noteY-H+70)):0);
+  const credit=[m.license,m.attribution,m.sourceVersion].filter(Boolean).join(' · '),creditSize=portrait?15:17,creditHeight=wrap(credit,Math.max(12,Math.floor((W-2*M)/(creditSize*.6)))).length*creditSize*1.3,noteY=H+18+creditHeight+14,exportH=H+(m.license?Math.max(150,Math.ceil(noteY-H+70)):0);
   const out=[`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${exportH}" viewBox="0 0 ${W} ${exportH}" font-family="Arial, sans-serif" role="img"><title>${escape(label(m.title,lang))}: ${escape(periods.map(p=>label(p.term.name,lang)).join(' vs '))}</title><desc>${escape(el?'Σύγκριση παρατηρούμενων τιμών σε πλήρη ημερολογιακά έτη. Δεν αποτελεί αιτιώδη αξιολόγηση.':'Comparison of observed values in full calendar years. Not a causal assessment.')}</desc>`];
   const rect=(x,y,w,h,fill,rx=0)=>out.push(`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fill}" rx="${rx}"/>`);
   const text=(x,y,s,size=24,color=ink,weight=400,extra='')=>out.push(`<text x="${x}" y="${y}" font-size="${size}" fill="${color}" font-weight="${weight}" ${extra}>${escape(s)}</text>`);

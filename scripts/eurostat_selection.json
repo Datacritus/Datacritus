@@ -1,0 +1,260 @@
+[
+  {
+    "code": "ESTAT.HEALTH.UNMET.ACCESS",
+    "dataset": "hlth_silc_08",
+    "title": {
+      "en": "Unmet medical needs: cost, distance or waiting",
+      "el": "Μη καλυπτόμενες ανάγκες ιατρικής εξέτασης"
+    },
+    "unit": "% of people aged 16+",
+    "categories": [
+      "health"
+    ],
+    "params": {
+      "unit": "PC",
+      "quant_inc": "TOTAL",
+      "reason": "TXP_TFAR_WLIST",
+      "age": "Y_GE16",
+      "sex": "T"
+    },
+    "definition": "Share of people aged 16+ reporting an unmet need for medical examination because of cost, distance or waiting lists. Self-reported EU-SILC measure; not the share of rejected medical appointments. Components below are related and must not be treated as independent evidence.",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.HEALTH.UNMET.COST",
+    "dataset": "hlth_silc_08",
+    "title": {
+      "en": "Unmet medical needs: cost",
+      "el": "Μη καλυπτόμενη ιατρική εξέταση λόγω κόστους"
+    },
+    "unit": "% of people aged 16+",
+    "categories": [
+      "health"
+    ],
+    "params": {
+      "unit": "PC",
+      "quant_inc": "TOTAL",
+      "reason": "TXP",
+      "age": "Y_GE16",
+      "sex": "T"
+    },
+    "definition": "Share of people aged 16+ reporting unmet medical examination needs because it was too expensive. EU-SILC, total income groups, both sexes. Component of the combined access-barriers measure.",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.HEALTH.UNMET.DISTANCE",
+    "dataset": "hlth_silc_08",
+    "title": {
+      "en": "Unmet medical needs: distance",
+      "el": "Μη καλυπτόμενη ιατρική εξέταση λόγω απόστασης"
+    },
+    "unit": "% of people aged 16+",
+    "categories": [
+      "health"
+    ],
+    "params": {
+      "unit": "PC",
+      "quant_inc": "TOTAL",
+      "reason": "TFAR",
+      "age": "Y_GE16",
+      "sex": "T"
+    },
+    "definition": "Share of people aged 16+ reporting unmet medical examination needs because services were too far away. EU-SILC, total income groups, both sexes. Component of the combined access-barriers measure.",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.HEALTH.UNMET.WAITING",
+    "dataset": "hlth_silc_08",
+    "title": {
+      "en": "Unmet medical needs: waiting lists",
+      "el": "Μη καλυπτόμενη ιατρική εξέταση λόγω αναμονής"
+    },
+    "unit": "% of people aged 16+",
+    "categories": [
+      "health"
+    ],
+    "params": {
+      "unit": "PC",
+      "quant_inc": "TOTAL",
+      "reason": "WLIST",
+      "age": "Y_GE16",
+      "sex": "T"
+    },
+    "definition": "Share of people aged 16+ reporting unmet medical examination needs because of a waiting list. EU-SILC, total income groups, both sexes. Not waiting time in days; component of the combined access-barriers measure.",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.ARREARS.PAYMENTS",
+    "dataset": "ilc_mdes05",
+    "title": {
+      "en": "Household payment arrears",
+      "el": "Καθυστερήσεις πληρωμών νοικοκυριών"
+    },
+    "unit": "% of population",
+    "categories": [
+      "wellbeing"
+    ],
+    "params": {
+      "unit": "PC",
+      "hhcomp": "TOTAL",
+      "rskpovth": "TOTAL"
+    },
+    "definition": "Percentage of people living in households with arrears on mortgage or rent, utility bills or hire-purchase payments. EU-SILC, all household compositions and poverty statuses. Counts people, not debt value; survey year may differ from the income reference year.",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.POVERTY.INWORK",
+    "dataset": "ilc_iw01",
+    "title": {
+      "en": "In-work poverty",
+      "el": "Κίνδυνος φτώχειας εργαζομένων"
+    },
+    "unit": "% of employed people aged 18+",
+    "categories": [
+      "jobs"
+    ],
+    "params": {
+      "unit": "PC",
+      "wstatus": "EMP",
+      "sex": "T",
+      "age": "Y_GE18"
+    },
+    "definition": "Percentage of employed people aged 18+ whose equivalised disposable household income is below 60% of the national median after social transfers. EU-SILC, both sexes. Relative household-income poverty, not low individual wages; income generally refers to the preceding calendar year.",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.INCOME.S80S20",
+    "dataset": "ilc_di11",
+    "title": {
+      "en": "Income inequality: richest/poorest quintile ratio",
+      "el": "Αναλογία εισοδήματος πλουσιότερου προς φτωχότερο 20%"
+    },
+    "unit": "ratio",
+    "categories": [
+      "wellbeing"
+    ],
+    "params": {
+      "unit": "RAT",
+      "age": "TOTAL",
+      "sex": "T"
+    },
+    "definition": "Ratio of total equivalised disposable income received by the richest 20% to that received by the poorest 20%. EU-SILC, all ages, both sexes. A ratio, not a percentage or the Gini coefficient. Retain source break flags; income generally refers to the preceding calendar year.",
+    "change": "absolute",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.WASTE.GENERATED",
+    "dataset": "env_wasmun",
+    "title": {
+      "en": "Municipal waste generated per person",
+      "el": "Παραγόμενα δημοτικά απόβλητα ανά κάτοικο"
+    },
+    "unit": "kg per person",
+    "categories": [
+      "environment"
+    ],
+    "params": {
+      "unit": "KG_HAB",
+      "wst_oper": "GEN"
+    },
+    "definition": "Municipal waste generated in kilograms per resident per year. Includes household waste and similar waste from other sources; not all industrial waste, a recycling percentage or waste collected alone. Retain source methodology-break flags.",
+    "change": "absolute",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.ENERGY.PRIMARY",
+    "dataset": "nrg_ind_eff",
+    "title": {
+      "en": "Primary energy consumption, EED definition",
+      "el": "Πρωτογενής κατανάλωση ενέργειας"
+    },
+    "unit": "million tonnes of oil equivalent",
+    "categories": [
+      "environment"
+    ],
+    "params": {
+      "unit": "MTOE",
+      "nrg_bal": "PEC_EED"
+    },
+    "definition": "Primary energy consumption under the Energy Efficiency Directive definition, million tonnes of oil equivalent. Not primary energy intensity, renewable share or the older Europe 2020 definition. Do not splice definitions or compare absolute consumption without population/economic context.",
+    "change": "absolute",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.ENERGY.FINAL",
+    "dataset": "nrg_ind_eff",
+    "title": {
+      "en": "Final energy consumption, EED definition",
+      "el": "Τελική κατανάλωση ενέργειας"
+    },
+    "unit": "million tonnes of oil equivalent",
+    "categories": [
+      "environment"
+    ],
+    "params": {
+      "unit": "MTOE",
+      "nrg_bal": "FEC_EED"
+    },
+    "definition": "Final energy consumption under the Energy Efficiency Directive definition, million tonnes of oil equivalent. Measures energy supplied to final uses under this definition; distinct from primary energy consumption and energy intensity. Do not splice with the older Europe 2020 definition.",
+    "change": "absolute",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.INTERNET.HOUSEHOLDS",
+    "dataset": "isoc_ci_in_h",
+    "title": {
+      "en": "Households with internet access",
+      "el": "Νοικοκυριά με πρόσβαση στο διαδίκτυο"
+    },
+    "unit": "% of households",
+    "categories": [
+      "business"
+    ],
+    "params": {
+      "unit": "PC_HH",
+      "hhtyp": "TOTAL"
+    },
+    "definition": "Percentage of households with internet access at home, all household types in the ICT household survey population. Survey generally covers households with at least one member aged 16–74. Not individuals using the internet, broadband subscriptions or connection speed.",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  }
+]

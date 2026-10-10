@@ -119,6 +119,9 @@ CATALOG += [{'code': 'ESTAT.WASTE.RECYCLING',
 
 from expansion import EUROSTAT
 CATALOG += EUROSTAT
+from pathlib import Path
+EXPANSION = json.loads(Path(__file__).with_name("eurostat_selection.json").read_text())
+CATALOG += EXPANSION
 
 def parse_payload(payload):
     ids=payload['id'];sizes=payload['size'];dims=payload['dimension']
@@ -168,7 +171,8 @@ def collect_all(raw_dir):
                 time.sleep(attempt+1)
         (raw_dir/('eurostat-'+m['code']+'.json')).write_bytes(raw)
         greek=[p for p in series['GRC'] if p[1] is not None]
-        if not greek:raise ValueError('Eurostat returned no Greek observations')
+        if len(greek)<m.get('minimumGreekObservations',1):raise ValueError('Insufficient Greek Eurostat observations')
+        if m.get('minimumGreekObservations') and greek[-1][0]<dt.datetime.now(dt.timezone.utc).year-6:raise ValueError('Stale Greek Eurostat series')
         print(f"Fetched {m['code']}: {len(greek)} Greece observations, latest {greek[-1]}",flush=True)
         return {**{k:v for k,v in m.items() if k not in ('params',)},'change':m.get('change','pp'),'source':'Eurostat','sourceName':'Eurostat',
          'providerTitle':payload['label'],'provider':'Eurostat / national statistical authorities','series':series,'flags':flags,
