@@ -7,8 +7,9 @@ from eurostat import parse_payload, transform_series
 from catalog import METRICS
 from eurostat import CATALOG
 from vetted import MANIFEST, metrics_from_receipt
+from oecd import MANIFEST as OECD_MANIFEST, metrics_from_receipt as replay_oecd
 D=json.loads((ROOT/'data/indicators.json').read_text());H=json.loads((ROOT/'data/history.json').read_text())
-expected={m['code'] for m in METRICS+CATALOG+MANIFEST}
+expected={m['code'] for m in METRICS+CATALOG+MANIFEST+OECD_MANIFEST}
 assert {m['code'] for m in D['metrics']}==expected
 assert len(D['metrics'])==len(expected)
 assert len(D['categories'])==12
@@ -52,6 +53,20 @@ receipts={}
 upstream_hashes={hashlib.sha256(p.read_bytes()).hexdigest() for p in (ROOT/'data/raw').glob('vetted-*-source.*')}
 upstream_hashes.update(hashlib.sha256(p.read_bytes()).hexdigest() for p in (ROOT/'data/raw').glob('vetted-*-metadata.*'))
 for m in D['metrics']:
+ if m.get('oecdAuditId'):
+  path=raw.get(m['rawReceiptSha256'])
+  if path:
+   if 'oecd' not in receipts:
+    payload=json.loads(path.read_text());payload['receiptSha256']=hashlib.sha256(path.read_bytes()).hexdigest()
+    receipts['oecd']={x['code']:x for x in replay_oecd(payload)}
+   replay=receipts['oecd'][m['code']]
+   for key in ('series','flags','unit','change','definition','coverage','upstreamHashes','transformation'):
+    assert replay[key]==m[key],(m['code'],key)
+   for flow,digest in m['upstreamHashes'].items():
+    original=ROOT/'data/raw'/('oecd-source-'+flow.replace('@','-')+'.csv')
+    assert original.exists() and hashlib.sha256(original.read_bytes()).hexdigest()==digest
+   checked+=1
+  continue
  if m.get('auditId'):
   path=raw.get(m['rawReceiptSha256'])
   if path:
@@ -119,3 +134,14 @@ for config in MANIFEST:
  assert m['coverage']['observations']>=10 and m['coverage']['end']>=2020
 assert len(MANIFEST)==263
 print('Validated all 263 reviewed additions, source versions, licences, units and uncertainty')
+
+assert len(OECD_MANIFEST)==20
+for config in OECD_MANIFEST:
+ m=by_code[config['code']]
+ assert m['publicationReady'] and m['unit']=='% of GDP' and m['change']=='pp'
+ assert m['title']['el'] and m['definitionEl'] and m['interpretation']['el']
+ assert m['series']['EUU']==[] and m['coverage']['observations']>=10
+ assert m['license']=='OECD data terms (attribution required)' and m['sourceRightsBasis']
+ for c in ('GRC','DEU','FRA','ESP','PRT'):
+  assert len([p for p in m['series'][c] if p[1] is not None])>=5,(m['code'],c)
+print('Validated 20 selected OECD indicators: exact slices, bilingual context, source terms and comparison coverage')

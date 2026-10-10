@@ -5,7 +5,8 @@
  const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  function wrap(value,max){const out=[];let line='';const words=String(value).split(/\s+/).flatMap(word=>word.length>max?word.match(new RegExp('.{1,'+max+'}','gu')):word);for(const word of words){if(line&&(line+' '+word).length>max){out.push(line);line=word;}else line+=(line?' ':'')+word;}if(line)out.push(line);return out;}
  function build({metric:m,countries,countryInfo,from,to,lang='en',title='',format='landscape',logoUri=''}){
-  const el=lang==='el',portrait=format==='portrait',W=portrait?1080:1600,H=portrait?1350:1000,exportH=H+(m.license?150:0),M=64;
+  const el=lang==='el',portrait=format==='portrait',W=portrait?1080:1600,H=portrait?1350:1000,M=64;
+  const credit=`${m.license} · ${m.attribution} · ${m.sourceVersion}`,creditSize=portrait?15:17,creditHeight=wrap(credit,Math.max(8,Math.floor((W-2*M)/(creditSize*.62)))).length*creditSize*1.3,noteY=H+18+creditHeight+14,exportH=H+(m.license?Math.max(150,Math.ceil(noteY-H+70)):0);
   const label=o=>typeof o==='object'?(o[lang]||o.en):o;
   const fmt=n=>n===null||n===undefined?'—':new Intl.NumberFormat(el?'el-GR':'en-GB',{maximumFractionDigits:Math.abs(n)>=1000?0:Math.abs(n)<10?4:2,notation:Math.abs(n)>=1e6?'compact':'standard'}).format(Object.is(n,-0)?0:n);
   const signed=n=>(n>0?'+':'')+fmt(n),unit=m.change==='pp'?(el?'π.μ.':'pp'):m.unit;
@@ -45,7 +46,7 @@
   text(M,H-64,m.sourceUrl,portrait?14:16,muted);
   const flags=[...new Set(countries.flatMap(c=>Object.entries(m.flags?.[c]||{}).filter(([yr])=>Number(yr)>=from&&Number(yr)<=to).map(([,flag])=>flag)))];
   const note=(el?'Τα κενά σημαίνουν απουσία δεδομένων. Οι μεταβολές δεν αποδεικνύουν αιτιότητα.':'Gaps mean unavailable data. Observed changes do not establish causation.')+(flags.length?` ${el?'Σημάνσεις πηγής':'Source flags'}: ${flags.join(', ')}.`:'');
-  lines(M,H-38,note,portrait?14:16,W-2*M-205,muted);if(m.license){out.push(`<a href="${escape(m.termsUrl)}" target="_blank">`);lines(M,H+18,`${m.license} · ${m.attribution} · ${m.sourceVersion}`,portrait?15:17,W-2*M,muted);out.push('</a>');lines(M,H+82,m.uncertaintyLevel?(el?'Ερευνητικές εκτιμήσεις · ετήσια όρια αβεβαιότητας 68%.':'Research estimates · annual 68% uncertainty bounds.'):(el?'Διατηρήστε την αναφορά πηγής και τους όρους άδειας κατά την αναδημοσίευση.':'Retain source attribution and licence terms when republishing.'),portrait?16:18,W-2*M,muted);}
+  lines(M,H-38,note,portrait?14:16,W-2*M-205,muted);if(m.license){out.push(`<a href="${escape(m.termsUrl)}" target="_blank">`);lines(M,H+18,credit,creditSize,W-2*M,muted);out.push('</a>');lines(M,noteY,m.uncertaintyLevel?(el?'Ερευνητικές εκτιμήσεις · ετήσια όρια αβεβαιότητας 68%.':'Research estimates · annual 68% uncertainty bounds.'):(el?'Διατηρήστε την αναφορά πηγής και τους όρους άδειας κατά την αναδημοσίευση.':'Retain source attribution and licence terms when republishing.'),portrait?16:18,W-2*M,muted);}
   text(W-M,H-22,'www.datacritus.gr',18,navy,700,'text-anchor="end"');out.push('</svg>');
   return{svg:out.join(''),width:W,height:exportH};
  }

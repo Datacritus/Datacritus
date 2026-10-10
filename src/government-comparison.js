@@ -3,7 +3,7 @@
  'use strict';
  const C=typeof module!=='undefined'&&module.exports?require('./core.js'):root.DatacritusCore;
  const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- const wrap=(s,n)=>{const lines=[];let line='';for(const word of String(s).split(/\s+/)){if(line&&(line+' '+word).length>n){lines.push(line);line=word;}else line+=(line?' ':'')+word;}if(line)lines.push(line);return lines;};
+ const wrap=(s,n)=>{const lines=[];let line='';for(const word of String(s).split(/\s+/).flatMap(word=>word.length>n?word.match(new RegExp('.{1,'+n+'}','gu')):word)){if(line&&(line+' '+word).length>n){lines.push(line);line=word;}else line+=(line?' ':'')+word;}if(line)lines.push(line);return lines;};
  const label=(o,lang)=>typeof o==='object'?(o[lang]||o.en):o;
  const format=(n,lang)=>n==null?'—':new Intl.NumberFormat(lang==='el'?'el-GR':'en-GB',{maximumFractionDigits:Math.abs(n)>=1000?0:Math.abs(n)<10?4:2,notation:Math.abs(n)>=1e6?'compact':'standard'}).format(Object.is(n,-0)?0:n);
  function model({metric,terms,asOf}){
@@ -32,8 +32,9 @@
   return out+'</svg>';
  }
  function build({comparison,lang='en',format:layout='landscape',logoUri=''}){
-  const el=lang==='el',portrait=layout==='portrait',W=portrait?1080:1600,H=portrait?1740:1100,exportH=H+(comparison.metric.license?150:0),M=52;
+  const el=lang==='el',portrait=layout==='portrait',W=portrait?1080:1600,H=portrait?1740:1100,M=52;
   const {metric:m,periods,asOf}=comparison,ink='#123b48',muted='#526a73',navy='#073b4c',gold='#ffd166';
+  const credit=`${m.license} · ${m.attribution} · ${m.sourceVersion}`,creditSize=portrait?15:17,creditHeight=wrap(credit,Math.max(12,Math.floor((W-2*M)/(creditSize*.6)))).length*creditSize*1.3,noteY=H+18+creditHeight+14,exportH=H+(m.license?Math.max(150,Math.ceil(noteY-H+70)):0);
   const out=[`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${exportH}" viewBox="0 0 ${W} ${exportH}" font-family="Arial, sans-serif" role="img"><title>${escape(label(m.title,lang))}: ${escape(periods.map(p=>label(p.term.name,lang)).join(' vs '))}</title><desc>${escape(el?'Σύγκριση παρατηρούμενων τιμών σε πλήρη ημερολογιακά έτη. Δεν αποτελεί αιτιώδη αξιολόγηση.':'Comparison of observed values in full calendar years. Not a causal assessment.')}</desc>`];
   const rect=(x,y,w,h,fill,rx=0)=>out.push(`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fill}" rx="${rx}"/>`);
   const text=(x,y,s,size=24,color=ink,weight=400,extra='')=>out.push(`<text x="${x}" y="${y}" font-size="${size}" fill="${color}" font-weight="${weight}" ${extra}>${escape(s)}</text>`);
@@ -68,7 +69,7 @@
   text(M,footer+96,m.sourceUrl,portrait?15:17,muted);
   text(M,footer+123,`${el?'Χρονολόγιο ελέγχθηκε':'Timeline verified'}: ${asOf} · gslegal.gov.gr`,portrait?16:18,muted);
   lines(M,footer+151,el?'Οι μεταβολές κατά τη θητεία δεν αποδεικνύουν αιτιότητα.':'Changes during a term do not establish causation.',portrait?18:20,W-2*M-220,muted);
-  if(m.license){out.push(`<a href="${escape(m.termsUrl)}" target="_blank">`);lines(M,H+18,`${m.license} · ${m.attribution} · ${m.sourceVersion}`,portrait?15:17,W-2*M,muted);out.push('</a>');lines(M,H+82,m.uncertaintyLevel?(el?'Ερευνητικές εκτιμήσεις · ετήσια όρια αβεβαιότητας 68%, όχι όρια μέσου όρου θητείας.':'Research estimates · annual 68% uncertainty bounds, not intervals for term averages.'):(el?'Διατηρήστε την αναφορά πηγής και τους όρους άδειας κατά την αναδημοσίευση.':'Retain source attribution and licence terms when republishing.'),portrait?16:18,W-2*M,muted);}
+  if(m.license){out.push(`<a href="${escape(m.termsUrl)}" target="_blank">`);lines(M,H+18,credit,creditSize,W-2*M,muted);out.push('</a>');lines(M,noteY,m.uncertaintyLevel?(el?'Ερευνητικές εκτιμήσεις · ετήσια όρια αβεβαιότητας 68%, όχι όρια μέσου όρου θητείας.':'Research estimates · annual 68% uncertainty bounds, not intervals for term averages.'):(el?'Διατηρήστε την αναφορά πηγής και τους όρους άδειας κατά την αναδημοσίευση.':'Retain source attribution and licence terms when republishing.'),portrait?16:18,W-2*M,muted);}
   text(W-M,H-24,'www.datacritus.gr',19,navy,700,'text-anchor="end"');out.push('</svg>');
   return{svg:out.join(''),width:W,height:exportH};
  }

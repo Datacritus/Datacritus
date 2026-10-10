@@ -27,5 +27,6 @@ jobs:
           node tests/infographic.test.cjs
           python tests/check_data.py
           python tests/vetted.test.py
+          python tests/oecd.test.py
           python scripts/build.py
           git diff --exit-code -- index.html data/history.json

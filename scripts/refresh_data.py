@@ -18,6 +18,7 @@ from catalog import COUNTRIES, METRICS
 from eurostat import collect_all
 from taxonomy import classify, categories
 from vetted import collect_all as collect_vetted
+from oecd import collect_all as collect_oecd
 
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / 'data' / 'raw'
@@ -62,6 +63,7 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--cached-metadata',action='store_true',help='Use already fetched metadata for this build only')
     parser.add_argument('--cached-vetted',action='store_true',help='Replay downloaded research receipts for local verification only')
+    parser.add_argument('--cached-oecd',action='store_true',help='Replay the reviewed OECD receipt for local verification only')
     args=parser.parse_args()
     RAW.mkdir(parents=True,exist_ok=True)
     metadata={}
@@ -113,6 +115,7 @@ def main():
         print(m['code'],len(greek),greek[-1] if greek else 'No Greece observations',flush=True)
     metrics.extend(collect_all(RAW))
     metrics.extend(collect_vetted(RAW, args.cached_vetted))
+    metrics.extend(collect_oecd(RAW, args.cached_oecd))
     metrics=[classify(m) for m in metrics]
     if sum(bool(m['coverage']['observations']) for m in metrics)<40:raise ValueError('Insufficient real data; refusing to replace snapshot')
     previous_path=ROOT/'data'/'indicators.json'
@@ -126,7 +129,7 @@ def main():
     dataset={'schemaVersion':1,'retrievedAt':NOW.isoformat(),'countries':COUNTRIES,
              'categories':categories(),
              'metrics':metrics,'licenceUrl':'https://www.worldbank.org/en/about/legal/terms-of-use-for-datasets',
-             'licenceNote':'Provider-specific licences apply: World Bank, Eurostat, UNESCO UIS (CC BY-SA 4.0), V-Dem (CC BY-SA 4.0), PWT (CC BY 4.0), UNDP (CC BY 3.0 IGO). Retain attribution and share-alike terms on adapted data exports. See each series.'}
+             'licenceNote':'Provider-specific licences apply: World Bank, Eurostat, UNESCO UIS (CC BY-SA 4.0), V-Dem (CC BY-SA 4.0), PWT (CC BY 4.0), UNDP (CC BY 3.0 IGO), OECD data terms (retain attribution in onward redistribution). Retain attribution and share-alike terms on adapted data exports. See each series.'}
     temp=previous_path.with_suffix('.tmp')
     temp.write_text(json.dumps(dataset,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
     temp.replace(previous_path)

@@ -34,6 +34,7 @@ jobs:
         run: |
           python tests/check_data.py
           python tests/vetted.test.py
+          python tests/oecd.test.py
           node tests/core.test.cjs
           node tests/government-comparison.test.cjs
       - name: Build standalone site

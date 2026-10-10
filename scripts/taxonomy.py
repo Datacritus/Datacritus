@@ -55,6 +55,10 @@ MANIFEST = json.loads(Path(__file__).with_name("vetted_manifest.json").read_text
 for metric in MANIFEST:
     GROUPS[metric['category']] += ' ' + metric['code']
 
+OECD_MANIFEST = json.loads(Path(__file__).with_name('oecd_selection.json').read_text())
+for metric in OECD_MANIFEST:
+    GROUPS[metric['category']] += ' ' + metric['code']
+
 PRIMARY = {code:cat for cat,codes in GROUPS.items() for code in codes.split()}
 assert len(PRIMARY) == sum(len(codes.split()) for codes in GROUPS.values())
 LEGACY = {'housing':'wellbeing','security':'governance','digital':'business','technology':'education','justice':'governance','energy':'environment','infrastructure':'transport','resilience':'environment','international':'business','freedom':'governance'}
