@@ -2,7 +2,9 @@
 import csv,io,sys,unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from ilo import MANIFEST,parse_csv
+from ilo import MANIFEST,parse_csv,fetch
+from unittest.mock import patch,MagicMock
+from urllib.error import HTTPError
 CONFIG=MANIFEST[0]
 def raw(rows):
  base=dict(ref_area='GRC',source='BA:317',indicator=CONFIG['indicator'],sex='SEX_T',classif1='',classif2='',time='2024',obs_value='0',obs_status='',**{'note_indicator.label':'Survey method changed','note_source.label':'National survey'})
@@ -28,4 +30,19 @@ class Parser(unittest.TestCase):
  def test_fail_duplicate_unknown_nonannual_and_invalid(self):
   for rows in [[{},{}],[{'obs_status':'X'}],[{'time':'2024Q1'}],[{'obs_value':'nan'}],[{'obs_value':'101'}]]:
    with self.assertRaises(ValueError):parse_csv(raw(rows),CONFIG)
+class Transport(unittest.TestCase):
+ def test_gateway_retry_then_success(self):
+  response=MagicMock();response.__enter__.return_value.read.return_value=b'valid csv'
+  errors=[HTTPError('https://rplumber.ilo.org/',502,'gateway',{},None),HTTPError('https://rplumber.ilo.org/',503,'unavailable',{},None)]
+  with patch('ilo.urllib.request.urlopen',side_effect=errors+[response]) as request,patch('ilo.time.sleep') as sleep:
+   self.assertEqual(fetch('https://rplumber.ilo.org/metadata/toc/indicator'),b'valid csv')
+   self.assertEqual(request.call_count,3);self.assertEqual([x.args[0] for x in sleep.call_args_list],[5,15])
+ def test_persistent_gateway_error_is_not_hidden(self):
+  with patch('ilo.urllib.request.urlopen',side_effect=HTTPError('https://rplumber.ilo.org/',502,'gateway',{},None)) as request,patch('ilo.time.sleep'):
+   with self.assertRaises(HTTPError):fetch('https://rplumber.ilo.org/metadata/toc/indicator')
+   self.assertEqual(request.call_count,4)
+ def test_permanent_error_is_not_retried(self):
+  with patch('ilo.urllib.request.urlopen',side_effect=HTTPError('https://rplumber.ilo.org/',404,'not found',{},None)) as request,patch('ilo.time.sleep') as sleep:
+   with self.assertRaises(HTTPError):fetch('https://rplumber.ilo.org/metadata/toc/indicator')
+   self.assertEqual(request.call_count,1);sleep.assert_not_called()
 if __name__=='__main__':unittest.main()

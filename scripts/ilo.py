@@ -8,6 +8,7 @@ import math
 from pathlib import Path
 import time
 import urllib.request
+import urllib.error
 from catalog import COUNTRIES
 
 MANIFEST=json.loads(Path(__file__).with_name('ilo_selection.json').read_text())
@@ -64,13 +65,16 @@ def metrics_from_receipt(receipt):
     return metrics
 
 def fetch(url):
-    for attempt in range(3):
+    delays=(5,15,30)
+    for attempt in range(len(delays)+1):
         try:
             req=urllib.request.Request(url,headers={'User-Agent':'Datacritus/1.0 (https://www.datacritus.gr)'})
             with urllib.request.urlopen(req,timeout=55) as r:return r.read()
-        except Exception:
-            if attempt==2:raise
-            time.sleep(2+attempt)
+        except (urllib.error.URLError,TimeoutError,OSError) as exc:
+            if isinstance(exc,urllib.error.HTTPError) and exc.code not in (408,429,500,502,503,504):raise
+            if attempt==len(delays):raise
+            print('ILO transient transport failure; retrying in',delays[attempt],'seconds:',str(exc),flush=True)
+            time.sleep(delays[attempt])
 
 def collect_all(raw_dir,cached=False):
     path=raw_dir/'ilo-receipt.json'
