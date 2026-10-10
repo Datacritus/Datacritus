@@ -135,7 +135,7 @@ for config in MANIFEST:
 assert len(MANIFEST)==263
 print('Validated all 263 reviewed additions, source versions, licences, units and uncertainty')
 
-assert len(OECD_MANIFEST)==20
+assert len(OECD_MANIFEST)==25
 for config in OECD_MANIFEST:
  m=by_code[config['code']]
  assert m['publicationReady'] and m['unit']=='% of GDP' and m['change']=='pp'
@@ -144,4 +144,4 @@ for config in OECD_MANIFEST:
  assert m['license']=='OECD data terms (attribution required)' and m['sourceRightsBasis']
  for c in ('GRC','DEU','FRA','ESP','PRT'):
   assert len([p for p in m['series'][c] if p[1] is not None])>=5,(m['code'],c)
-print('Validated 20 selected OECD indicators: exact slices, bilingual context, source terms and comparison coverage')
+print('Validated 25 selected OECD indicators: exact slices, bilingual context, source terms and comparison coverage')

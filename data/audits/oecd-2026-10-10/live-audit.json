@@ -1064,12 +1064,9 @@
           0.01
         ]
       ],
-      "publicationReady": false,
-      "pending": [
-        "Definition and source-rights review",
-        "Semantic duplicate check"
-      ],
-      "decision": "Not included in this selective release; availability is not publication approval."
+      "publicationReady": true,
+      "pending": [],
+      "decision": "Selected after definition, original-source reuse rights, exact dimensions, live five-country coverage and semantic duplicate review. COFOG components overlap with parent functions and are not additive independent outcomes."
     },
     {
       "id": "oecd:e10b6447df73cffb84",
@@ -1886,12 +1883,9 @@
           2.1
         ]
       ],
-      "publicationReady": false,
-      "pending": [
-        "Definition and source-rights review",
-        "Semantic duplicate check"
-      ],
-      "decision": "Not included in this selective release; availability is not publication approval."
+      "publicationReady": true,
+      "pending": [],
+      "decision": "Selected after definition, original-source reuse rights, exact dimensions, live five-country coverage and semantic duplicate review. COFOG components overlap with parent functions and are not additive independent outcomes."
     },
     {
       "id": "oecd:bc728805cff5ea342c",
@@ -3253,12 +3247,9 @@
           2.24
         ]
       ],
-      "publicationReady": false,
-      "pending": [
-        "Definition and source-rights review",
-        "Semantic duplicate check"
-      ],
-      "decision": "Not included in this selective release; availability is not publication approval."
+      "publicationReady": true,
+      "pending": [],
+      "decision": "Selected after definition, original-source reuse rights, exact dimensions, live five-country coverage and semantic duplicate review. COFOG components overlap with parent functions and are not additive independent outcomes."
     },
     {
       "id": "oecd:51868b078d242483d6",
@@ -3838,12 +3829,9 @@
           8.2
         ]
       ],
-      "publicationReady": false,
-      "pending": [
-        "Definition and source-rights review",
-        "Semantic duplicate check"
-      ],
-      "decision": "Not included in this selective release; availability is not publication approval."
+      "publicationReady": true,
+      "pending": [],
+      "decision": "Selected after definition, original-source reuse rights, exact dimensions, live five-country coverage and semantic duplicate review. COFOG components overlap with parent functions and are not additive independent outcomes."
     },
     {
       "id": "oecd:e8e6687555f9f2b3cd",
@@ -4246,12 +4234,9 @@
           0.13
         ]
       ],
-      "publicationReady": false,
-      "pending": [
-        "Definition and source-rights review",
-        "Semantic duplicate check"
-      ],
-      "decision": "Not included in this selective release; availability is not publication approval."
+      "publicationReady": true,
+      "pending": [],
+      "decision": "Selected after definition, original-source reuse rights, exact dimensions, live five-country coverage and semantic duplicate review. COFOG components overlap with parent functions and are not additive independent outcomes."
     },
     {
       "id": "oecd:d4ab4628cabde1b347",
@@ -18522,7 +18507,7 @@
       "decision": "Not included in this selective release; availability is not publication approval."
     }
   ],
-  "publicationReadyCount": 20,
+  "publicationReadyCount": 25,
   "reviewFindings": {
     "candidateBreakdown": {
       "publicFinance": 33,
@@ -18543,7 +18528,7 @@
     "spendingHierarchy": "COFOG subfunctions overlap with parent functions. Show them as components, not additive independent outcomes.",
     "metadataAccess": "Successful structural metadata retrieval after explicit SDMX XML Accept header. Reference-metadata requests for COFOG and public finances return HTTP 500; alternate CSV representation also tested.",
     "endPeriod": "The exact legacy candidate queries end in 2025; this verifies those candidates, not completeness of 2026 releases.",
-    "selectedSourceRightsReview": "20 selected OECD/Eurostat national-accounts indicators cleared against OECD Government at a Glance methodology and Eurostat reuse terms. Reference-metadata API failures remain documented; official methodology pages establish the original source and definitions. No WHO-derived mortality series included."
+    "selectedSourceRightsReview": "25 selected OECD/Eurostat national-accounts indicators cleared against OECD Government at a Glance methodology and Eurostat reuse terms. Reference-metadata API failures remain documented; official methodology pages establish the original source and definitions. No WHO-derived mortality series included."
   },
   "sources": [
     "https://www.oecd.org/en/about/terms-conditions.html",

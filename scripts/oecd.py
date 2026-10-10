@@ -1,4 +1,4 @@
-"""Twenty reviewed public-finance series; exact slices, retained source flags.
+"""Twenty-five reviewed public-finance series; exact slices, retained source flags.
 
 The 2025 edition is intentionally pinned. This is not a claim to cover the
 latest OECD release. New editions require a metadata and comparability review.

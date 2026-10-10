@@ -27,7 +27,7 @@
     "license": "OECD data terms (attribution required)",
     "termsUrl": "https://www.oecd.org/en/about/terms-conditions.html",
     "sourceRightsBasis": "OECD Government at a Glance 2025 identifies OECD National Accounts and Eurostat Government Finance Statistics as upstream sources. OECD data terms permit reuse subject to attribution; Eurostat permits commercial and noncommercial reuse with attribution. No WHO mortality data or third-party commercial datasets selected.",
-    "cofogParent": "GFv-",
+    "cofogParent": null,
     "publicationReady": true
   },
   {
@@ -58,7 +58,7 @@
     "license": "OECD data terms (attribution required)",
     "termsUrl": "https://www.oecd.org/en/about/terms-conditions.html",
     "sourceRightsBasis": "OECD Government at a Glance 2025 identifies OECD National Accounts and Eurostat Government Finance Statistics as upstream sources. OECD data terms permit reuse subject to attribution; Eurostat permits commercial and noncommercial reuse with attribution. No WHO mortality data or third-party commercial datasets selected.",
-    "cofogParent": "GFv-",
+    "cofogParent": null,
     "publicationReady": true
   },
   {
@@ -89,7 +89,7 @@
     "license": "OECD data terms (attribution required)",
     "termsUrl": "https://www.oecd.org/en/about/terms-conditions.html",
     "sourceRightsBasis": "OECD Government at a Glance 2025 identifies OECD National Accounts and Eurostat Government Finance Statistics as upstream sources. OECD data terms permit reuse subject to attribution; Eurostat permits commercial and noncommercial reuse with attribution. No WHO mortality data or third-party commercial datasets selected.",
-    "cofogParent": "GFv-",
+    "cofogParent": null,
     "publicationReady": true
   },
   {
@@ -634,6 +634,166 @@
     "termsUrl": "https://www.oecd.org/en/about/terms-conditions.html",
     "sourceRightsBasis": "OECD Government at a Glance 2025 identifies OECD National Accounts and Eurostat Government Finance Statistics as upstream sources. OECD data terms permit reuse subject to attribution; Eurostat permits commercial and noncommercial reuse with attribution. No WHO mortality data or third-party commercial datasets selected.",
     "cofogParent": "GF05",
+    "publicationReady": true
+  },
+  {
+    "code": "OECD.GF02",
+    "conceptId": "cofog:GF02",
+    "oecdAuditId": "oecd:7592fbdf6272347c49",
+    "flow": "DSD_GOV_COFOG@DF_GOV_COFOG_2025",
+    "version": "1.0",
+    "dimensions": {
+      "FREQ": "A",
+      "REF_AREA": "GRC",
+      "MEASURE": "GE",
+      "UNIT_MEASURE": "PT_B1GQ",
+      "SECTOR": "S13",
+      "EXPENDITURE": "GF02",
+      "EDITION": "2025",
+      "CATEGORY": "PF"
+    },
+    "title": {
+      "en": "Government spending: Defence",
+      "el": "Κρατικές δαπάνες: Άμυνα"
+    },
+    "category": "finance",
+    "unit": "% of GDP",
+    "change": "pp",
+    "definition": "General-government expenditure on defence (COFOG GF02), as a percentage of GDP. Covers central, regional and local government and social security funds. Measures spending, not service quality or benefit received per person. Uses the COFOG defence classification; do not treat it as the NATO defence-spending series.",
+    "definitionEl": "Δαπάνες γενικής κυβέρνησης για «Άμυνα» (COFOG GF02), ως ποσοστό του ΑΕΠ. Περιλαμβάνονται κεντρική, περιφερειακή και τοπική διοίκηση και ταμεία κοινωνικής ασφάλισης. Μετρά δαπάνες, όχι ποιότητα υπηρεσιών ή παροχή ανά άτομο. Χρησιμοποιείται η ταξινόμηση άμυνας COFOG· δεν ταυτίζεται με τη σειρά αμυντικών δαπανών του NATO.",
+    "methodologyUrl": "https://www.oecd.org/en/publications/government-at-a-glance-2025_0efd0bcd-en/full-report/government-expenditure-by-function-cofog_d2b167d4.html",
+    "license": "OECD data terms (attribution required)",
+    "termsUrl": "https://www.oecd.org/en/about/terms-conditions.html",
+    "sourceRightsBasis": "OECD Government at a Glance 2025 identifies OECD National Accounts and Eurostat Government Finance Statistics as upstream sources. OECD data terms permit reuse subject to attribution; Eurostat permits commercial and noncommercial reuse with attribution. No WHO mortality data or third-party commercial datasets selected.",
+    "cofogParent": null,
+    "publicationReady": true
+  },
+  {
+    "code": "OECD.GF01",
+    "conceptId": "cofog:GF01",
+    "oecdAuditId": "oecd:5ee3b646b11d1b392f",
+    "flow": "DSD_GOV_COFOG@DF_GOV_COFOG_2025",
+    "version": "1.0",
+    "dimensions": {
+      "FREQ": "A",
+      "REF_AREA": "GRC",
+      "MEASURE": "GE",
+      "UNIT_MEASURE": "PT_B1GQ",
+      "SECTOR": "S13",
+      "EXPENDITURE": "GF01",
+      "EDITION": "2025",
+      "CATEGORY": "PF"
+    },
+    "title": {
+      "en": "Government spending: General public services",
+      "el": "Κρατικές δαπάνες: Γενικές δημόσιες υπηρεσίες"
+    },
+    "category": "finance",
+    "unit": "% of GDP",
+    "change": "pp",
+    "definition": "General-government expenditure on general public services (COFOG GF01), as a percentage of GDP. Covers central, regional and local government and social security funds. Measures spending, not service quality or benefit received per person. Includes administration, financial/fiscal and external affairs, basic research and public-debt transactions; it is not a measure of administrative waste.",
+    "definitionEl": "Δαπάνες γενικής κυβέρνησης για «Γενικές δημόσιες υπηρεσίες» (COFOG GF01), ως ποσοστό του ΑΕΠ. Περιλαμβάνονται κεντρική, περιφερειακή και τοπική διοίκηση και ταμεία κοινωνικής ασφάλισης. Μετρά δαπάνες, όχι ποιότητα υπηρεσιών ή παροχή ανά άτομο. Περιλαμβάνει διοίκηση, δημοσιονομικές και εξωτερικές υποθέσεις, βασική έρευνα και συναλλαγές δημόσιου χρέους· δεν μετρά διοικητική σπατάλη.",
+    "methodologyUrl": "https://www.oecd.org/en/publications/government-at-a-glance-2025_0efd0bcd-en/full-report/government-expenditure-by-function-cofog_d2b167d4.html",
+    "license": "OECD data terms (attribution required)",
+    "termsUrl": "https://www.oecd.org/en/about/terms-conditions.html",
+    "sourceRightsBasis": "OECD Government at a Glance 2025 identifies OECD National Accounts and Eurostat Government Finance Statistics as upstream sources. OECD data terms permit reuse subject to attribution; Eurostat permits commercial and noncommercial reuse with attribution. No WHO mortality data or third-party commercial datasets selected.",
+    "cofogParent": null,
+    "publicationReady": true
+  },
+  {
+    "code": "OECD.GF0602",
+    "conceptId": "cofog:GF0602",
+    "oecdAuditId": "oecd:6e451a24e9453d7db8",
+    "flow": "DSD_GOV_COFOG@DF_GOV_COFOG_2025",
+    "version": "1.0",
+    "dimensions": {
+      "FREQ": "A",
+      "REF_AREA": "GRC",
+      "MEASURE": "GE",
+      "UNIT_MEASURE": "PT_B1GQ",
+      "SECTOR": "S13",
+      "EXPENDITURE": "GF0602",
+      "EDITION": "2025",
+      "CATEGORY": "PF"
+    },
+    "title": {
+      "en": "Government spending: Community development",
+      "el": "Κρατικές δαπάνες: Ανάπτυξη κοινοτήτων"
+    },
+    "category": "wellbeing",
+    "unit": "% of GDP",
+    "change": "pp",
+    "definition": "General-government expenditure on community development (COFOG GF0602), as a percentage of GDP. Covers central, regional and local government and social security funds. Measures spending, not service quality or benefit received per person.",
+    "definitionEl": "Δαπάνες γενικής κυβέρνησης για «Ανάπτυξη κοινοτήτων» (COFOG GF0602), ως ποσοστό του ΑΕΠ. Περιλαμβάνονται κεντρική, περιφερειακή και τοπική διοίκηση και ταμεία κοινωνικής ασφάλισης. Μετρά δαπάνες, όχι ποιότητα υπηρεσιών ή παροχή ανά άτομο.",
+    "methodologyUrl": "https://www.oecd.org/en/publications/government-at-a-glance-2025_0efd0bcd-en/full-report/government-expenditure-by-function-cofog_d2b167d4.html",
+    "license": "OECD data terms (attribution required)",
+    "termsUrl": "https://www.oecd.org/en/about/terms-conditions.html",
+    "sourceRightsBasis": "OECD Government at a Glance 2025 identifies OECD National Accounts and Eurostat Government Finance Statistics as upstream sources. OECD data terms permit reuse subject to attribution; Eurostat permits commercial and noncommercial reuse with attribution. No WHO mortality data or third-party commercial datasets selected.",
+    "cofogParent": "GF06",
+    "publicationReady": true
+  },
+  {
+    "code": "OECD.GF0705",
+    "conceptId": "cofog:GF0705",
+    "oecdAuditId": "oecd:12dc68e94be1fc3010",
+    "flow": "DSD_GOV_COFOG@DF_GOV_COFOG_2025",
+    "version": "1.0",
+    "dimensions": {
+      "FREQ": "A",
+      "REF_AREA": "GRC",
+      "MEASURE": "GE",
+      "UNIT_MEASURE": "PT_B1GQ",
+      "SECTOR": "S13",
+      "EXPENDITURE": "GF0705",
+      "EDITION": "2025",
+      "CATEGORY": "PF"
+    },
+    "title": {
+      "en": "Government spending: Health research & development",
+      "el": "Κρατικές δαπάνες: Έρευνα και ανάπτυξη στην υγεία"
+    },
+    "category": "health",
+    "unit": "% of GDP",
+    "change": "pp",
+    "definition": "General-government expenditure on health research & development (COFOG GF0705), as a percentage of GDP. Covers central, regional and local government and social security funds. Measures spending, not service quality or benefit received per person. This is government spending within the health R&D function, not total national research expenditure.",
+    "definitionEl": "Δαπάνες γενικής κυβέρνησης για «Έρευνα και ανάπτυξη στην υγεία» (COFOG GF0705), ως ποσοστό του ΑΕΠ. Περιλαμβάνονται κεντρική, περιφερειακή και τοπική διοίκηση και ταμεία κοινωνικής ασφάλισης. Μετρά δαπάνες, όχι ποιότητα υπηρεσιών ή παροχή ανά άτομο. Αφορά κρατικές δαπάνες στη λειτουργία έρευνας και ανάπτυξης της υγείας, όχι τις συνολικές ερευνητικές δαπάνες της χώρας.",
+    "methodologyUrl": "https://www.oecd.org/en/publications/government-at-a-glance-2025_0efd0bcd-en/full-report/government-expenditure-by-function-cofog_d2b167d4.html",
+    "license": "OECD data terms (attribution required)",
+    "termsUrl": "https://www.oecd.org/en/about/terms-conditions.html",
+    "sourceRightsBasis": "OECD Government at a Glance 2025 identifies OECD National Accounts and Eurostat Government Finance Statistics as upstream sources. OECD data terms permit reuse subject to attribution; Eurostat permits commercial and noncommercial reuse with attribution. No WHO mortality data or third-party commercial datasets selected.",
+    "cofogParent": "GF07",
+    "publicationReady": true
+  },
+  {
+    "code": "OECD.GF1003",
+    "conceptId": "cofog:GF1003",
+    "oecdAuditId": "oecd:c89736dad9f4cf61ef",
+    "flow": "DSD_GOV_COFOG@DF_GOV_COFOG_2025",
+    "version": "1.0",
+    "dimensions": {
+      "FREQ": "A",
+      "REF_AREA": "GRC",
+      "MEASURE": "GE",
+      "UNIT_MEASURE": "PT_B1GQ",
+      "SECTOR": "S13",
+      "EXPENDITURE": "GF1003",
+      "EDITION": "2025",
+      "CATEGORY": "PF"
+    },
+    "title": {
+      "en": "Government spending: Survivor benefits (widows/widowers and orphans)",
+      "el": "Κρατικές δαπάνες: Παροχές σε επιζώντες (χήρες/χήρους και ορφανά)"
+    },
+    "category": "wellbeing",
+    "unit": "% of GDP",
+    "change": "pp",
+    "definition": "General-government expenditure on survivor support (COFOG GF1003), as a percentage of GDP. Covers central, regional and local government and social security funds. Measures spending, not service quality or benefit received per person. Covers social protection following the death of a family member, including survivor pensions; distinct from old-age benefits.",
+    "definitionEl": "Δαπάνες γενικής κυβέρνησης για «Παροχές σε επιζώντες (χήρες/χήρους και ορφανά)» (COFOG GF1003), ως ποσοστό του ΑΕΠ. Περιλαμβάνονται κεντρική, περιφερειακή και τοπική διοίκηση και ταμεία κοινωνικής ασφάλισης. Μετρά δαπάνες, όχι ποιότητα υπηρεσιών ή παροχή ανά άτομο. Αφορά κοινωνική προστασία μετά τον θάνατο μέλους της οικογένειας, όπως συντάξεις επιζώντων· διαφέρει από τις παροχές γήρατος.",
+    "methodologyUrl": "https://www.oecd.org/en/publications/government-at-a-glance-2025_0efd0bcd-en/full-report/government-expenditure-by-function-cofog_d2b167d4.html",
+    "license": "OECD data terms (attribution required)",
+    "termsUrl": "https://www.oecd.org/en/about/terms-conditions.html",
+    "sourceRightsBasis": "OECD Government at a Glance 2025 identifies OECD National Accounts and Eurostat Government Finance Statistics as upstream sources. OECD data terms permit reuse subject to attribution; Eurostat permits commercial and noncommercial reuse with attribution. No WHO mortality data or third-party commercial datasets selected.",
+    "cofogParent": "GF10",
     "publicationReady": true
   }
 ]
