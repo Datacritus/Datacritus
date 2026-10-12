@@ -1,3 +1,4 @@
+/* Multi-indicator source-aware comparison: build verified */
 /* DATACRITUS: a self-contained, source-backed public statistics explorer. */
 (()=>{'use strict';
 const D=JSON.parse(document.getElementById('dataset').textContent),H=JSON.parse(document.getElementById('historyData').textContent),C=window.DatacritusCore;
@@ -85,6 +86,44 @@ function doSearch(){const query=$('search').value.trim().normalize('NFD').replac
 function showSaved(){state.page='explore';showPage();$('search').value='';$('mobileSearch').value='';$('searchResults').hidden=true;$('explorerContent').hidden=true;$('savedPanel').hidden=false;$('savedPanel').innerHTML=`<div class="results-heading"><h2>${esc(t('savedHeading'))}</h2><button id="closeSaved" class="quiet">${esc(t('close'))}</button></div><p class="definition">${esc(t('localOnly'))}</p>`+(saved.length?resultCards(saved.map(c=>D.metrics.find(m=>m.code===c))):`<div class="empty-state">${esc(t('noneSaved'))}</div>`);}
 function showPage(){if(state.page!=='explore')exitChartFocus();document.querySelectorAll('.page').forEach(el=>el.hidden=el.id!=='page-'+state.page);document.querySelectorAll('#navigation [data-page]').forEach(b=>{b.classList.toggle('active',b.dataset.page===state.page);b.setAttribute('aria-current',b.dataset.page===state.page?'page':'false');});writeURL();}
 function render(){showPage();applyLanguage();renderSidebar();renderControls();renderStats();renderChart();renderDetails();if(state.page==='governments')renderGovPage();if(state.page==='sources')renderSources();if(state.page==='about')renderAbout();if(state.page==='comparison')renderComparison();showPage();}
+let multiCodes=[];
+function multiMetrics(){
+ const primary=metric();
+ multiCodes=multiCodes.filter((code,i,arr)=>code!==primary.code&&arr.indexOf(code)===i&&D.metrics.some(m=>m.code===code)).slice(0,3);
+ return [primary,...multiCodes.map(code=>D.metrics.find(m=>m.code===code))];
+}
+function multiModels(){const G=window.DatacritusGovernmentComparison,terms=[comparisonState.a,comparisonState.b].map(id=>H.governments.find(g=>g.id===id));return multiMetrics().map(m=>G.model({metric:m,terms,asOf:ASOF}));}
+function multiSuggestions(){
+ const chosen=new Set(multiMetrics().map(m=>m.code)),base=metric();
+ const tok=new Set(label(base.title).toLowerCase().split(/[^\p{L}\p{N}]+/u).filter(x=>x.length>3));
+ return D.metrics.filter(m=>m.category===base.category&&!chosen.has(m.code)).sort((x,y)=>{const relevance=m=>label(m.title).toLowerCase().split(/[^\p{L}\p{N}]+/u).filter(w=>tok.has(w)).length;return relevance(y)-relevance(x)||label(x.title).localeCompare(label(y.title));});
+}
+function renderMulti(){
+ const models=multiModels(),suggest=multiSuggestions(),el=state.lang==='el';
+ $('multiTitle').textContent=el?'Σύγκριση πολλών δεικτών':'Build a multi-metric story';
+ $('multiHint').textContent=el?'Προσθέστε έως 3 σχετικούς δείκτες. Οι προτάσεις είναι θεματικές, όχι αποδεδειγμένες συσχετίσεις.':'Add up to 3 related KPIs. Suggestions are thematic, not claims of correlation.';
+ $('multiCount').textContent=models.length+' / 4';
+ $('multiChips').innerHTML=models.map((m,i)=>'<span class="multi-chip">'+esc(label(m.metric.title))+(i?'<button type="button" data-multi-remove="'+esc(m.metric.code)+'" aria-label="Remove indicator">×</button>':' ★')+'</span>').join('');
+ $('multiSuggestions').innerHTML=suggest.map(m=>'<option value="'+esc(m.code)+'">'+esc(label(m.title))+'</option>').join('');
+ $('multiSuggestions').disabled=$('multiAdd').disabled=models.length===4||!suggest.length;
+ $('multiResults').innerHTML=models.map(model=>'<article class="multi-metric"><header><h3>'+esc(label(model.metric.title))+'</h3><small>'+esc(model.metric.unit)+' · <a href="'+esc(model.metric.sourceUrl||'#')+'" target="_blank" rel="noopener noreferrer">'+esc(model.metric.sourceName||model.metric.providerTitle||'Source')+' ↗</a></small></header><div class="multi-periods">'+model.periods.map((p,i)=>'<div class="multi-period"><strong>'+esc(label(p.term.name))+'</strong><span>'+(el?'Μέσος όρος':'Observed mean')+': <b>'+esc(format(p.mean,true))+'</b></span><span>'+(el?'Μεταβολή':'Change')+': <b>'+(p.delta===null?'—':esc(signed(p.delta))+' '+esc(deltaUnit(model.metric)))+'</b></span><small>'+(el?'Έτη':'Observed years')+': '+(p.points.map(k=>k[0]).join(', ')||'—')+' ('+p.points.length+'/'+p.eligible.length+')</small></div>').join('')+'</div></article>').join('');
+ $('multiFootnote').textContent=el?'Κάθε δείκτης έχει δική του μονάδα και κλίμακα. Μόνο πλήρη ημερολογιακά έτη. Δεν αποδεικνύεται αιτιότητα.':'Every KPI retains its own unit and scale. Full calendar years only. Observed changes do not establish causation.';
+ $('multiExport').disabled=$('multiCsv').disabled=comparisonState.a===comparisonState.b||!models.some(m=>m.periods.some(p=>p.points.length));
+}
+function multiSvg(){
+ const models=multiModels(),el=state.lang==='el',W=1500,H=325+models.length*220,escapeSvg=esc;
+ const tx=(x,y,s,size=25,color='#123b48',weight=400)=>'<text x="'+x+'" y="'+y+'" fill="'+color+'" font-size="'+size+'" font-weight="'+weight+'">'+escapeSvg(s)+'</text>';
+ let out='<svg xmlns="http://www.w3.org/2000/svg" width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" font-family="Arial, sans-serif"><rect width="'+W+'" height="'+H+'" fill="#f3f6f7"/><rect width="'+W+'" height="215" fill="#073b4c"/><rect y="212" width="'+W+'" height="4" fill="#ffd166"/>'+tx(54,70,'DATACRITUS',48,'#ffd166',800)+tx(54,133,el?'ΣΥΓΚΡΙΣΗ ΚΥΒΕΡΝΗΣΕΩΝ':'GOVERNMENT COMPARISON',34,'#ffffff',700)+tx(54,185,models.length+' '+(el?'δείκτες':'indicators')+' · Greece',24,'#d7e9ec');
+ models.forEach((model,j)=>{
+  const y=238+j*220,m=model.metric;
+  out+='<rect x="54" y="'+y+'" width="1392" height="205" rx="13" fill="#fff" stroke="#dce5e9"/>';
+  const title=label(m.title);out+=tx(75,y+36,title.length>95?title.slice(0,92)+'…':title,27,'#123b48',700)+tx(75,y+70,m.unit+' · '+(m.sourceName||m.providerTitle||''),19,'#526a73');
+  model.periods.forEach((p,i)=>{let name=label(p.term.name);if(name.length>49)name=name.slice(0,46)+'…';const x=75+690*i;out+=tx(x,y+110,name,22,i?'#93691e':'#086a88',700)+tx(x,y+148,(el?'Μέσος όρος: ':'Mean: ')+format(p.mean,true),23)+tx(x,y+179,(el?'Μεταβολή: ':'Change: ')+(p.delta===null?'—':signed(p.delta)+' '+deltaUnit(m))+' · '+p.points.length+'/'+p.eligible.length+' years',18,'#526a73');});
+ });
+ return out+tx(54,H-45,el?'Πλήρη ημερολογιακά έτη · Οι αλλαγές δεν αποδεικνύουν αιτιότητα · Πηγές/έτη στο CSV':'Full calendar years · No causal attribution · Sources and years included in CSV',18,'#526a73')+'</svg>';
+}
+function multiCsv(){const G=window.DatacritusGovernmentComparison;return multiModels().map((m,i)=>G.csv(m).trim().split('\n').slice(i?1:0).join('\n')).join('\n')+'\n';}
+
 function renderComparison(){
  const m=metric(),G=window.DatacritusGovernmentComparison;
  $('comparisonCategory').innerHTML=D.categories.map(c=>`<option value="${c.id}" ${c.id===state.category?'selected':''}>${esc(label(c.title))}</option>`).join('');
@@ -111,10 +150,15 @@ function renderComparison(){
  $('comparisonProvenance').innerHTML=esc(t('lastRetrieved')+': '+date(m.retrievedAt)+' · '+t('historyAsOf')+': '+date(ASOF))+licenceHtml(m);
  $('comparisonSourceLinks').innerHTML=`<a href="${esc(m.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(t('sourceLink'))} ↗</a><a href="${esc(m.apiUrl)}" target="_blank" rel="noopener noreferrer">${esc(t('apiLink'))} ↗</a><a href="${esc(H.governmentSource)}" target="_blank" rel="noopener noreferrer">${esc(t('politicalHistory'))} ↗</a>`;
  comparisonGraphic=G.build({comparison:model,lang:state.lang,format:comparisonState.format,logoUri:$('brandLogo').src});$('comparisonPreview').innerHTML=comparisonGraphic.svg;
+ renderMulti();
  const unavailable=model.sameTerm||!model.periods.some(p=>p.points.length);for(const id of ['comparisonSvg','comparisonCsv'])$(id).disabled=unavailable;$('comparisonPng').disabled=unavailable||comparisonPngBusy;
 }
 function comparisonFilename(ext){return 'datacritus-government-comparison-'+metric().code+'-'+comparisonState.a+'-vs-'+comparisonState.b+'.'+ext;}
 $('launchComparison').onclick=()=>{state.page='comparison';render();window.scrollTo({top:0,behavior:'instant'});$('comparisonHeading').setAttribute('tabindex','-1');$('comparisonHeading').focus({preventScroll:true});};
+$('multiAdd').onclick=()=>{const code=$('multiSuggestions').value;if(code&&multiCodes.length<3&&!multiCodes.includes(code)&&code!==metric().code){multiCodes.push(code);renderMulti();}};
+$('multiChips').onclick=e=>{const b=e.target.closest('[data-multi-remove]');if(b){multiCodes=multiCodes.filter(c=>c!==b.dataset.multiRemove);renderMulti();}};
+$('multiExport').onclick=()=>download('datacritus-multi-kpi-'+comparisonState.a+'-vs-'+comparisonState.b+'.svg',multiSvg(),'image/svg+xml;charset=utf-8');
+$('multiCsv').onclick=()=>download('datacritus-multi-kpi-'+comparisonState.a+'-vs-'+comparisonState.b+'.csv',multiCsv(),'text/csv;charset=utf-8');
 $('comparisonCategory').onchange=e=>{state.category=e.target.value;state.metric=categoryMetric(state.category)[0].code;render();$('comparisonExportStatus').textContent='';};
 $('comparisonMetric').onchange=e=>{state.metric=e.target.value;render();$('comparisonExportStatus').textContent='';};
 for(const [id,slot]of[['comparisonA','a'],['comparisonB','b']])$(id).onchange=e=>{comparisonState[slot]=e.target.value;renderComparison();writeURL();$('comparisonExportStatus').textContent='';};
