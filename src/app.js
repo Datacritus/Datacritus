@@ -94,8 +94,8 @@ function multiMetrics(){
 function multiModels(){const G=window.DatacritusGovernmentComparison,terms=[comparisonState.a,comparisonState.b].map(id=>H.governments.find(g=>g.id===id));return multiMetrics().map(m=>G.model({metric:m,terms,asOf:ASOF}));}
 function multiSuggestions(){
  const chosen=new Set(multiMetrics().map(m=>m.code)),base=metric();
- const tok=new Set(label(base.title).toLowerCase().split(/[^\\p{L}\\p{N}]+/u).filter(x=>x.length>3));
- return D.metrics.filter(m=>m.category===base.category&&!chosen.has(m.code)).sort((x,y)=>{const relevance=m=>label(m.title).toLowerCase().split(/[^\\p{L}\\p{N}]+/u).filter(w=>tok.has(w)).length;return relevance(y)-relevance(x)||label(x.title).localeCompare(label(y.title));});
+ const tok=new Set(label(base.title).toLowerCase().split(/[^\p{L}\p{N}]+/u).filter(x=>x.length>3));
+ return D.metrics.filter(m=>m.category===base.category&&!chosen.has(m.code)).sort((x,y)=>{const relevance=m=>label(m.title).toLowerCase().split(/[^\p{L}\p{N}]+/u).filter(w=>tok.has(w)).length;return relevance(y)-relevance(x)||label(x.title).localeCompare(label(y.title));});
 }
 function renderMulti(){
  const models=multiModels(),suggest=multiSuggestions(),el=state.lang==='el';
