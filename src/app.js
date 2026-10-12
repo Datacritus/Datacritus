@@ -1,3 +1,4 @@
+/* Multi-indicator source-aware comparison */
 /* DATACRITUS: a self-contained, source-backed public statistics explorer. */
 (()=>{'use strict';
 const D=JSON.parse(document.getElementById('dataset').textContent),H=JSON.parse(document.getElementById('historyData').textContent),C=window.DatacritusCore;
