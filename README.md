@@ -32,7 +32,7 @@ For a UI-only change, skip the refresh and rebuild against the committed snapsho
 
 The homepage highlights **Compare governments**, the main Studio entry. Choose one indicator and two cabinet periods to see first/last values, observed annual averages, changes and charts with a shared vertical scale. Full calendar years, missing data, short cabinets and differing period lengths remain explicit. Download branded landscape/portrait SVG or PNG, export the underlying CSV, or share a URL preserving the choices and language. No political ranking or causal government score is computed.
 
-The original Studio also supports one indicator with multiple countries. Multi-indicator story layouts belong to a later phase. See `KPI_SCALE_PLAN.md` for the family catalogue and on-demand data architecture recommended before expanding to thousands of detailed series.
+The original Studio also supports one indicator with multiple countries. The optional multi-indicator story builder supports 1–4 KPIs with thematic suggestions, separate per-indicator units, two side-by-side cabinet periods, full-year coverage and a combined SVG/CSV export. See `KPI_SCALE_PLAN.md` for the family catalogue and on-demand data architecture recommended before expanding to thousands of detailed series.
 
 ## Data and interpretation
 
