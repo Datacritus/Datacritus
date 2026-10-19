@@ -445,7 +445,23 @@ th{font-size:.9rem}.source-card .source-content,.context-card p,.context-card li
   for(const p of comparison.periods){const values=new Map(p.points);for(const year of p.eligible)rows.push([m.code,m.providerTitle,p.term.id,p.term.name.en,p.term.start,p.term.end||'',year,values.get(year)??'',m.unit,m.flags?.GRC?.[year]||'',m.sourceUrl,m.retrievedAt,comparison.asOf,...(m.uncertainty?.GRC?.[year]||['','']),m.uncertaintyLevel??'',m.sourceVersion||'',m.license||'',m.termsUrl||'',m.attribution||'']);}
   return C.csv(rows);
  }
- const api={model,chart,build,csv};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.DatacritusGovernmentComparison=api;
+ // Related by subject, never by the direction of observed change.
+ const relatedGroups=[
+  ['SL.UEM.TOTL.ZS','SL.UEM.1524.ZS','SL.EMP.TOTL.SP.ZS','ESTAT.UNEMPLOYMENT.LONGTERM','ESTAT.SALARY.FTE','ESTAT.POVERTY.INWORK','SL.UEM.NEET.ZS'],
+  ['ESTAT.HEALTH.UNMET.ACCESS','ESTAT.HEALTH.UNMET.COST','ESTAT.HEALTH.UNMET.DISTANCE','ESTAT.HEALTH.UNMET.WAITING','SH.XPD.CHEX.GD.ZS','SH.XPD.OOPC.CH.ZS','SH.MED.PHYS.ZS','SP.DYN.LE00.IN'],
+  ['ESTAT.POVERTY.RISK','ESTAT.POVERTY.AROPE','ESTAT.DEPRIVATION.SEVERE','ESTAT.INCOME.MEDIAN','ESTAT.HOUSING.OVERBURDEN','ESTAT.ARREARS.PAYMENTS','ESTAT.INCOME.S80S20','FP.CPI.TOTL.ZG'],
+  ['ESTAT.GOV.DEBT','ESTAT.GOV.BALANCE','ESTAT.GOV.REVENUE','ESTAT.GOV.EXPENDITURE','ESTAT.GOV.INTEREST','OECD.GNLBP','OECD.GINV'],
+  ['NY.GDP.MKTP.KD.ZG','NY.GDP.PCAP.KD','SL.GDP.PCAP.EM.KD','NE.GDI.FTOT.ZS','PWT.rtfpna','BX.KLT.DINV.WD.GD.ZS']
+ ];
+ function suggestions({metric,metrics,terms,asOf,limit=12}){
+  if(!metric)return[];
+  const preferred=new Set(relatedGroups.filter(g=>g.includes(metric.code)).flat());
+  return metrics.filter(m=>m.code!==metric.code&&(preferred.has(m.code)||(m.primaryCategory||m.categories[0])===(metric.primaryCategory||metric.categories[0])))
+   .map(m=>{const comparison=model({metric:m,terms,asOf});return{metric:m,comparison,curated:preferred.has(m.code),available:comparison.periods.every(p=>p.points.length>=2),coverage:Math.min(...comparison.periods.map(p=>p.eligible.length?p.points.length/p.eligible.length:0))};})
+   .sort((a,b)=>Number(b.available)-Number(a.available)||Number(b.curated)-Number(a.curated)||b.coverage-a.coverage||a.metric.code.localeCompare(b.metric.code)).slice(0,limit);
+ }
+ function canExport(comparisons){return Array.isArray(comparisons)&&comparisons.length>0&&comparisons.every(c=>!c.sameTerm&&c.periods.every(p=>p.points.length>0));}
+ const api={model,chart,build,csv,suggestions,canExport};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.DatacritusGovernmentComparison=api;
 })(typeof window!=='undefined'?window:globalThis);
 </script>
  <script>/* Multi-indicator source-aware comparison: build verified */
@@ -464,14 +480,15 @@ Object.assign(words.el,{compareGovernments:'Σύγκριση κυβερνήσε�
 const MAX_YEAR=D.metrics.reduce((max,m)=>Object.values(m.series).reduce((n,rows)=>rows.reduce((v,p)=>p[1]===null?v:Math.max(v,p[0]),n),max),1974),ASOF=H.verifiedAt;
 let saved=[];try{const x=JSON.parse(localStorage.getItem('datacritus.saved')||'[]');if(Array.isArray(x))saved=x.filter(c=>D.metrics.some(m=>m.code===c));}catch{}
 let state={lang:'en',page:'explore',category:'economy',metric:'NY.GDP.MKTP.KD.ZG',start:2000,end:MAX_YEAR,countries:['GRC','EUU'],bands:true,elections:false,table:false,government:''};
+let multiCodes=[];
 let comparisonState={a:'2015-09-21',b:'2019-07-08',format:'landscape'},comparisonModel=null,comparisonGraphic=null,comparisonPngBusy=false;
 const t=k=>words[state.lang][k]||k,label=o=>typeof o==='object'?o[state.lang]||o.en:o,metric=()=>D.metrics.find(m=>m.code===state.metric)||D.metrics[0],locale=()=>state.lang==='el'?'el-GR':'en-GB';
 const format=(n,compact=false)=>n===null||n===undefined?'—':new Intl.NumberFormat(locale(),{maximumFractionDigits:Math.abs(n)>=1000?0:Math.abs(n)<10?4:2,notation:compact&&Math.abs(n)>=1e6?'compact':'standard'}).format(Object.is(n,-0)?0:n);
 const signed=n=>(n>0?'+':'')+format(n,true),date=s=>s?new Intl.DateTimeFormat(locale(),{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}).format(new Date(s)):t('unknown');
 const deltaUnit=m=>m.change==='pp'?(state.lang==='el'?'π.μ.':'pp'):m.unit;
 const categoryMetric=id=>D.metrics.filter(m=>m.categories.includes(id));
-function readURL(){const q=new URLSearchParams(location.hash.replace(/^#/,''));const code=q.get('indicator');if(D.metrics.some(m=>m.code===code)){state.metric=code;state.category=metric().categories[0];}if(D.categories.some(c=>c.id===q.get('category'))&&metric().categories.includes(q.get('category')))state.category=q.get('category');if(['en','el'].includes(q.get('lang')))state.lang=q.get('lang');state.government='';if(['explore','governments','sources','about','comparison'].includes(q.get('page')))state.page=q.get('page');for(const [qk,sk]of[['from','start'],['to','end']]){const v=Number(q.get(qk));if(q.has(qk)&&Number.isInteger(v)&&v>=1974&&v<=MAX_YEAR)state[sk]=v;}if(state.start>state.end)[state.start,state.end]=[state.end,state.start];if(q.has('compare'))state.countries=['GRC',...new Set(q.get('compare').split(',').filter(c=>c!=='GRC'&&D.countries[c]))];if(q.has('bands'))state.bands=q.get('bands')!=='0';if(q.has('elections'))state.elections=q.get('elections')==='1';if(H.governments.some(g=>g.id===q.get('government')))state.government=q.get('government');for(const [key,slot]of[['periodA','a'],['periodB','b']])if(H.governments.some(g=>g.id===q.get(key)))comparisonState[slot]=q.get(key);if(['landscape','portrait'].includes(q.get('layout')))comparisonState.format=q.get('layout');}
-function writeURL(){const q=new URLSearchParams({indicator:state.metric,category:state.category,from:state.start,to:state.end,compare:state.countries.filter(c=>c!=='GRC').join(','),bands:state.bands?'1':'0',elections:state.elections?'1':'0',lang:state.lang,page:state.page});if(state.government)q.set('government',state.government);if(state.page==='comparison'){q.set('periodA',comparisonState.a);q.set('periodB',comparisonState.b);q.set('layout',comparisonState.format);}try{history.replaceState(null,'','#'+q.toString());}catch{}}
+function readURL(){const q=new URLSearchParams(location.hash.replace(/^#/,''));const code=q.get('indicator');if(D.metrics.some(m=>m.code===code)){state.metric=code;state.category=metric().categories[0];}if(D.categories.some(c=>c.id===q.get('category'))&&metric().categories.includes(q.get('category')))state.category=q.get('category');if(['en','el'].includes(q.get('lang')))state.lang=q.get('lang');state.government='';if(['explore','governments','sources','about','comparison'].includes(q.get('page')))state.page=q.get('page');for(const [qk,sk]of[['from','start'],['to','end']]){const v=Number(q.get(qk));if(q.has(qk)&&Number.isInteger(v)&&v>=1974&&v<=MAX_YEAR)state[sk]=v;}if(state.start>state.end)[state.start,state.end]=[state.end,state.start];if(q.has('compare'))state.countries=['GRC',...new Set(q.get('compare').split(',').filter(c=>c!=='GRC'&&D.countries[c]))];if(q.has('bands'))state.bands=q.get('bands')!=='0';if(q.has('elections'))state.elections=q.get('elections')==='1';if(H.governments.some(g=>g.id===q.get('government')))state.government=q.get('government');for(const [key,slot]of[['periodA','a'],['periodB','b']])if(H.governments.some(g=>g.id===q.get(key)))comparisonState[slot]=q.get(key);if(['landscape','portrait'].includes(q.get('layout')))comparisonState.format=q.get('layout');multiCodes=[...new Set((q.get('kpis')||'').split(','))].filter(code=>code!==state.metric&&D.metrics.some(m=>m.code===code)).slice(0,3);}
+function writeURL(){const q=new URLSearchParams({indicator:state.metric,category:state.category,from:state.start,to:state.end,compare:state.countries.filter(c=>c!=='GRC').join(','),bands:state.bands?'1':'0',elections:state.elections?'1':'0',lang:state.lang,page:state.page});if(state.government)q.set('government',state.government);if(state.page==='comparison'){q.set('periodA',comparisonState.a);q.set('periodB',comparisonState.b);q.set('layout',comparisonState.format);const extras=multiMetrics().slice(1).map(m=>m.code);if(extras.length)q.set('kpis',extras.join(','));}try{history.replaceState(null,'','#'+q.toString());}catch{}}
 readURL();
 function toast(message){$('toast').textContent=message;$('toast').hidden=false;clearTimeout(toast.timer);toast.timer=setTimeout(()=>$('toast').hidden=true,3000);}
 function persistSaved(){try{localStorage.setItem('datacritus.saved',JSON.stringify(saved));}catch{toast(state.lang==='el'?'Η αποθήκευση δεν είναι διαθέσιμη σε αυτό το πρόγραμμα περιήγησης.':'Persistent storage is unavailable in this browser.');}}
@@ -536,7 +553,6 @@ function doSearch(){const query=$('search').value.trim().normalize('NFD').replac
 function showSaved(){state.page='explore';showPage();$('search').value='';$('mobileSearch').value='';$('searchResults').hidden=true;$('explorerContent').hidden=true;$('savedPanel').hidden=false;$('savedPanel').innerHTML=`<div class="results-heading"><h2>${esc(t('savedHeading'))}</h2><button id="closeSaved" class="quiet">${esc(t('close'))}</button></div><p class="definition">${esc(t('localOnly'))}</p>`+(saved.length?resultCards(saved.map(c=>D.metrics.find(m=>m.code===c))):`<div class="empty-state">${esc(t('noneSaved'))}</div>`);}
 function showPage(){if(state.page!=='explore')exitChartFocus();document.querySelectorAll('.page').forEach(el=>el.hidden=el.id!=='page-'+state.page);document.querySelectorAll('#navigation [data-page]').forEach(b=>{b.classList.toggle('active',b.dataset.page===state.page);b.setAttribute('aria-current',b.dataset.page===state.page?'page':'false');});writeURL();}
 function render(){showPage();applyLanguage();renderSidebar();renderControls();renderStats();renderChart();renderDetails();if(state.page==='governments')renderGovPage();if(state.page==='sources')renderSources();if(state.page==='about')renderAbout();if(state.page==='comparison')renderComparison();showPage();}
-let multiCodes=[];
 function multiMetrics(){
  const primary=metric();
  multiCodes=multiCodes.filter((code,i,arr)=>code!==primary.code&&arr.indexOf(code)===i&&D.metrics.some(m=>m.code===code)).slice(0,3);
@@ -544,9 +560,9 @@ function multiMetrics(){
 }
 function multiModels(){const G=window.DatacritusGovernmentComparison,terms=[comparisonState.a,comparisonState.b].map(id=>H.governments.find(g=>g.id===id));return multiMetrics().map(m=>G.model({metric:m,terms,asOf:ASOF}));}
 function multiSuggestions(){
- const chosen=new Set(multiMetrics().map(m=>m.code)),base=metric();
- const tok=new Set(label(base.title).toLowerCase().split(/[^\p{L}\p{N}]+/u).filter(x=>x.length>3));
- return D.metrics.filter(m=>m.category===base.category&&!chosen.has(m.code)).sort((x,y)=>{const relevance=m=>label(m.title).toLowerCase().split(/[^\p{L}\p{N}]+/u).filter(w=>tok.has(w)).length;return relevance(y)-relevance(x)||label(x.title).localeCompare(label(y.title));});
+ const chosen=new Set(multiMetrics().map(m=>m.code)),G=window.DatacritusGovernmentComparison;
+ const terms=[comparisonState.a,comparisonState.b].map(id=>H.governments.find(g=>g.id===id));
+ return G.suggestions({metric:metric(),metrics:D.metrics,terms,asOf:ASOF,limit:D.metrics.length}).filter(s=>s.available&&!chosen.has(s.metric.code)).map(s=>s.metric);
 }
 function renderMulti(){
  const models=multiModels(),suggest=multiSuggestions(),el=state.lang==='el';
@@ -558,19 +574,39 @@ function renderMulti(){
  $('multiSuggestions').disabled=$('multiAdd').disabled=models.length===4||!suggest.length;
  $('multiResults').innerHTML=models.map(model=>'<article class="multi-metric"><header><h3>'+esc(label(model.metric.title))+'</h3><small>'+esc(model.metric.unit)+' · <a href="'+esc(model.metric.sourceUrl||'#')+'" target="_blank" rel="noopener noreferrer">'+esc(model.metric.sourceName||model.metric.providerTitle||'Source')+' ↗</a></small></header><div class="multi-periods">'+model.periods.map((p,i)=>'<div class="multi-period"><strong>'+esc(label(p.term.name))+'</strong><span>'+(el?'Μέσος όρος':'Observed mean')+': <b>'+esc(format(p.mean,true))+'</b></span><span>'+(el?'Μεταβολή':'Change')+': <b>'+(p.delta===null?'—':esc(signed(p.delta))+' '+esc(deltaUnit(model.metric)))+'</b></span><small>'+(el?'Έτη':'Observed years')+': '+(p.points.map(k=>k[0]).join(', ')||'—')+' ('+p.points.length+'/'+p.eligible.length+')</small></div>').join('')+'</div></article>').join('');
  $('multiFootnote').textContent=el?'Κάθε δείκτης έχει δική του μονάδα και κλίμακα. Μόνο πλήρη ημερολογιακά έτη. Δεν αποδεικνύεται αιτιότητα.':'Every KPI retains its own unit and scale. Full calendar years only. Observed changes do not establish causation.';
- $('multiExport').disabled=$('multiCsv').disabled=comparisonState.a===comparisonState.b||!models.some(m=>m.periods.some(p=>p.points.length));
+ $('multiExport').disabled=$('multiCsv').disabled=!window.DatacritusGovernmentComparison.canExport(models);
 }
 function multiSvg(){
- const models=multiModels(),el=state.lang==='el',W=1500,H=325+models.length*220,escapeSvg=esc;
- const tx=(x,y,s,size=25,color='#123b48',weight=400)=>'<text x="'+x+'" y="'+y+'" fill="'+color+'" font-size="'+size+'" font-weight="'+weight+'">'+escapeSvg(s)+'</text>';
- let out='<svg xmlns="http://www.w3.org/2000/svg" width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" font-family="Arial, sans-serif"><rect width="'+W+'" height="'+H+'" fill="#f3f6f7"/><rect width="'+W+'" height="215" fill="#073b4c"/><rect y="212" width="'+W+'" height="4" fill="#ffd166"/>'+tx(54,70,'DATACRITUS',48,'#ffd166',800)+tx(54,133,el?'ΣΥΓΚΡΙΣΗ ΚΥΒΕΡΝΗΣΕΩΝ':'GOVERNMENT COMPARISON',34,'#ffffff',700)+tx(54,185,models.length+' '+(el?'δείκτες':'indicators')+' · Greece',24,'#d7e9ec');
- models.forEach((model,j)=>{
-  const y=238+j*220,m=model.metric;
-  out+='<rect x="54" y="'+y+'" width="1392" height="205" rx="13" fill="#fff" stroke="#dce5e9"/>';
-  const title=label(m.title);out+=tx(75,y+36,title.length>95?title.slice(0,92)+'…':title,27,'#123b48',700)+tx(75,y+70,m.unit+' · '+(m.sourceName||m.providerTitle||''),19,'#526a73');
-  model.periods.forEach((p,i)=>{let name=label(p.term.name);if(name.length>49)name=name.slice(0,46)+'…';const x=75+690*i;out+=tx(x,y+110,name,22,i?'#93691e':'#086a88',700)+tx(x,y+148,(el?'Μέσος όρος: ':'Mean: ')+format(p.mean,true),23)+tx(x,y+179,(el?'Μεταβολή: ':'Change: ')+(p.delta===null?'—':signed(p.delta)+' '+deltaUnit(m))+' · '+p.points.length+'/'+p.eligible.length+' years',18,'#526a73');});
+ const models=multiModels(),el=state.lang==='el',W=1500;
+ const tx=(x,y,s,size=25,color='#123b48',weight=400)=>'<text x="'+x+'" y="'+y+'" fill="'+color+'" font-size="'+size+'" font-weight="'+weight+'">'+esc(s)+'</text>';
+ const wrap=(s,n)=>{const rows=[];let line='';for(const word of String(s).split(/\s+/).flatMap(w=>w.length>n?w.match(new RegExp('.{1,'+n+'}','gu')):w)){if(line&&(line+' '+word).length>n){rows.push(line);line=word;}else line+=(line?' ':'')+word;}if(line)rows.push(line);return rows;};
+ let body='',y=238;
+ models.forEach(model=>{
+  const m=model.metric;let rows='',yy=y+36;
+  for(const line of wrap(label(m.title),78)){rows+=tx(75,yy,line,27,'#123b48',700);yy+=34;}
+  for(const line of wrap(m.unit+' · '+(m.sourceName||m.providerTitle||''),108)){rows+=tx(75,yy,line,19,'#526a73');yy+=26;}
+  const start=yy+15,ends=[];
+  model.periods.forEach((p,i)=>{const x=75+690*i;let py=start;
+   for(const line of wrap(label(p.term.name),43)){rows+=tx(x,py,line,22,i?'#93691e':'#086a88',700);py+=29;}
+   rows+=tx(x,py,p.term.start+' → '+(p.term.end||(el?'σε εξέλιξη':'ongoing')),18,'#526a73');py+=32;
+   rows+=tx(x,py,(el?'Μέσος όρος: ':'Mean: ')+format(p.mean,true),23);py+=31;
+   for(const line of wrap((el?'Μεταβολή: ':'Change: ')+(p.delta===null?'—':signed(p.delta)+' '+deltaUnit(m)),56)){rows+=tx(x,py,line,18,'#526a73');py+=25;}
+   for(const line of wrap((el?'Έτη παρατήρησης: ':'Observed years: ')+(p.points.map(k=>k[0]).join(', ')||'—')+' ('+p.points.length+'/'+p.eligible.length+')',56)){rows+=tx(x,py,line,18,'#526a73');py+=25;}
+   if(p.missing.length)for(const line of wrap((el?'Κενά: ':'Missing: ')+p.missing.join(', '),56)){rows+=tx(x,py,line,18,'#526a73');py+=25;}
+   if(p.flags.length)for(const line of wrap((el?'Σημάνσεις: ':'Flags: ')+p.flags.map(f=>f.year+': '+f.flag).join(', '),56)){rows+=tx(x,py,line,18,'#526a73');py+=25;}
+   ends.push(py);
+  });
+  yy=Math.max(...ends)+10;
+  const source=[m.code+' · '+(el?'Ανάκτηση: ':'Retrieved: ')+m.retrievedAt.slice(0,10),m.sourceUrl];
+  if(m.license)source.push([m.license,m.attribution,m.sourceVersion].filter(Boolean).join(' · '),m.termsUrl);
+  if(m.uncertaintyLevel)source.push(el?'Ερευνητικές εκτιμήσεις· δεν υπολογίζονται όρια αβεβαιότητας μέσου όρου.':'Research estimates; uncertainty intervals for period averages are not calculated.');
+  for(const s of source.filter(Boolean)){if(s.startsWith('https://'))rows+='<a href="'+esc(s)+'" target="_blank">';for(const line of wrap(s,118)){rows+=tx(75,yy,line,17,'#526a73');yy+=24;}if(s.startsWith('https://'))rows+='</a>';}
+  const height=yy-y+15;body+='<rect x="54" y="'+y+'" width="1392" height="'+height+'" rx="13" fill="#fff" stroke="#dce5e9"/>'+rows;y+=height+16;
  });
- return out+tx(54,H-45,el?'Πλήρη ημερολογιακά έτη · Οι αλλαγές δεν αποδεικνύουν αιτιότητα · Πηγές/έτη στο CSV':'Full calendar years · No causal attribution · Sources and years included in CSV',18,'#526a73')+'</svg>';
+ y+=20;for(const line of wrap(el?'Πλήρη ημερολογιακά έτη · Τα κενά δεν συμπληρώνονται · Οι αλλαγές δεν αποδεικνύουν αιτιότητα.':'Full calendar years · Missing values are not filled · Observed changes do not establish causation.',112)){body+=tx(54,y,line,18,'#526a73');y+=25;}
+ body+=tx(54,y,(el?'Χρονολόγιο ελέγχθηκε: ':'Timeline verified: ')+ASOF+' · gslegal.gov.gr · www.datacritus.gr',18,'#526a73');
+ const H=y+40;
+ return '<svg xmlns="http://www.w3.org/2000/svg" width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" font-family="Arial, sans-serif" role="img"><title>'+esc(el?'Σύγκριση πολλών δεικτών':'Multi-metric government comparison')+'</title><rect width="'+W+'" height="'+H+'" fill="#f3f6f7"/><rect width="'+W+'" height="215" fill="#073b4c"/><rect y="212" width="'+W+'" height="4" fill="#ffd166"/>'+tx(54,70,'DATACRITUS',48,'#ffd166',800)+tx(54,133,el?'ΣΥΓΚΡΙΣΗ ΚΥΒΕΡΝΗΣΕΩΝ':'GOVERNMENT COMPARISON',34,'#ffffff',700)+tx(54,185,models.length+' '+(el?'δείκτες · Ελλάδα':'indicators · Greece'),24,'#d7e9ec')+body+'</svg>';
 }
 function multiCsv(){const G=window.DatacritusGovernmentComparison;return multiModels().map((m,i)=>G.csv(m).trim().split('\n').slice(i?1:0).join('\n')).join('\n')+'\n';}
 
@@ -601,16 +637,16 @@ function renderComparison(){
  $('comparisonSourceLinks').innerHTML=`<a href="${esc(m.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(t('sourceLink'))} ↗</a><a href="${esc(m.apiUrl)}" target="_blank" rel="noopener noreferrer">${esc(t('apiLink'))} ↗</a><a href="${esc(H.governmentSource)}" target="_blank" rel="noopener noreferrer">${esc(t('politicalHistory'))} ↗</a>`;
  comparisonGraphic=G.build({comparison:model,lang:state.lang,format:comparisonState.format,logoUri:$('brandLogo').src});$('comparisonPreview').innerHTML=comparisonGraphic.svg;
  renderMulti();
- const unavailable=model.sameTerm||!model.periods.some(p=>p.points.length);for(const id of ['comparisonSvg','comparisonCsv'])$(id).disabled=unavailable;$('comparisonPng').disabled=unavailable||comparisonPngBusy;
+ const unavailable=!G.canExport([model]);for(const id of ['comparisonSvg','comparisonCsv'])$(id).disabled=unavailable;$('comparisonPng').disabled=unavailable||comparisonPngBusy;
 }
 function comparisonFilename(ext){return 'datacritus-government-comparison-'+metric().code+'-'+comparisonState.a+'-vs-'+comparisonState.b+'.'+ext;}
 $('launchComparison').onclick=()=>{state.page='comparison';render();window.scrollTo({top:0,behavior:'instant'});$('comparisonHeading').setAttribute('tabindex','-1');$('comparisonHeading').focus({preventScroll:true});};
-$('multiAdd').onclick=()=>{const code=$('multiSuggestions').value;if(code&&multiCodes.length<3&&!multiCodes.includes(code)&&code!==metric().code){multiCodes.push(code);renderMulti();}};
-$('multiChips').onclick=e=>{const b=e.target.closest('[data-multi-remove]');if(b){multiCodes=multiCodes.filter(c=>c!==b.dataset.multiRemove);renderMulti();}};
-$('multiExport').onclick=()=>download('datacritus-multi-kpi-'+comparisonState.a+'-vs-'+comparisonState.b+'.svg',multiSvg(),'image/svg+xml;charset=utf-8');
-$('multiCsv').onclick=()=>download('datacritus-multi-kpi-'+comparisonState.a+'-vs-'+comparisonState.b+'.csv',multiCsv(),'text/csv;charset=utf-8');
-$('comparisonCategory').onchange=e=>{state.category=e.target.value;state.metric=categoryMetric(state.category)[0].code;render();$('comparisonExportStatus').textContent='';};
-$('comparisonMetric').onchange=e=>{state.metric=e.target.value;render();$('comparisonExportStatus').textContent='';};
+$('multiAdd').onclick=()=>{const code=$('multiSuggestions').value;if(code&&multiCodes.length<3&&!multiCodes.includes(code)&&code!==metric().code){if(!multiSuggestions().some(m=>m.code===code))return;multiCodes.push(code);renderMulti();writeURL();}};
+$('multiChips').onclick=e=>{const b=e.target.closest('[data-multi-remove]');if(b){multiCodes=multiCodes.filter(c=>c!==b.dataset.multiRemove);renderMulti();writeURL();}};
+$('multiExport').onclick=()=>{if(!window.DatacritusGovernmentComparison.canExport(multiModels()))return;download('datacritus-multi-kpi-'+comparisonState.a+'-vs-'+comparisonState.b+'.svg',multiSvg(),'image/svg+xml;charset=utf-8');};
+$('multiCsv').onclick=()=>{if(!window.DatacritusGovernmentComparison.canExport(multiModels()))return;download('datacritus-multi-kpi-'+comparisonState.a+'-vs-'+comparisonState.b+'.csv',multiCsv(),'text/csv;charset=utf-8');};
+$('comparisonCategory').onchange=e=>{multiCodes=[];state.category=e.target.value;state.metric=categoryMetric(state.category)[0].code;render();$('comparisonExportStatus').textContent='';};
+$('comparisonMetric').onchange=e=>{multiCodes=[];state.metric=e.target.value;render();$('comparisonExportStatus').textContent='';};
 for(const [id,slot]of[['comparisonA','a'],['comparisonB','b']])$(id).onchange=e=>{comparisonState[slot]=e.target.value;renderComparison();writeURL();$('comparisonExportStatus').textContent='';};
 $('comparisonSwap').onclick=()=>{[comparisonState.a,comparisonState.b]=[comparisonState.b,comparisonState.a];renderComparison();writeURL();};
 $('comparisonFormat').onchange=e=>{comparisonState.format=e.target.value;renderComparison();writeURL();$('comparisonExportStatus').textContent='';};

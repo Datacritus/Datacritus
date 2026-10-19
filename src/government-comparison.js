@@ -78,5 +78,21 @@
   for(const p of comparison.periods){const values=new Map(p.points);for(const year of p.eligible)rows.push([m.code,m.providerTitle,p.term.id,p.term.name.en,p.term.start,p.term.end||'',year,values.get(year)??'',m.unit,m.flags?.GRC?.[year]||'',m.sourceUrl,m.retrievedAt,comparison.asOf,...(m.uncertainty?.GRC?.[year]||['','']),m.uncertaintyLevel??'',m.sourceVersion||'',m.license||'',m.termsUrl||'',m.attribution||'']);}
   return C.csv(rows);
  }
- const api={model,chart,build,csv};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.DatacritusGovernmentComparison=api;
+ // Related by subject, never by the direction of observed change.
+ const relatedGroups=[
+  ['SL.UEM.TOTL.ZS','SL.UEM.1524.ZS','SL.EMP.TOTL.SP.ZS','ESTAT.UNEMPLOYMENT.LONGTERM','ESTAT.SALARY.FTE','ESTAT.POVERTY.INWORK','SL.UEM.NEET.ZS'],
+  ['ESTAT.HEALTH.UNMET.ACCESS','ESTAT.HEALTH.UNMET.COST','ESTAT.HEALTH.UNMET.DISTANCE','ESTAT.HEALTH.UNMET.WAITING','SH.XPD.CHEX.GD.ZS','SH.XPD.OOPC.CH.ZS','SH.MED.PHYS.ZS','SP.DYN.LE00.IN'],
+  ['ESTAT.POVERTY.RISK','ESTAT.POVERTY.AROPE','ESTAT.DEPRIVATION.SEVERE','ESTAT.INCOME.MEDIAN','ESTAT.HOUSING.OVERBURDEN','ESTAT.ARREARS.PAYMENTS','ESTAT.INCOME.S80S20','FP.CPI.TOTL.ZG'],
+  ['ESTAT.GOV.DEBT','ESTAT.GOV.BALANCE','ESTAT.GOV.REVENUE','ESTAT.GOV.EXPENDITURE','ESTAT.GOV.INTEREST','OECD.GNLBP','OECD.GINV'],
+  ['NY.GDP.MKTP.KD.ZG','NY.GDP.PCAP.KD','SL.GDP.PCAP.EM.KD','NE.GDI.FTOT.ZS','PWT.rtfpna','BX.KLT.DINV.WD.GD.ZS']
+ ];
+ function suggestions({metric,metrics,terms,asOf,limit=12}){
+  if(!metric)return[];
+  const preferred=new Set(relatedGroups.filter(g=>g.includes(metric.code)).flat());
+  return metrics.filter(m=>m.code!==metric.code&&(preferred.has(m.code)||(m.primaryCategory||m.categories[0])===(metric.primaryCategory||metric.categories[0])))
+   .map(m=>{const comparison=model({metric:m,terms,asOf});return{metric:m,comparison,curated:preferred.has(m.code),available:comparison.periods.every(p=>p.points.length>=2),coverage:Math.min(...comparison.periods.map(p=>p.eligible.length?p.points.length/p.eligible.length:0))};})
+   .sort((a,b)=>Number(b.available)-Number(a.available)||Number(b.curated)-Number(a.curated)||b.coverage-a.coverage||a.metric.code.localeCompare(b.metric.code)).slice(0,limit);
+ }
+ function canExport(comparisons){return Array.isArray(comparisons)&&comparisons.length>0&&comparisons.every(c=>!c.sameTerm&&c.periods.every(p=>p.points.length>0));}
+ const api={model,chart,build,csv,suggestions,canExport};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.DatacritusGovernmentComparison=api;
 })(typeof window!=='undefined'?window:globalThis);

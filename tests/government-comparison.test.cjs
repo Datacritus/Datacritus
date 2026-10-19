@@ -24,3 +24,32 @@ assert.match(G.chart({period:em.periods[0],ticks:em.ticks}),/opacity=".35"/);
 assert.match(G.csv(em),/uncertainty_low/);assert.match(G.csv(em),/"-2","10","0.68"/);
 const eg=G.build({comparison:em});assert.ok(eg.svg.includes(estimate.termsUrl));assert.match(eg.svg,/not intervals for term averages/);
 assert.equal(eg.height,1250,'Credit and uncertainty notes get their own space');
+
+// Regression: topic and two-period coverage, not undefined `category` equality.
+const jobs={...metric,code:'SL.UEM.TOTL.ZS',categories:['jobs'],primaryCategory:'jobs'};
+const related={...jobs,code:'SL.UEM.1524.ZS'};
+const other={...jobs,code:'ELECTRICITY',categories:['environment'],primaryCategory:'environment'};
+const sparse={...jobs,code:'SPARSE',series:{GRC:[[2021,0]]}};
+const matches=G.suggestions({metric:jobs,metrics:[jobs,related,other,sparse],terms,asOf:'2026-10-03'});
+assert.ok(matches.some(s=>s.metric.code===related.code&&s.available));
+assert.ok(!matches.some(s=>s.metric.code===other.code));
+assert.ok(matches.some(s=>s.metric.code===sparse.code&&!s.available));
+assert.equal(G.canExport([m]),true);
+assert.equal(G.canExport([short]),false,'Either empty period blocks export');
+assert.equal(G.canExport([m,short]),false,'Every selected KPI needs both periods');
+assert.equal(G.canExport([G.model({metric,terms:[terms[0],terms[0]],asOf:'2026-10-03'})]),false);
+assert.equal(G.canExport([]),false);
+
+// Exercise the actual application URL and SVG functions without browser dependencies.
+const fs=require('node:fs'),vm=require('node:vm'),app=fs.readFileSync(require.resolve('../src/app.js'),'utf8');
+const extract=(start,end)=>app.slice(app.indexOf(start),app.indexOf(end,app.indexOf(start)));
+const ctx={D:{metrics:[jobs,related,other,sparse],categories:[{id:'jobs'},{id:'environment'}],countries:{GRC:'Greece'}},H:{governments:terms},state:{metric:jobs.code,category:'jobs',page:'comparison',lang:'en',start:2000,end:2025,countries:['GRC'],bands:true,elections:false},comparisonState:{a:'A',b:'B',format:'landscape'},multiCodes:[related.code,sparse.code],MAX_YEAR:2025,ASOF:'2026-10-03',URLSearchParams,location:{hash:''},history:{replaceState(_a,_b,hash){ctx.location.hash=hash;}},metric:()=>ctx.D.metrics.find(m=>m.code===ctx.state.metric)};
+vm.createContext(ctx);
+vm.runInContext(extract('function readURL()','readURL();')+extract('function multiMetrics()','function multiModels()'),ctx);
+ctx.writeURL();assert.ok(ctx.location.hash.includes('kpis='));ctx.multiCodes=[];ctx.readURL();assert.deepEqual(Array.from(ctx.multiCodes),[related.code,sparse.code]);
+ctx.location.hash+='%2CUNKNOWN%2C'+related.code;ctx.readURL();assert.deepEqual(Array.from(ctx.multiCodes),[related.code,sparse.code],'Invalid and duplicate selections are ignored');
+ctx.location.hash='#page=comparison&indicator='+jobs.code;ctx.readURL();assert.deepEqual(Array.from(ctx.multiCodes),[],'Legacy links remain a single KPI');
+Object.assign(ctx,{multiModels:()=>[m,em],label:o=>typeof o==='object'?o[ctx.state.lang]||o.en:o,esc:s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),format:n=>n==null?'—':String(n),signed:n=>(n>0?'+':'')+n,deltaUnit:m=>m.change==='pp'?'pp':m.unit});
+vm.runInContext(extract('function multiSvg()','function multiCsv()'),ctx);
+for(const lang of ['en','el']){ctx.state.lang=lang;const svg=ctx.multiSvg();assert.ok(!/NaN|undefined|<Leader/.test(svg));assert.ok(svg.includes(terms[0].start));assert.ok(svg.includes(terms[1].start));assert.ok(svg.includes(metric.sourceUrl));assert.ok(svg.includes(metric.retrievedAt.slice(0,10)));assert.ok(svg.includes(estimate.license));assert.ok(svg.includes(estimate.termsUrl));assert.ok(svg.includes('2019, 2021'));assert.ok(svg.includes(lang==='el'?'Κενά':'Missing'));}
+console.log('Studio regressions: relevant suggestions, two-period export guards, restored/legacy URLs and bilingual sourced SVG passed');
