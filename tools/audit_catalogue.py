@@ -9,7 +9,7 @@ def full_years(term,asof):
 def valid(m):
     return {y:v for y,v in m['series'].get('GRC',[]) if isinstance(v,(int,float)) and math.isfinite(v)}
 def provider(m):
-    for prefix,name in [('ESTAT.','Eurostat'),('OECD.','OECD'),('ILO.','ILOSTAT'),('VDEM.','V-Dem'),('VDem.','V-Dem'),('UIS.','UIS'),('PWT.','PWT'),('UNDP.','UNDP')]:
+    for prefix,name in [('AMECO.','AMECO'),('ESTAT.','Eurostat'),('OECD.','OECD'),('ILO.','ILOSTAT'),('VDEM.','V-Dem'),('VDem.','V-Dem'),('UIS.','UIS'),('PWT.','PWT'),('UNDP.','UNDP')]:
         if m['code'].startswith(prefix):return name
     return 'V-Dem' if m.get('source')=='vdem' or 'v-dem' in m.get('sourceName','').lower() else 'World Bank'
 def audit(data,history,asof):

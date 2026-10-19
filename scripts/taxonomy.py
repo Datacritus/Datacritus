@@ -67,6 +67,10 @@ EUROSTAT_SELECTION = json.loads(Path(__file__).with_name('eurostat_selection.jso
 for metric in EUROSTAT_SELECTION:
     GROUPS[metric['categories'][0]] += ' ' + metric['code']
 
+AMECO_MANIFEST = json.loads(Path(__file__).with_name('ameco_selection.json').read_text())['selection']
+for metric in AMECO_MANIFEST:
+    GROUPS[metric['category']] += ' ' + metric['code']
+
 PRIMARY = {code:cat for cat,codes in GROUPS.items() for code in codes.split()}
 assert len(PRIMARY) == sum(len(codes.split()) for codes in GROUPS.values())
 LEGACY = {'housing':'wellbeing','security':'governance','digital':'business','technology':'education','justice':'governance','energy':'environment','infrastructure':'transport','resilience':'environment','international':'business','freedom':'governance'}

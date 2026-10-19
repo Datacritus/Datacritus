@@ -9,8 +9,9 @@ from eurostat import CATALOG
 from vetted import MANIFEST, metrics_from_receipt
 from oecd import MANIFEST as OECD_MANIFEST, metrics_from_receipt as replay_oecd
 from ilo import MANIFEST as ILO_MANIFEST, metrics_from_receipt as replay_ilo, parse_csv as parse_ilo
+from ameco import MANIFEST as AMECO_MANIFEST, metrics_from_receipt as replay_ameco, parse_archive as parse_ameco
 D=json.loads((ROOT/'data/indicators.json').read_text());H=json.loads((ROOT/'data/history.json').read_text())
-expected={m['code'] for m in METRICS+CATALOG+MANIFEST+OECD_MANIFEST+ILO_MANIFEST}
+expected={m['code'] for m in METRICS+CATALOG+MANIFEST+OECD_MANIFEST+ILO_MANIFEST+AMECO_MANIFEST}
 assert {m['code'] for m in D['metrics']}==expected
 assert len(D['metrics'])==len(expected)
 assert len(D['categories'])==12
@@ -54,6 +55,20 @@ receipts={}
 upstream_hashes={hashlib.sha256(p.read_bytes()).hexdigest() for p in (ROOT/'data/raw').glob('vetted-*-source.*')}
 upstream_hashes.update(hashlib.sha256(p.read_bytes()).hexdigest() for p in (ROOT/'data/raw').glob('vetted-*-metadata.*'))
 for m in D['metrics']:
+ if m.get('amecoSelectionId'):
+  path=raw.get(m['rawReceiptSha256'])
+  if path:
+   if 'ameco' not in receipts:
+    payload=json.loads(path.read_text());payload['receiptSha256']=hashlib.sha256(path.read_bytes()).hexdigest()
+    original=ROOT/'data/raw/ameco-source.zip'
+    assert hashlib.sha256(original.read_bytes()).hexdigest()==payload['archiveSha256']
+    assert parse_ameco(original.read_bytes())==payload['observations']
+    receipts['ameco']={x['code']:x for x in replay_ameco(payload)}
+   replay=receipts['ameco'][m['code']]
+   for key in ('series','flags','unit','change','definition','coverage','transformation','historicalCutoff'):
+    assert replay[key]==m[key],(m['code'],key)
+   checked+=1
+  continue
  if m.get('iloSelectionId'):
   path=raw.get(m['rawReceiptSha256'])
   if path:
@@ -181,3 +196,13 @@ assert 'EU-SILC' in by_code['ILO.SDG_0831_SEX_ECO_RT']['provider']
 assert by_code['ILO.SDG_0831_SEX_ECO_RT']['dimensions']['classif1']=='ECO_SECTOR_TOTAL'
 assert by_code['ILO.SDG_0552_NOC_RT']['dimensions']['sex']==''
 assert by_code['ILO.SDG_0552_NOC_RT']['unit']=='% of senior/middle management positions'
+
+for config in AMECO_MANIFEST:
+ m=by_code[config['code']]
+ assert m['source']=='AMECO' and m['title']['el'] and m['definitionEl']
+ assert m['historicalCutoff']==2024 and m['coverage']['end']==2024
+ assert all(y<=2024 for points in m['series'].values() for y,v in points)
+ assert m['series']['EUU']==[] and m['sourceVersion']
+ assert m['primaryCategory']==config['category']
+ assert m['sourceUnit']==config['sourceUnit'] and m['slice']==config['slice']
+print(f'Validated {len(AMECO_MANIFEST)} AMECO slices: pinned release, historical cutoff, units, bilingual definitions and credit')

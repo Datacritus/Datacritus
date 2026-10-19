@@ -1,0 +1,276 @@
+{
+  "release": "Spring 2026; 3 June 2026 revision",
+  "releaseDate": "2026-06-03",
+  "archiveUrl": "https://economy-finance.ec.europa.eu/document/download/fd885a67-e390-46fb-a6d0-bbc67d946ebf_en",
+  "archiveSha256": "b460629037dfc994d805b3f236c80feb6c49bc86b3cde3f3cfc32027a08c3005",
+  "historicalCutoff": 2024,
+  "forecastExcludedFrom": 2025,
+  "selection": [
+    {
+      "code": "AMECO.ZCPIX",
+      "variable": "ZCPIX",
+      "slice": "1.0.0.0",
+      "sourceFile": "AMECO2.CSV",
+      "providerTitle": "Harmonised consumer price index (Overall index excluding energy, food, alcohol and tobacco)",
+      "sourceUnit": "(2015 = 100)",
+      "title": {
+        "en": "Core consumer price index",
+        "el": "Δείκτης βασικών τιμών καταναλωτή"
+      },
+      "category": "wellbeing",
+      "unit": "index (2015=100)",
+      "change": "absolute",
+      "definition": "HICP excluding energy, food, alcohol and tobacco. An index level, not an annual inflation rate.",
+      "definitionEl": "Εναρμονισμένος δείκτης τιμών χωρίς ενέργεια, τρόφιμα, αλκοόλ και καπνό. Επίπεδο δείκτη, όχι ετήσιος πληθωρισμός.",
+      "family": "zcpix",
+      "measurementType": "historical macroeconomic statistic or estimate"
+    },
+    {
+      "code": "AMECO.RWCDC",
+      "variable": "RWCDC",
+      "slice": "3.1.0.0",
+      "sourceFile": "AMECO7.CSV",
+      "providerTitle": "Real compensation per employee deflator private consumption: total economy",
+      "sourceUnit": "(National currency: 2020 = 100)",
+      "title": {
+        "en": "Real compensation per employee",
+        "el": "Πραγματική αποζημίωση ανά εργαζόμενο"
+      },
+      "category": "jobs",
+      "unit": "index (2020=100)",
+      "change": "absolute",
+      "definition": "Compensation per employee deflated by private consumption prices. Includes employer labour compensation; not take-home pay or the full-time adjusted salary series.",
+      "definitionEl": "Αποζημίωση ανά εργαζόμενο σε σταθερές τιμές ιδιωτικής κατανάλωσης. Δεν είναι καθαρός μισθός ούτε ο μισθός προσαρμοσμένος σε πλήρη απασχόληση.",
+      "family": "rwcdc",
+      "measurementType": "historical macroeconomic statistic or estimate"
+    },
+    {
+      "code": "AMECO.QLCD",
+      "variable": "QLCD",
+      "slice": "3.1.0.0",
+      "sourceFile": "AMECO7.CSV",
+      "providerTitle": "Real unit labour costs (ratio of compensation per employee to nominal GDP per person employed) (Ratio of compensation per employee to nominal GDP per person employed.)",
+      "sourceUnit": "(2020 = 100)",
+      "title": {
+        "en": "Real unit labour costs",
+        "el": "Πραγματικό μοναδιαίο κόστος εργασίας"
+      },
+      "category": "jobs",
+      "unit": "index (2020=100)",
+      "change": "absolute",
+      "definition": "Ratio of compensation per employee to nominal GDP per employed person, expressed as an index. Not a wage level or a direct measure of worker welfare.",
+      "definitionEl": "Λόγος αποζημίωσης ανά εργαζόμενο προς ονομαστικό ΑΕΠ ανά απασχολούμενο, ως δείκτης. Δεν είναι επίπεδο μισθού ή άμεσο μέτρο ευημερίας.",
+      "family": "labour-costs",
+      "measurementType": "historical macroeconomic statistic or estimate"
+    },
+    {
+      "code": "AMECO.QLCM",
+      "variable": "QLCM",
+      "slice": "3.1.0.0",
+      "sourceFile": "AMECO12.CSV",
+      "providerTitle": "Real unit labour costs: manufacturing industry",
+      "sourceUnit": "(2020 = 100)",
+      "title": {
+        "en": "Manufacturing real unit labour costs",
+        "el": "Πραγματικό μοναδιαίο κόστος εργασίας μεταποίησης"
+      },
+      "category": "jobs",
+      "unit": "index (2020=100)",
+      "change": "absolute",
+      "definition": "Real unit labour cost index for manufacturing. A sector breakdown of the broader labour-cost concept; do not combine it with the economy-wide index.",
+      "definitionEl": "Δείκτης πραγματικού μοναδιαίου κόστους εργασίας στη μεταποίηση. Κλαδική ανάλυση· δεν αθροίζεται με τον γενικό δείκτη.",
+      "family": "labour-costs",
+      "measurementType": "historical macroeconomic statistic or estimate"
+    },
+    {
+      "code": "AMECO.ASGH",
+      "variable": "ASGH",
+      "slice": "1.0.0.0",
+      "sourceFile": "AMECO15.CSV",
+      "providerTitle": "Saving rate, gross: households and NPISH (Gross saving as percentage of gross disposable income)",
+      "sourceUnit": "Rate",
+      "title": {
+        "en": "Household gross saving rate",
+        "el": "Ακαθάριστο ποσοστό αποταμίευσης νοικοκυριών"
+      },
+      "category": "wellbeing",
+      "unit": "% of gross disposable income",
+      "change": "pp",
+      "definition": "Gross saving of households and non-profit institutions serving households as a share of their gross disposable income. National accounts aggregate, not the typical household saving rate.",
+      "definitionEl": "Ακαθάριστη αποταμίευση νοικοκυριών και μη κερδοσκοπικών ιδρυμάτων που τα εξυπηρετούν ως ποσοστό του ακαθάριστου διαθέσιμου εισοδήματός τους. Συνολικό εθνικολογιστικό μέγεθος, όχι τυπικό νοικοκυριό.",
+      "family": "asgh",
+      "measurementType": "historical macroeconomic statistic or estimate"
+    },
+    {
+      "code": "AMECO.AYIGD",
+      "variable": "AYIGD",
+      "slice": "1.0.0.0",
+      "sourceFile": "AMECO16.CSV",
+      "providerTitle": "Implicit interest rate: general government :- Interest as percent of gross public debt of preceding year Excessive deficit procedure (based on ESA 2010)",
+      "sourceUnit": "Percentage of gross public debt",
+      "title": {
+        "en": "Government implicit interest rate",
+        "el": "Τεκμαρτό επιτόκιο γενικής κυβέρνησης"
+      },
+      "category": "finance",
+      "unit": "% of previous-year gross public debt",
+      "change": "pp",
+      "definition": "Government interest expenditure as a percentage of the previous year’s gross public debt. An implicit debt-servicing rate, not the current bond-market yield.",
+      "definitionEl": "Τόκοι γενικής κυβέρνησης ως ποσοστό του ακαθάριστου δημόσιου χρέους του προηγούμενου έτους. Τεκμαρτό κόστος εξυπηρέτησης, όχι τρέχουσα απόδοση ομολόγων.",
+      "family": "ayigd",
+      "measurementType": "historical macroeconomic statistic or estimate"
+    },
+    {
+      "code": "AMECO.ISN",
+      "variable": "ISN",
+      "slice": "1.1.0.0",
+      "sourceFile": "AMECO13.CSV",
+      "providerTitle": "Nominal short-term interest rates",
+      "sourceUnit": "(%)",
+      "title": {
+        "en": "Nominal short-term interest rate",
+        "el": "Ονομαστικό βραχυπρόθεσμο επιτόκιο"
+      },
+      "category": "finance",
+      "unit": "%",
+      "change": "pp",
+      "definition": "AMECO nominal short-term interest rate. Monetary and financial context; affected by common euro-area monetary policy and not a government performance score.",
+      "definitionEl": "Ονομαστικό βραχυπρόθεσμο επιτόκιο AMECO. Χρηματοοικονομικό πλαίσιο, επηρεάζεται από την κοινή νομισματική πολιτική και δεν αποτελεί κυβερνητική βαθμολογία.",
+      "family": "isn",
+      "measurementType": "historical macroeconomic statistic or estimate"
+    },
+    {
+      "code": "AMECO.ILN",
+      "variable": "ILN",
+      "slice": "1.1.0.0",
+      "sourceFile": "AMECO13.CSV",
+      "providerTitle": "Nominal long-term interest rates",
+      "sourceUnit": "(%)",
+      "title": {
+        "en": "Nominal long-term interest rate",
+        "el": "Ονομαστικό μακροπρόθεσμο επιτόκιο"
+      },
+      "category": "finance",
+      "unit": "%",
+      "change": "pp",
+      "definition": "AMECO nominal long-term interest rate. A financing-condition measure, not the implicit interest paid on all outstanding government debt.",
+      "definitionEl": "Ονομαστικό μακροπρόθεσμο επιτόκιο AMECO. Μέτρο συνθηκών χρηματοδότησης, όχι τεκμαρτό επιτόκιο όλου του δημόσιου χρέους.",
+      "family": "iln",
+      "measurementType": "historical macroeconomic statistic or estimate"
+    },
+    {
+      "code": "AMECO.APTA",
+      "variable": "APTA",
+      "slice": "1.0.0.0",
+      "sourceFile": "AMECO9.CSV",
+      "providerTitle": "Impact of terms of trade goods and services on real income",
+      "sourceUnit": "(Percentage of gross domestic product at constant prices of preceding year)",
+      "title": {
+        "en": "Terms-of-trade impact on real income",
+        "el": "Επίδραση όρων εμπορίου στο πραγματικό εισόδημα"
+      },
+      "category": "economy",
+      "unit": "% of previous-year real GDP",
+      "change": "pp",
+      "definition": "Impact of the terms of trade in goods and services on real income, relative to the preceding year’s real GDP. Not trade openness or export volume.",
+      "definitionEl": "Επίδραση των όρων εμπορίου αγαθών και υπηρεσιών στο πραγματικό εισόδημα ως ποσοστό του πραγματικού ΑΕΠ του προηγούμενου έτους. Δεν είναι εμπορική εξωστρέφεια ή όγκος εξαγωγών.",
+      "family": "apta",
+      "measurementType": "historical macroeconomic statistic or estimate"
+    },
+    {
+      "code": "AMECO.AKNDV",
+      "variable": "AKNDV",
+      "slice": "1.0.0.0",
+      "sourceFile": "AMECO8.CSV",
+      "providerTitle": "Net capital stock per unit of gross domestic product at constant prices :- Capital output ratio: total economy",
+      "sourceUnit": "capital output ratio",
+      "title": {
+        "en": "Capital–output ratio",
+        "el": "Λόγος κεφαλαίου προς προϊόν"
+      },
+      "category": "economy",
+      "unit": "capital/output ratio",
+      "change": "absolute",
+      "definition": "Net capital stock divided by GDP at constant prices. A stock-to-flow ratio, not the existing capital-stock level or a direct productivity measure.",
+      "definitionEl": "Καθαρό απόθεμα κεφαλαίου προς ΑΕΠ σε σταθερές τιμές. Λόγος αποθέματος προς ροή, όχι επίπεδο κεφαλαίου ή άμεσο μέτρο παραγωγικότητας.",
+      "family": "akndv",
+      "measurementType": "historical macroeconomic statistic or estimate"
+    },
+    {
+      "code": "AMECO.UBLGAPS",
+      "variable": "UBLGAPS",
+      "slice": "1.0.319.0",
+      "sourceFile": "AMECO17.CSV",
+      "providerTitle": "Structural balance of general government :- Adjustment based on potential GDP Excessive deficit procedure",
+      "sourceUnit": "(Percentage of potential GDP at current prices)",
+      "title": {
+        "en": "Structural government budget balance",
+        "el": "Διαρθρωτικό ισοζύγιο γενικής κυβέρνησης"
+      },
+      "category": "finance",
+      "unit": "% of potential GDP",
+      "change": "pp",
+      "definition": "Commission estimate of the general-government structural balance based on potential GDP. Model-dependent cyclical adjustment; distinct from the observed headline fiscal balance.",
+      "definitionEl": "Εκτίμηση διαρθρωτικού ισοζυγίου γενικής κυβέρνησης με βάση το δυνητικό ΑΕΠ. Εξαρτάται από το υπόδειγμα κυκλικής προσαρμογής και διαφέρει από το ονομαστικό δημοσιονομικό ισοζύγιο.",
+      "family": "ublgaps",
+      "measurementType": "Commission model estimate"
+    },
+    {
+      "code": "AMECO.UTVG",
+      "variable": "UTVG",
+      "slice": "1.0.319.0",
+      "sourceFile": "AMECO16.CSV",
+      "providerTitle": "Taxes linked to imports and production (indirect taxes): general government :- ESA 2010",
+      "sourceUnit": "(Percentage of GDP at current prices (excessive deficit procedure))",
+      "title": {
+        "en": "General-government indirect taxes",
+        "el": "Έμμεσοι φόροι γενικής κυβέρνησης"
+      },
+      "category": "finance",
+      "unit": "% of GDP",
+      "change": "pp",
+      "definition": "General-government taxes linked to imports and production, expressed as a share of GDP. A component of tax revenue; do not add it to a total that already includes it.",
+      "definitionEl": "Φόροι γενικής κυβέρνησης συνδεόμενοι με εισαγωγές και παραγωγή ως ποσοστό του ΑΕΠ. Συνιστώσα φορολογικών εσόδων· δεν αθροίζεται με το σύνολό τους.",
+      "family": "tax-revenue",
+      "measurementType": "historical macroeconomic statistic or estimate"
+    },
+    {
+      "code": "AMECO.UTYG",
+      "variable": "UTYG",
+      "slice": "1.0.319.0",
+      "sourceFile": "AMECO16.CSV",
+      "providerTitle": "Current taxes on income and wealth (direct taxes): general government :- ESA 2010",
+      "sourceUnit": "(Percentage of GDP at current prices (excessive deficit procedure))",
+      "title": {
+        "en": "General-government direct taxes",
+        "el": "Άμεσοι φόροι γενικής κυβέρνησης"
+      },
+      "category": "finance",
+      "unit": "% of GDP",
+      "change": "pp",
+      "definition": "General-government current taxes on income and wealth as a share of GDP. Separate from indirect taxes; general-government coverage differs from some central-government World Bank revenue measures.",
+      "definitionEl": "Τρέχοντες φόροι γενικής κυβέρνησης στο εισόδημα και τον πλούτο ως ποσοστό του ΑΕΠ. Διαφέρουν από έμμεσους φόρους και σειρές εσόδων μόνο κεντρικής κυβέρνησης.",
+      "family": "tax-revenue",
+      "measurementType": "historical macroeconomic statistic or estimate"
+    },
+    {
+      "code": "AMECO.UTSG",
+      "variable": "UTSG",
+      "slice": "1.0.319.0",
+      "sourceFile": "AMECO16.CSV",
+      "providerTitle": "Net social contributions received: general government :- ESA 2010",
+      "sourceUnit": "(Percentage of GDP at current prices (excessive deficit procedure))",
+      "title": {
+        "en": "General-government net social contributions",
+        "el": "Καθαρές κοινωνικές εισφορές γενικής κυβέρνησης"
+      },
+      "category": "finance",
+      "unit": "% of GDP",
+      "change": "pp",
+      "definition": "Net social contributions received by general government as a share of GDP. A component of government revenue, not a measure of benefit generosity or pension sustainability.",
+      "definitionEl": "Καθαρές κοινωνικές εισφορές που λαμβάνει η γενική κυβέρνηση ως ποσοστό του ΑΕΠ. Συνιστώσα εσόδων, όχι μέτρο παροχών ή βιωσιμότητας συντάξεων.",
+      "family": "social-contributions",
+      "measurementType": "historical macroeconomic statistic or estimate"
+    }
+  ]
+}
