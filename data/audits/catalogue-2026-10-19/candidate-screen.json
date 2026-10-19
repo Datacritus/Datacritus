@@ -1,0 +1,1508 @@
+{
+  "checkedAt": "2026-10-19T19:59:36.385776+00:00",
+  "limits": "Candidate API/data checks only. Not approved for publication; no source-licence revalidation or adapter integration.",
+  "candidates": [
+    {
+      "code": "SH.MED.NUMW.P3",
+      "alreadyPublished": false,
+      "publicationReady": false,
+      "metadata": {
+        "url": "https://api.worldbank.org/v2/indicator/SH.MED.NUMW.P3?source=2&format=json",
+        "sha256": "ded4cfe5aeab4baa1b7d7ef46425c3ebbe675878dec1b0b5c302ba470cbe48f3",
+        "checkedAt": "2026-10-19T19:59:03.855914+00:00"
+      },
+      "title": "Nurses and midwives (per 1,000 people)",
+      "definition": "Nurses and midwives include professional nurses, professional midwives, auxiliary nurses, auxiliary midwives, enrolled nurses, enrolled midwives and other associated personnel, such as dental nurses and primary care nurses.",
+      "data": {
+        "url": "https://api.worldbank.org/v2/country/GRC/indicator/SH.MED.NUMW.P3?source=2&format=json&date=1974:2026&per_page=20000",
+        "sha256": "ba4255aeee7cfdb9e99eb4479b720aee740533c6ae908fc904364f8371a51aa8",
+        "checkedAt": "2026-10-19T19:59:10.351100+00:00"
+      },
+      "series": [
+        [
+          1999,
+          2.857
+        ],
+        [
+          2000,
+          2.965
+        ],
+        [
+          2001,
+          3.176
+        ],
+        [
+          2002,
+          3.527
+        ],
+        [
+          2003,
+          3.547
+        ],
+        [
+          2004,
+          3.531
+        ],
+        [
+          2005,
+          3.567
+        ],
+        [
+          2006,
+          3.476
+        ],
+        [
+          2007,
+          3.461
+        ],
+        [
+          2008,
+          3.501
+        ],
+        [
+          2009,
+          3.595
+        ],
+        [
+          2010,
+          3.684
+        ],
+        [
+          2011,
+          3.706
+        ],
+        [
+          2012,
+          3.581
+        ],
+        [
+          2013,
+          3.536
+        ],
+        [
+          2014,
+          3.474
+        ],
+        [
+          2015,
+          3.449
+        ],
+        [
+          2016,
+          3.501
+        ],
+        [
+          2017,
+          3.571
+        ],
+        [
+          2018,
+          3.63
+        ],
+        [
+          2019,
+          3.648
+        ],
+        [
+          2020,
+          3.927
+        ],
+        [
+          2021,
+          4.034
+        ],
+        [
+          2022,
+          4.114
+        ]
+      ],
+      "observations": 24,
+      "latestYear": 2022,
+      "earliestYear": 1999,
+      "defaultPairCounts": [
+        3,
+        3
+      ],
+      "dataScreenPass": false,
+      "decision": "defer: missing, old, sparse or failed data route"
+    },
+    {
+      "code": "SH.STA.SUIC.P5",
+      "alreadyPublished": false,
+      "publicationReady": false,
+      "metadata": {
+        "url": "https://api.worldbank.org/v2/indicator/SH.STA.SUIC.P5?source=2&format=json",
+        "sha256": "16dccf9aabbc8fc19718a1001dec100d64d15c32a6d8145b78b531b66a37b07b",
+        "checkedAt": "2026-10-19T19:59:03.787343+00:00"
+      },
+      "title": "Suicide mortality rate (per 100,000 population)",
+      "definition": "Suicide mortality rate is the number of suicide deaths in a year per 100,000 population. Crude suicide rate (not age-adjusted).",
+      "data": {
+        "url": "https://api.worldbank.org/v2/country/GRC/indicator/SH.STA.SUIC.P5?source=2&format=json&date=1974:2026&per_page=20000",
+        "sha256": "c3ad91aab596d5d7533c7d2b93b04d93aba6a1a14741ce70ea7e4bdee23c4a01",
+        "checkedAt": "2026-10-19T19:59:10.382590+00:00"
+      },
+      "series": [
+        [
+          2000,
+          3.39
+        ],
+        [
+          2001,
+          2.95
+        ],
+        [
+          2002,
+          2.86
+        ],
+        [
+          2003,
+          3.3
+        ],
+        [
+          2004,
+          3.1
+        ],
+        [
+          2005,
+          3.51
+        ],
+        [
+          2006,
+          3.48
+        ],
+        [
+          2007,
+          2.91
+        ],
+        [
+          2008,
+          3.31
+        ],
+        [
+          2009,
+          3.49
+        ],
+        [
+          2010,
+          3.4
+        ],
+        [
+          2011,
+          4.31
+        ],
+        [
+          2012,
+          4.7
+        ],
+        [
+          2013,
+          4.93
+        ],
+        [
+          2014,
+          5.3
+        ],
+        [
+          2015,
+          4.94
+        ],
+        [
+          2016,
+          4.6
+        ],
+        [
+          2017,
+          5
+        ],
+        [
+          2018,
+          5.39
+        ],
+        [
+          2019,
+          5.08
+        ],
+        [
+          2020,
+          4.42
+        ],
+        [
+          2021,
+          4.68
+        ]
+      ],
+      "observations": 22,
+      "latestYear": 2021,
+      "earliestYear": 2000,
+      "defaultPairCounts": [
+        3,
+        2
+      ],
+      "dataScreenPass": false,
+      "decision": "defer: missing, old, sparse or failed data route"
+    },
+    {
+      "code": "SH.STA.DIAB.ZS",
+      "alreadyPublished": false,
+      "publicationReady": false,
+      "metadata": {
+        "url": "https://api.worldbank.org/v2/indicator/SH.STA.DIAB.ZS?source=2&format=json",
+        "sha256": "09118a6b43986bfdbeaa1881917ce8e0b51833391be1f944e066f1d9ac82138d",
+        "checkedAt": "2026-10-19T19:59:03.824650+00:00"
+      },
+      "title": "Diabetes prevalence (% of population ages 20 to 79)",
+      "definition": "Diabetes prevalence refers to the percentage of people ages 20-79 who have type 1 or type 2 diabetes. It is calculated by adjusting to a standard population age-structure.",
+      "data": {
+        "url": "https://api.worldbank.org/v2/country/GRC/indicator/SH.STA.DIAB.ZS?source=2&format=json&date=1974:2026&per_page=20000",
+        "sha256": "8fa276ac43769d90712418d8ca99fb70a00c3d2fbe80553adb9461cd0a8453cc",
+        "checkedAt": "2026-10-19T19:59:10.370869+00:00"
+      },
+      "series": [
+        [
+          2011,
+          5.1
+        ],
+        [
+          2024,
+          8
+        ]
+      ],
+      "observations": 2,
+      "latestYear": 2024,
+      "earliestYear": 2011,
+      "defaultPairCounts": [
+        0,
+        0
+      ],
+      "dataScreenPass": false,
+      "decision": "defer: missing, old, sparse or failed data route"
+    },
+    {
+      "code": "SH.IMM.IDPT",
+      "alreadyPublished": false,
+      "publicationReady": false,
+      "metadata": {
+        "url": "https://api.worldbank.org/v2/indicator/SH.IMM.IDPT?source=2&format=json",
+        "sha256": "e8a50eec8d0c96325fa783118ec3435e91f93a64c755a8485a530680ec65b7e2",
+        "checkedAt": "2026-10-19T19:59:03.722001+00:00"
+      },
+      "title": "Immunization, DPT (% of children ages 12-23 months)",
+      "definition": "Child immunization, DPT, measures the percentage of children ages 12-23 months who received DPT vaccinations before 12 months or at any time before the survey. A child is considered adequately immunized against diphtheria, pertussis (or whooping cough), and tetanus (DPT) after receiving three doses of vaccine.",
+      "data": {
+        "url": "https://api.worldbank.org/v2/country/GRC/indicator/SH.IMM.IDPT?source=2&format=json&date=1974:2026&per_page=20000",
+        "sha256": "7b70c6a277606afb6457e6c61bb8156a8c73f3bfac227e9b8f6d1bbfdb9988f4",
+        "checkedAt": "2026-10-19T19:59:10.339037+00:00"
+      },
+      "series": [
+        [
+          1980,
+          72
+        ],
+        [
+          1981,
+          95
+        ],
+        [
+          1982,
+          83
+        ],
+        [
+          1983,
+          72
+        ],
+        [
+          1984,
+          60
+        ],
+        [
+          1985,
+          54
+        ],
+        [
+          1986,
+          80
+        ],
+        [
+          1987,
+          82
+        ],
+        [
+          1988,
+          83
+        ],
+        [
+          1989,
+          54
+        ],
+        [
+          1990,
+          54
+        ],
+        [
+          1991,
+          85
+        ],
+        [
+          1992,
+          89
+        ],
+        [
+          1993,
+          89
+        ],
+        [
+          1994,
+          90
+        ],
+        [
+          1995,
+          90
+        ],
+        [
+          1996,
+          90
+        ],
+        [
+          1997,
+          90
+        ],
+        [
+          1998,
+          89
+        ],
+        [
+          1999,
+          88
+        ],
+        [
+          2000,
+          89
+        ],
+        [
+          2001,
+          91
+        ],
+        [
+          2002,
+          92
+        ],
+        [
+          2003,
+          94
+        ],
+        [
+          2004,
+          95
+        ],
+        [
+          2005,
+          96
+        ],
+        [
+          2006,
+          98
+        ],
+        [
+          2007,
+          99
+        ],
+        [
+          2008,
+          99
+        ],
+        [
+          2009,
+          99
+        ],
+        [
+          2010,
+          99
+        ],
+        [
+          2011,
+          99
+        ],
+        [
+          2012,
+          99
+        ],
+        [
+          2013,
+          99
+        ],
+        [
+          2014,
+          99
+        ],
+        [
+          2015,
+          99
+        ],
+        [
+          2016,
+          99
+        ],
+        [
+          2017,
+          99
+        ],
+        [
+          2018,
+          99
+        ],
+        [
+          2019,
+          99
+        ],
+        [
+          2020,
+          99
+        ],
+        [
+          2021,
+          99
+        ],
+        [
+          2022,
+          98
+        ],
+        [
+          2023,
+          95
+        ],
+        [
+          2024,
+          95
+        ]
+      ],
+      "observations": 45,
+      "latestYear": 2024,
+      "earliestYear": 1980,
+      "defaultPairCounts": [
+        3,
+        3
+      ],
+      "dataScreenPass": true,
+      "decision": "data screen passed; definition/overlap/licence review required"
+    },
+    {
+      "code": "SH.XPD.GHED.GD.ZS",
+      "alreadyPublished": false,
+      "publicationReady": false,
+      "metadata": {
+        "url": "https://api.worldbank.org/v2/indicator/SH.XPD.GHED.GD.ZS?source=2&format=json",
+        "sha256": "ff3bcf6c32aae41968af8821f94cf852a01318d6029c7eacdaa5b09dd7d3f0ff",
+        "checkedAt": "2026-10-19T19:59:03.684927+00:00"
+      },
+      "title": "Domestic general government health expenditure (% of GDP)",
+      "definition": "Public expenditure on health from domestic sources as a share of the economy as measured by GDP.",
+      "data": {
+        "url": "https://api.worldbank.org/v2/country/GRC/indicator/SH.XPD.GHED.GD.ZS?source=2&format=json&date=1974:2026&per_page=20000",
+        "sha256": "fb85204619841b4e5e127892517832bf24bca7cc89a167ddda8ce60c007326ec",
+        "checkedAt": "2026-10-19T19:59:10.373630+00:00"
+      },
+      "series": [
+        [
+          2000,
+          4.62980747
+        ],
+        [
+          2001,
+          5.21165657
+        ],
+        [
+          2002,
+          5.12075806
+        ],
+        [
+          2003,
+          5.1977067
+        ],
+        [
+          2004,
+          4.86593294
+        ],
+        [
+          2005,
+          5.32978392
+        ],
+        [
+          2006,
+          5.17268229
+        ],
+        [
+          2007,
+          5.39813805
+        ],
+        [
+          2008,
+          5.84622145
+        ],
+        [
+          2009,
+          6.5149498
+        ],
+        [
+          2010,
+          6.62841225
+        ],
+        [
+          2011,
+          6.03533649
+        ],
+        [
+          2012,
+          5.7518816
+        ],
+        [
+          2013,
+          5.23182106
+        ],
+        [
+          2014,
+          4.51781511
+        ],
+        [
+          2015,
+          4.7674284
+        ],
+        [
+          2016,
+          4.43071413
+        ],
+        [
+          2017,
+          4.29561758
+        ],
+        [
+          2018,
+          4.17521954
+        ],
+        [
+          2019,
+          3.95904088
+        ],
+        [
+          2020,
+          5.06405878
+        ],
+        [
+          2021,
+          5.38438177
+        ],
+        [
+          2022,
+          4.56988621
+        ],
+        [
+          2023,
+          4.24943686
+        ]
+      ],
+      "observations": 24,
+      "latestYear": 2023,
+      "earliestYear": 2000,
+      "defaultPairCounts": [
+        3,
+        3
+      ],
+      "dataScreenPass": true,
+      "decision": "data screen passed; definition/overlap/licence review required"
+    },
+    {
+      "code": "SH.XPD.GHED.CH.ZS",
+      "alreadyPublished": false,
+      "publicationReady": false,
+      "metadata": {
+        "url": "https://api.worldbank.org/v2/indicator/SH.XPD.GHED.CH.ZS?source=2&format=json",
+        "sha256": "0c45821a2dd55248cbd20f43a2a7752331676efebb51440256ac0cb831d6d6b7",
+        "checkedAt": "2026-10-19T19:59:03.785576+00:00"
+      },
+      "title": "Domestic general government health expenditure (% of current health expenditure)",
+      "definition": "Share of current health expenditures funded from domestic public sources for health.  Domestic public sources include domestic revenue as internal transfers and grants, transfers, subsidies to voluntary health insurance beneficiaries, non-profit institutions serving households (NPISH) or enterprise financing schemes as well as compulsory prepayment and social health insurance contributions. They do not include external resources spent by governments on health.",
+      "data": {
+        "url": "https://api.worldbank.org/v2/country/GRC/indicator/SH.XPD.GHED.CH.ZS?source=2&format=json&date=1974:2026&per_page=20000",
+        "sha256": "16c4401ac452050b03272cafa6b1fb074bb78ed3048988f7e18d31ff2f0c2f0a",
+        "checkedAt": "2026-10-19T19:59:10.322912+00:00"
+      },
+      "series": [
+        [
+          2000,
+          61.62267685
+        ],
+        [
+          2001,
+          63.20638275
+        ],
+        [
+          2002,
+          60.45768738
+        ],
+        [
+          2003,
+          59.86405945
+        ],
+        [
+          2004,
+          58.62460327
+        ],
+        [
+          2005,
+          60.83423615
+        ],
+        [
+          2006,
+          61.60876846
+        ],
+        [
+          2007,
+          63.33696365
+        ],
+        [
+          2008,
+          65.33537292
+        ],
+        [
+          2009,
+          68.3194046
+        ],
+        [
+          2010,
+          68.9058609
+        ],
+        [
+          2011,
+          65.70303345
+        ],
+        [
+          2012,
+          63.60369873
+        ],
+        [
+          2013,
+          61.39307785
+        ],
+        [
+          2014,
+          56.87389755
+        ],
+        [
+          2015,
+          57.66665268
+        ],
+        [
+          2016,
+          52.42841721
+        ],
+        [
+          2017,
+          52.94457245
+        ],
+        [
+          2018,
+          51.72071838
+        ],
+        [
+          2019,
+          48.77410126
+        ],
+        [
+          2020,
+          53.98300934
+        ],
+        [
+          2021,
+          59.61593628
+        ],
+        [
+          2022,
+          54.0853157
+        ],
+        [
+          2023,
+          50.62671661
+        ]
+      ],
+      "observations": 24,
+      "latestYear": 2023,
+      "earliestYear": 2000,
+      "defaultPairCounts": [
+        3,
+        3
+      ],
+      "dataScreenPass": true,
+      "decision": "data screen passed; definition/overlap/licence review required"
+    },
+    {
+      "code": "SE.PRM.ENRL.TC.ZS",
+      "alreadyPublished": true,
+      "publicationReady": false
+    },
+    {
+      "code": "SE.SEC.ENRL.TC.ZS",
+      "alreadyPublished": false,
+      "publicationReady": false,
+      "metadata": {
+        "url": "https://api.worldbank.org/v2/indicator/SE.SEC.ENRL.TC.ZS?source=2&format=json",
+        "sha256": "411e12ee9d6774fb72dc80786426be4c858ca9527245441a566dcc02591e1e6f",
+        "checkedAt": "2026-10-19T19:59:16.757211+00:00"
+      },
+      "title": "Pupil-teacher ratio, secondary",
+      "definition": "Secondary school pupil-teacher ratio is the average number of pupils per teacher in secondary school.",
+      "data": {
+        "url": "https://api.worldbank.org/v2/country/GRC/indicator/SE.SEC.ENRL.TC.ZS?source=2&format=json&date=1974:2026&per_page=20000",
+        "sha256": "3d7439d5ad34d56b5bbc5f65123adafc0deb8388bb67320ef0bb225ca9366cd5",
+        "checkedAt": "2026-10-19T19:59:23.159454+00:00"
+      },
+      "series": [
+        [
+          1974,
+          21.2551
+        ],
+        [
+          1975,
+          20.39693
+        ],
+        [
+          1976,
+          22.77187
+        ],
+        [
+          1977,
+          21.14621
+        ],
+        [
+          1978,
+          20.27286
+        ],
+        [
+          1979,
+          19.01393
+        ],
+        [
+          1980,
+          19.08637
+        ],
+        [
+          1981,
+          18.70203
+        ],
+        [
+          1982,
+          18.96556
+        ],
+        [
+          1983,
+          18.20524
+        ],
+        [
+          1984,
+          17.28941
+        ],
+        [
+          1985,
+          16.65008
+        ],
+        [
+          1986,
+          16.14539
+        ],
+        [
+          1987,
+          16.16534
+        ],
+        [
+          1988,
+          15.50625
+        ],
+        [
+          1989,
+          15.26468
+        ],
+        [
+          1990,
+          14.55338
+        ],
+        [
+          1991,
+          14.11792
+        ],
+        [
+          1992,
+          13.85769
+        ],
+        [
+          1993,
+          11.76672
+        ],
+        [
+          1994,
+          11.30987
+        ],
+        [
+          1995,
+          12.67518
+        ],
+        [
+          1996,
+          9.7709
+        ],
+        [
+          1997,
+          11.56682
+        ],
+        [
+          1998,
+          10.92763
+        ],
+        [
+          1999,
+          10.31502
+        ],
+        [
+          2000,
+          9.76026
+        ],
+        [
+          2001,
+          9.41532
+        ],
+        [
+          2002,
+          8.97739
+        ],
+        [
+          2003,
+          8.60019
+        ],
+        [
+          2004,
+          8.2988
+        ],
+        [
+          2005,
+          8.28503
+        ],
+        [
+          2006,
+          8.18975
+        ],
+        [
+          2007,
+          7.88335
+        ],
+        [
+          2013,
+          7.71531
+        ],
+        [
+          2014,
+          8.30619
+        ],
+        [
+          2015,
+          8.66634
+        ],
+        [
+          2016,
+          8.4038
+        ],
+        [
+          2017,
+          8.55985
+        ]
+      ],
+      "observations": 39,
+      "latestYear": 2017,
+      "earliestYear": 1974,
+      "defaultPairCounts": [
+        2,
+        0
+      ],
+      "dataScreenPass": false,
+      "decision": "defer: missing, old, sparse or failed data route"
+    },
+    {
+      "code": "IT.NET.SECR.P6",
+      "alreadyPublished": false,
+      "publicationReady": false,
+      "metadata": {
+        "url": "https://api.worldbank.org/v2/indicator/IT.NET.SECR.P6?source=2&format=json",
+        "sha256": "b2a7107aafdd90044181602b322e83d5e090a2e8d422e7988f7a445c6f1acf6d",
+        "checkedAt": "2026-10-19T19:59:16.646220+00:00"
+      },
+      "title": "Secure Internet servers (per 1 million people)",
+      "definition": "The number of distinct, publicly-trusted TLS/SSL certificates found in the Netcraft Secure Server Survey (by hosting country), per 1 million people.",
+      "data": {
+        "url": "https://api.worldbank.org/v2/country/GRC/indicator/IT.NET.SECR.P6?source=2&format=json&date=1974:2026&per_page=20000",
+        "sha256": "7fe10d33d1968f5b4f97d7fc3c61a9c17d8622fa730b64d0741288302312b90e",
+        "checkedAt": "2026-10-19T19:59:23.251360+00:00"
+      },
+      "series": [
+        [
+          2010,
+          63.9311392394137
+        ],
+        [
+          2011,
+          92.8419069817744
+        ],
+        [
+          2012,
+          162.335736922308
+        ],
+        [
+          2013,
+          212.490211086681
+        ],
+        [
+          2014,
+          277.808048593089
+        ],
+        [
+          2015,
+          409.948060615756
+        ],
+        [
+          2016,
+          1411.84492794199
+        ],
+        [
+          2017,
+          3695.69375338864
+        ],
+        [
+          2018,
+          5035.36701512231
+        ],
+        [
+          2019,
+          6647.33991681452
+        ],
+        [
+          2020,
+          8907.70838312568
+        ],
+        [
+          2021,
+          11383.3983120359
+        ],
+        [
+          2022,
+          13067.0193589553
+        ],
+        [
+          2023,
+          14227.2514879146
+        ],
+        [
+          2024,
+          15657.9434729048
+        ]
+      ],
+      "observations": 15,
+      "latestYear": 2024,
+      "earliestYear": 2010,
+      "defaultPairCounts": [
+        3,
+        3
+      ],
+      "dataScreenPass": true,
+      "decision": "data screen passed; definition/overlap/licence review required"
+    },
+    {
+      "code": "GB.XPD.RSDV.GD.ZS",
+      "alreadyPublished": true,
+      "publicationReady": false
+    },
+    {
+      "code": "IP.PAT.NRES",
+      "alreadyPublished": false,
+      "publicationReady": false,
+      "metadata": {
+        "url": "https://api.worldbank.org/v2/indicator/IP.PAT.NRES?source=2&format=json",
+        "sha256": "70a5e692468f10f31f831d5ec50bcccd2340d5d6fc189217d4ff3ed2021763d9",
+        "checkedAt": "2026-10-19T19:59:16.813302+00:00"
+      },
+      "title": "Patent applications, nonresidents",
+      "definition": "Patent applications are worldwide patent applications filed through the Patent Cooperation Treaty procedure or with a national patent office for exclusive rights for an invention--a product or process that provides a new way of doing something or offers a new technical solution to a problem. A patent provides protection for the invention to the owner of the patent for a limited period, generally 20 years.",
+      "data": {
+        "url": "https://api.worldbank.org/v2/country/GRC/indicator/IP.PAT.NRES?source=2&format=json&date=1974:2026&per_page=20000",
+        "sha256": "78094359b28c168421fc5473ec6aaa5b0f3a6452a81e1361ac6c5f68041bd485",
+        "checkedAt": "2026-10-19T19:59:23.199996+00:00"
+      },
+      "series": [
+        [
+          1980,
+          1570
+        ],
+        [
+          1981,
+          1843
+        ],
+        [
+          1982,
+          1911
+        ],
+        [
+          1983,
+          1936
+        ],
+        [
+          1984,
+          2142
+        ],
+        [
+          1985,
+          2035
+        ],
+        [
+          1986,
+          1714
+        ],
+        [
+          1987,
+          586
+        ],
+        [
+          1988,
+          457
+        ],
+        [
+          1989,
+          454
+        ],
+        [
+          1990,
+          466
+        ],
+        [
+          1991,
+          192
+        ],
+        [
+          1992,
+          211
+        ],
+        [
+          1993,
+          171
+        ],
+        [
+          1994,
+          139
+        ],
+        [
+          1995,
+          46
+        ],
+        [
+          1996,
+          37
+        ],
+        [
+          1997,
+          57
+        ],
+        [
+          1998,
+          34
+        ],
+        [
+          1999,
+          33
+        ],
+        [
+          2000,
+          34
+        ],
+        [
+          2001,
+          49
+        ],
+        [
+          2002,
+          36
+        ],
+        [
+          2003,
+          27
+        ],
+        [
+          2004,
+          28
+        ],
+        [
+          2005,
+          20
+        ],
+        [
+          2006,
+          30
+        ],
+        [
+          2007,
+          20
+        ],
+        [
+          2008,
+          30
+        ],
+        [
+          2009,
+          22
+        ],
+        [
+          2010,
+          16
+        ],
+        [
+          2011,
+          19
+        ],
+        [
+          2012,
+          28
+        ],
+        [
+          2013,
+          19
+        ],
+        [
+          2014,
+          19
+        ],
+        [
+          2015,
+          23
+        ],
+        [
+          2016,
+          40
+        ],
+        [
+          2017,
+          91
+        ],
+        [
+          2018,
+          149
+        ],
+        [
+          2019,
+          238
+        ],
+        [
+          2020,
+          363
+        ],
+        [
+          2021,
+          532
+        ],
+        [
+          2022,
+          648
+        ],
+        [
+          2023,
+          579
+        ],
+        [
+          2024,
+          560
+        ]
+      ],
+      "observations": 45,
+      "latestYear": 2024,
+      "earliestYear": 1980,
+      "defaultPairCounts": [
+        3,
+        3
+      ],
+      "dataScreenPass": true,
+      "decision": "data screen passed; definition/overlap/licence review required"
+    },
+    {
+      "code": "EG.ELC.FOSL.ZS",
+      "alreadyPublished": false,
+      "publicationReady": false,
+      "metadata": {
+        "url": "https://api.worldbank.org/v2/indicator/EG.ELC.FOSL.ZS?source=2&format=json",
+        "sha256": "4542803a99ac4062723424542e61b4f24895f216e6e0efca83fe46cf294a8f36",
+        "checkedAt": "2026-10-19T19:59:16.761201+00:00"
+      },
+      "title": "Electricity production from oil, gas and coal sources (% of total)",
+      "definition": "The share of electricity production from oil, gas and coal sources of total electricity production. Sources of electricity refer to the inputs used to generate electricity. Oil refers to crude oil and petroleum products. Gas refers to natural gas but excludes natural gas liquids. Coal refers to all coal and brown coal, both primary (including hard coal and lignite-brown coal) and derived fuels (including patent fuel, coke oven coke, gas coke, coke oven gas, and blast furnace gas). Peat is also included in this category.",
+      "data": {
+        "url": "https://api.worldbank.org/v2/country/GRC/indicator/EG.ELC.FOSL.ZS?source=2&format=json&date=1974:2026&per_page=20000",
+        "sha256": "8779b6fb044330f9f9c954866369c6fc1b2ad47f5f288435c97d55de616da88f",
+        "checkedAt": "2026-10-19T19:59:23.291151+00:00"
+      },
+      "series": [
+        [
+          1990,
+          94.2890609376339
+        ],
+        [
+          1991,
+          91.1405835543766
+        ],
+        [
+          1992,
+          93.2265911095667
+        ],
+        [
+          1993,
+          93.0201062610689
+        ],
+        [
+          1994,
+          92.7259747932257
+        ],
+        [
+          1995,
+          90.5660377358491
+        ],
+        [
+          1996,
+          89.0596001597482
+        ],
+        [
+          1997,
+          90.2427251413598
+        ],
+        [
+          1998,
+          91.1588853633793
+        ],
+        [
+          1999,
+          89.549081237911
+        ],
+        [
+          2000,
+          91.2244860056089
+        ],
+        [
+          2001,
+          93.1792790108744
+        ],
+        [
+          2002,
+          92.0377966598301
+        ],
+        [
+          2003,
+          88.7140633818474
+        ],
+        [
+          2004,
+          88.8956290230175
+        ],
+        [
+          2005,
+          88.1722759080307
+        ],
+        [
+          2006,
+          86.3231834706937
+        ],
+        [
+          2007,
+          91.4892276678846
+        ],
+        [
+          2008,
+          89.6374845095609
+        ],
+        [
+          2009,
+          86.224323443104
+        ],
+        [
+          2010,
+          81.3796707603867
+        ],
+        [
+          2011,
+          85.6652533817888
+        ],
+        [
+          2012,
+          82.9409931265277
+        ],
+        [
+          2013,
+          74.6780515117581
+        ],
+        [
+          2014,
+          75.4170464001268
+        ],
+        [
+          2015,
+          71.0567914562209
+        ],
+        [
+          2016,
+          72.2216099048459
+        ],
+        [
+          2017,
+          74.8869105779322
+        ],
+        [
+          2018,
+          69.1130637227292
+        ],
+        [
+          2019,
+          66.1929831777238
+        ],
+        [
+          2020,
+          63.335474912437
+        ],
+        [
+          2021,
+          59.3566663620579
+        ],
+        [
+          2022,
+          57.0001898614012
+        ],
+        [
+          2023,
+          50.6010096962898
+        ],
+        [
+          2024,
+          51.2602720806574
+        ],
+        [
+          2025,
+          52.2027070851895
+        ]
+      ],
+      "observations": 36,
+      "latestYear": 2025,
+      "earliestYear": 1990,
+      "defaultPairCounts": [
+        3,
+        3
+      ],
+      "dataScreenPass": true,
+      "decision": "data screen passed; definition/overlap/licence review required"
+    },
+    {
+      "code": "EN.ATM.PM25.MC.ZS",
+      "alreadyPublished": false,
+      "publicationReady": false,
+      "metadata": {
+        "url": "https://api.worldbank.org/v2/indicator/EN.ATM.PM25.MC.ZS?source=2&format=json",
+        "sha256": "36d2a10ae12a797852d69a2af9a7ba662eeb99e07bbdedb9c27d7fa908a5a6eb",
+        "checkedAt": "2026-10-19T19:59:16.726993+00:00"
+      },
+      "title": "PM2.5 air pollution, population exposed to levels exceeding WHO guideline value (% of total)",
+      "definition": "Percent of population exposed to ambient concentrations of PM2.5 that exceed the WHO guideline value is defined as the portion of a country’s population living in places where mean annual concentrations of PM2.5 are greater than 10 micrograms per cubic meter, the guideline value recommended by the World Health Organization as the lower end of the range of concentrations over which adverse health effects due to PM2.5 exposure have been observed.",
+      "data": {
+        "url": "https://api.worldbank.org/v2/country/GRC/indicator/EN.ATM.PM25.MC.ZS?source=2&format=json&date=1974:2026&per_page=20000",
+        "sha256": "b956150ed97e49af009c687b5ccf3bc36a6116463a04e6ec20a7858f30c25713",
+        "checkedAt": "2026-10-19T19:59:23.135333+00:00"
+      },
+      "series": [
+        [
+          1990,
+          100
+        ],
+        [
+          1995,
+          100
+        ],
+        [
+          2000,
+          100
+        ],
+        [
+          2005,
+          100
+        ],
+        [
+          2010,
+          100
+        ],
+        [
+          2011,
+          100
+        ],
+        [
+          2012,
+          100
+        ],
+        [
+          2013,
+          99.9999999999893
+        ],
+        [
+          2014,
+          99.9999999999893
+        ],
+        [
+          2015,
+          99.9999999999784
+        ],
+        [
+          2016,
+          99.9999999998159
+        ],
+        [
+          2017,
+          99.9999999998588
+        ]
+      ],
+      "observations": 12,
+      "latestYear": 2017,
+      "earliestYear": 1990,
+      "defaultPairCounts": [
+        2,
+        0
+      ],
+      "dataScreenPass": false,
+      "decision": "defer: missing, old, sparse or failed data route"
+    },
+    {
+      "code": "IS.VEH.NVEH.P3",
+      "alreadyPublished": false,
+      "publicationReady": false,
+      "metadata": {
+        "url": "https://api.worldbank.org/v2/indicator/IS.VEH.NVEH.P3?source=2&format=json",
+        "sha256": "25c4d0af5352ac4152dcd53b8cfbac5ae095094bbb1068cb8fe3dbbfca4969dd",
+        "checkedAt": "2026-10-19T19:59:16.974388+00:00"
+      },
+      "data": {
+        "url": "https://api.worldbank.org/v2/country/GRC/indicator/IS.VEH.NVEH.P3?source=2&format=json&date=1974:2026&per_page=20000",
+        "sha256": "f230e5b6d8f652aa544aec29624faa117c27571ce309a7a474584e1cfeb45c1b",
+        "checkedAt": "2026-10-19T19:59:23.075994+00:00"
+      },
+      "decision": "defer: missing, old, sparse or failed data route"
+    },
+    {
+      "code": "IS.ROD.PAVE.ZS",
+      "alreadyPublished": false,
+      "publicationReady": false,
+      "metadata": {
+        "url": "https://api.worldbank.org/v2/indicator/IS.ROD.PAVE.ZS?source=2&format=json",
+        "sha256": "25c4d0af5352ac4152dcd53b8cfbac5ae095094bbb1068cb8fe3dbbfca4969dd",
+        "checkedAt": "2026-10-19T19:59:29.650790+00:00"
+      },
+      "data": {
+        "url": "https://api.worldbank.org/v2/country/GRC/indicator/IS.ROD.PAVE.ZS?source=2&format=json&date=1974:2026&per_page=20000",
+        "sha256": "f230e5b6d8f652aa544aec29624faa117c27571ce309a7a474584e1cfeb45c1b",
+        "checkedAt": "2026-10-19T19:59:36.382174+00:00"
+      },
+      "decision": "defer: missing, old, sparse or failed data route"
+    }
+  ]
+}
