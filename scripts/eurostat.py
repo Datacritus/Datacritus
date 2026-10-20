@@ -123,6 +123,15 @@ from pathlib import Path
 EXPANSION = json.loads(Path(__file__).with_name("eurostat_selection.json").read_text())
 CATALOG += EXPANSION
 
+def validate_selection(payload, params):
+    """Fail closed if the provider ignores a filter or returns a different slice."""
+    for dimension, expected in {'freq':'A', **params}.items():
+        category=payload.get('dimension',{}).get(dimension,{}).get('category',{})
+        index=category.get('index',{})
+        codes=list(index)
+        if codes != [expected]:
+            raise ValueError(f'Eurostat filter mismatch for {dimension}: expected {expected}, got {codes}')
+
 def parse_payload(payload):
     ids=payload['id'];sizes=payload['size'];dims=payload['dimension']
     geo_idx=ids.index('geo');time_idx=ids.index('time')
@@ -163,6 +172,7 @@ def collect_all(raw_dir):
             try:
                 with urllib.request.urlopen(url,timeout=55) as res:raw=res.read()
                 payload=json.loads(raw)
+                validate_selection(payload,m['params'])
                 series,flags=parse_payload(payload)
                 series=transform_series(series,m)
                 break

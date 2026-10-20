@@ -1,0 +1,42 @@
+[
+  {
+    "file": "eurostat.svg",
+    "url": "https://ec.europa.eu/eurostat/o/estat-theme-ecl/images/header/estat-logo-horizontal.svg",
+    "sha256": "8f858e3d7548eb5e66b6f42b56f5ea85eca5c01644720554742a3ae3cc179d3c"
+  },
+  {
+    "file": "vdem.svg",
+    "url": "https://www.v-dem.net/static/website/img/logo.3a331ab52b88.svg",
+    "sha256": "4a682d141d2e780656b597809fd87b59651039b12afc68f0d556044559efbf45"
+  },
+  {
+    "file": "worldbank.svg",
+    "url": "https://www.worldbank.org/content/dam/wbr/logo/logo-wb-header-en.svg",
+    "sha256": "4899662d222fd020b0cabbdd9c6a949e5e1fef8b82ab8fb1ff0feb9821e45645"
+  },
+  {
+    "file": "undp.svg",
+    "url": "https://www.undp.org/sites/g/files/zskgke326/files/2025-04/undp-logo-blue.4f32e17f.svg",
+    "sha256": "49933a6a20cf6b7df3b35f1447edcd04465a382a7c6d6b8d351d96c937a1556f"
+  },
+  {
+    "file": "ameco.svg",
+    "url": "https://economy-finance.ec.europa.eu/themes/contrib/oe_theme/dist/ec/images/logo/logo-ec--mute.svg",
+    "sha256": "73fee8ee4f5140b6439d646883ff35ddca8a80001908cd5ca71ff4e3f04b559b"
+  },
+  {
+    "file": "ilo.png",
+    "url": "https://ilostat.ilo.org/wp-content/uploads/2026/03/EN_ILO_Organization_Vertical_RGB_Blue-215x300.png",
+    "sha256": "e3cf5f2a02acf4f158a8a5543f575b5f5b9b47cc381e6f9575eeedf365c75576"
+  },
+  {
+    "file": "oecd.svg",
+    "url": "https://www.oecd.org/",
+    "sha256": "98e392e2fbfb713196fbab30817c3d305b180bc6fd0c7517487f7ab88c1cd002"
+  },
+  {
+    "file": "unesco.png",
+    "url": "https://databrowser.uis.unesco.org/logo-unesco-uis-extended.png",
+    "sha256": "801b13a09e3c0c24e3c3fb26271fe7748291aab85091f0dcf004fa1bc0ddffdb"
+  }
+]

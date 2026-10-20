@@ -1,0 +1,288 @@
+[
+  {
+    "code": "ESTAT.HOLIDAY.UNAFFORDABLE",
+    "dataset": "ilc_mdes02",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ilc_mdes02?lang=en&freq=A&unit=PC&hhcomp=TOTAL&rskpovth=TOTAL",
+    "sha256": "2ec278ab065cc3a682d5a1f752cb7d277d320189accfe16fbad7e86c49ebd851",
+    "coverage": {
+      "start": 2003,
+      "end": 2025,
+      "observations": 23
+    },
+    "retrievedAt": "2026-10-20T08:05:46.519773+00:00",
+    "sourceUpdatedAt": "2026-09-17T23:00:00+0200"
+  },
+  {
+    "code": "ESTAT.POVERTY.CHILD",
+    "dataset": "ilc_li02",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ilc_li02?lang=en&freq=A&unit=PC&statinfo=MED_EI&rskpovth=B_60&sex=T&age=Y_LT18",
+    "sha256": "68715ec60b5ffde4edee1f79cac3b2ea9561cf484f7320a9c3adcc7fbba0a5d5",
+    "coverage": {
+      "start": 2003,
+      "end": 2025,
+      "observations": 23
+    },
+    "retrievedAt": "2026-10-20T08:05:47.391739+00:00",
+    "sourceUpdatedAt": "2026-10-15T23:00:00+0200"
+  },
+  {
+    "code": "ESTAT.POVERTY.GAP",
+    "dataset": "ilc_li11",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ilc_li11?lang=en&freq=A&unit=PC&statinfo=MED_EI&rskpovth=B_60&sex=T&age=TOTAL",
+    "sha256": "c22158c3c9f71a29f6e185f3f1783a9b4a0609ffe8efa18b0883b3548bfda614",
+    "coverage": {
+      "start": 1995,
+      "end": 2025,
+      "observations": 30
+    },
+    "retrievedAt": "2026-10-20T08:05:46.569561+00:00",
+    "sourceUpdatedAt": "2026-10-05T23:00:00+0200"
+  },
+  {
+    "code": "ESTAT.WORK.INTENSITY.LOW",
+    "dataset": "ilc_lvhl11n",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ilc_lvhl11n?lang=en&freq=A&unit=PC&age=Y_LT65&sex=T",
+    "sha256": "c63eedd4c01b479ef35f49c65ed2ec0ee3b6047f1c72abff3228588f03294eef",
+    "coverage": {
+      "start": 2015,
+      "end": 2025,
+      "observations": 11
+    },
+    "retrievedAt": "2026-10-20T08:05:46.551674+00:00",
+    "sourceUpdatedAt": "2026-09-17T23:00:00+0200"
+  },
+  {
+    "code": "ESTAT.CHILDCARE.UNDER3.30H",
+    "dataset": "ilc_caindformal",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ilc_caindformal?lang=en&freq=A&unit=PC&age=Y_LT3&duration=H_GE30",
+    "sha256": "681034a96584135a9880bf88c6dbc6d0480d9cdb83862df27385425225123deb",
+    "coverage": {
+      "start": 2007,
+      "end": 2025,
+      "observations": 19
+    },
+    "retrievedAt": "2026-10-20T08:05:52.903907+00:00",
+    "sourceUpdatedAt": "2026-09-17T23:00:00+0200"
+  },
+  {
+    "code": "ESTAT.WORK.PARTTIME.INVOLUNTARY",
+    "dataset": "lfsa_eppgai",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/lfsa_eppgai?lang=en&freq=A&unit=PC&sex=T&age=Y20-64",
+    "sha256": "18ef94fda9794c6d6374e8455e7b8a43caa469046571b87552d28f67ed2b4a27",
+    "coverage": {
+      "start": 1983,
+      "end": 2025,
+      "observations": 43
+    },
+    "retrievedAt": "2026-10-20T08:05:53.640118+00:00",
+    "sourceUpdatedAt": "2026-09-10T23:00:00+0200"
+  },
+  {
+    "code": "ESTAT.WORK.LONG.HOURS",
+    "dataset": "lfsa_qoe_3a2",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/lfsa_qoe_3a2?lang=en&freq=A&unit=PC&sex=T&age=Y20-64&wstatus=EMP&isco08=TOTAL",
+    "sha256": "1b4f8482b189a97940c81990a1ccc4dfc8405e5d70f727a514f0d1ab62eacfcd",
+    "coverage": {
+      "start": 2000,
+      "end": 2025,
+      "observations": 26
+    },
+    "retrievedAt": "2026-10-20T08:05:53.808019+00:00",
+    "sourceUpdatedAt": "2026-09-10T23:00:00+0200"
+  },
+  {
+    "code": "ESTAT.EDUCATION.ADULT.LEARNING",
+    "dataset": "trng_lfse_01",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/trng_lfse_01?lang=en&freq=A&unit=PC&sex=T&age=Y25-64",
+    "sha256": "290b0c6115095df82877d6e842ecf2ab3bae697600cbd799689025d5273024f6",
+    "coverage": {
+      "start": 1992,
+      "end": 2025,
+      "observations": 34
+    },
+    "retrievedAt": "2026-10-20T08:05:52.912576+00:00",
+    "sourceUpdatedAt": "2026-09-10T23:00:00+0200"
+  },
+  {
+    "code": "ESTAT.EDUCATION.GRADUATE.EMPLOYMENT",
+    "dataset": "edat_lfse_24",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/edat_lfse_24?lang=en&freq=A&unit=PC&sex=T&age=Y20-34&duration=Y1-3&isced11=ED3-8",
+    "sha256": "45686c01d05b9639ebc494a0f7beee90a380fefd58d10e4370a883aa370f9777",
+    "coverage": {
+      "start": 2000,
+      "end": 2025,
+      "observations": 26
+    },
+    "retrievedAt": "2026-10-20T08:05:59.523170+00:00",
+    "sourceUpdatedAt": "2026-09-10T23:00:00+0200"
+  },
+  {
+    "code": "ESTAT.HEALTH.PERCEIVED.BAD",
+    "dataset": "hlth_silc_01",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/hlth_silc_01?lang=en&freq=A&unit=PC&sex=T&age=Y_GE16&wstatus=POP&levels=B_VB",
+    "sha256": "60da36452caa9c6392b4b562040cd311b579e2f1d0230000a4ae6d95807894af",
+    "coverage": {
+      "start": 2008,
+      "end": 2025,
+      "observations": 18
+    },
+    "retrievedAt": "2026-10-20T08:06:00.277616+00:00",
+    "sourceUpdatedAt": "2026-09-17T23:00:00+0200"
+  },
+  {
+    "code": "ESTAT.HEALTH.CHRONIC",
+    "dataset": "hlth_silc_04",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/hlth_silc_04?lang=en&freq=A&unit=PC&sex=T&age=Y_GE16&wstatus=POP",
+    "sha256": "5d8d1dd60cd446aa5cc7960ec9fd55b03134e0ee11a4ba674df003d9e7243f44",
+    "coverage": {
+      "start": 2008,
+      "end": 2025,
+      "observations": 18
+    },
+    "retrievedAt": "2026-10-20T08:05:59.474538+00:00",
+    "sourceUpdatedAt": "2026-09-17T23:00:00+0200"
+  },
+  {
+    "code": "ESTAT.HEALTH.ACTIVITY.LIMITATION",
+    "dataset": "hlth_silc_06",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/hlth_silc_06?lang=en&freq=A&unit=PC&sex=T&age=Y_GE16&wstatus=POP&lev_limit=SM_SEV",
+    "sha256": "560ab9821bdbf90f42bd5e9b54cb02fa1bce7d875fe6b216faba4584c225dff4",
+    "coverage": {
+      "start": 2008,
+      "end": 2025,
+      "observations": 18
+    },
+    "retrievedAt": "2026-10-20T08:06:00.319352+00:00",
+    "sourceUpdatedAt": "2026-09-17T23:00:00+0200"
+  },
+  {
+    "code": "ESTAT.INCOME.BOTTOM40.SHARE",
+    "dataset": "sdg_10_50",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/sdg_10_50?lang=en&freq=A&statinfo=SHARE",
+    "sha256": "9f10b18f7a72b9bccd81e0c98059c5324ab68a750316f1fe6204a9de626f1424",
+    "coverage": {
+      "start": 2000,
+      "end": 2025,
+      "observations": 25
+    },
+    "retrievedAt": "2026-10-20T08:06:05.903296+00:00",
+    "sourceUpdatedAt": "2026-10-05T23:00:00+0200"
+  },
+  {
+    "code": "ESTAT.WORK.CARE.INACTIVITY",
+    "dataset": "sdg_05_40",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/sdg_05_40?lang=en&freq=A&reason=FAM_CARE&sex=T&age=Y20-64&unit=PC_POP",
+    "sha256": "83b2c2a595ab33427dcc64ceb4377deb68710bf2dcacfddb2b1fb59b7d4b2cf4",
+    "coverage": {
+      "start": 2006,
+      "end": 2025,
+      "observations": 20
+    },
+    "retrievedAt": "2026-10-20T08:06:05.900216+00:00",
+    "sourceUpdatedAt": "2026-09-10T23:00:00+0200"
+  },
+  {
+    "code": "ESTAT.HOUSING.COST.MEDIAN",
+    "dataset": "ilc_lvho08a",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ilc_lvho08a?lang=en&freq=A&unit=PC&rskpovth=TOTAL&age=TOTAL&sex=T",
+    "sha256": "4ea621d54a7b7aff6966347aa481380e61b5920246e12d9f84d0ec8853439c26",
+    "coverage": {
+      "start": 2004,
+      "end": 2025,
+      "observations": 22
+    },
+    "retrievedAt": "2026-10-20T08:06:05.942864+00:00",
+    "sourceUpdatedAt": "2026-10-19T23:00:00+0200"
+  },
+  {
+    "code": "ESTAT.HEALTH.MORTALITY.PRVT",
+    "dataset": "hlth_cd_apr",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/hlth_cd_apr?lang=en&freq=A&mortalit=PRVT&sex=T&icd10=TOTAL&unit=RT",
+    "sha256": "b6e03e4fea11fc249aed6fff79728b70c65ec8c26785d6d37eaebf130f4d508f",
+    "coverage": {
+      "start": 2011,
+      "end": 2023,
+      "observations": 13
+    },
+    "retrievedAt": "2026-10-20T08:06:05.950392+00:00",
+    "sourceUpdatedAt": "2026-03-17T23:00:00+0100"
+  },
+  {
+    "code": "ESTAT.HEALTH.MORTALITY.TRT",
+    "dataset": "hlth_cd_apr",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/hlth_cd_apr?lang=en&freq=A&mortalit=TRT&sex=T&icd10=TOTAL&unit=RT",
+    "sha256": "1b0f09d2daec177ab3864c431e41644888cfea8593f0c4e4e7f8e31143023861",
+    "coverage": {
+      "start": 2011,
+      "end": 2023,
+      "observations": 13
+    },
+    "retrievedAt": "2026-10-20T08:06:12.642766+00:00",
+    "sourceUpdatedAt": "2026-03-17T23:00:00+0100"
+  },
+  {
+    "code": "ESTAT.WORK.ACCIDENTS.FATAL",
+    "dataset": "sdg_08_60",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/sdg_08_60?lang=en&freq=A&unit=RT_INC&sex=T&nace_r2=TOTAL&severity=FAT",
+    "sha256": "f0912123759c29c535fd459f05831cd6785d8efc32c8f824e1368505e0d2346e",
+    "coverage": {
+      "start": 2010,
+      "end": 2024,
+      "observations": 15
+    },
+    "retrievedAt": "2026-10-20T08:06:12.679267+00:00",
+    "sourceUpdatedAt": "2026-09-25T11:00:00+0200"
+  },
+  {
+    "code": "ESTAT.INFLATION.FOOD",
+    "dataset": "prc_hicp_ainr",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_ainr?lang=en&freq=A&unit=RCH_A_AVG&coicop18=CP01",
+    "sha256": "12dee2b2db9650b9835bbdf40ddb708b8798333fb0df9d7027d66c66396a8251",
+    "coverage": {
+      "start": 1997,
+      "end": 2025,
+      "observations": 29
+    },
+    "retrievedAt": "2026-10-20T08:08:00.739815+00:00",
+    "sourceUpdatedAt": "2026-09-17T11:00:00+0200"
+  },
+  {
+    "code": "ESTAT.INFLATION.RENT",
+    "dataset": "prc_hicp_ainr",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_ainr?lang=en&freq=A&unit=RCH_A_AVG&coicop18=CP041",
+    "sha256": "eff188ac89e6bc1612032090c5dd0ec155c4e5abae61664c97731fd6defedcbe",
+    "coverage": {
+      "start": 1997,
+      "end": 2025,
+      "observations": 29
+    },
+    "retrievedAt": "2026-10-20T08:08:01.451064+00:00",
+    "sourceUpdatedAt": "2026-09-17T11:00:00+0200"
+  },
+  {
+    "code": "ESTAT.INFLATION.ELECTRICITY",
+    "dataset": "prc_hicp_ainr",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_ainr?lang=en&freq=A&unit=RCH_A_AVG&coicop18=CP0451",
+    "sha256": "d3463e5616c8679aab2434c2ca439317dcb9bef544cb7054ab901c2069a35cc8",
+    "coverage": {
+      "start": 1997,
+      "end": 2025,
+      "observations": 29
+    },
+    "retrievedAt": "2026-10-20T08:08:01.567813+00:00",
+    "sourceUpdatedAt": "2026-09-17T11:00:00+0200"
+  },
+  {
+    "code": "ESTAT.INFLATION.TRANSPORT",
+    "dataset": "prc_hicp_ainr",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_ainr?lang=en&freq=A&unit=RCH_A_AVG&coicop18=CP073",
+    "sha256": "76d941f9fdc0bbf7ccf662b388ad1dde9d0b66ee5f4965e982769365fd14d25a",
+    "coverage": {
+      "start": 1997,
+      "end": 2025,
+      "observations": 29
+    },
+    "retrievedAt": "2026-10-20T08:08:01.455429+00:00",
+    "sourceUpdatedAt": "2026-09-17T11:00:00+0200"
+  }
+]

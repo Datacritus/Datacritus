@@ -355,5 +355,561 @@
     "license": "Eurostat reuse policy",
     "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
     "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.HOLIDAY.UNAFFORDABLE",
+    "dataset": "ilc_mdes02",
+    "title": {
+      "en": "Unable to afford one week away each year",
+      "el": "Αδυναμία κάλυψης μίας εβδομάδας διακοπών τον χρόνο"
+    },
+    "categories": [
+      "wellbeing"
+    ],
+    "params": {
+      "unit": "PC",
+      "hhcomp": "TOTAL",
+      "rskpovth": "TOTAL"
+    },
+    "definition": "Share of people in households unable to afford one week of annual holiday away from home. EU-SILC affordability measure, not the share who choose not to travel. Related to deprivation; do not add hardship rates together.",
+    "definitionEl": "Ποσοστό ατόμων σε νοικοκυριά που αδυνατούν οικονομικά να καλύψουν μία εβδομάδα ετήσιων διακοπών εκτός σπιτιού. Δεν μετρά όσους επιλέγουν να μην ταξιδέψουν. Συνδέεται με τη στέρηση· τα ποσοστά δεν αθροίζονται.",
+    "unit": "% of population",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.POVERTY.CHILD",
+    "dataset": "ilc_li02",
+    "title": {
+      "en": "Children at risk of income poverty",
+      "el": "Παιδιά σε κίνδυνο εισοδηματικής φτώχειας"
+    },
+    "categories": [
+      "wellbeing"
+    ],
+    "params": {
+      "unit": "PC",
+      "statinfo": "MED_EI",
+      "rskpovth": "B_60",
+      "sex": "T",
+      "age": "Y_LT18"
+    },
+    "definition": "Share of children under 18 below 60% of national median equivalised disposable income after social transfers. Relative poverty; child breakdown of the existing all-age rate, not an additional population to sum. EU-SILC income generally refers to the preceding year.",
+    "definitionEl": "Παιδιά κάτω των 18 με εισόδημα κάτω από το 60% του εθνικού διάμεσου ισοδύναμου διαθέσιμου εισοδήματος μετά τις κοινωνικές μεταβιβάσεις. Ανάλυση της σχετικής φτώχειας για παιδιά, όχι επιπλέον πληθυσμός προς άθροιση. Το εισόδημα συνήθως αφορά το προηγούμενο έτος.",
+    "unit": "% of children under 18",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.POVERTY.GAP",
+    "dataset": "ilc_li11",
+    "title": {
+      "en": "Depth of income poverty",
+      "el": "Βάθος εισοδηματικής φτώχειας"
+    },
+    "categories": [
+      "wellbeing"
+    ],
+    "params": {
+      "unit": "PC",
+      "statinfo": "MED_EI",
+      "rskpovth": "B_60",
+      "sex": "T",
+      "age": "TOTAL"
+    },
+    "definition": "Relative median poverty gap: difference between the 60%-of-median poverty threshold and median equivalised income of people below it, expressed as a percentage of that threshold. Measures depth, not prevalence. EU-SILC survey year; income generally preceding year.",
+    "definitionEl": "Σχετικό διάμεσο χάσμα φτώχειας: διαφορά μεταξύ του ορίου φτώχειας (60% του διάμεσου εισοδήματος) και του διάμεσου εισοδήματος όσων βρίσκονται κάτω από αυτό, ως ποσοστό του ορίου. Μετρά βάθος, όχι συχνότητα φτώχειας. Έτος έρευνας· το εισόδημα συνήθως αφορά το προηγούμενο έτος.",
+    "unit": "% of poverty threshold",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.WORK.INTENSITY.LOW",
+    "dataset": "ilc_lvhl11n",
+    "title": {
+      "en": "People in households with very low work intensity",
+      "el": "Άτομα σε νοικοκυριά με πολύ χαμηλή ένταση εργασίας"
+    },
+    "categories": [
+      "jobs"
+    ],
+    "params": {
+      "unit": "PC",
+      "age": "Y_LT65",
+      "sex": "T"
+    },
+    "definition": "Share of people aged 0–64 in households where eligible working-age adults worked at most 20% of their combined potential working time in the previous year. EU 2030 definition with Eurostat exclusions; not spliced with the older 0–59 definition. An overlapping component of AROPE, not an unemployment rate.",
+    "definitionEl": "Ποσοστό ατόμων 0–64 σε νοικοκυριά όπου οι επιλέξιμοι ενήλικες εργάστηκαν έως 20% του συνολικού δυνητικού χρόνου εργασίας το προηγούμενο έτος. Ορισμός ΕΕ 2030 με τις εξαιρέσεις της Eurostat· δεν συνδέεται με τον παλιό ορισμό 0–59. Συνιστώσα AROPE, όχι ποσοστό ανεργίας.",
+    "unit": "% of people aged 0–64",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.CHILDCARE.UNDER3.30H",
+    "dataset": "ilc_caindformal",
+    "title": {
+      "en": "Under-3s in formal childcare for 30+ hours weekly",
+      "el": "Παιδιά κάτω των 3 σε επίσημη φροντίδα για 30+ ώρες εβδομαδιαίως"
+    },
+    "categories": [
+      "education"
+    ],
+    "params": {
+      "unit": "PC",
+      "age": "Y_LT3",
+      "duration": "H_GE30"
+    },
+    "definition": "Share of children under 3 in formal childcare or education for at least 30 hours per usual week. EU-SILC; excludes shorter attendance. Participation, not availability, affordability, unmet demand or quality. No splice with the newer 25-hour measure.",
+    "definitionEl": "Ποσοστό παιδιών κάτω των 3 σε επίσημη φροντίδα ή εκπαίδευση για τουλάχιστον 30 ώρες μια συνήθη εβδομάδα. Δεν περιλαμβάνει μικρότερη διάρκεια. Συμμετοχή, όχι διαθεσιμότητα, κόστος, ανικανοποίητη ζήτηση ή ποιότητα. Δεν συνδέεται με το νεότερο όριο 25 ωρών.",
+    "unit": "% of children under 3",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.WORK.PARTTIME.INVOLUNTARY",
+    "dataset": "lfsa_eppgai",
+    "title": {
+      "en": "Involuntary part-time work",
+      "el": "Ακούσια μερική απασχόληση"
+    },
+    "categories": [
+      "jobs"
+    ],
+    "params": {
+      "unit": "PC",
+      "sex": "T",
+      "age": "Y20-64"
+    },
+    "definition": "Part-time workers aged 20–64 who could not find a full-time job, as a percentage of all part-time workers of that age. EU-LFS; not a share of all workers. Distinct from the existing ILO hours-based part-time rate. Survey breaks retained.",
+    "definitionEl": "Μερικώς απασχολούμενοι 20–64 που δεν βρήκαν πλήρη εργασία, ως ποσοστό όλων των μερικώς απασχολουμένων αυτής της ηλικίας. Όχι ποσοστό όλων των εργαζομένων. Διαφέρει από τον δείκτη ILO που βασίζεται στις ώρες. Διατηρούνται οι τομές έρευνας.",
+    "unit": "% of part-time workers aged 20–64",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.WORK.LONG.HOURS",
+    "dataset": "lfsa_qoe_3a2",
+    "title": {
+      "en": "Workers usually working 49+ hours weekly",
+      "el": "Εργαζόμενοι με συνήθη εβδομάδα 49+ ωρών"
+    },
+    "categories": [
+      "jobs"
+    ],
+    "params": {
+      "unit": "PC",
+      "sex": "T",
+      "age": "Y20-64",
+      "wstatus": "EMP",
+      "isco08": "TOTAL"
+    },
+    "definition": "Share of employed people aged 20–64 usually working at least 49 hours per week in their main job. EU-LFS; includes self-employed people. Usual hours, distinct from actual average weekly hours; not a measure of unpaid overtime alone.",
+    "definitionEl": "Ποσοστό απασχολουμένων 20–64 που συνήθως εργάζονται τουλάχιστον 49 ώρες την εβδομάδα στην κύρια εργασία. Περιλαμβάνει αυτοαπασχολουμένους. Συνήθεις ώρες, όχι μέσος πραγματικός χρόνος ή μόνο απλήρωτες υπερωρίες.",
+    "unit": "% of employed people aged 20–64",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.EDUCATION.ADULT.LEARNING",
+    "dataset": "trng_lfse_01",
+    "title": {
+      "en": "Adults learning in the last four weeks",
+      "el": "Εκπαίδευση ενηλίκων τις τελευταίες τέσσερις εβδομάδες"
+    },
+    "categories": [
+      "education"
+    ],
+    "params": {
+      "unit": "PC",
+      "sex": "T",
+      "age": "Y25-64"
+    },
+    "definition": "Share of people aged 25–64 participating in formal or non-formal education or training during the previous four weeks. EU-LFS; not the separate 12-month adult-learning indicator or informal self-learning. Survey breaks retained.",
+    "definitionEl": "Ποσοστό ατόμων 25–64 που συμμετείχαν σε τυπική ή μη τυπική εκπαίδευση ή κατάρτιση τις προηγούμενες τέσσερις εβδομάδες. Όχι ο χωριστός δείκτης 12 μηνών ή η άτυπη αυτομάθηση. Διατηρούνται οι τομές.",
+    "unit": "% of people aged 25–64",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.EDUCATION.GRADUATE.EMPLOYMENT",
+    "dataset": "edat_lfse_24",
+    "title": {
+      "en": "Employment of recent graduates",
+      "el": "Απασχόληση πρόσφατων αποφοίτων"
+    },
+    "categories": [
+      "education"
+    ],
+    "params": {
+      "unit": "PC",
+      "sex": "T",
+      "age": "Y20-34",
+      "duration": "Y1-3",
+      "isced11": "ED3-8"
+    },
+    "definition": "Employment rate of people aged 20–34 who completed upper-secondary or higher education 1–3 years earlier and are not in education or training. EU-LFS; not all graduates or a measure of matching jobs to qualifications.",
+    "definitionEl": "Ποσοστό απασχόλησης ατόμων 20–34 που ολοκλήρωσαν ανώτερη δευτεροβάθμια ή ανώτερη εκπαίδευση πριν από 1–3 έτη και δεν βρίσκονται σε εκπαίδευση ή κατάρτιση. Όχι όλοι οι απόφοιτοι ή μέτρο αντιστοίχισης εργασίας και προσόντων.",
+    "unit": "% of recent graduates aged 20–34",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.HEALTH.PERCEIVED.BAD",
+    "dataset": "hlth_silc_01",
+    "title": {
+      "en": "Bad or very bad self-rated health",
+      "el": "Κακή ή πολύ κακή αυτοαξιολογούμενη υγεία"
+    },
+    "categories": [
+      "health"
+    ],
+    "params": {
+      "unit": "PC",
+      "sex": "T",
+      "age": "Y_GE16",
+      "wstatus": "POP",
+      "levels": "B_VB"
+    },
+    "definition": "Share of all people aged 16+ assessing their general health as bad or very bad. EU-SILC; self-reported and not age-standardised, so population ageing and reporting differences matter. Not clinical diagnoses.",
+    "definitionEl": "Ποσοστό όλων των ατόμων 16+ που αξιολογούν τη γενική υγεία τους ως κακή ή πολύ κακή. Αυτοαναφορά χωρίς ηλικιακή τυποποίηση· επηρεάζεται από τη γήρανση και τις διαφορές αναφοράς. Δεν είναι κλινικές διαγνώσεις.",
+    "unit": "% of people aged 16+",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.HEALTH.CHRONIC",
+    "dataset": "hlth_silc_04",
+    "title": {
+      "en": "Long-standing illness or health problem",
+      "el": "Χρόνια ασθένεια ή πρόβλημα υγείας"
+    },
+    "categories": [
+      "health"
+    ],
+    "params": {
+      "unit": "PC",
+      "sex": "T",
+      "age": "Y_GE16",
+      "wstatus": "POP"
+    },
+    "definition": "Share of all people aged 16+ reporting a long-standing illness or health problem. EU-SILC; self-reported, not age-standardised and not the number of diagnosed conditions.",
+    "definitionEl": "Ποσοστό όλων των ατόμων 16+ που αναφέρουν χρόνια ασθένεια ή πρόβλημα υγείας. Αυτοαναφορά χωρίς ηλικιακή τυποποίηση, όχι πλήθος διαγνωσμένων παθήσεων.",
+    "unit": "% of people aged 16+",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.HEALTH.ACTIVITY.LIMITATION",
+    "dataset": "hlth_silc_06",
+    "title": {
+      "en": "Health-related limitations in usual activities",
+      "el": "Περιορισμοί συνήθων δραστηριοτήτων λόγω υγείας"
+    },
+    "categories": [
+      "health"
+    ],
+    "params": {
+      "unit": "PC",
+      "sex": "T",
+      "age": "Y_GE16",
+      "wstatus": "POP",
+      "lev_limit": "SM_SEV"
+    },
+    "definition": "Share of all people aged 16+ reporting some or severe long-standing limitation in usual activities because of health problems. EU-SILC GALI, limitation lasting at least six months. Not age-standardised or a legal disability certification rate.",
+    "definitionEl": "Ποσοστό όλων των ατόμων 16+ με κάποιον ή σοβαρό μακροχρόνιο περιορισμό συνήθων δραστηριοτήτων λόγω υγείας, διάρκειας τουλάχιστον έξι μηνών (GALI). Χωρίς ηλικιακή τυποποίηση· όχι ποσοστό νομικής πιστοποίησης αναπηρίας.",
+    "unit": "% of people aged 16+",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.INCOME.BOTTOM40.SHARE",
+    "dataset": "sdg_10_50",
+    "title": {
+      "en": "Income share of the bottom 40%",
+      "el": "Μερίδιο εισοδήματος του φτωχότερου 40%"
+    },
+    "categories": [
+      "wellbeing"
+    ],
+    "params": {
+      "statinfo": "SHARE"
+    },
+    "definition": "Share of total national equivalised disposable income received by the lowest-income 40% of people. EU-SILC; income distribution, not wealth or the income level of those households. Income generally refers to the preceding year.",
+    "definitionEl": "Μερίδιο του συνολικού εθνικού ισοδύναμου διαθέσιμου εισοδήματος που λαμβάνει το χαμηλότερο εισοδηματικά 40% των ατόμων. Κατανομή εισοδήματος, όχι πλούτου ή ύψους εισοδήματος. Το εισόδημα συνήθως αφορά το προηγούμενο έτος.",
+    "unit": "% of equivalised disposable income",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.WORK.CARE.INACTIVITY",
+    "dataset": "sdg_05_40",
+    "title": {
+      "en": "Outside the labour force due to caring duties",
+      "el": "Εκτός εργατικού δυναμικού λόγω φροντίδας"
+    },
+    "categories": [
+      "jobs"
+    ],
+    "params": {
+      "reason": "FAM_CARE",
+      "sex": "T",
+      "age": "Y20-64",
+      "unit": "PC_POP"
+    },
+    "definition": "People aged 20–64 outside the labour force due to caring for children or adults with disabilities, as a percentage of the total population aged 20–64. EU-LFS; not the alternative denominator restricted to inactive people wanting work, and not all unpaid carers.",
+    "definitionEl": "Άτομα 20–64 εκτός εργατικού δυναμικού λόγω φροντίδας παιδιών ή ενηλίκων με αναπηρίες, ως ποσοστό του συνολικού πληθυσμού 20–64. Όχι ο εναλλακτικός παρονομαστής όσων είναι ανενεργοί και θέλουν εργασία, ούτε όλοι οι άμισθοι φροντιστές.",
+    "unit": "% of people aged 20–64",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.HOUSING.COST.MEDIAN",
+    "dataset": "ilc_lvho08a",
+    "title": {
+      "en": "Median housing costs as a share of income",
+      "el": "Διάμεσο κόστος στέγασης ως ποσοστό εισοδήματος"
+    },
+    "categories": [
+      "wellbeing"
+    ],
+    "params": {
+      "unit": "PC",
+      "rskpovth": "TOTAL",
+      "age": "TOTAL",
+      "sex": "T"
+    },
+    "definition": "Median of the distribution of total housing costs as a percentage of disposable household income. Housing costs and income are net of housing allowances. EU-SILC; a median burden, distinct from the share of people above the 40% overburden threshold.",
+    "definitionEl": "Διάμεσος της κατανομής του συνολικού κόστους στέγασης ως ποσοστού του διαθέσιμου εισοδήματος νοικοκυριού, με αφαίρεση επιδομάτων στέγασης και από τα δύο. Όχι το ποσοστό πληθυσμού πάνω από το όριο υπερβολικής επιβάρυνσης 40%.",
+    "unit": "% of disposable household income",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.HEALTH.MORTALITY.PRVT",
+    "dataset": "hlth_cd_apr",
+    "title": {
+      "en": "Preventable mortality under 75",
+      "el": "Προλήψιμη θνησιμότητα κάτω των 75"
+    },
+    "categories": [
+      "health"
+    ],
+    "params": {
+      "mortalit": "PRVT",
+      "sex": "T",
+      "icd10": "TOTAL",
+      "unit": "RT"
+    },
+    "definition": "Age-standardised deaths per 100,000 inhabitants among people under 75: deaths from causes mainly avoidable through effective public health and primary prevention. Eurostat/OECD cause list; population-level classification, not proof that an individual death could have been prevented or caused by a particular government.",
+    "definitionEl": "Ηλικιακά τυποποιημένοι θάνατοι ανά 100.000 κατοίκους σε ηλικίες κάτω των 75: θάνατοι από αιτίες που κυρίως αποφεύγονται με αποτελεσματική δημόσια υγεία και πρωτογενή πρόληψη. Κατάλογος αιτιών Eurostat/OECD· πληθυσμιακή ταξινόμηση, όχι απόδειξη για κάθε ατομικό θάνατο ή αιτιότητα συγκεκριμένης κυβέρνησης.",
+    "unit": "age-standardised deaths per 100,000 people",
+    "change": "absolute",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.HEALTH.MORTALITY.TRT",
+    "dataset": "hlth_cd_apr",
+    "title": {
+      "en": "Treatable mortality under 75",
+      "el": "Θεραπεύσιμη θνησιμότητα κάτω των 75"
+    },
+    "categories": [
+      "health"
+    ],
+    "params": {
+      "mortalit": "TRT",
+      "sex": "T",
+      "icd10": "TOTAL",
+      "unit": "RT"
+    },
+    "definition": "Age-standardised deaths per 100,000 inhabitants among people under 75: deaths from causes mainly avoidable through timely effective healthcare after onset. Eurostat/OECD cause list; population-level classification, not proof that an individual death could have been prevented or caused by a particular government.",
+    "definitionEl": "Ηλικιακά τυποποιημένοι θάνατοι ανά 100.000 κατοίκους σε ηλικίες κάτω των 75: θάνατοι από αιτίες που κυρίως αποφεύγονται με έγκαιρη αποτελεσματική υγειονομική φροντίδα μετά την εμφάνιση. Κατάλογος αιτιών Eurostat/OECD· πληθυσμιακή ταξινόμηση, όχι απόδειξη για κάθε ατομικό θάνατο ή αιτιότητα συγκεκριμένης κυβέρνησης.",
+    "unit": "age-standardised deaths per 100,000 people",
+    "change": "absolute",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.WORK.ACCIDENTS.FATAL",
+    "dataset": "sdg_08_60",
+    "title": {
+      "en": "Fatal accidents at work",
+      "el": "Θανατηφόρα εργατικά ατυχήματα"
+    },
+    "categories": [
+      "jobs"
+    ],
+    "params": {
+      "unit": "RT_INC",
+      "sex": "T",
+      "nace_r2": "TOTAL",
+      "severity": "FAT"
+    },
+    "definition": "Fatal accidents at work per 100,000 workers, all economic activities and both sexes, Eurostat ESAW. Incidence rate, not a count or an age-standardised mortality rate. Coverage and national reporting systems affect comparisons.",
+    "definitionEl": "Θανατηφόρα εργατικά ατυχήματα ανά 100.000 εργαζομένους, όλες οι οικονομικές δραστηριότητες και τα δύο φύλα (ESAW). Δείκτης επίπτωσης, όχι πλήθος ή ηλικιακά τυποποιημένη θνησιμότητα. Η κάλυψη και τα εθνικά συστήματα αναφοράς επηρεάζουν τις συγκρίσεις.",
+    "unit": "fatal accidents per 100,000 workers",
+    "change": "absolute",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.INFLATION.FOOD",
+    "dataset": "prc_hicp_ainr",
+    "title": {
+      "en": "Food and non-alcoholic drinks: annual inflation",
+      "el": "Τρόφιμα και μη αλκοολούχα ποτά: ετήσιος πληθωρισμός"
+    },
+    "categories": [
+      "wellbeing"
+    ],
+    "params": {
+      "unit": "RCH_A_AVG",
+      "coicop18": "CP01"
+    },
+    "unit": "% annual average price change",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "valueRange": [
+      -100,
+      1000
+    ],
+    "definition": "Annual average HICP price change for food and non-alcoholic drinks, Eurostat ECOICOP version 2 CP01. Change in the annual average compared with the previous annual average, not December-on-December or the price level. A component of overall consumer inflation, not an additional rate to sum. Consumer expenditure weights apply; individual household experiences may differ. Government-period comparisons show the mean of available annual inflation rates, not cumulative price growth.",
+    "definitionEl": "Ετήσια μεταβολή του μέσου ΕνΔΤΚ για τρόφιμα και μη αλκοολούχα ποτά (ECOICOP έκδοση 2 CP01). Σύγκριση ετήσιων μέσων, όχι Δεκέμβριος προς Δεκέμβριο ή επίπεδο τιμών. Συνιστώσα του γενικού πληθωρισμού· τα ποσοστά δεν αθροίζονται. Οι σταθμίσεις αφορούν καταναλωτικές δαπάνες· η εμπειρία κάθε νοικοκυριού μπορεί να διαφέρει. Η σύγκριση κυβερνητικών περιόδων δείχνει τον μέσο διαθέσιμο ετήσιο πληθωρισμό, όχι σωρευτική άνοδο τιμών.",
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.INFLATION.RENT",
+    "dataset": "prc_hicp_ainr",
+    "title": {
+      "en": "Actual housing rents: annual inflation",
+      "el": "Καταβαλλόμενα ενοίκια κατοικιών: ετήσιος πληθωρισμός"
+    },
+    "categories": [
+      "wellbeing"
+    ],
+    "params": {
+      "unit": "RCH_A_AVG",
+      "coicop18": "CP041"
+    },
+    "unit": "% annual average price change",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "valueRange": [
+      -100,
+      1000
+    ],
+    "definition": "Annual average HICP price change for actual housing rents, Eurostat ECOICOP version 2 CP041. Change in the annual average compared with the previous annual average, not December-on-December or the price level. A component of overall consumer inflation, not an additional rate to sum. Actual rents paid by tenants; excludes owner-occupied housing costs and property purchase prices. Government-period comparisons show the mean of available annual inflation rates, not cumulative price growth.",
+    "definitionEl": "Ετήσια μεταβολή του μέσου ΕνΔΤΚ για καταβαλλόμενα ενοίκια κατοικιών (ECOICOP έκδοση 2 CP041). Σύγκριση ετήσιων μέσων, όχι Δεκέμβριος προς Δεκέμβριο ή επίπεδο τιμών. Συνιστώσα του γενικού πληθωρισμού· τα ποσοστά δεν αθροίζονται. Πραγματικά καταβαλλόμενα ενοίκια· εξαιρούνται ιδιοκατοίκηση και τιμές αγοράς ακινήτων. Η σύγκριση κυβερνητικών περιόδων δείχνει τον μέσο διαθέσιμο ετήσιο πληθωρισμό, όχι σωρευτική άνοδο τιμών.",
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.INFLATION.ELECTRICITY",
+    "dataset": "prc_hicp_ainr",
+    "title": {
+      "en": "Electricity: annual inflation",
+      "el": "Ηλεκτρικό ρεύμα: ετήσιος πληθωρισμός"
+    },
+    "categories": [
+      "wellbeing"
+    ],
+    "params": {
+      "unit": "RCH_A_AVG",
+      "coicop18": "CP0451"
+    },
+    "unit": "% annual average price change",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "valueRange": [
+      -100,
+      1000
+    ],
+    "definition": "Annual average HICP price change for electricity, Eurostat ECOICOP version 2 CP0451. Change in the annual average compared with the previous annual average, not December-on-December or the price level. A component of overall consumer inflation, not an additional rate to sum. Consumer expenditure weights apply; individual household experiences may differ. Government-period comparisons show the mean of available annual inflation rates, not cumulative price growth.",
+    "definitionEl": "Ετήσια μεταβολή του μέσου ΕνΔΤΚ για ηλεκτρικό ρεύμα (ECOICOP έκδοση 2 CP0451). Σύγκριση ετήσιων μέσων, όχι Δεκέμβριος προς Δεκέμβριο ή επίπεδο τιμών. Συνιστώσα του γενικού πληθωρισμού· τα ποσοστά δεν αθροίζονται. Οι σταθμίσεις αφορούν καταναλωτικές δαπάνες· η εμπειρία κάθε νοικοκυριού μπορεί να διαφέρει. Η σύγκριση κυβερνητικών περιόδων δείχνει τον μέσο διαθέσιμο ετήσιο πληθωρισμό, όχι σωρευτική άνοδο τιμών.",
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.INFLATION.TRANSPORT",
+    "dataset": "prc_hicp_ainr",
+    "title": {
+      "en": "Passenger transport services: annual inflation",
+      "el": "Υπηρεσίες μεταφοράς επιβατών: ετήσιος πληθωρισμός"
+    },
+    "categories": [
+      "transport"
+    ],
+    "params": {
+      "unit": "RCH_A_AVG",
+      "coicop18": "CP073"
+    },
+    "unit": "% annual average price change",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "valueRange": [
+      -100,
+      1000
+    ],
+    "definition": "Annual average HICP price change for passenger transport services, Eurostat ECOICOP version 2 CP073. Change in the annual average compared with the previous annual average, not December-on-December or the price level. A component of overall consumer inflation, not an additional rate to sum. Consumer expenditure weights apply; individual household experiences may differ. Government-period comparisons show the mean of available annual inflation rates, not cumulative price growth.",
+    "definitionEl": "Ετήσια μεταβολή του μέσου ΕνΔΤΚ για υπηρεσίες μεταφοράς επιβατών (ECOICOP έκδοση 2 CP073). Σύγκριση ετήσιων μέσων, όχι Δεκέμβριος προς Δεκέμβριο ή επίπεδο τιμών. Συνιστώσα του γενικού πληθωρισμού· τα ποσοστά δεν αθροίζονται. Οι σταθμίσεις αφορούν καταναλωτικές δαπάνες· η εμπειρία κάθε νοικοκυριού μπορεί να διαφέρει. Η σύγκριση κυβερνητικών περιόδων δείχνει τον μέσο διαθέσιμο ετήσιο πληθωρισμό, όχι σωρευτική άνοδο τιμών.",
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
   }
 ]

@@ -1,0 +1,354 @@
+[
+  {
+    "dataset": "ilc_li11",
+    "label": "Relative at risk of poverty gap by poverty threshold - EU-SILC and ECHP surveys",
+    "dimensions": {
+      "freq": {
+        "A": "Annual"
+      },
+      "statinfo": {
+        "MEAN_EI": "Mean equivalised income",
+        "MED_EI": "Median equivalised income"
+      },
+      "rskpovth": {
+        "B_40": "Below 40%",
+        "B_50": "Below 50%",
+        "B_60": "Below 60%",
+        "B_70": "Below 70%"
+      },
+      "sex": {
+        "T": "Total",
+        "M": "Males",
+        "F": "Females"
+      },
+      "age": {
+        "TOTAL": "Total",
+        "Y_LT6": "Less than 6 years",
+        "Y6-11": "From 6 to 11 years",
+        "Y12-17": "From 12 to 17 years",
+        "Y_LT16": "Less than 16 years",
+        "Y16-64": "From 16 to 64 years",
+        "Y_GE16": "16 years or over",
+        "Y_LT18": "Less than 18 years",
+        "Y18-64": "From 18 to 64 years",
+        "Y_GE18": "18 years or over",
+        "Y_GE65": "65 years or over",
+        "Y_GE75": "75 years or over"
+      },
+      "unit": {
+        "PC": "Percentage"
+      }
+    }
+  },
+  {
+    "dataset": "ilc_lvhl11n",
+    "label": "Persons living in households with very low work intensity by age and sex (population aged 0 to 64 years)",
+    "dimensions": {
+      "freq": {
+        "A": "Annual"
+      },
+      "unit": {
+        "THS": "Thousand",
+        "PC": "Percentage"
+      },
+      "age": {
+        "Y_LT6": "Less than 6 years",
+        "Y6-11": "From 6 to 11 years",
+        "Y12-17": "From 12 to 17 years",
+        "Y15-19": "From 15 to 19 years",
+        "Y15-24": "From 15 to 24 years",
+        "Y15-29": "From 15 to 29 years",
+        "Y16-19": "From 16 to 19 years",
+        "Y16-24": "From 16 to 24 years",
+        "Y16-29": "From 16 to 29 years",
+        "Y_LT18": "Less than 18 years",
+        "Y18-24": "From 18 to 24 years",
+        "Y18-59": "From 18 to 59 years",
+        "Y18-64": "From 18 to 64 years",
+        "Y20-24": "From 20 to 24 years",
+        "Y20-29": "From 20 to 29 years",
+        "Y25-29": "From 25 to 29 years",
+        "Y25-34": "From 25 to 34 years",
+        "Y25-54": "From 25 to 54 years",
+        "Y25-59": "From 25 to 59 years",
+        "Y35-44": "From 35 to 44 years",
+        "Y45-54": "From 45 to 54 years",
+        "Y55-59": "From 55 to 59 years",
+        "Y_LT60": "Less than 60 years",
+        "Y60-64": "From 60 to 64 years",
+        "Y_LT65": "Less than 65 years"
+      },
+      "sex": {
+        "T": "Total",
+        "M": "Males",
+        "F": "Females"
+      }
+    }
+  },
+  {
+    "dataset": "hlth_silc_04",
+    "label": "People having a long-standing illness or health problem, by sex, age and labour status",
+    "dimensions": {
+      "freq": {
+        "A": "Annual"
+      },
+      "unit": {
+        "PC": "Percentage",
+        "PC_POP": "Percentage of total population"
+      },
+      "wstatus": {
+        "POP": "Population",
+        "EMP": "Employed persons",
+        "SAL": "Employees",
+        "NSAL": "Employed persons except employees",
+        "NEMP": "Not employed persons",
+        "UNE": "Unemployed persons",
+        "RET": "Retired persons",
+        "INAC_OTH": "Other persons outside the labour force"
+      },
+      "age": {
+        "Y16-24": "From 16 to 24 years",
+        "Y16-29": "From 16 to 29 years",
+        "Y16-44": "From 16 to 44 years",
+        "Y16-64": "From 16 to 64 years",
+        "Y_GE16": "16 years or over",
+        "Y25-29": "From 25 to 29 years",
+        "Y25-34": "From 25 to 34 years",
+        "Y35-44": "From 35 to 44 years",
+        "Y45-49": "From 45 to 49 years",
+        "Y45-54": "From 45 to 54 years",
+        "Y45-64": "From 45 to 64 years",
+        "Y55-64": "From 55 to 64 years",
+        "Y65-74": "From 65 to 74 years",
+        "Y_GE65": "65 years or over",
+        "Y75-84": "From 75 to 84 years",
+        "Y_GE75": "75 years or over",
+        "Y_GE85": "85 years or over"
+      },
+      "sex": {
+        "T": "Total",
+        "M": "Males",
+        "F": "Females"
+      }
+    }
+  },
+  {
+    "dataset": "hlth_cd_apr",
+    "label": "Treatable and preventable mortality of residents by cause and sex",
+    "dimensions": {
+      "freq": {
+        "A": "Annual"
+      },
+      "mortalit": {
+        "TOTAL": "Total",
+        "PRVT": "Preventable mortality",
+        "TRT": "Treatable mortality"
+      },
+      "sex": {
+        "T": "Total",
+        "M": "Males",
+        "F": "Females"
+      },
+      "icd10": {
+        "TOTAL": "Total",
+        "A15-A19_B90_J65": "Tuberculosis (incl. sequelae of tuberculosis)",
+        "A00-A09": "Intestinal infectious diseases",
+        "A33": "Tetanus neonatorum",
+        "A34": "Obstetrical tetanus",
+        "A35-A36_A80": "Diphtheria, tetanus, poliomyelitis",
+        "A37": "Whooping cough",
+        "A38": "Scarlet fever",
+        "A39": "Meningococcal infection",
+        "A403_A413": "Sepsis due to streptococcus pneumoniae and sepsis due to hemophilus influenzae",
+        "SEPSIS": "Sepsis (A40 (excl. A403), A41 (excl. A413))",
+        "A46_L03": "Cellulitis",
+        "A481": "Legionnaires disease",
+        "A491": "Streptococcal and enterococcal infection, unspecified site",
+        "A492": "Haemophilus influenzae infections, unspecified site",
+        "A50-A60_A63-A64": "Sexually transmitted infections (except HIV/AIDS)",
+        "B01": "Varicella [chickenpox]",
+        "B05": "Measles",
+        "B06": "Rubella",
+        "B15-B19": "Viral hepatitis",
+        "B20-B24": "Human immunodeficiency virus [HIV] disease",
+        "B50-B54": "Malaria",
+        "C00-C14": "Malignant neoplasm of lip, oral cavity, pharynx",
+        "C15": "Malignant neoplasm of oesophagus",
+        "C16": "Malignant neoplasm of stomach",
+        "C18-C21": "Malignant neoplasm of colon, rectosigmoid junction, rectum, anus and anal canal",
+        "C22": "Malignant neoplasm of liver and intrahepatic bile ducts",
+        "C33_C34": "Malignant neoplasm of trachea, bronchus and lung",
+        "C43": "Malignant melanoma of skin",
+        "C45": "Mesothelioma",
+        "C50_FEM_ONL": "Malignant neoplasm of breast (female only)",
+        "C53": "Malignant neoplasm of cervix uteri",
+        "C54-C55": "Malignant neoplasm of corpus uteri or of uterus, part unspecified",
+        "C62": "Malignant neoplasm of testis",
+        "C67": "Malignant neoplasm of bladder",
+        "C73": "Malignant neoplasm of thyroid gland",
+        "C81": "Hodgkin disease",
+        "C910-911": "Acute lymphoblastic leukaemia [ALL] and chronic lymphocytic leukaemia of B-cell type",
+        "D10-D36": "Benign neoplasms",
+        "D50-D53": "Nutritional deficiency anaemias",
+        "E00-E07": "Thyroid disorders",
+        "E10-E14": "Diabetes mellitus",
+        "ADR": "Adrenal disorders",
+        "ALC_POIS": "Alcohol-specific disorders and poisonings (E244, F10, G312, G621, G721, I426, K292, K70,K852, K860, Q860, R780, X45, X65, Y15)",
+        "ALC_OTH": "Other alcohol-related disorders (K73, K740-K742, K746)",
+        "DRUG_POIS": "Drug disorders and poisonings (F11-F16, F18-F19, X40-X44, X85, Y10-Y14)",
+        "G000-G001": "Haemophilus and pneumococcal meningitis",
+        "G03": "Meningitis due to other and unspecified causes",
+        "MENING_OTH": "Other meningitis",
+        "G40-G41": "Epilepsy and status epilepticus",
+        "I00-I09": "Acute rheumatic fever and chronic rheumatic heart diseases",
+        "I10-I13_I15": "Hypertensive diseases",
+        "I20-I25": "Ischaemic heart diseases",
+        "I26_I80_I829": "Venous thromboembolism",
+        "I60-I69": "Cerebrovascular diseases",
+        "I70_I739": "Other atherosclerosis",
+        "I71": "Aortic aneurysm and dissection",
+        "J00-J06_J30-J39": "Upper respiratory infections",
+        "LUNG_EXT": "Lung diseases due to external agents",
+        "J09-J11": "Influenza (including swine flu)",
+        "J12_J15-J18": "Pneumonia, not elsewhere classified or organism unspecified",
+        "J13-J14": "Pneumonia due to streptococcus pneumonia or haemophilus influenzae",
+        "J20-J22": "Other acute lower respiratory infections",
+        "J40-J44": "Chronic obstructive pulmonary disorder",
+        "J45-J47": "Asthma and bronchiectasis",
+        "J80": "Adult respiratory distress syndrome",
+        "J81": "Pulmonary oedema",
+        "J85_J86": "Abscess of lung and mediastinum, pyothorax",
+        "J90_J93-J94": "Other pleural disorders",
+        "K25-K28": "Ulcer of stomach, duodenum and jejunum",
+        "K35-K38": "Diseases of appendix",
+        "K40-K46": "Hernia",
+        "K80-K81": "Cholelithiasis and cholecystitis",
+        "K82-K83": "Other diseases of gallbladder or biliary tract",
+        "ACUTE_PANC": "Acute pancreatitis",
+        "PANC_OTH": "Other diseases of pancreas",
+        "N00-N07": "Nephritis and nephrosis",
+        "N13_N20-N21_N35": "Obstructive uropathy",
+        "N17-N19": "Renal failure",
+        "N23": "Unspecified renal colic",
+        "N25": "Disorders resulting from impaired renal tubular function",
+        "N26-N27": "Unspecified contracted kidney, small kidney of unknown cause",
+        "N40": "Hyperplasia of prostate",
+        "INFLM_GENITUR": "Inflammatory diseases of genitourinary system",
+        "O": "Pregnancy, childbirth and the puerperium (O00-O99)",
+        "P": "Certain conditions originating in the perinatal period (P00-P96)",
+        "Q00-Q01_Q05": "Certain congenital malformations (neural tube defects)",
+        "Q20-Q28": "Congenital malformations of the circulatory system",
+        "U_COV19": "COVID-19, virus identified and not identified (U071, U072)",
+        "V": "Transport accidents (V01-V99)",
+        "W00-X39_X46-X59": "Accidental injuries",
+        "X60-X64": "Intentional self-poisoning by drugs",
+        "X66-X84": "Intentional self-harm (not relating to alcohol and drugs)",
+        "X86-Y09": "Assault (except by drugs, medicaments and biological substances)",
+        "Y16-Y34": "Event of undetermined intent (not relating to alcohol and drugs)",
+        "Y40-Y59": "Drugs, medicaments and biological substances causing adverse effects in therapeutic use",
+        "Y60-Y69_Y83-Y84": "Misadventures to patients during surgical and medical care",
+        "Y70-Y82": "Medical devices associated with adverse incidents in diagnostic and therapeutic use"
+      },
+      "unit": {
+        "NR": "Number",
+        "RT": "Rate"
+      }
+    }
+  },
+  {
+    "dataset": "edat_lfse_24",
+    "label": "Employment rates of young persons not in education and training by educational attainment level and years since completion of highest level of education",
+    "dimensions": {
+      "freq": {
+        "A": "Annual"
+      },
+      "duration": {
+        "TOTAL": "Total",
+        "Y1-3": "From 1 to 3 years",
+        "Y_LE3": "3 years or less",
+        "Y_GT3": "Over 3 years",
+        "Y_LE5": "5 years or less",
+        "Y_GT5": "Over 5 years"
+      },
+      "isced11": {
+        "TOTAL": "All ISCED 2011 levels",
+        "ED0-4": "Less than primary, primary, secondary and post-secondary non-tertiary education (levels 0-4)",
+        "ED0-2": "Less than primary, primary and lower secondary education (levels 0-2)",
+        "ED3-8": "Upper secondary, post-secondary non-tertiary and tertiary education (levels 3-8)",
+        "ED3_4": "Upper secondary and post-secondary non-tertiary education (levels 3 and 4)",
+        "ED34_44": "Upper secondary and post-secondary non-tertiary education - general (levels 34 and 44)",
+        "ED35_45": "Upper secondary and post-secondary non-tertiary education - vocational (levels 35 and 45)",
+        "ED5-8": "Tertiary education (levels 5-8)",
+        "NRP": "No response"
+      },
+      "age": {
+        "Y15-34": "From 15 to 34 years",
+        "Y18-34": "From 18 to 34 years",
+        "Y20-34": "From 20 to 34 years"
+      },
+      "sex": {
+        "T": "Total",
+        "M": "Males",
+        "F": "Females"
+      },
+      "unit": {
+        "PC": "Percentage"
+      }
+    }
+  },
+  {
+    "dataset": "sdg_08_60",
+    "label": "Fatal accidents at work per 100 000 workers, by sex",
+    "dimensions": {
+      "freq": {
+        "A": "Annual"
+      },
+      "unit": {
+        "RT_INC": "Incidence rate"
+      },
+      "sex": {
+        "T": "Total",
+        "M": "Males",
+        "F": "Females"
+      },
+      "nace_r2": {
+        "TOTAL": "Total - all NACE activities"
+      },
+      "severity": {
+        "FAT": "Fatal"
+      }
+    }
+  },
+  {
+    "dataset": "sdg_04_30",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "dataset": "ilc_lvho08a",
+    "label": "Median of the housing cost burden distribution by age, sex and poverty status",
+    "dimensions": {
+      "freq": {
+        "A": "Annual"
+      },
+      "unit": {
+        "PC": "Percentage"
+      },
+      "rskpovth": {
+        "TOTAL": "Total",
+        "A_60": "Above 60%",
+        "B_60": "Below 60%"
+      },
+      "age": {
+        "TOTAL": "Total",
+        "Y_LT18": "Less than 18 years",
+        "Y18-64": "From 18 to 64 years",
+        "Y_GE65": "65 years or over"
+      },
+      "sex": {
+        "T": "Total",
+        "M": "Males",
+        "F": "Females"
+      }
+    }
+  }
+]
