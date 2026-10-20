@@ -4,8 +4,8 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'scripts'))
 from eurostat import EXPANSION,parse_payload
 D={m['code']:m for m in json.loads((ROOT/'data/indicators.json').read_text())['metrics']}
-assert len(EXPANSION)==11
-assert len({(m['dataset'],tuple(sorted(m['params'].items()))) for m in EXPANSION})==11
+assert len(EXPANSION)==15
+assert len({(m['dataset'],tuple(sorted(m['params'].items()))) for m in EXPANSION})==15
 for config in EXPANSION:
  m=D[config['code']];path=ROOT/'data/raw'/('eurostat-'+m['code']+'.json')
  if path.exists():
@@ -26,4 +26,12 @@ combined=dict(D['ESTAT.HEALTH.UNMET.ACCESS']['series']['GRC'])
 components=[dict(D['ESTAT.HEALTH.UNMET.'+k]['series']['GRC']) for k in ['COST','DISTANCE','WAITING']]
 for year,total in combined.items():
  if total is not None and all(c.get(year) is not None for c in components):assert abs(total-sum(c[year] for c in components))<=.21
-print('Eurostat expansion: 11 series, raw replay, categories, bounds, definitions and related components passed')
+print('Eurostat expansion: 15 series, raw replay, categories, bounds, definitions and related components passed')
+
+# Everyday-life additions use exact population denominators and explicit severe response.
+selected={m['code']:m for m in EXPANSION}
+assert selected['ESTAT.ENDS.MEET.GREATDIFFICULTY']['params']['lev_diff']=='GRT'
+assert selected['ESTAT.DENTAL.UNMET.ACCESS']['dataset']=='hlth_silc_09'
+for code in ['ESTAT.EXPENSES.UNEXPECTED','ESTAT.FOOD.AFFORDABILITY','ESTAT.ENDS.MEET.GREATDIFFICULTY']:
+ assert selected[code]['params']['hhcomp']=='TOTAL' and selected[code]['params']['rskpovth']=='TOTAL'
+ assert selected[code]['definitionEl']

@@ -1,0 +1,54 @@
+[
+  {
+    "code": "ESTAT.EXPENSES.UNEXPECTED",
+    "dataset": "ilc_mdes04",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ilc_mdes04?lang=en&freq=A&unit=PC&hhcomp=TOTAL&rskpovth=TOTAL",
+    "sha256": "aed03554ef91e7106b75f14aa104102d19fab8ebef6a3d4d73ee099cf11e1b84",
+    "coverage": {
+      "start": 2003,
+      "end": 2025,
+      "observations": 23
+    },
+    "retrievedAt": "2026-10-20T07:51:42.784988+00:00",
+    "sourceUpdatedAt": "2026-09-17T23:00:00+0200"
+  },
+  {
+    "code": "ESTAT.FOOD.AFFORDABILITY",
+    "dataset": "ilc_mdes03",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ilc_mdes03?lang=en&freq=A&unit=PC&hhcomp=TOTAL&rskpovth=TOTAL",
+    "sha256": "5f5d5d5b73019630e5845515dd2e86a5caf5f1a4a4fe8625441611029e80eed7",
+    "coverage": {
+      "start": 2003,
+      "end": 2025,
+      "observations": 23
+    },
+    "retrievedAt": "2026-10-20T07:51:42.785223+00:00",
+    "sourceUpdatedAt": "2026-09-17T23:00:00+0200"
+  },
+  {
+    "code": "ESTAT.ENDS.MEET.GREATDIFFICULTY",
+    "dataset": "ilc_mdes09",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ilc_mdes09?lang=en&freq=A&unit=PC&hhcomp=TOTAL&rskpovth=TOTAL&lev_diff=GRT",
+    "sha256": "9330894c765178274b4c2107f3b3f6040719ce7fad80d57c98ca98fde1cfbb5e",
+    "coverage": {
+      "start": 2003,
+      "end": 2025,
+      "observations": 23
+    },
+    "retrievedAt": "2026-10-20T07:51:42.786803+00:00",
+    "sourceUpdatedAt": "2026-09-17T23:00:00+0200"
+  },
+  {
+    "code": "ESTAT.DENTAL.UNMET.ACCESS",
+    "dataset": "hlth_silc_09",
+    "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/hlth_silc_09?lang=en&freq=A&unit=PC&quant_inc=TOTAL&reason=TXP_TFAR_WLIST&age=Y_GE16&sex=T",
+    "sha256": "f6626ed7b25628f3c0fd37452ab4deed28b0376c681704ead66b469b9f69b4f7",
+    "coverage": {
+      "start": 2008,
+      "end": 2025,
+      "observations": 18
+    },
+    "retrievedAt": "2026-10-20T07:51:42.779089+00:00",
+    "sourceUpdatedAt": "2026-09-17T23:00:00+0200"
+  }
+]

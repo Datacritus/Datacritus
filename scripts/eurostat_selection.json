@@ -256,5 +256,104 @@
     "license": "Eurostat reuse policy",
     "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
     "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.EXPENSES.UNEXPECTED",
+    "dataset": "ilc_mdes04",
+    "title": {
+      "en": "Unable to meet unexpected expenses",
+      "el": "Αδυναμία κάλυψης έκτακτων δαπανών"
+    },
+    "unit": "% of population",
+    "categories": [
+      "wellbeing"
+    ],
+    "params": {
+      "unit": "PC",
+      "hhcomp": "TOTAL",
+      "rskpovth": "TOTAL"
+    },
+    "definition": "Share of people living in households unable to meet an unexpected necessary expense from their own resources. EU-SILC; the national expense threshold follows Eurostat methodology. Measures financial resilience, not the amount of household debt.",
+    "definitionEl": "Ποσοστό ατόμων σε νοικοκυριά που αδυνατούν να καλύψουν μια αναγκαία έκτακτη δαπάνη από ίδιους πόρους. EU-SILC· το εθνικό όριο δαπάνης ακολουθεί τη μεθοδολογία της Eurostat. Μετρά οικονομική ανθεκτικότητα, όχι ύψος χρέους.",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.FOOD.AFFORDABILITY",
+    "dataset": "ilc_mdes03",
+    "title": {
+      "en": "Unable to afford a protein-rich meal every other day",
+      "el": "Αδυναμία εξασφάλισης γεύματος με πρωτεΐνη μέρα παρά μέρα"
+    },
+    "unit": "% of population",
+    "categories": [
+      "wellbeing"
+    ],
+    "params": {
+      "unit": "PC",
+      "hhcomp": "TOTAL",
+      "rskpovth": "TOTAL"
+    },
+    "definition": "Share of people living in households unable to afford a meal with meat, chicken, fish or a vegetarian equivalent every second day. EU-SILC; measures affordability, not measured malnutrition or actual dietary intake. Related to material deprivation, not independent evidence of it.",
+    "definitionEl": "Ποσοστό ατόμων σε νοικοκυριά που αδυνατούν οικονομικά να εξασφαλίσουν κρέας, κοτόπουλο, ψάρι ή ισοδύναμο χορτοφαγικό γεύμα κάθε δεύτερη ημέρα. Δεν μετρά υποσιτισμό ή πραγματική διατροφική πρόσληψη. Συνδέεται με την υλική στέρηση.",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.ENDS.MEET.GREATDIFFICULTY",
+    "dataset": "ilc_mdes09",
+    "title": {
+      "en": "Making ends meet with great difficulty",
+      "el": "Κάλυψη αναγκών με μεγάλη δυσκολία"
+    },
+    "unit": "% of population",
+    "categories": [
+      "wellbeing"
+    ],
+    "params": {
+      "unit": "PC",
+      "hhcomp": "TOTAL",
+      "rskpovth": "TOTAL",
+      "lev_diff": "GRT"
+    },
+    "definition": "Share of people in households reporting great difficulty making ends meet. EU-SILC; only the most severe response category, not all households reporting some difficulty. Self-reported financial strain; related to other deprivation indicators.",
+    "definitionEl": "Ποσοστό ατόμων σε νοικοκυριά που δηλώνουν μεγάλη δυσκολία στην κάλυψη των αναγκών τους. Μόνο η σοβαρότερη κατηγορία απάντησης, όχι όλα τα νοικοκυριά με κάποια δυσκολία. Αυτοαναφερόμενη οικονομική πίεση.",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
+  },
+  {
+    "code": "ESTAT.DENTAL.UNMET.ACCESS",
+    "dataset": "hlth_silc_09",
+    "title": {
+      "en": "Unmet dental needs: cost, distance or waiting",
+      "el": "Μη καλυπτόμενες ανάγκες οδοντιατρικής φροντίδας"
+    },
+    "unit": "% of people aged 16+",
+    "categories": [
+      "health"
+    ],
+    "params": {
+      "unit": "PC",
+      "quant_inc": "TOTAL",
+      "reason": "TXP_TFAR_WLIST",
+      "age": "Y_GE16",
+      "sex": "T"
+    },
+    "definition": "Share of all people aged 16+ reporting an unmet need for dental examination because of cost, distance or waiting lists. EU-SILC; denominator is the entire population aged 16+, not only people needing treatment. Self-reported access barrier, distinct from medical examination needs.",
+    "definitionEl": "Ποσοστό όλων των ατόμων ηλικίας 16+ που αναφέρουν μη καλυπτόμενη ανάγκη οδοντιατρικής εξέτασης λόγω κόστους, απόστασης ή λίστας αναμονής. Παρονομαστής είναι ο συνολικός πληθυσμός 16+, όχι μόνο όσοι χρειάζονται θεραπεία. Διαφέρει από τις ανάγκες ιατρικής εξέτασης.",
+    "change": "pp",
+    "minimumGreekObservations": 10,
+    "license": "Eurostat reuse policy",
+    "termsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "attribution": "Source: Eurostat. Definitions and source quality flags retained."
   }
 ]
