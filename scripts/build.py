@@ -2,6 +2,7 @@
 """Build a standalone GitHub Pages index. No npm or remote browser dependencies."""
 import base64,json,shutil
 from build_random_home import render as render_random
+from build_seo import build as build_seo
 from pathlib import Path
 from build_history import build as build_history
 from build_landing_sources import render as render_sources
@@ -32,6 +33,6 @@ def build():
     (ROOT/'index.html').write_text(landing,encoding='utf-8')
     (ROOT/'.nojekyll').touch()
     (ROOT/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: https://www.datacritus.gr/sitemap.xml\n')
-    (ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://www.datacritus.gr/</loc></url><url><loc>https://www.datacritus.gr/dashboard.html</loc></url></urlset>\n')
+    build_seo()
     print('Built dashboard.html:',len(template.encode()),'bytes')
 if __name__=='__main__':build()
