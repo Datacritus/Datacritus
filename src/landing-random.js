@@ -9,8 +9,9 @@
   let current;
   const pick = items => items[Math.floor(Math.random() * items.length)];
   function draw() {
-    current = {metric: pick(pick(groups))};
-    current.pair = pick(current.metric.pairs);
+    const available = groups.map(group => group.filter(metric => metric.code !== current?.metric.code)).filter(group => group.length);
+    current = {metric: pick(pick(available.length ? available : groups))};
+    current.pair = pick(current.metric.pairs).map(index => current.metric.periods[index]);
     update();
   }
   function update() {
