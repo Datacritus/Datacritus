@@ -10,7 +10,7 @@ from urllib.parse import urlencode
 ORIGIN = 'https://www.datacritus.gr'
 ROOT = Path(__file__).resolve().parents[1]
 COPY = {
-    'en': dict(home='Home', hub='Greece in data', explore='Explore the data',
+    'en': dict(home='Home', hub='Greece statistics and indicators', explore='Explore the data',
                compare='Compare governments', source='Source', latest='Greece · latest observation',
                eu='European Union · same year', years='Observation years', trend='Annual trend',
                meaning='What does this indicator measure?', reading='How to read the figures',
@@ -24,7 +24,7 @@ COPY = {
                context='Annual data describe published observation years. Publication dates can lag behind the current year, and providers may revise historical values.',
                status='Source flags are retained as supplied. A flag may identify an estimate, provisional value or a break in series. Consult the provider for its exact meaning.',
                foot='An independent view of public data. Sources are credited, not endorsements.'),
-    'el': dict(home='Αρχική', hub='Η Ελλάδα σε δεδομένα', explore='Εξερεύνηση δεδομένων',
+    'el': dict(home='Αρχική', hub='Στατιστικά στοιχεία για την Ελλάδα', explore='Εξερεύνηση δεδομένων',
                compare='Σύγκριση κυβερνήσεων', source='Πηγή', latest='Ελλάδα · τελευταία παρατήρηση',
                eu='Ευρωπαϊκή Ένωση · ίδιο έτος', years='Έτη παρατήρησης', trend='Ετήσια εξέλιξη',
                meaning='Τι μετρά ο δείκτης;', reading='Πώς διαβάζονται τα στοιχεία',
@@ -164,6 +164,7 @@ def build():
 <div class="stats">{stats}</div><div class="actions"><a class="button" href="{escape(dashboard,quote=True)}">{c['explore']}</a><a class="button secondary" href="{escape(comparison,quote=True)}">{c['compare']}</a><a class="button secondary" href="/data/seo/{entry['slug']}.csv" download>{c['download']}</a></div>
 <section class="panel"><h2>{c['trend']}</h2><p class="meta">{c['unit']} · {escape(unit)}</p>{chart(metric,lang)}<div class="legend"><span>{c['greece']}</span>{'<span class="eu">'+c['eu'].split(' · ')[0]+'</span>' if rows['EUU'] else ''}</div><p class="note">{c['gaps']}</p></section>
 <div class="grid"><section class="panel"><h2>{c['meaning']}</h2><p>{escape(entry['meaning_'+lang])}</p>{definition_html}</section><section class="panel"><h2>{c['reading']}</h2><p>{escape(entry['caution_'+lang])}</p><p>{c['context']}</p><p class="note">{c['caveat']}</p></section></div>
+<section class="panel"><h2>{escape(entry['question_'+lang])}</h2><p>{escape(entry['answer_'+lang])}</p></section>
 <section class="panel"><details><summary>{c['data']}</summary><p class="note">{c['status']}</p><div class="table-wrap"><table><caption>{escape(entry[lang])} · {escape(unit)}</caption><thead><tr><th>{c['year']}</th><th>{c['greece']}</th><th>{c['eu'].split(' · ')[0]}</th><th>{c['flags']}</th></tr></thead><tbody>{table}</tbody></table></div></details></section>
 <section class="panel"><h2>{c['source']}</h2><p><a class="source-link" href="{escape(metric['sourceUrl'],quote=True)}">{escape(metric['sourceName'])} · {escape(metric['code'])}</a></p><p class="meta">{c['retrieved']} · {escape(metric['retrievedAt'][:10])}<br>{c['updated']} · {escape(str(metric.get('sourceUpdatedAt') or '—')[:10])}</p>{'<p class="note">'+escape(metric['license'])+' · '+escape(metric.get('attribution',''))+'</p>' if metric.get('license') else ''}</section>
 <h2>{c['related']}</h2><ul class="related">{links}</ul>'''
@@ -173,7 +174,7 @@ def build():
             breadcrumb = {'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':c['home'],'item':ORIGIN+'/'},{'@type':'ListItem','position':2,'name':c['hub'],'item':ORIGIN+page_path(lang)},{'@type':'ListItem','position':3,'name':entry[lang],'item':ORIGIN+path}]}
             target = ROOT/path.lstrip('/')/'index.html'
             target.parent.mkdir(parents=True,exist_ok=True)
-            target.write_text(document(lang,entry[lang],entry['intro_'+lang],path,alternate,body,[dataset,breadcrumb]),encoding='utf-8')
+            target.write_text(document(lang,entry['seo_title_'+lang],entry['description_'+lang],path,alternate,body,[dataset,breadcrumb]),encoding='utf-8')
             urls.append(path)
     for lang in ['en','el']:
         c = COPY[lang]
