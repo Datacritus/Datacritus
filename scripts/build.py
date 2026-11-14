@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Build a standalone GitHub Pages index. No npm or remote browser dependencies."""
 import base64,json,shutil
+from build_random_home import render as render_random
 from pathlib import Path
 from build_history import build as build_history
 from build_landing_sources import render as render_sources
@@ -19,6 +20,9 @@ def build():
     landing=(ROOT/'src/landing.html').read_text().replace('/*__LOGO__*/','data:image/png;base64,'+base64.b64encode((ROOT/'logo.png').read_bytes()).decode())
     snapshot=json.loads((ROOT/'data/indicators.json').read_text())
     landing=landing.replace('/*__SOURCES__*/',render_sources(snapshot)).replace('/*__SOURCES_STYLE__*/',(ROOT/'src/landing-sources.css').read_text()).replace('/*__SOURCES_JS__*/',(ROOT/'src/landing-sources.js').read_text())
+    pool=render_random(snapshot,json.loads((ROOT/'data/history.json').read_text()))
+    random_script=(ROOT/'src/landing-random.js').read_text().replace('/*__RANDOM_POOL__*/',pool)
+    landing=landing.replace('</div>\n</body>', '<script>'+random_script+'</script>\n</div>\n</body>')
     metrics={m['code']:m for m in snapshot['metrics']}
     unemployment=dict(metrics['SL.UEM.TOTL.ZS']['series']['GRC'])
     internet=[p for p in metrics['ESTAT.INTERNET.HOUSEHOLDS']['series']['GRC'] if p[1] is not None][-1]

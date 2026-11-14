@@ -40,7 +40,7 @@ const sourcePanels=providers.map(p=>({id:'ds-'+p.id,hidden:true}));
 const section={dataset:{},querySelectorAll:k=>k==='[data-source]'?sourceButtons:sourcePanels};
 const languageButton=element();languageButton.textContent='ΕΛ';
 const sourceDocument={getElementById:()=>section,querySelector:()=>languageButton};
-const scripts=[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)];assert.equal(scripts.length,2);
+const scripts=[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)];assert.equal(scripts.length,3);
 vm.runInNewContext(scripts[1][1],{document:sourceDocument});assert.equal(section.dataset.lang,'en');
 sourceButtons[0].events.click();assert.equal(sourceButtons[0].attrs['aria-expanded'],'true');assert.equal(sourcePanels[0].hidden,false);
 sourceButtons[1].events.click();assert.equal(sourcePanels[0].hidden,true);assert.equal(sourcePanels[1].hidden,false);
