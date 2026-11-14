@@ -5,7 +5,7 @@
  const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const wrap=(s,n)=>{const lines=[];let line='';for(const word of String(s).split(/\s+/).flatMap(word=>word.length>n?word.match(new RegExp('.{1,'+n+'}','gu')):word)){if(line&&(line+' '+word).length>n){lines.push(line);line=word;}else line+=(line?' ':'')+word;}if(line)lines.push(line);return lines;};
  const label=(o,lang)=>typeof o==='object'?(o[lang]||o.en):o;
- const format=(n,lang)=>n==null?'—':new Intl.NumberFormat(lang==='el'?'el-GR':'en-GB',{maximumFractionDigits:Math.abs(n)>=1000?0:Math.abs(n)<10?4:2,notation:Math.abs(n)>=1e6?'compact':'standard'}).format(Object.is(n,-0)?0:n);
+ const format=(n,lang)=>n==null?'—':new Intl.NumberFormat(lang==='el'?'el-GR':'en-GB',{maximumFractionDigits:Math.abs(n)>0&&Math.abs(n)<.01?4:2,notation:Math.abs(n)>=1e6?'compact':'standard'}).format(Object.is(n,-0)?0:n);
  function model({metric,terms,asOf}){
   if(!metric||!Array.isArray(terms)||terms.length!==2||!terms.every(Boolean))throw new Error('Choose a metric and two valid cabinet periods');
   const periods=terms.map(term=>{

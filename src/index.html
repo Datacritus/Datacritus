@@ -14,6 +14,7 @@
  <a class="skip" href="#main">Skip to dashboard</a>
  <header class="masthead">
   <a class="brand" href="./" data-home aria-label="DATACRITUS home"><img id="brandLogo" class="brand-logo" src="/*__LOGO__*/" alt="DATACRITUS — Data Decision Democracy" width="320" height="95"></a>
+  <button id="navigationToggle" class="navigation-toggle" aria-expanded="false" aria-controls="navigation" data-i18n="menu">Menu</button>
   <nav aria-label="Main navigation" id="navigation">
    <button data-page="explore" class="active" data-i18n="explore">Explore</button>
    <button data-page="comparison" class="nav-compare" data-i18n="compareGovernments">Compare governments</button>
@@ -21,7 +22,7 @@
    <button data-page="sources" data-i18n="sources">Sources</button>
    <button data-page="about" data-i18n="about">About</button>
   </nav>
-  <div class="header-actions"><button id="favoriteNav" class="quiet" aria-label="Show saved indicators" title="Saved indicators">☆ <span data-i18n="saved">Saved</span><b id="savedCount">0</b></button><button id="language" class="language" aria-label="Switch language to Greek">ΕΛ</button></div>
+  <div class="header-actions"><button id="browseToggle" aria-controls="sidebar" aria-expanded="true" data-i18n="browseToggle">Browse</button><button id="favoriteNav" class="quiet" aria-label="Show saved indicators" title="Saved indicators">☆ <span data-i18n="saved">Saved</span><b id="savedCount">0</b></button><button id="language" class="language" aria-label="Switch language to Greek">ΕΛ</button></div>
  </header>
  <div class="workspace">
   <aside id="sidebar" class="sidebar" aria-label="Indicator categories">
@@ -34,14 +35,14 @@
   <main id="main" tabindex="-1">
    <section id="page-explore" class="page">
     <div class="page-heading"><div><p class="eyebrow" data-i18n="greeceSince">GREECE · SINCE 1974</p><h1 data-i18n="headline">Greece, in perspective.</h1><p class="lede" data-i18n="subhead">Follow the indicators. Compare the context.</p></div><button id="copyLink" class="outline" data-i18n="share">Copy view link</button></div>
-    <section class="comparison-launch" aria-labelledby="comparisonLaunchTitle"><div><p class="eyebrow">DATACRITUS STUDIO</p><h2 id="comparisonLaunchTitle" data-i18n="comparisonLaunchTitle">Two governments. One clear comparison.</h2><p data-i18n="comparisonLaunchIntro">Choose a KPI and two periods. Create a sourced infographic in seconds.</p></div><button id="launchComparison" class="primary comparison-launch-button" data-i18n="compareGovernments">Compare governments</button></section>
+
     <div class="explore-shortcuts"><span data-i18n="startWith">Start with</span><button data-metric="NY.GDP.MKTP.KD.ZG" data-i18n="shortcutGrowth">Growth</button><button data-metric="SL.UEM.TOTL.ZS" data-i18n="shortcutJobs">Employment</button><button data-metric="FP.CPI.TOTL.ZG" data-i18n="shortcutPrices">Prices</button><button data-metric="ESTAT.HOUSING.OVERBURDEN" data-i18n="shortcutHousing">Housing</button></div>
     <div class="mobile-category"><label for="mobileSearch" class="sr-only" data-i18n="searchLabel">Search indicators</label><input id="mobileSearch" type="search" placeholder="Search indicators…" autocomplete="off"><label for="mobileCategory" data-i18n="category">Category</label><select id="mobileCategory"></select></div>
     <div id="searchResults" class="search-results" hidden></div>
     <div id="savedPanel" class="saved-panel" hidden></div>
     <div id="explorerContent">
      <div class="indicator-select-row"><div class="field wide"><label for="indicator" data-i18n="indicator">Indicator</label><select id="indicator"></select></div><button id="saveIndicator" class="outline save-indicator" aria-pressed="false" data-i18n="save">☆ Save indicator</button></div>
-     <p id="categoryNote" class="category-note" hidden></p>
+
      <div id="stats" class="stats"></div>
      <article class="chart-card">
       <div class="chart-heading"><div><p class="chart-eyebrow" data-i18n="annualTrend">THE ANNUAL TREND</p><h2 id="chartTitle"></h2><p id="chartSubtitle"></p></div><div class="chart-actions"><button id="openInfographic" class="primary" data-i18n="createGraphic">Create infographic</button><button id="focusChart" class="outline compact" aria-pressed="false" data-i18n="expandChart">Expand</button><details class="download-menu"><summary data-i18n="download">Download</summary><div><button id="downloadCsv" data-i18n="csv">↓ CSV</button><button id="downloadChart" data-i18n="chartDownload">↓ Chart</button></div></details></div></div>
@@ -53,7 +54,8 @@
       <div id="chartLegend" class="chart-legend"></div><p id="dataWarning" class="data-warning" hidden></p>
       <div class="chart-footer"><span id="chartSource"></span><span data-i18n="gaps">Gaps mean unavailable data.</span></div>
      </article>
-     <div class="context-grid"><section class="context-card"><div class="section-title"><span class="section-number">01</span><h2 data-i18n="politicalContext">Political context</h2></div><label for="governmentSelect" data-i18n="chooseGovernment">Explore a government period</label><select id="governmentSelect"></select><div id="governmentDetail"></div><p class="note" data-i18n="causality">Changes during a government’s term do not establish that its policies caused them.</p></section>
+    <section class="comparison-launch" aria-labelledby="comparisonLaunchTitle"><div><p class="eyebrow">DATACRITUS STUDIO</p><h2 id="comparisonLaunchTitle" data-i18n="comparisonLaunchTitle">Two governments. One clear comparison.</h2><p data-i18n="comparisonLaunchIntro">Choose a KPI and two periods. Create a sourced infographic in seconds.</p></div><button id="launchComparison" class="primary comparison-launch-button" data-i18n="compareGovernments">Compare governments</button></section>
+     <p id="categoryNote" class="category-note" hidden></p><div class="context-grid"><section class="context-card"><div class="section-title"><span class="section-number">01</span><h2 data-i18n="politicalContext">Political context</h2></div><label for="governmentSelect" data-i18n="chooseGovernment">Explore a government period</label><select id="governmentSelect"></select><div id="governmentDetail"></div><p class="note" data-i18n="causality">Changes during a government’s term do not establish that its policies caused them.</p></section>
       <section class="context-card"><div class="section-title"><span class="section-number">02</span><h2 data-i18n="behindNumber">Behind the number</h2></div><div id="metricDetails"></div></section></div>
     </div>
    </section>
@@ -63,6 +65,7 @@
      <fieldset><legend><span>1</span> <span data-i18n="comparisonChooseMetric">Choose your indicator</span></legend><div class="comparison-fields"><div class="field"><label for="comparisonCategory" data-i18n="category">Category</label><select id="comparisonCategory"></select></div><div class="field"><label for="comparisonMetric" data-i18n="indicator">Indicator</label><select id="comparisonMetric"></select></div></div></fieldset>
      <fieldset><legend><span>2</span> <span data-i18n="comparisonChoosePeriods">Choose two periods</span></legend><div class="comparison-fields"><div class="field"><label for="comparisonA" data-i18n="comparisonPeriodA">Government period A</label><select id="comparisonA"></select></div><div class="field"><label for="comparisonB" data-i18n="comparisonPeriodB">Government period B</label><select id="comparisonB"></select></div></div><button id="comparisonSwap" class="quiet" data-i18n="comparisonSwap">⇄ Swap periods</button></fieldset>
     </div>
+    <div class="comparison-method-row"><label><input type="checkbox" id="comparisonShowAll"><span data-i18n="showAllPeriods">Show all governments, including periods without data</span></label><p class="note" data-i18n="comparisonYearHelp">Averages use full calendar years only; partial first and last years are excluded.</p></div>
     <p id="comparisonNotice" class="notice" role="status" aria-live="polite" hidden></p>
     <div class="comparison-results-heading"><div><h2 id="comparisonMetricTitle"></h2><p id="comparisonUnit"></p></div><button id="comparisonLink" class="outline" data-i18n="share">Copy view link</button></div>
     <div id="comparisonCards" class="comparison-cards" aria-live="polite"></div><section class="multi-story"><div class="multi-story-head"><div><p class="eyebrow">DATACRITUS STUDIO</p><h2 id="multiTitle">Build a multi-metric story</h2><p id="multiHint">Add up to 3 related KPIs. Suggestions are thematic, not claims of correlation.</p></div><strong id="multiCount">1 / 4</strong></div><div id="multiChips" class="multi-chips"></div><div class="multi-add"><select id="multiSuggestions" aria-label="Suggested related indicator"></select><button id="multiAdd" class="outline">+ Add indicator</button></div><div id="multiResults"></div><div class="multi-actions"><button id="multiExport" class="primary">↓ Download story SVG</button><button id="multiCsv" class="outline">↓ Download all observations CSV</button></div><p id="multiFootnote" class="note">Each indicator retains its own unit and scale; comparisons use full calendar years only. Observed changes do not establish causation.</p></section>
