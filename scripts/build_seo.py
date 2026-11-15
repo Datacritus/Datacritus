@@ -192,7 +192,7 @@ def build():
         target.write_text(document(lang,c['hub'],c['hubintro'],path,page_path('el' if lang=='en' else 'en'),body,{'@context':'https://schema.org','@type':'CollectionPage','name':c['hub'],'url':ORIGIN+path,'inLanguage':lang}),encoding='utf-8')
         urls.append(path)
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-    sitemap += ''.join(f'<url><loc>{ORIGIN}{escape(path)}</loc></url>' for path in urls)+'</urlset>\n'
+    sitemap += ''.join(f'<url><loc>{ORIGIN}{escape(path)}</loc></url>' for path in dict.fromkeys(urls+['/el/','/en/']))+'</urlset>\n'
     (ROOT/'sitemap.xml').write_text(sitemap,encoding='utf-8')
     print(f'Built {len(entries)*2} indicator pages, 2 language indexes and {len(entries)} CSV extracts')
 
