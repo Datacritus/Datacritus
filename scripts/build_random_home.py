@@ -31,5 +31,5 @@ ESTAT.ENDS.MEET.GREATDIFFICULTY ESTAT.EXPENSES.UNEXPECTED
             periods.append(dict(id=term['id'],name=term['name'],years=years,mean=sum(points)/len(points),first=points[0],last=points[-1]))
         pairs = [[i,j] for i,a in enumerate(periods) for j,b in enumerate(periods) if i < j and len(a['years'])==len(b['years'])]
         if pairs:
-            groups.setdefault(metric['categories'][0],[]).append(dict(code=metric['code'],title=metric['title'],unit=metric['unit'],source=metric['sourceName'],periods=periods,pairs=pairs))
+            groups.setdefault(metric['categories'][0],[]).append(dict(code=metric['code'],title=metric['title'],unit=metric['unit'],source=metric['sourceName'],latest=max(([y,v] for y,v in rows.items() if isinstance(v,(int,float)) and math.isfinite(v)),key=lambda p:p[0]),periods=periods,pairs=pairs))
     return json.dumps(list(groups.values()),ensure_ascii=False).replace('<','\\u003c')
