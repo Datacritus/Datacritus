@@ -15,7 +15,7 @@ const copyNode=element({toolCopy:'comparison'}),toolLink=element({toolPage:'comp
 const root={querySelector:k=>nodes.get(k),querySelectorAll:k=>k==='[data-tool-copy]'?[copyNode]:[toolLink,nodes.get('.dp-circle'),nodes.get('#dp-compare')]};let redirect=null;
 const document={documentElement:{lang:'el'},getElementById:()=>root};
 vm.runInNewContext(source,{document,location:{hash:'#indicator=FP.CPI.TOTL.ZG',replace(x){redirect=x}},URLSearchParams});
-assert.equal(redirect,'dashboard.html#indicator=FP.CPI.TOTL.ZG');
+assert.equal(redirect,'/dashboard.html#indicator=FP.CPI.TOTL.ZG');
 assert.match(nodes.get('#dp-motto').innerHTML,/Ελλάδα/);assert.match(nodes.get('#dp-description').innerHTML,/500 δείκτες/);
 assert.ok(!source.includes('setInterval'),'The introduction must remain stable');
 nodes.get('.dp-lang').events.click();assert.equal(document.documentElement.lang,'en');assert.match(nodes.get('#dp-motto').innerHTML,/Greece/);
