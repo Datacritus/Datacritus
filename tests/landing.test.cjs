@@ -29,12 +29,12 @@ for(const p of providers){
  const metrics=snapshot.metrics.filter(m=>p.matchSources.includes(m.source));assert.ok(metrics.length);
  for(const m of metrics){assert.ok(!credited.has(m.code));credited.add(m.code)}
  assert.ok(html.includes('id="ds-'+p.id+'"')&&html.includes('data-source="'+p.id+'"'));
- assert.ok(html.includes('>'+metrics.length+' <span class="ds-copy-en"'));
+ assert.ok(html.includes('>'+metrics.length+' <span class="ds-copy-el"'));
  assert.ok(p.en&&p.el&&p.url.startsWith('https://'));
  if(p.logo)assert.ok(fs.existsSync('src/source-logos/'+p.logo));
 }
 assert.equal(credited.size,snapshot.metrics.length);
-assert.ok(html.includes('data:image/svg+xml;base64,')&&html.includes('Trace the evidence.'));
+assert.ok(html.includes('data:image/svg+xml;base64,')&&html.includes('Γνωρίστε τις πηγές.'));
 const sourceButtons=providers.map(p=>{const b=element({source:p.id});b.attrs={'aria-expanded':'false','aria-controls':'ds-'+p.id};b.getAttribute=k=>b.attrs[k];return b});
 const sourcePanels=providers.map(p=>({id:'ds-'+p.id,hidden:true}));
 const section={dataset:{},querySelectorAll:k=>k==='[data-source]'?sourceButtons:sourcePanels};
