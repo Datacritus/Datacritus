@@ -1,5 +1,7 @@
 import json,pathlib,io,openpyxl,xlrd,math,collections,datetime,hashlib,urllib.request,urllib.parse,concurrent.futures
-P=pathlib.Path('/mnt/data/datagov-audit');R=P/'resources';bog=json.loads((P/'bog.json').read_text());by={x['name']:x for x in bog}
+P=pathlib.Path(__file__).resolve().parent;R=P/'resources';R.mkdir(exist_ok=True)
+manifest=json.loads((P/'qualified-series.json').read_text());by={x['dataset']:{'license_id':x['license']} for x in manifest}
+receipts={x['id']:x for x in json.loads((P/'resource-receipts.json').read_text())['receipts']}
 S=[]
 def add(slug,col,title,group,freq,agg,start=2000,unit='EUR million'):
  S.append(dict(dataset='bank-of-greece-'+slug,column=col,title=title,group=group,frequency=freq,annual_rule=agg,start_year=start,unit=unit))
@@ -17,7 +19,12 @@ for slug,t,unit in [('non-residents-average-duration-of-stay-in-greece-by-countr
 add('greece-nominal-effective-exchange-rate-index',2,'Nominal effective exchange rate — broad index','Competitiveness','monthly','mean',2000,'index 2000=100')
 add('greece-real-effective-exchange-rate-index',2,'Real effective exchange rate — broad CPI-based index','Competitiveness','quarterly','mean',2000,'index 2000=100')
 def rows_for(item):
- p=next(f for f in R.glob(item['dataset']+'.*') if f.suffix in ['.xls','.xlsx']);raw=p.read_bytes()
+ matches=[f for f in R.glob(item['dataset']+'.*') if f.suffix in ['.xls','.xlsx']]
+ if matches:p=matches[0]
+ else:
+  source=receipts[item['dataset']]['url'];p=R/(item['dataset']+('.xlsx' if source.lower().endswith('.xlsx') else '.xls'))
+  raw=urllib.request.urlopen(urllib.parse.quote(source,safe=':/?=&%'),timeout=60).read();p.write_bytes(raw)
+ raw=p.read_bytes()
  if raw[:2]==b'PK':return list(openpyxl.load_workbook(io.BytesIO(raw),read_only=True,data_only=True).worksheets[0].values)
  sh=xlrd.open_workbook(file_contents=raw).sheet_by_index(0);return [sh.row_values(i) for i in range(sh.nrows)]
 allout=[]
@@ -46,9 +53,9 @@ for item in S:
   elif item['annual_rule']=='sum':v=sum(v for p,v in ps)
   else:v=sum(v for p,v in ps)/len(ps)
   annual.append([y,v])
- meta=json.loads((R/(item['dataset']+'.json')).read_text());assert len(annual)>=5,(item['title'],len(annual));assert annual[-1][0]>=2024,(item['title'],annual[-1])
+ meta=receipts[item['dataset']];assert len(annual)>=5,(item['title'],len(annual));assert annual[-1][0]>=2024,(item['title'],annual[-1])
  item.update(source_field=head[item['column']],native_points=len(points),first_native=points[0][:2],last_native=points[-1][:2],complete_annual_years=[p[0] for p in annual],annual_series=annual,missing_points=invalid,license=by[item['dataset']]['license_id'],source_url=meta['url'],resource_id=meta['resource'],sha256=meta['sha256'],status='qualified_with_documented_import_conditions')
  allout.append(item)
-(P/'qualified-series.json').write_text(json.dumps(allout,ensure_ascii=False,indent=2))
+(P/'numerical-recheck.json').write_text(json.dumps(allout,ensure_ascii=False,indent=2))
 print('QUALIFIED',len(allout));print('GROUPS',dict(collections.Counter(x['group'] for x in allout)))
 for i,x in enumerate(allout,1):print(i,x['title'],x['first_native'],x['last_native'],'complete years',len(x['annual_series']),'missing',len(x['missing_points']))
