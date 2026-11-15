@@ -16,7 +16,7 @@ const root={querySelector:k=>nodes.get(k),querySelectorAll:k=>k==='[data-tool-co
 const document={documentElement:{lang:'en'},getElementById:()=>root};
 vm.runInNewContext(source,{document,location:{hash:'#indicator=FP.CPI.TOTL.ZG',replace(x){redirect=x}},URLSearchParams});
 assert.equal(redirect,'dashboard.html#indicator=FP.CPI.TOTL.ZG');
-assert.match(nodes.get('#dp-motto').innerHTML,/Ελλάδα/);assert.match(nodes.get('#dp-description').innerHTML,/500 indicators/);
+assert.match(nodes.get('#dp-motto').innerHTML,/Ελλάδα/);assert.match(nodes.get('#dp-description').innerHTML,/500 δείκτες/);
 assert.ok(!source.includes('setInterval'),'The introduction must remain stable');
 nodes.get('.dp-lang').events.click();assert.equal(document.documentElement.lang,'en');assert.match(nodes.get('#dp-motto').innerHTML,/Greece/);
 assert.match(nodes.get('.dp-circle').href,/page=explore/);assert.match(nodes.get('.dp-circle').href,/lang=en/);assert.match(toolLink.href,/page=comparison/);assert.match(toolLink.href,/lang=en/);assert.equal(copyNode.textContent,'Compare governments');
