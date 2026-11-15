@@ -1,0 +1,863 @@
+{
+  "audit_date": "2026-11-15",
+  "probe_count": 53,
+  "receipts": [
+    {
+      "id": "bank-of-greece-travel-data-by-region-for-main-countries-of-origin",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "ff59bc5d-0df6-4c95-882e-4c590d41a028",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Travel_by_region_en_2025-09-30.xlsx",
+      "sha256": "29520b65f1e16d871e4141450ebd0585ffa217374c99a9c5a143f699066f196c",
+      "bytes": 261187,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 3269,
+          "columns": 29
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-balance-sheet-of-the-bank-of-greece",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "24a17163-5432-428b-83ec-ebc37e791deb",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_NCB_EN_2025-11-27.xlsx",
+      "sha256": "9633fe6b142d68ddd183d80ece64ee291a8015884e2afc52284395f1aa21540a",
+      "bytes": 64181,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 263,
+          "columns": 26
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-credit-to-domestic-public-and-private-sectors-by-domestic-monetary-financial-ins",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "3b335811-cee8-48e7-aa8a-72b4ecf0f809",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_CreditStock_en_2025-11-27.xls",
+      "sha256": "7e13d2a711a08484578bb0a098137fff22f2ddcf8f1437f027312ba86c5224f2",
+      "bytes": 73728,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 83,
+          "columns": 20
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-residents-average-duration-of-stay-abroad-by-destination-country-quarterly",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "2e7f8c67-6845-45ca-9e1e-ebd088dc83db",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Residents_average_duration_of_stay_en_2025-09-30.xlsx",
+      "sha256": "f93c3b5d6a3408be8c494a49dffbbb8efde5ecec830ed384aca0ac79dff08dc7",
+      "bytes": 36345,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 83,
+          "columns": 28
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-payments-by-destination-country",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "06d9d44d-d096-4d0d-a4b3-e4c52610241a",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Payments_by_destination_country_en_2025-09-30.xlsx",
+      "sha256": "406516d653463dd08a0a414bd3da7c98695dea2a19fa93d93d2ebf98e7bed5b2",
+      "bytes": 36705,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 83,
+          "columns": 28
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-index-of-apartment-prices-by-geographical-area",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "9792cba8-9529-4988-a740-c6a4a15c9310",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/DOAM/New_Index_of_Apartment_Prices_by_Geographical_Area_el_2025-11-25.xls",
+      "sha256": "8000c89ce4e1759359844167cb1d8fce31cdac5a9b043bc38c9130d95b24576a",
+      "bytes": 90624,
+      "sheets": [
+        {
+          "name": "Index_Apart_Prices_by_Geogr_el",
+          "rows": 80,
+          "columns": 6
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-receipts-by-country-of-origin",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "2f3650bd-5eaf-486c-82d4-51fbafa4da9e",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Receipts_by_country_of_origin_en_2025-09-30.xlsx",
+      "sha256": "17931f91280dfde7e5cd73eb876c2b4577346a82337e18dd0d74ebe789f337a3",
+      "bytes": 39625,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 83,
+          "columns": 30
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-number-of-outbound-travellers-abroad-by-destination-country",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "fb3be929-5e21-46b7-b100-f21ab2353fa1",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Number_of_outbound_travellers_en_2025-09-30.xlsx",
+      "sha256": "30bbe4cc82f21169a1c6b2f4085bf977a72a63b2db9afc8208c735ea83129c77",
+      "bytes": 36064,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 83,
+          "columns": 28
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-aggregated-balance-sheet-items-of-ucits-investment-funds",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "1dd55c37-2960-479b-81da-3cfdd2d0508f",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_UCITS_IF_en_2025-11-20.xlsx",
+      "sha256": "86d819f6bb527a39d57a4533dfafd033e667628351a53a880b8902e5ee7479ad",
+      "bytes": 70943,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 262,
+          "columns": 47
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-balance-of-travel-services",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "3b01c53b-bcd8-4c6c-8a95-273da7fea637",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Balance_of_Travel_Services_en_2025-09-30.xlsx",
+      "sha256": "a9b59eff14c5ca05c29ed51c58e3be39726a14a533db0022bb40962e0cadd9e3",
+      "bytes": 22985,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 91,
+          "columns": 5
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-non-residents-expenditure-per-overnight-stay-in-greece-by-country-of-origin-annu",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "170c64c0-9ab0-42ab-9734-d8afde57d2c9",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Yearly_Non_residents_expenditure_per_overnight_stay_el_2025-03-31.xlsx",
+      "sha256": "26af6604fa66724f9fe8dbcd2a629bfdc391003bb9cbf9b2addce86d22c625ff",
+      "bytes": 30169,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 21,
+          "columns": 29
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-credit-to-domestic-public-and-private-sectors-by-domestic-monetary-financial-ins-2",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "cc393634-427a-41cc-87b4-2b90e33f9e3c",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_CreditRate_en_2025-11-27.xls",
+      "sha256": "51cf0ffab2b368b35eb1f8ffc35efb0a833d61a935dc7742ba440c8c64cbfb3f",
+      "bytes": 83456,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 83,
+          "columns": 17
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-payments-by-purpose-of-travel",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "3fd42545-8e83-4dcc-a85b-8869d9f651cc",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Payments_by_purpose_of_travel_en_2025-09-30.xlsx",
+      "sha256": "b9ad7d11423cbcec10c0e98791c5121ef0761e1d35c996a76e51de2826d2a02e",
+      "bytes": 25831,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 83,
+          "columns": 10
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-bulletin-of-prices-of-gold-bars-and-gold-coins-from-2001-to-present",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "71effa6d-1f7f-4802-9216-0e5beb51dd23",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/GOLD/BoG_Bulletin_Gold_el_2025-12.xlsx",
+      "sha256": "d75176b2baef91ade7ec6b7d5b5bf29e9492c408122dbc0857811e6d52c8996d",
+      "bytes": 201018,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 3599,
+          "columns": 10
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-non-residents-overnight-stays-in-greece-by-country-of-origin",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "5d82329b-1ca9-4879-8c69-258af8dc5ed0",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Non_residents_overnight_stays_el_2025-09-30.xlsx",
+      "sha256": "4c7893049af160be5d3490f2b4e0a79937860b807979457815aa45303f7dfb22",
+      "bytes": 40800,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 83,
+          "columns": 29
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-residents-average-duration-of-stay-abroad-by-destination-country-annually",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "f80d74b5-8664-4571-ba95-1e4e2c38064e",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Yearly_Residents_average-duration_of_stay_en_2025-03-31.xlsx",
+      "sha256": "a14857c976864c519dbe5a82f04be85a7623a359eac58ec0b336bf47fcdedcec",
+      "bytes": 29109,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 21,
+          "columns": 29
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-number-of-inbound-travellers-in-greece-by-country-of-origin",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "589d15d0-782c-42d6-9369-90240c59ad40",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Number_of_inbound_travellers_en_2025-09-30.xlsx",
+      "sha256": "44a6383fe1c638ba2ab2fa8d1ac8cdcbca21c7a249fdc7974fa12ac751cd1fb6",
+      "bytes": 38857,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 83,
+          "columns": 29
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-central-government-net-borrowing-requirement-on-a-cash-basis",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "1cb544bb-0520-4ec4-9103-d1d89a206786",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/DOAM/BoG_CG_NBR_Cash_en_2025-06-30.xlsx",
+      "sha256": "ebf299251b5a1ff77f6dc7e42eba61c39ca347f9454f0ef69062d56c80f2ff1b",
+      "bytes": 37223,
+      "sheets": [
+        {
+          "name": "Centr_gov_net_bor_req_on_cash_b",
+          "rows": 199,
+          "columns": 9
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-residents-overnight-stays-abroad-by-destination-country",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "e22d4b22-4811-4f1a-8bae-502dd8274ee3",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Residents_overnight_stays_el_2025-09-30.xlsx",
+      "sha256": "bb50415d332b150006565449e43863b2fb1ef54bdff70c464ad458aaecec4ce8",
+      "bytes": 37670,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 83,
+          "columns": 28
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-numerical-data-of-the-librarys-collection",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "2a99432a-cfcd-415b-859c-92fccb334197",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/KEPOET/BoG_Library_en_2023_12_31.xls",
+      "sha256": "da35dbd4a50b513e4720e79ec92ec7aa8f7bed1f498cadd91431a2784ff97f09",
+      "bytes": 62464,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 56,
+          "columns": 10
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-retail-price-index",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "13337160-09b5-4e8a-ae7c-7a30f08888ea",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/DOAM/Retail_Price_Index_en_2025-12-11.xls",
+      "sha256": "23617b39305f3821edd5fc584a5ee39955f6e4e0bec3402c7ed9bf8951bf2d58",
+      "bytes": 83968,
+      "sheets": [
+        {
+          "name": "Retail_Price_Index",
+          "rows": 40,
+          "columns": 6
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-non-residents-average-duration-of-stay-in-greece-by-country-of-origin-quarterly",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "b3870989-f024-4d6f-b101-516355e5cd4c",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Non_residents_average_duration_of_stay_en_2025-09-30.xlsx",
+      "sha256": "28be226f9cebe338d5ab8f67cecc68c925ba3d6390bc94744bb186ca35477883",
+      "bytes": 37970,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 83,
+          "columns": 33
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-residents-expenditure-per-journey-abroad-by-destination-country-quarterly",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "73c90e1e-11ba-4762-b9ac-fe3d8086b53a",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Residents_expenditure_per_journey_el_2025-03-31.xlsx",
+      "sha256": "44adfb7e1246ec1f72b39324ad5d4cbcde3449233ca8a4c935538e541e2a169f",
+      "bytes": 37726,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 81,
+          "columns": 28
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-office-price-index",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "b2134c70-bb20-4e8d-8c21-25741ada46f1",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/DOAM/Office_Price_Index_el_2025-12-11.xls",
+      "sha256": "d6aa6958411b9f88f246f592bdf6f47bf895f1fc063e1918c38225f2eccee3bc",
+      "bytes": 81408,
+      "sheets": [
+        {
+          "name": "Office_Price_Index_el",
+          "rows": 40,
+          "columns": 6
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-foreign-direct-investment-flows-in-greece-by-country-of-origin-annual",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "a5144e99-4d8f-451b-bef7-9676454c8a3b",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Annual_FDI_flows_in_Greece_by_country_of_origin_EN_2025-09-30.xlsx",
+      "sha256": "e457b9906b64f898c34858c6b7cd2fac442889b6e94dd8755203f1e794fb076d",
+      "bytes": 60138,
+      "sheets": [
+        {
+          "name": "Net_fdi_inflows_by_geo",
+          "rows": 24,
+          "columns": 263
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-bulletin-of-prices-of-gold-bars-and-gold-coins-from-1970-until-year-2000",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "b94f7d64-6cb1-4da4-b8ad-1fa8d6b5b64f",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/GOLD/BoG_Bulletin_Gold_el_2000-12.xlsx",
+      "sha256": "62dc0c145a6e54e84b1de150c1817ea589564dc154e78262fd9206897391324f",
+      "bytes": 171962,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 3840,
+          "columns": 10
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-residents-expenditure-per-overnight-stay-abroad-by-destination-country-annually",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "3ff30bfd-8f1b-4a7e-af4e-241798071aaf",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Yearly_Residents_expenditure_per_overnight_stay_en_2025-03-31.xlsx",
+      "sha256": "e76b3603f491ee0ca28beb20c0501e68b8742059e88aadcae2d36029e7571c75",
+      "bytes": 29219,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 21,
+          "columns": 29
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-non-residents-expenditure-per-journey-in-greece-by-country-of-origin-annually",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "ddf1cb2a-7daa-46b7-a32a-9c8152577938",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Yearly_Non_residents_expenditure_per_journey_en_2025-03-31.xlsx",
+      "sha256": "67a3613f7caf0a981e7ef8f911e04df8ee231f368f06ebbfdfbf55281c18daa8",
+      "bytes": 30280,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 21,
+          "columns": 29
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-payments-statistics",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "0a423773-79c8-47b6-8149-26f6d0f72186",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/PAYMENTSSTATISTICS/BoG_PayStatsAnnual_EL_2025-02-25.xlsx",
+      "sha256": "6c721728c2f6bb6d9ee40a02bd4739667fdeb1f50506d43df41d4c6c9ec13b1a",
+      "bytes": 33959,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 11,
+          "columns": 169
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-receipts-by-purpose-of-travel",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "79035ef1-aa04-4873-8125-8bf86e3779b5",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Receipts_by_purpose_of_travel_en_2023-06-30.xlsx",
+      "sha256": "c826ebad29d7388cc2218f51994798c2703980b59a825bdf38882d946d4d2d1a",
+      "bytes": 24643,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 74,
+          "columns": 10
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-deposits-and-repos-of-non-mfis-in-mfis-in-greece-excluding-the-bank-of-greece-ou",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "f5750e93-7559-4394-9c61-447f330e97b7",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_DepositStock_en_2025-11-27.xls",
+      "sha256": "46eec8b250930144522be5f0844ecdc2eb23a863086ec05712b708acf594947a",
+      "bytes": 131584,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 83,
+          "columns": 58
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-residents-expenditure-per-journey-abroad-by-destination-country-annually",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "8a4723b9-9805-4f92-b2fe-a209a256ddc0",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Yearly_Residents_expenditure_per_journey_el_2025-03-31.xlsx",
+      "sha256": "94f522d1b60bf36b6bb4744a91b4b7b96ae72acad0526807a03adbb8bb15b13c",
+      "bytes": 28999,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 21,
+          "columns": 29
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-foreign-direct-investment-flows-in-greece-by-activity-annual",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "d6c8672c-3d5b-4e86-9f1f-14196abf7c23",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Annual_FDI_flows_in_Greece_by_activity_EN_2025-09-30.xlsx",
+      "sha256": "e4f21f56e52976f3cdbb8a23bfb0cc8e22fa8df2f17cc42bc707278c7234acb5",
+      "bytes": 39649,
+      "sheets": [
+        {
+          "name": "Net_fdi_inflows_by_ind",
+          "rows": 24,
+          "columns": 88
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-international-investment-position-quarterly-data",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "352c713b-39b7-40b1-9927-f11cc6b55801",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_IIP_EL_2025-09-30.xlsx",
+      "sha256": "e29bc5f7c4228d08868c56d4986439156cf14926d224863855b8f9e36680c667",
+      "bytes": 120504,
+      "sheets": [
+        {
+          "name": "GR",
+          "rows": 87,
+          "columns": 194
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-non-residents-expenditure-per-journey-in-greece-by-country-of-origin-quarterly",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "65a39afd-b91c-42a3-9c27-896214220dae",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Non_residents_expenditure_per_journey_el_2025-09-30.xlsx",
+      "sha256": "be19eecdd64d697397f5d9691859d73cfe62efdb8d89ebfcf5aae941fa937faa",
+      "bytes": 41055,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 83,
+          "columns": 30
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-gross-external-debt",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "a59aa32c-69f4-46d1-b4e3-7685b00e912a",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_EXD_EL_2025-09-30.xlsx",
+      "sha256": "9968f8de12905121a3bab975af1bea690d64e38d3a7b3fcf575bd1bfd1b0a732",
+      "bytes": 47972,
+      "sheets": [
+        {
+          "name": "EL",
+          "rows": 87,
+          "columns": 62
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-greece-nominal-effective-exchange-rate-index",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "5e97e076-0799-4da6-9494-e693f953ee5c",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/DOAM/BoG_NEER_en_2025-11-1.xlsx",
+      "sha256": "12eed8619183e6086d539b05cdedad05f699e19d7e1ece667d6f90c9f33347e8",
+      "bytes": 44050,
+      "sheets": [
+        {
+          "name": "NEER_en",
+          "rows": 311,
+          "columns": 9
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-greece-real-effective-exchange-rate-index",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "8527f9fa-f1e4-49b1-a68a-fb96a811edc2",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/DOAM/BoG_REERCPI_el_2025-09-30.xlsx",
+      "sha256": "7880c77adf48ac40ab68d827c3deb829ac3a16b2229ca024a191cd4b5b687964",
+      "bytes": 30900,
+      "sheets": [
+        {
+          "name": "REER_CPI_el",
+          "rows": 104,
+          "columns": 12
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-deposits-and-repos-of-non-mfis-in-mfis-in-greece-excluding-the-bank-of-greece-fl",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "cbb016f9-cbd2-4fb5-b13f-dc0bf927e45c",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_DepositFlow_en_2025-11-27.xls",
+      "sha256": "7c14068fcf9c965fd139759a200c4245120ad7437ce8113aa7634e2e852f2b0c",
+      "bytes": 97792,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 83,
+          "columns": 35
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-index-of-apartment-prices",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "cfb0d76d-28cb-48c5-b4b6-b2426b33aedb",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/DOAM/New_ Index_of_Apartment_Prices_el_2025-11-25.xls",
+      "sha256": "41bcbc9fdf564040b3897f257384f98318c1cae468e6d9222305517d245b6249",
+      "bytes": 90624,
+      "sheets": [
+        {
+          "name": "New_ Index_of_Apart_Prices_el",
+          "rows": 80,
+          "columns": 6
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-bank-interest-rates-on-new-euro-denominated-deposits-and-loans-vis-a-vis-euro-ar",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "c8478ff6-356f-4461-a37e-c034fc54d093",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_MIR_en_2025-12-03.xlsx",
+      "sha256": "fa6a0165ff3d18d867126bb8e13abdc9f7e82ea2f776776dc733e0d5875a5a4d",
+      "bytes": 50717,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 263,
+          "columns": 18
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-non-residents-expenditure-per-overnight-stay-in-greece-by-country-of-origin-quar",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "a33f3694-612f-4ce7-826c-93e15f781dda",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Non_residents_expenditure_per_overnight_stay_en_2025-09-30.xlsx",
+      "sha256": "bab7263c993501094c7b1c446180ee4cd60fc82e2e55a8c03189a63abdab5cd0",
+      "bytes": 39988,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 83,
+          "columns": 52
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-greek-contribution-to-the-monetary-aggregates-of-the-euro-area",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "6e0d8444-d133-41e8-a33b-6e107e1a6470",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_monetary_el_2025-11-27.xls",
+      "sha256": "c493178ebbe959c02b55dcaec1868a3c9ea0ce9a30551d29423bd1ee584c27a9",
+      "bytes": 141824,
+      "sheets": [
+        {
+          "name": "M1-M2-M3",
+          "rows": 263,
+          "columns": 23
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-foreign-direct-investment-flows-abroad-by-country-of-destination-annual",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "fbdf281c-366e-4b95-a14a-614679d4b5e7",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Annual_FDI_flows_abroad_by_country_of_destination_EN_2025-09-30.xlsx",
+      "sha256": "85d7b8b736896038bbe381b1e1685b0a0126517986754670844daac0735a9677",
+      "bytes": 62590,
+      "sheets": [
+        {
+          "name": "Net_fdi_outflows_by_geo",
+          "rows": 24,
+          "columns": 263
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-aggregated-balance-sheet-of-monetary-financial-institutions-mfis-excluding-bank-",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "c0e66ce8-67f1-4f8f-85f6-8fefd962cd4e",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_OMFIassets_en_2025-11-27.xls",
+      "sha256": "95f5907fe938619dac7fc98a555bc929721ed31c9f653eb888f14c267e04b91c",
+      "bytes": 140288,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 83,
+          "columns": 54
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-credit-to-domestic-public-and-private-sectors-by-domestic-monetary-financial-ins-1",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "49abede4-3799-49ea-afaa-93eb54c18b33",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_CreditFlow_en_2023-09-27.xls",
+      "sha256": "533404446c9cbbd561ff4fe23cd2d90f4a34bca75286e8f9e9d434fe7acb3ba9",
+      "bytes": 61952,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 57,
+          "columns": 20
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-retail-rent-index",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "d8154fcb-d1aa-4355-81cb-d248f9695c7c",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/DOAM/Retail_Rent_Index_el_2025-12-11.xls",
+      "sha256": "c088a3f599a4edc725d3d9756ab6985b42d6b28c463bdf248bc4c74b2d786471",
+      "bytes": 81408,
+      "sheets": [
+        {
+          "name": "Retail_Rent_Index_el",
+          "rows": 40,
+          "columns": 6
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-foreign-direct-investment-flows-abroad-by-activity-annual",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "c514f64d-1804-4d1c-a703-fc1cdb8c7624",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Annual_FDI_flows_abroad_by_activity_EN_2025-09-30.xlsx",
+      "sha256": "f216f7b883a17db2cdad788c9c1eac5d6985c14298c1338dfb99afd4f1ba6faf",
+      "bytes": 37801,
+      "sheets": [
+        {
+          "name": "Net_fdi_outflows_by_ind",
+          "rows": 24,
+          "columns": 88
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-non-residents-average-duration-of-stay-in-greece-by-country-of-origin-annually",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "8448698c-45b2-4946-80cc-7f6d890eace4",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Yearly_Non_residents_average_duration_of_stay_en_2025-03-31.xlsx",
+      "sha256": "190dd49e5f745b9f8c926bc034f3d155963365b4091d06330a08078c814cfba5",
+      "bytes": 30001,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 21,
+          "columns": 29
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-office-rent-index",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "8471f941-c9a6-4253-9e46-88d008942953",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/DOAM/Office_Rent_Index_el_2025-12-11.xls",
+      "sha256": "03e57aa2026eb8fa79b137238e2a2b9b88d34877bdac9d5ee8ed7fcb9c2cc20f",
+      "bytes": 81408,
+      "sheets": [
+        {
+          "name": "Office_Rent_Index_el",
+          "rows": 40,
+          "columns": 6
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-aggregated-balance-sheet-of-monetary-financial-institutions-mfis-excluding-bank--1",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "144b3c86-6e50-4d99-92a8-b05414400f9f",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_OMFIliabilities_en_2025-11-27.xls",
+      "sha256": "f7f4662347145b460832fc7ca7f9a368abc00f3abfda3099b20a0da7b3b08690",
+      "bytes": 121856,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 83,
+          "columns": 54
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-balance-of-payments-monthly-data",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "551454f7-e89c-4fdf-9161-4e3dd75274f8",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_BOP_en_2025-11-20.xls",
+      "sha256": "68347a6dfd27761ca32671c4e36561e0bb04802ba4edddd98755cad267031a14",
+      "bytes": 386048,
+      "sheets": [
+        {
+          "name": "katheto_en_122",
+          "rows": 286,
+          "columns": 66
+        }
+      ]
+    },
+    {
+      "id": "bank-of-greece-residents-expenditure-per-overnight-stay-abroad-by-destination-country-quarterly",
+      "license": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+      "resource": "b65d4839-44e8-4418-8142-ae9f51d281f2",
+      "url": "https://www.bankofgreece.gr/OpenDataSetFilesALL/STATISTIKI/BoG_Residents_expenditure_per_overnight_stay_en_2025-09-30.xlsx",
+      "sha256": "cc3340641eab85d5151dd65b6142f90213578b338f03049c8659d3d0c6bb08a4",
+      "bytes": 36619,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 83,
+          "columns": 28
+        }
+      ]
+    }
+  ],
+  "repeat_checks": [
+    {
+      "dataset": "bank-of-greece-index-of-apartment-prices",
+      "status": 200,
+      "same_sha256": true
+    },
+    {
+      "dataset": "bank-of-greece-bank-interest-rates-on-new-euro-denominated-deposits-and-loans-vis-a-vis-euro-ar",
+      "status": 200,
+      "same_sha256": true
+    },
+    {
+      "dataset": "bank-of-greece-credit-to-domestic-public-and-private-sectors-by-domestic-monetary-financial-ins",
+      "status": 200,
+      "same_sha256": true
+    },
+    {
+      "dataset": "bank-of-greece-deposits-and-repos-of-non-mfis-in-mfis-in-greece-excluding-the-bank-of-greece-ou",
+      "status": 200,
+      "same_sha256": true
+    },
+    {
+      "dataset": "bank-of-greece-gross-external-debt",
+      "status": 200,
+      "same_sha256": true
+    },
+    {
+      "dataset": "bank-of-greece-international-investment-position-quarterly-data",
+      "status": 200,
+      "same_sha256": true
+    },
+    {
+      "dataset": "bank-of-greece-balance-of-payments-monthly-data",
+      "status": 200,
+      "same_sha256": true
+    },
+    {
+      "dataset": "bank-of-greece-non-residents-average-duration-of-stay-in-greece-by-country-of-origin-annually",
+      "status": 200,
+      "same_sha256": true
+    },
+    {
+      "dataset": "bank-of-greece-non-residents-expenditure-per-journey-in-greece-by-country-of-origin-annually",
+      "status": 200,
+      "same_sha256": true
+    },
+    {
+      "dataset": "bank-of-greece-non-residents-expenditure-per-overnight-stay-in-greece-by-country-of-origin-annu",
+      "status": 200,
+      "same_sha256": true
+    },
+    {
+      "dataset": "bank-of-greece-greece-nominal-effective-exchange-rate-index",
+      "status": 200,
+      "same_sha256": true
+    },
+    {
+      "dataset": "bank-of-greece-greece-real-effective-exchange-rate-index",
+      "status": 200,
+      "same_sha256": true
+    }
+  ]
+}
