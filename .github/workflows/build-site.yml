@@ -1,0 +1,48 @@
+name: Build standalone site
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'tests/landing.test.cjs'
+      - '.github/workflows/build-site.yml'
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: datacritus-site-build
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install reviewed source readers
+        run: pip install -r scripts/requirements.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build standalone site
+        run: |
+          python scripts/build.py
+          node tests/landing.test.cjs
+      - name: Commit generated site
+        id: commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html dashboard.html data/history.json sitemap.xml en/indicators el/indicators data/seo
+          if ! git diff --cached --quiet; then
+            git commit -m 'Build validated Datacritus site'
+            git push
+            echo 'changed=true' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Request Pages deployment
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"
