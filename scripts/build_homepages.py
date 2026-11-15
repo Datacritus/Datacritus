@@ -71,6 +71,7 @@ def render_homepages(landing):
         page=re.sub(r'href="/dashboard.html#([^"]*)"',dashboard_link,page)
         page=page.replace('class="dp-logo" href="./"',f'class="dp-logo" href="/{lang}/"')
         if lang=='el':
+            page=page.replace('DATACRITUS / GREECE /','DATACRITUS / ΕΛΛΑΔΑ /').replace('All indicator guides in English','Οδηγοί στα αγγλικά')
             page=page.replace('GREECE · DEMOCRACY','ΕΛΛΑΔΑ · ΔΗΜΟΚΡΑΤΙΑ').replace('ILO estimates via World Bank','Εκτιμήσεις ILO μέσω Παγκόσμιας Τράπεζας')
             page=re.sub(r'(<b>)(\d+)\.(\d+)(%</b>)',r'\1\2,\3\4',page)
         target=ROOT/lang/'index.html'
