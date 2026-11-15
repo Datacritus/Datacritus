@@ -35,7 +35,7 @@ COPY = {
                caveat='Οι μεταβολές κατά τη θητεία μιας κυβέρνησης δεν αποδεικνύουν ότι προκλήθηκαν από τις πολιτικές της.',
                gaps='Τα έτη χωρίς δεδομένα παραμένουν κενά. Οι γραμμές έχουν κοινή κλίμακα. Ο πίνακας περιέχει τις ετήσιες παρατηρήσεις.',
                hubintro='Εξερευνήστε την εργασία, τις τιμές, τη στέγαση, την υγεία και τα δημόσια οικονομικά της Ελλάδας μέσα από ιστορικά δεδομένα. Κάθε δείκτης περιλαμβάνει ορισμούς, ετήσια στοιχεία και πρόσβαση στον αρχικό πάροχο.',
-               context='Τα ετήσια δεδομένα αφορούν τα δημοσιευμένα έτη παρατήρησης. Η δημοσίευση μπορεί να καθυστερεί και οι πάροχοι να αναθεωρούν ιστορικές τιμές.',
+               context='Κάθε τιμή αντιστοιχεί στο έτος που αναγράφεται. Οι πηγές δημοσιεύουν τα στοιχεία με καθυστέρηση και ενδέχεται να αναθεωρήσουν παλαιότερες τιμές.',
                status='Οι σημάνσεις διατηρούνται όπως παρέχονται από την πηγή. Μπορεί να δηλώνουν εκτίμηση, προσωρινή τιμή ή ασυνέχεια σειράς. Συμβουλευτείτε τον πάροχο για την ακριβή σημασία.',
                foot='Μια ανεξάρτητη ματιά στα δημόσια δεδομένα. Η αναφορά πηγών δεν αποτελεί έγκριση από τους φορείς.')
 }
@@ -108,7 +108,7 @@ def document(lang, title, description, path, alternate, body, schema):
 <link rel="stylesheet" href="/assets/indicators.css"><meta name="theme-color" content="#073b4c">
 <script type="application/ld+json">{jsonld}</script></head><body>
 <a class="skip" href="#main">{c['explore']}</a>
-<header><div><a class="brand" href="/">DATACRITUS</a><nav aria-label="{'Πλοήγηση' if lang=='el' else 'Navigation'}"><a href="{page_path(lang)}">{c['hub']}</a><a href="/dashboard.html#lang={lang}">{c['explore']}</a><a href="{alternate}" lang="{other}" hreflang="{other}">{'Ελληνικά' if other=='el' else 'English'}</a></nav></div></header>
+<header><div><a class="brand" href="/{lang}/">DATACRITUS</a><nav aria-label="{'Πλοήγηση' if lang=='el' else 'Navigation'}"><a href="{page_path(lang)}">{c['hub']}</a><a href="/dashboard.html#lang={lang}">{c['explore']}</a><a href="{alternate}" lang="{other}" hreflang="{other}">{'Ελληνικά' if other=='el' else 'English'}</a></nav></div></header>
 <main id="main">{body}</main><footer>{c['foot']} <a href="/dashboard.html#page=about&amp;lang={lang}">{'Μεθοδολογία' if lang=='el' else 'Methodology'}</a></footer></body></html>'''
 
 
@@ -158,7 +158,7 @@ def build():
             links = ''.join(f'<li><a href="{page_path(lang,e["slug"])}">{escape(e[lang])}</a></li>' for e in related)
             definition = metric.get('definitionEl') if lang=='el' else metric['definition']
             definition_html = f'<details><summary>{c["definition"]}</summary><p class="definition">{escape(definition or metric["definition"])}</p></details>'
-            body = f'''<div class="breadcrumbs"><a href="/">{c['home']}</a><span>/</span><a href="{page_path(lang)}">{c['hub']}</a></div>
+            body = f'''<div class="breadcrumbs"><a href="/{lang}/">{c['home']}</a><span>/</span><a href="{page_path(lang)}">{c['hub']}</a></div>
 <h1>{escape(entry[lang])}</h1><p class="intro">{escape(entry['intro_'+lang])}</p>
 <p class="meta">{c['source']} · <a href="{escape(metric['sourceUrl'],quote=True)}">{escape(metric['sourceName'])}</a> · {c['years']} {min(rows['GRC'])}–{max(rows['GRC'])}</p>
 <div class="stats">{stats}</div><div class="actions"><a class="button" href="{escape(dashboard,quote=True)}">{c['explore']}</a><a class="button secondary" href="{escape(comparison,quote=True)}">{c['compare']}</a><a class="button secondary" href="/data/seo/{entry['slug']}.csv" download>{c['download']}</a></div>
@@ -178,7 +178,7 @@ def build():
             urls.append(path)
     for lang in ['en','el']:
         c = COPY[lang]
-        body = f'<div class="breadcrumbs"><a href="/">{c["home"]}</a></div><h1>{c["hub"]}</h1><p class="intro">{c["hubintro"]}</p>'
+        body = f'<div class="breadcrumbs"><a href="/{lang}/">{c["home"]}</a></div><h1>{c["hub"]}</h1><p class="intro">{c["hubintro"]}</p>'
         grouped = {}
         for entry in entries:
             category = catalogue[entry['code']]['categories'][0]
