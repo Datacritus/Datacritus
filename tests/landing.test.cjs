@@ -13,7 +13,7 @@ nodes.get('.dp-circle').href='dashboard.html#page=explore';nodes.get('#dp-compar
 for(const k of ['.dp-circle','#dp-compare'])nodes.get(k).getAttribute=()=>nodes.get(k).href;
 const copyNode=element({toolCopy:'comparison'}),toolLink=element({toolPage:'comparison'});toolLink.href='dashboard.html#page=comparison';toolLink.getAttribute=()=>toolLink.href;
 const root={querySelector:k=>nodes.get(k),querySelectorAll:k=>k==='[data-tool-copy]'?[copyNode]:[toolLink,nodes.get('.dp-circle'),nodes.get('#dp-compare')]};let redirect=null;
-const document={documentElement:{lang:'en'},getElementById:()=>root};
+const document={documentElement:{lang:'el'},getElementById:()=>root};
 vm.runInNewContext(source,{document,location:{hash:'#indicator=FP.CPI.TOTL.ZG',replace(x){redirect=x}},URLSearchParams});
 assert.equal(redirect,'dashboard.html#indicator=FP.CPI.TOTL.ZG');
 assert.match(nodes.get('#dp-motto').innerHTML,/Ελλάδα/);assert.match(nodes.get('#dp-description').innerHTML,/500 δείκτες/);
