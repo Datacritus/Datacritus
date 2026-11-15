@@ -51,4 +51,49 @@
   button.addEventListener('click',draw);
   document.querySelector('.dp-lang').addEventListener('click',update);
   draw();
+
+  const previewCard = document.querySelector('[data-tool-page="infographic"]');
+  if (previewCard) {
+    const previewButton = document.createElement('button');
+    previewButton.type = 'button';
+    previewButton.className = 'dp-random-button';
+    previewCard.after(previewButton);
+    let previewMetric;
+    const previewMetrics = groups.flat().filter(metric => Array.isArray(metric.latest));
+    function drawPreview() {
+      const available = previewMetrics.filter(metric => metric.code !== previewMetric?.code && metric.code !== current?.metric.code);
+      previewMetric = pick(available.length ? available : previewMetrics);
+      if (!previewMetric) return;
+      renderPreview();
+    }
+    function renderPreview() {
+      if (!previewMetric) return;
+      const el = document.documentElement.lang === 'el';
+      const lang = el ? 'el' : 'en';
+      const metric = previewMetric;
+      const [year, value] = metric.latest;
+      const art = previewCard.querySelector('.dp-tool-art');
+      art.replaceChildren();
+      const panel = document.createElement('div');
+      panel.className = 'dp-export-preview';
+      const brand = document.createElement('span');
+      brand.textContent = 'DATACRITUS / ' + (el ? 'ΕΛΛΑΔΑ' : 'GREECE') + ' / ' + year;
+      const figure = document.createElement('b');
+      figure.textContent = new Intl.NumberFormat(el ? 'el-GR' : 'en-GB', {maximumFractionDigits:2}).format(value);
+      figure.style.fontSize = 'clamp(25px,3vw,42px)';
+      const unit = document.createElement('small');
+      unit.textContent = el ? greekUnits[metric.unit] || metric.unit : metric.unit;
+      const title = document.createElement('strong');
+      title.textContent = metric.title[lang] || metric.title.en;
+      const source = document.createElement('span');
+      source.textContent = metric.source;
+      panel.append(brand,figure,unit,title,source);
+      art.append(panel);
+      previewCard.href = '/dashboard.html#' + new URLSearchParams({page:'explore',indicator:metric.code,lang});
+      previewButton.textContent = el ? 'Άλλος δείκτης σε μια ματιά' : 'Preview another indicator';
+    }
+    previewButton.addEventListener('click', drawPreview);
+    drawPreview();
+  }
+
 })();
