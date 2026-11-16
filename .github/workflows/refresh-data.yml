@@ -3,7 +3,19 @@ on:
   push:
     branches: [main]
     paths:
-      - 'scripts/**'
+      - 'scripts/refresh_data.py'
+      - 'scripts/catalog.py'
+      - 'scripts/eurostat.py'
+      - 'scripts/expansion.py'
+      - 'scripts/ilo.py'
+      - 'scripts/oecd.py'
+      - 'scripts/ameco.py'
+      - 'scripts/vetted.py'
+      - 'scripts/vetted_labels.py'
+      - 'scripts/taxonomy.py'
+      - 'scripts/*_selection.json'
+      - 'scripts/vetted_manifest.json'
+      - 'scripts/requirements.txt'
   schedule:
     - cron: '17 6 * * 1'
   workflow_dispatch:
