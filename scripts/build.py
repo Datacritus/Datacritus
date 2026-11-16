@@ -27,8 +27,22 @@ def build():
     landing=landing.replace('</div>\n</body>', '<script>'+random_script+'</script>\n</div>\n</body>')
     metrics={m['code']:m for m in snapshot['metrics']}
     unemployment=dict(metrics['SL.UEM.TOTL.ZS']['series']['GRC'])
+    # Use the same term boundaries and full-calendar-year rule as the comparison tool.
+    history=json.loads((ROOT/'data/history.json').read_text())
+    comparison_markers={}
+    for slot,term_id in [('A','2015-09-21'),('B','2019-07-08')]:
+        term=next(g for g in history['governments'] if g['id']==term_id)
+        years=[y for y in range(int(term['start'][:4]),int(term['end'][:4])+1)
+               if term['start']<=f'{y}-01-01' and term['end']>=f'{y+1}-01-01']
+        if not years or any(unemployment.get(y) is None for y in years):
+            raise ValueError('Incomplete homepage comparison data: '+term_id)
+        prefix='UNEMP_'+slot
+        comparison_markers.update({prefix:f'{sum(unemployment[y] for y in years)/len(years):.1f}',
+            prefix+'_ID':term_id,prefix+'_NAME_EN':term['name']['en'],prefix+'_NAME_EL':term['name']['el'],
+            prefix+'_TERM':term['start'][:4]+'–'+term['end'][:4],
+            prefix+'_YEARS':str(years[0])+'–'+str(years[-1])})
     internet=[p for p in metrics['ESTAT.INTERNET.HOUSEHOLDS']['series']['GRC'] if p[1] is not None][-1]
-    for marker,value in {'KPI_COUNT':len(metrics),'UNEMP_A':f"{sum(unemployment[y] for y in (2016,2017,2018))/3:.1f}",'UNEMP_B':f"{sum(unemployment[y] for y in (2020,2021,2022))/3:.1f}",'INTERNET':f"{internet[1]:.2f}",'INTERNET_YEAR':internet[0]}.items():
+    for marker,value in {'KPI_COUNT':len(metrics),**comparison_markers,'INTERNET':f"{internet[1]:.2f}",'INTERNET_YEAR':internet[0]}.items():
         landing=landing.replace('/*__'+marker+'__*/',str(value))
     if '/*__' in landing:raise ValueError('Unresolved landing marker')
     (ROOT/'index.html').write_text(landing,encoding='utf-8')

@@ -34,12 +34,16 @@
     for (const period of current.pair) {
       const row = document.createElement('div');
       row.className = 'dp-random-period';
+      const leader = document.createElement('strong');
+      leader.className = 'dp-random-government';
+      leader.textContent = text(period.government || period.party);
       const name = document.createElement('span');
       const term = period.termYears[0] + '–' + (period.ongoing ? (el ? 'σήμερα' : 'present') : period.termYears[1]);
-      name.textContent = (el ? 'Θητεία ' : 'Cabinet term ') + term + (el ? ' · πλήρη έτη ' : ' · full years ') + period.years[0] + '–' + period.years.at(-1);
+      const pm = text(period.name);
+      name.textContent = pm + (el ? ' · Κυβέρνηση ' : ' · Government ') + term + (el ? ' · πλήρη έτη ' : ' · full years ') + period.years[0] + '–' + period.years.at(-1);
       const value = document.createElement('strong');
       value.textContent = format(period.mean) + ' ' + (el ? greekUnits[metric.unit] || metric.unit : metric.unit);
-      row.append(name,value);
+      row.append(leader,name,value);
       art.append(row);
     }
     const source = document.createElement('small');
@@ -47,7 +51,7 @@
     art.append(source);
     const caveat = document.createElement('small');
     caveat.className = 'dp-random-note';
-    caveat.textContent = el ? 'Πλήρη ημερολογιακά έτη. Εξωτερικά γεγονότα και άλλοι παράγοντες επηρεάζουν τα αποτελέσματα· η σύγκριση δεν αποδεικνύει αιτιότητα.' : 'Full calendar years only. External events and other factors affect outcomes; the comparison does not establish cause.';
+    caveat.textContent = el ? 'Μέσοι όροι πλήρων ετών μέσα σε κάθε θητεία· εξαιρούνται τα έτη αλλαγής κυβέρνησης. Εξωτερικά γεγονότα (π.χ. COVID-19) και η καθυστερημένη επίδραση πολιτικών επίσης επηρεάζουν τα αποτελέσματα· η σύγκριση δεν αποδεικνύει αιτιότητα.' : 'Averages use full years within each term; transition years are excluded. External events (such as COVID-19) and policy lags also affect outcomes; the comparison does not establish cause.';
     art.append(caveat);
     const query = new URLSearchParams({page:'comparison',indicator:metric.code,periodA:current.pair[0].id,periodB:current.pair[1].id,lang});
     card.href = 'dashboard.html#' + query;

@@ -47,3 +47,49 @@ sourceButtons[1].events.click();assert.equal(sourcePanels[0].hidden,true);assert
 sourceButtons[1].events.click();assert.ok(sourcePanels.every(p=>p.hidden));
 languageButton.textContent='ΕΛ';languageButton.events.click();assert.equal(section.dataset.lang,'en');
 console.log('Sources: all 9 providers, accurate counts, embedded logos, exclusive disclosure, closing and Greek language passed');
+// The teaser must describe exactly the terms and annual observations opened by its link.
+const C=require('../src/core.js');
+const timeline=JSON.parse(fs.readFileSync('data/history.json','utf8'));
+const unemployment=snapshot.metrics.find(m=>m.code==='SL.UEM.TOTL.ZS');
+for(const [path,lang] of [['index.html','el'],['el/index.html','el'],['en/index.html','en']]){
+ const page=fs.readFileSync(path,'utf8');
+ const card=page.match(/<a class="dp-tool" data-tool-page="comparison"[\s\S]*?<\/a>/)[0];
+ const href=card.match(/href="([^"]+)"/)[1].replaceAll('&amp;','&');const q=new URLSearchParams(href.split('#')[1]);
+ for(const slot of ['A','B']){
+  const term=timeline.governments.find(g=>g.id===q.get('period'+slot));assert.ok(term);
+  const stats=C.termStats(unemployment.series.GRC,term,timeline.verifiedAt);
+  assert.equal(stats.points.length,stats.eligible.length);
+  assert.ok(card.includes(term.name[lang]));
+  assert.ok(card.includes(term.start.slice(0,4)+'–'+term.end.slice(0,4)));
+  assert.ok(card.includes(stats.eligible[0]+'–'+stats.eligible.at(-1)));
+  const average=(stats.points.reduce((sum,p)=>sum+p[1],0)/stats.points.length).toFixed(1);
+  assert.ok(card.includes('<b>'+(lang==='el'?average.replace('.',','):average)+'%</b>'));
+ }
+ assert.ok(!card.includes('2019–present')&&!card.includes('Θητεία από το 2019'));
+ for(const p of providers){
+  const button=page.match(new RegExp('<button[^>]*data-source="'+p.id+'"[\\s\\S]*?</button>'))[0];
+  assert.equal(button.split(p.name).length-1,1,'Source name repeated: '+p.id);
+  assert.ok(!/>\s*\+\s*</.test(button),'Stray plus in source badge');
+ }
+}
+console.log('Homepage comparison: named governments, correct term ends, full-year averages and source badges match in Greek and English');
+// The random comparison replaces the fallback card: every drawn pair needs its own leaders.
+function randomElement(){return {children:[],events:{},textContent:'',append(...els){this.children.push(...els)},replaceChildren(...els){this.children=[...els]},addEventListener(k,f){this.events[k]=f}}}
+const randomScript=scripts.at(-1)[1];
+for(const lang of ['en','el']){
+ const art=randomElement(),nextButtons=[],langButton=randomElement();
+ const card={href:'',after(b){nextButtons.push(b)},querySelector:()=>art};
+ const doc={documentElement:{lang},createElement:randomElement,querySelector:k=>k==='[data-tool-page="comparison"]'?card:k==='.dp-lang'?langButton:null};
+ vm.runInNewContext(randomScript,{document:doc,URLSearchParams,Intl,Math:{random:()=>0,floor:Math.floor}});
+ for(let draw=0;draw<20;draw++){
+  const q=new URLSearchParams(card.href.split('#')[1]);const rows=art.children.filter(e=>e.className==='dp-random-period');assert.equal(rows.length,2);
+  for(const [i,key] of ['periodA','periodB'].entries()){
+   const term=timeline.governments.find(g=>g.id===q.get(key));
+   assert.equal(rows[i].children[0].textContent,term.coalition[lang]);
+   assert.ok(rows[i].children[1].textContent.includes(term.name[lang]));
+   assert.ok(rows[i].children[1].textContent.includes((lang==='el'?'Κυβέρνηση ':'Government ')+term.start.slice(0,4)+'–'+term.end.slice(0,4)));
+  }
+  nextButtons[0].events.click();
+ }
+}
+console.log('Random comparison: drawn government names and term labels match the actual links in both languages');
