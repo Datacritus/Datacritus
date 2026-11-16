@@ -60,12 +60,13 @@ for(const [path,lang] of [['index.html','el'],['el/index.html','el'],['en/index.
   const stats=C.termStats(unemployment.series.GRC,term,timeline.verifiedAt);
   assert.equal(stats.points.length,stats.eligible.length);
   assert.ok(card.includes(term.name[lang]));
+  assert.ok(card.includes(term.coalition[lang]));
   assert.ok(card.includes(term.start.slice(0,4)+'–'+term.end.slice(0,4)));
   assert.ok(card.includes(stats.eligible[0]+'–'+stats.eligible.at(-1)));
   const average=(stats.points.reduce((sum,p)=>sum+p[1],0)/stats.points.length).toFixed(1);
   assert.ok(card.includes('<b>'+(lang==='el'?average.replace('.',','):average)+'%</b>'));
  }
- assert.ok(!card.includes('2019–present')&&!card.includes('Θητεία από το 2019'));
+ assert.ok(!card.includes('2019–present')&&!card.includes('Θητεία'));
  for(const p of providers){
   const button=page.match(new RegExp('<button[^>]*data-source="'+p.id+'"[\\s\\S]*?</button>'))[0];
   assert.equal(button.split(p.name).length-1,1,'Source name repeated: '+p.id);

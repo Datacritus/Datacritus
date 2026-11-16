@@ -51,7 +51,7 @@
     art.append(source);
     const caveat = document.createElement('small');
     caveat.className = 'dp-random-note';
-    caveat.textContent = el ? 'Μέσοι όροι πλήρων ετών μέσα σε κάθε θητεία· εξαιρούνται τα έτη αλλαγής κυβέρνησης. Εξωτερικά γεγονότα (π.χ. COVID-19) και η καθυστερημένη επίδραση πολιτικών επίσης επηρεάζουν τα αποτελέσματα· η σύγκριση δεν αποδεικνύει αιτιότητα.' : 'Averages use full years within each term; transition years are excluded. External events (such as COVID-19) and policy lags also affect outcomes; the comparison does not establish cause.';
+    caveat.textContent = el ? 'Μέσοι όροι πλήρων ετών μέσα σε κάθε κυβερνητική περίοδο· εξαιρούνται τα έτη αλλαγής κυβέρνησης. Εξωτερικά γεγονότα (π.χ. COVID-19) και η καθυστερημένη επίδραση πολιτικών επίσης επηρεάζουν τα αποτελέσματα· η σύγκριση δεν αποδεικνύει αιτιότητα.' : 'Averages use full years within each government period; transition years are excluded. External events (such as COVID-19) and policy lags also affect outcomes; the comparison does not establish cause.';
     art.append(caveat);
     const query = new URLSearchParams({page:'comparison',indicator:metric.code,periodA:current.pair[0].id,periodB:current.pair[1].id,lang});
     card.href = 'dashboard.html#' + query;

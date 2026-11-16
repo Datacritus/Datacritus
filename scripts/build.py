@@ -39,6 +39,7 @@ def build():
         prefix='UNEMP_'+slot
         comparison_markers.update({prefix:f'{sum(unemployment[y] for y in years)/len(years):.1f}',
             prefix+'_ID':term_id,prefix+'_NAME_EN':term['name']['en'],prefix+'_NAME_EL':term['name']['el'],
+            prefix+'_GOVERNMENT_EN':term['coalition']['en'],prefix+'_GOVERNMENT_EL':term['coalition']['el'],
             prefix+'_TERM':term['start'][:4]+'–'+term['end'][:4],
             prefix+'_YEARS':str(years[0])+'–'+str(years[-1])})
     internet=[p for p in metrics['ESTAT.INTERNET.HOUSEHOLDS']['series']['GRC'] if p[1] is not None][-1]
