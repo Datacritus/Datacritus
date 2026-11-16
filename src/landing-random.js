@@ -35,7 +35,8 @@
       const row = document.createElement('div');
       row.className = 'dp-random-period';
       const name = document.createElement('span');
-      name.textContent = text(period.name) + ' · ' + period.years[0] + '–' + period.years.at(-1);
+      const term = period.termYears[0] + '–' + (period.ongoing ? (el ? 'σήμερα' : 'present') : period.termYears[1]);
+      name.textContent = (el ? 'Θητεία ' : 'Cabinet term ') + term + (el ? ' · πλήρη έτη ' : ' · full years ') + period.years[0] + '–' + period.years.at(-1);
       const value = document.createElement('strong');
       value.textContent = format(period.mean) + ' ' + (el ? greekUnits[metric.unit] || metric.unit : metric.unit);
       row.append(name,value);
@@ -44,6 +45,10 @@
     const source = document.createElement('small');
     source.textContent = metric.source;
     art.append(source);
+    const caveat = document.createElement('small');
+    caveat.className = 'dp-random-note';
+    caveat.textContent = el ? 'Πλήρη ημερολογιακά έτη. Εξωτερικά γεγονότα και άλλοι παράγοντες επηρεάζουν τα αποτελέσματα· η σύγκριση δεν αποδεικνύει αιτιότητα.' : 'Full calendar years only. External events and other factors affect outcomes; the comparison does not establish cause.';
+    art.append(caveat);
     const query = new URLSearchParams({page:'comparison',indicator:metric.code,periodA:current.pair[0].id,periodB:current.pair[1].id,lang});
     card.href = 'dashboard.html#' + query;
     button.textContent = el ? 'Άλλη τυχαία σύγκριση' : 'Try another comparison';

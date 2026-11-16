@@ -28,7 +28,7 @@ ESTAT.ENDS.MEET.GREATDIFFICULTY ESTAT.EXPENSES.UNEXPECTED
             if len(years) < 3 or any(not isinstance(rows.get(y),(int,float)) or not math.isfinite(rows[y]) for y in years):
                 continue
             points = [rows[y] for y in years]
-            periods.append(dict(id=term['id'],name=term['name'],years=years,mean=sum(points)/len(points),first=points[0],last=points[-1]))
+            periods.append(dict(id=term['id'],name=term['name'],termYears=[start.year,end.year],ongoing=not bool(term['end']),years=years,mean=sum(points)/len(points),first=points[0],last=points[-1]))
         pairs = [[i,j] for i,a in enumerate(periods) for j,b in enumerate(periods) if i < j and len(a['years'])==len(b['years'])]
         if pairs:
             groups.setdefault(metric['categories'][0],[]).append(dict(code=metric['code'],title=metric['title'],unit=metric['unit'],source=metric['sourceName'],latest=max(([y,v] for y,v in rows.items() if isinstance(v,(int,float)) and math.isfinite(v)),key=lambda p:p[0]),periods=periods,pairs=pairs))
