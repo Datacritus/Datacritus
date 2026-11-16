@@ -168,9 +168,15 @@ def build():
 <section class="panel"><details><summary>{c['data']}</summary><p class="note">{c['status']}</p><div class="table-wrap"><table><caption>{escape(entry[lang])} · {escape(unit)}</caption><thead><tr><th>{c['year']}</th><th>{c['greece']}</th><th>{c['eu'].split(' · ')[0]}</th><th>{c['flags']}</th></tr></thead><tbody>{table}</tbody></table></div></details></section>
 <section class="panel"><h2>{c['source']}</h2><p><a class="source-link" href="{escape(metric['sourceUrl'],quote=True)}">{escape(metric['sourceName'])} · {escape(metric['code'])}</a></p><p class="meta">{c['retrieved']} · {escape(metric['retrievedAt'][:10])}<br>{c['updated']} · {escape(str(metric.get('sourceUpdatedAt') or '—')[:10])}</p>{'<p class="note">'+escape(metric['license'])+' · '+escape(metric.get('attribution',''))+'</p>' if metric.get('license') else ''}</section>
 <h2>{c['related']}</h2><ul class="related">{links}</ul>'''
-            dataset = dict(**{'@context':'https://schema.org','@type':'Dataset'},name=entry[lang],description=entry['meaning_'+lang],url=ORIGIN+path,identifier=metric['code'],inLanguage=lang,spatialCoverage={'@type':'Place','name':'Greece'},temporalCoverage=f'{min(rows["GRC"])}/{max(rows["GRC"])}',variableMeasured=metric['title'][lang],measurementTechnique=metric['definition'],isBasedOn=metric['sourceUrl'],citation=metric['sourceUrl'],distribution={'@type':'DataDownload','encodingFormat':'text/csv','contentUrl':ORIGIN+f'/data/seo/{entry["slug"]}.csv'})
-            if metric.get('termsUrl'):
-                dataset['license'] = metric['termsUrl']
+            dataset = dict(**{'@context':'https://schema.org','@type':'Dataset'},creator={'@type':'Organization','name':'DATACRITUS','url':ORIGIN},name=entry[lang],description=entry['meaning_'+lang],url=ORIGIN+path,identifier=metric['code'],inLanguage=lang,spatialCoverage={'@type':'Place','name':'Greece'},temporalCoverage=f'{min(rows["GRC"])}/{max(rows["GRC"])}',variableMeasured=metric['title'][lang],measurementTechnique=metric['definition'],isBasedOn=metric['sourceUrl'],citation=metric['sourceUrl'],distribution={'@type':'DataDownload','encodingFormat':'text/csv','contentUrl':ORIGIN+f'/data/seo/{entry["slug"]}.csv'})
+            terms_url = metric.get('termsUrl')
+            if not terms_url:
+                if metric['sourceName'].startswith('World Bank'):
+                    terms_url = 'https://datacatalog.worldbank.org/public-licenses'
+                elif metric['sourceName'].startswith('Eurostat'):
+                    terms_url = 'https://ec.europa.eu/eurostat/help/copyright-notice'
+            if terms_url:
+                dataset['license'] = terms_url
             breadcrumb = {'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':c['home'],'item':ORIGIN+'/'},{'@type':'ListItem','position':2,'name':c['hub'],'item':ORIGIN+page_path(lang)},{'@type':'ListItem','position':3,'name':entry[lang],'item':ORIGIN+path}]}
             target = ROOT/path.lstrip('/')/'index.html'
             target.parent.mkdir(parents=True,exist_ok=True)
