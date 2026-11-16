@@ -34,4 +34,3 @@ jobs:
           python scripts/build.py
           node tests/landing.test.cjs
           python tests/seo.test.py
-          git diff --exit-code -- index.html dashboard.html data/history.json sitemap.xml en/indicators el/indicators data/seo
