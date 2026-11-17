@@ -56,6 +56,9 @@ def render_homepages(landing):
         alternates=''.join('<link rel="alternate" hreflang="'+code+'" href="'+ORIGIN+path+'">' for code,path in [('el','/el/'),('en','/en/'),('x-default','/')])
         page=page.replace('</head>',alternates+'</head>')
         page=page.replace('href="dashboard.html','href="/dashboard.html').replace("'dashboard.html","'/dashboard.html").replace("fetch('data/","fetch('/data/")
+        page=page.replace('/assets/social/overview-el.png',f'/assets/social/overview-{lang}.png')
+        page=page.replace('href="/el/methodology/"',f'href="/{lang}/methodology/"').replace('href="/el/about/"',f'href="/{lang}/about/"')
+        if lang=='en':page=page.replace('Σχετικά με το Datacritus','About Datacritus')
         page=page.replace('data-lang="en"',f'data-lang="{lang}"')
         other='en' if lang=='el' else 'el'
         page=re.sub(r'<button type="button" class="dp-lang"[^>]*>.*?</button>',f'<a class="dp-lang" href="/{other}/" aria-label="Switch language to {other}">'+('EN' if lang=='el' else 'ΕΛ')+'</a>',page,count=1)
@@ -72,7 +75,7 @@ def render_homepages(landing):
         page=page.replace('class="dp-logo" href="./"',f'class="dp-logo" href="/{lang}/"')
         if lang=='el':
             page=page.replace('DATACRITUS / GREECE /','DATACRITUS / ΕΛΛΑΔΑ /').replace('All indicator guides in English','Οδηγοί στα αγγλικά')
-            page=page.replace('GREECE · DEMOCRACY','ΕΛΛΑΔΑ · ΔΗΜΟΚΡΑΤΙΑ').replace('ILO estimates via World Bank','Εκτιμήσεις ILO μέσω Παγκόσμιας Τράπεζας')
+            page=page.replace('GREECE · DEMOCRACY','ΕΛΛΑΔΑ · ΔΗΜΟΚΡΑΤΙΑ').replace('ILO modelled estimate via World Bank','Μοντελοποιημένη εκτίμηση ILO μέσω Παγκόσμιας Τράπεζας')
             page=re.sub(r'(<b>)(\d+)\.(\d+)(%</b>)',r'\1\2,\3\4',page)
         target=ROOT/lang/'index.html'
         target.parent.mkdir(parents=True,exist_ok=True)

@@ -29,7 +29,7 @@
     art.append(heading);
     const note = document.createElement('span');
     note.className = 'dp-mini-label';
-    note.textContent = el ? 'ΤΥΧΑΙΑ ΣΥΓΚΡΙΣΗ · ΜΕΣΟΣ ΟΡΟΣ' : 'RANDOM COMPARISON · ANNUAL AVERAGE';
+    note.textContent = el ? 'ΤΥΧΑΙΑ ΣΥΓΚΡΙΣΗ · ΕΤΗΣΙΑ ΕΞΕΛΙΞΗ' : 'RANDOM COMPARISON · ANNUAL TREND';
     art.append(note);
     for (const period of current.pair) {
       const row = document.createElement('div');
@@ -42,16 +42,36 @@
       const pm = text(period.name);
       name.textContent = pm + (el ? ' · Κυβέρνηση ' : ' · Government ') + term + (el ? ' · πλήρη έτη ' : ' · full years ') + period.years[0] + '–' + period.years.at(-1);
       const value = document.createElement('strong');
-      value.textContent = format(period.mean) + ' ' + (el ? greekUnits[metric.unit] || metric.unit : metric.unit);
-      row.append(leader,name,value);
+      value.textContent = format(period.first) + ' → ' + format(period.last) + ' ' + (el ? greekUnits[metric.unit] || metric.unit : metric.unit);
+      const summary = document.createElement('small');
+      const delta = period.last-period.first;
+      const changeUnit = metric.unit.startsWith('%') ? (el ? 'π.μ.' : 'pp') : (el ? greekUnits[metric.unit] || metric.unit : metric.unit);
+      summary.textContent = (el ? 'Μεταβολή: ' : 'Change: ') + (delta>0?'+':'') + format(delta) + ' ' + changeUnit + (el ? ' · Μέσος όρος: ' : ' · Average: ') + format(period.mean);
+
+      row.append(leader,name,value,summary);
       art.append(row);
     }
+    if (metric.history?.length > 1) {
+      const rows = metric.history, first=rows[0][0], last=rows.at(-1)[0];
+      const values=rows.map(p=>p[1]), low=Math.min(...values), high=Math.max(...values), pad=(high-low)*.12||1;
+      const x=year=>100+(year-first)/(last-first+1)*446;
+      const y=value=>124-(value-low+pad)/(high-low+2*pad)*94;
+      let svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 160">';
+      current.pair.forEach((period,i)=>{const fraction=s=>{const d=new Date(s+'T00:00:00Z'),yr=d.getUTCFullYear();return yr+(d-new Date(Date.UTC(yr,0,1)))/(new Date(Date.UTC(yr+1,0,1))-new Date(Date.UTC(yr,0,1)));};const left=Math.max(first,fraction(period.start)),right=Math.min(last,fraction(period.end));svg+='<rect x="'+x(left)+'" y="16" width="'+Math.max(0,x(right)-x(left))+'" height="114" fill="'+(i?'#93691e':'#086a88')+'" opacity=".13"/>';});
+      for(const value of [low,high])svg+='<text x="3" y="'+(y(value)+4)+'" fill="#123b48" font-family="Arial" font-size="13">'+format(value)+'</text>';
+      let previous;
+      for(const point of rows){if(previous&&point[0]===previous[0]+1)svg+='<path d="M'+x(previous[0]+.5)+','+y(previous[1])+'L'+x(point[0]+.5)+','+y(point[1])+'" stroke="#073b4c" stroke-width="3" fill="none"/>';previous=point;}
+      for(const year of [first,last])svg+='<text x="'+x(year+.5)+'" y="150" text-anchor="middle" fill="#123b48" font-family="Arial" font-size="14">'+year+'</text>';
+      svg+='</svg>';
+      const trend=document.createElement('img');trend.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);trend.alt=(el?'Πλήρης ιστορική εξέλιξη. Σκιασμένες οι δύο επιλεγμένες κυβερνήσεις.':'Full historical trend. Shading marks the two selected governments.')+' '+metric.unit;trend.style.width='100%';trend.style.height='auto';art.append(trend);
+      const context=document.createElement('small');context.textContent=el?'Πλήρης διαθέσιμη ιστορία · μπλε σκίαση: πρώτη κυβέρνηση · χρυσή: δεύτερη':'Full available history · blue shading: first government · gold: second';art.append(context);
+    }
     const source = document.createElement('small');
-    source.textContent = metric.source;
+    source.textContent = el && metric.source.startsWith('ILO modelled') ? 'Μοντελοποιημένη εκτίμηση ILO, μέσω World Bank WDI' : metric.source;
     art.append(source);
     const caveat = document.createElement('small');
     caveat.className = 'dp-random-note';
-    caveat.textContent = el ? 'Μέσοι όροι πλήρων ετών μέσα σε κάθε κυβερνητική περίοδο· εξαιρούνται τα έτη αλλαγής κυβέρνησης. Εξωτερικά γεγονότα (π.χ. COVID-19) και η καθυστερημένη επίδραση πολιτικών επίσης επηρεάζουν τα αποτελέσματα· η σύγκριση δεν αποδεικνύει αιτιότητα.' : 'Averages use full years within each government period; transition years are excluded. External events (such as COVID-19) and policy lags also affect outcomes; the comparison does not establish cause.';
+    caveat.textContent = el ? 'Πρώτες/τελευταίες παρατηρήσεις και μέσοι όροι πλήρων ετών μέσα σε κάθε κυβερνητική περίοδο· εξαιρούνται τα έτη αλλαγής κυβέρνησης. Εξωτερικά γεγονότα (π.χ. COVID-19) και η καθυστερημένη επίδραση πολιτικών επίσης επηρεάζουν τα αποτελέσματα· η σύγκριση δεν αποδεικνύει αιτιότητα.' : 'First/last observations and averages use full years within each government period; transition years are excluded. External events (such as COVID-19) and policy lags also affect outcomes; the comparison does not establish cause.';
     art.append(caveat);
     const query = new URLSearchParams({page:'comparison',indicator:metric.code,periodA:current.pair[0].id,periodB:current.pair[1].id,lang});
     card.href = '/dashboard.html#' + query;
@@ -95,7 +115,7 @@
       const title = document.createElement('strong');
       title.textContent = metric.title[lang] || metric.title.en;
       const source = document.createElement('span');
-      source.textContent = metric.source;
+      source.textContent = el && metric.source.startsWith('ILO modelled') ? 'Μοντελοποιημένη εκτίμηση ILO, μέσω World Bank WDI' : metric.source;
       panel.append(brand,figure,unit,title,source);
       art.append(panel);
       previewCard.href = '/dashboard.html#' + new URLSearchParams({page:'explore',indicator:metric.code,lang});

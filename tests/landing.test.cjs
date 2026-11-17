@@ -75,15 +75,17 @@ for(const [path,lang] of [['index.html','el'],['el/index.html','el'],['en/index.
 }
 console.log('Homepage comparison: named governments, correct term ends, full-year averages and source badges match in Greek and English');
 // The random comparison replaces the fallback card: every drawn pair needs its own leaders.
-function randomElement(){return {children:[],events:{},textContent:'',append(...els){this.children.push(...els)},replaceChildren(...els){this.children=[...els]},addEventListener(k,f){this.events[k]=f}}}
+function randomElement(){return {children:[],events:{},style:{},textContent:'',append(...els){this.children.push(...els)},replaceChildren(...els){this.children=[...els]},addEventListener(k,f){this.events[k]=f}}}
 const randomScript=scripts.at(-1)[1];
 for(const lang of ['en','el']){
  const art=randomElement(),nextButtons=[],langButton=randomElement();
  const card={href:'',after(b){nextButtons.push(b)},querySelector:()=>art};
  const doc={documentElement:{lang},createElement:randomElement,querySelector:k=>k==='[data-tool-page="comparison"]'?card:k==='.dp-lang'?langButton:null};
- vm.runInNewContext(randomScript,{document:doc,URLSearchParams,Intl,Math:{random:()=>0,floor:Math.floor}});
+ vm.runInNewContext(randomScript,{document:doc,URLSearchParams,Intl,Math:{random:()=>0,floor:Math.floor,min:Math.min,max:Math.max}});
  for(let draw=0;draw<20;draw++){
   assert.ok(card.href.startsWith('/dashboard.html#'),'Random links must work from language subdirectories');
+  const trend=art.children.find(e=>e.src?.startsWith('data:image/svg+xml'));assert.ok(trend,'Every random comparison needs full-history context');
+  const graphic=decodeURIComponent(trend.src.split(',').slice(1).join(','));assert.ok(!graphic.includes('NaN'));assert.equal((graphic.match(/<rect /g)||[]).length,2);
   const q=new URLSearchParams(card.href.split('#')[1]);const rows=art.children.filter(e=>e.className==='dp-random-period');assert.equal(rows.length,2);
   for(const [i,key] of ['periodA','periodB'].entries()){
    const term=timeline.governments.find(g=>g.id===q.get(key));

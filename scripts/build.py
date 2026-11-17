@@ -2,7 +2,7 @@
 """Build a standalone GitHub Pages index. No npm or remote browser dependencies."""
 import base64,json,shutil
 from build_random_home import render as render_random
-from build_seo import build as build_seo
+from build_seo import build as build_seo, chart as history_chart
 from build_homepages import render_homepages
 from pathlib import Path
 from build_history import build as build_history
@@ -14,6 +14,12 @@ def build():
     template=template.replace('/*__LOGO__*/','data:image/png;base64,'+base64.b64encode((ROOT/'logo.png').read_bytes()).decode())
     for marker,path in [('STYLE','src/style.css'),('DATA','data/indicators.json'),('HISTORY','data/history.json'),('CORE','src/core.js'),('INFOGRAPHIC','src/infographic.js'),('GOVCOMPARISON','src/government-comparison.js'),('APP','src/app.js')]:
         value=(ROOT/path).read_text()
+        if marker=='DATA':
+            payload=json.loads(value)
+            definitions=json.loads((ROOT/'scripts/definitions_el.json').read_text())
+            for item in payload['metrics']:
+                if item['code'] in definitions:item['definitionEl']=definitions[item['code']]
+            value=json.dumps(payload,ensure_ascii=False,separators=(',',':'))
         if marker in ('DATA','HISTORY'):value=value.replace('<','\\u003c').replace('>','\\u003e').replace('&','\\u0026')
         if marker in ('CORE','INFOGRAPHIC','GOVCOMPARISON','APP') and '</script' in value.lower():raise ValueError('Unsafe inline script closing tag')
         template=template.replace('/*__'+marker+'__*/',value)
@@ -42,6 +48,7 @@ def build():
             prefix+'_GOVERNMENT_EN':term['coalition']['en'],prefix+'_GOVERNMENT_EL':term['coalition']['el'],
             prefix+'_TERM':term['start'][:4]+'–'+term['end'][:4],
             prefix+'_YEARS':str(years[0])+'–'+str(years[-1])})
+    landing=landing.replace('/*__HISTORY_CHART__*/',history_chart(metrics['SL.UEM.TOTL.ZS'],'el'))
     internet=[p for p in metrics['ESTAT.INTERNET.HOUSEHOLDS']['series']['GRC'] if p[1] is not None][-1]
     for marker,value in {'KPI_COUNT':len(metrics),**comparison_markers,'INTERNET':f"{internet[1]:.2f}",'INTERNET_YEAR':internet[0]}.items():
         landing=landing.replace('/*__'+marker+'__*/',str(value))

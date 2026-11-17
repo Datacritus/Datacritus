@@ -66,7 +66,7 @@ jobs:
           from pathlib import Path
           Path('data/refresh-meta.json').write_text(json.dumps({'lastSuccessfulRefresh': datetime.now(timezone.utc).date().isoformat()}, separators=(',', ':')) + '\n', encoding='utf-8')
           PY
-          git add el/index.html en/index.html data/refresh-meta.json data/indicators.json data/history.json index.html dashboard.html sitemap.xml en/indicators el/indicators data/seo
+          git add el/index.html en/index.html data/refresh-meta.json data/indicators.json data/history.json index.html dashboard.html sitemap.xml en/indicators el/indicators en/about el/about en/methodology el/methodology assets/social data/seo
           if ! git diff --cached --quiet; then
             git commit -m 'Refresh validated statistics and research observations'
             git push

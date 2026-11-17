@@ -6,6 +6,7 @@ import math
 from html import escape
 from pathlib import Path
 from urllib.parse import urlencode
+from build_public_context import government_table, public_pages, social_image, source_label, source_note
 
 ORIGIN = 'https://www.datacritus.gr'
 ROOT = Path(__file__).resolve().parents[1]
@@ -89,7 +90,7 @@ def chart(metric, lang):
     return ''.join(parts)+'</svg>'
 
 
-def document(lang, title, description, path, alternate, body, schema):
+def document(lang, title, description, path, alternate, body, schema, image=None):
     c = COPY[lang]
     other = 'el' if lang == 'en' else 'en'
     jsonld = json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')
@@ -103,13 +104,14 @@ def document(lang, title, description, path, alternate, body, schema):
 <link rel="alternate" hreflang="x-default" href="{ORIGIN}{path if lang=='en' else alternate}">
 <meta property="og:type" content="website"><meta property="og:site_name" content="DATACRITUS">
 <meta property="og:title" content="{escape(title,quote=True)}"><meta property="og:description" content="{escape(description,quote=True)}">
-<meta property="og:url" content="{ORIGIN}{path}"><meta property="og:image" content="{ORIGIN}/logo.png">
-<meta property="og:locale" content="{'el_GR' if lang=='el' else 'en_GB'}"><meta name="twitter:card" content="summary">
+<meta property="og:url" content="{ORIGIN}{path}"><meta property="og:image" content="{ORIGIN}{image or "/assets/social/overview-"+lang+".png"}">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="{escape(title,quote=True)}"><meta name="twitter:image" content="{ORIGIN}{image or "/assets/social/overview-"+lang+".png"}">
+<meta property="og:locale" content="{'el_GR' if lang=='el' else 'en_GB'}"><meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/indicators.css"><meta name="theme-color" content="#073b4c">
 <script type="application/ld+json">{jsonld}</script></head><body>
 <a class="skip" href="#main">{c['explore']}</a>
 <header><div><a class="brand" href="/{lang}/">DATACRITUS</a><nav aria-label="{'Πλοήγηση' if lang=='el' else 'Navigation'}"><a href="{page_path(lang)}">{c['hub']}</a><a href="/dashboard.html#lang={lang}">{c['explore']}</a><a href="{alternate}" lang="{other}" hreflang="{other}">{'Ελληνικά' if other=='el' else 'English'}</a></nav></div></header>
-<main id="main">{body}</main><footer>{c['foot']} <a href="/dashboard.html#page=about&amp;lang={lang}">{'Μεθοδολογία' if lang=='el' else 'Methodology'}</a></footer></body></html>'''
+<main id="main">{body}</main><footer>{c['foot']} <a href="/{lang}/about/">{'Σχετικά' if lang=='el' else 'About'}</a> · <a href="/{lang}/methodology/">{'Μεθοδολογία' if lang=='el' else 'Methodology'}</a></footer></body></html>'''
 
 
 def build():
@@ -118,6 +120,12 @@ def build():
     entries = json.loads((ROOT/'scripts/seo_indicators.json').read_text())
     categories = {c['id']:c for c in snapshot['categories']}
     urls = ['/', '/dashboard.html']
+    history = json.loads((ROOT/'data/history.json').read_text())
+    translations = json.loads((ROOT/'scripts/definitions_el.json').read_text())
+    overview = dict(catalogue['SL.UEM.TOTL.ZS'])
+    for lang in ['el','en']:
+        social_image(overview,lang,'overview')
+    urls.extend(public_pages(document))
     (ROOT/'data/seo').mkdir(parents=True,exist_ok=True)
     for entry in entries:
         metric = catalogue[entry['code']]
@@ -133,6 +141,7 @@ def build():
         (ROOT/f'data/seo/{entry["slug"]}.csv').write_text(output.getvalue(),encoding='utf-8')
         for lang in ['en','el']:
             c = COPY[lang]
+            social_image(metric,lang,entry['slug'])
             path = page_path(lang,entry['slug'])
             alternate = page_path('el' if lang=='en' else 'en',entry['slug'])
             unit = metric['unit']
@@ -156,22 +165,29 @@ def build():
                 table += f'<tr><th scope="row">{year}</th>{cells}<td>{escape(flags) or "—"}</td></tr>'
             related = sorted((e for e in entries if e!=entry),key=lambda e:catalogue[e['code']]['categories'][0]!=metric['categories'][0])[:4]
             links = ''.join(f'<li><a href="{page_path(lang,e["slug"])}">{escape(e[lang])}</a></li>' for e in related)
-            definition = metric.get('definitionEl') if lang=='el' else metric['definition']
+            definition = translations.get(metric['code']) if lang=='el' else metric['definition']
             definition_html = f'<details><summary>{c["definition"]}</summary><p class="definition">{escape(definition or metric["definition"])}</p></details>'
+            if lang=='el' and definition:
+                definition_html = '<details><summary>Ορισμός στα ελληνικά · μετάφραση Datacritus</summary><p class="definition">'+escape(definition)+'</p><details><summary>Πρωτότυπος ορισμός παρόχου (αγγλικά)</summary><p lang="en">'+escape(metric['definition'])+'</p></details></details>'
+            period_table = government_table(metric,history,lang,number)
+            label = source_label(metric,lang)
+            note = source_note(metric,lang)
             body = f'''<div class="breadcrumbs"><a href="/{lang}/">{c['home']}</a><span>/</span><a href="{page_path(lang)}">{c['hub']}</a></div>
 <h1>{escape(entry[lang])}</h1><p class="intro">{escape(entry['intro_'+lang])}</p>
-<p class="meta">{c['source']} · <a href="{escape(metric['sourceUrl'],quote=True)}">{escape(metric['sourceName'])}</a> · {c['years']} {min(rows['GRC'])}–{max(rows['GRC'])}</p>
+<p class="meta">{c['source']} · <a href="{escape(metric['sourceUrl'],quote=True)}">{escape(label)}</a> · {c['years']} {min(rows['GRC'])}–{max(rows['GRC'])}</p>
+<p class="note">{escape(note)}</p>
 <div class="stats">{stats}</div><div class="actions"><a class="button" href="{escape(dashboard,quote=True)}">{c['explore']}</a><a class="button secondary" href="{escape(comparison,quote=True)}">{c['compare']}</a><a class="button secondary" href="/data/seo/{entry['slug']}.csv" download>{c['download']}</a></div>
 <section class="panel"><h2>{c['trend']}</h2><p class="meta">{c['unit']} · {escape(unit)}</p>{chart(metric,lang)}<div class="legend"><span>{c['greece']}</span>{'<span class="eu">'+c['eu'].split(' · ')[0]+'</span>' if rows['EUU'] else ''}</div><p class="note">{c['gaps']}</p></section>
+{period_table}
 <div class="grid"><section class="panel"><h2>{c['meaning']}</h2><p>{escape(entry['meaning_'+lang])}</p>{definition_html}</section><section class="panel"><h2>{c['reading']}</h2><p>{escape(entry['caution_'+lang])}</p><p>{c['context']}</p><p class="note">{c['caveat']}</p></section></div>
 <section class="panel"><h2>{escape(entry['question_'+lang])}</h2><p>{escape(entry['answer_'+lang])}</p></section>
 <section class="panel"><details><summary>{c['data']}</summary><p class="note">{c['status']}</p><div class="table-wrap"><table><caption>{escape(entry[lang])} · {escape(unit)}</caption><thead><tr><th>{c['year']}</th><th>{c['greece']}</th><th>{c['eu'].split(' · ')[0]}</th><th>{c['flags']}</th></tr></thead><tbody>{table}</tbody></table></div></details></section>
-<section class="panel"><h2>{c['source']}</h2><p><a class="source-link" href="{escape(metric['sourceUrl'],quote=True)}">{escape(metric['sourceName'])} · {escape(metric['code'])}</a></p><p class="meta">{c['retrieved']} · {escape(metric['retrievedAt'][:10])}<br>{c['updated']} · {escape(str(metric.get('sourceUpdatedAt') or '—')[:10])}</p>{'<p class="note">'+escape(metric['license'])+' · '+escape(metric.get('attribution',''))+'</p>' if metric.get('license') else ''}</section>
+<section class="panel"><h2>{c['source']}</h2><p><a class="source-link" href="{escape(metric['sourceUrl'],quote=True)}">{escape(label)} · {escape(metric['code'])}</a></p><p class="meta">{c['retrieved']} · {escape(metric['retrievedAt'][:10])}<br>{c['updated']} · {escape(str(metric.get('sourceUpdatedAt') or '—')[:10])}</p>{'<p class="note">'+escape(metric['license'])+' · '+escape(metric.get('attribution',''))+'</p>' if metric.get('license') else ''}</section>
 <h2>{c['related']}</h2><ul class="related">{links}</ul>'''
             dataset = dict(**{'@context':'https://schema.org','@type':'Dataset'},creator={'@type':'Organization','name':'DATACRITUS','url':ORIGIN},name=entry[lang],description=entry['meaning_'+lang],url=ORIGIN+path,identifier=metric['code'],inLanguage=lang,spatialCoverage={'@type':'Place','name':'Greece'},temporalCoverage=f'{min(rows["GRC"])}/{max(rows["GRC"])}',variableMeasured=metric['title'][lang],measurementTechnique=metric['definition'],isBasedOn=metric['sourceUrl'],citation=metric['sourceUrl'],distribution={'@type':'DataDownload','encodingFormat':'text/csv','contentUrl':ORIGIN+f'/data/seo/{entry["slug"]}.csv'})
             terms_url = metric.get('termsUrl')
             if not terms_url:
-                if metric['sourceName'].startswith('World Bank'):
+                if metric.get('source') in ('2','3') or metric['sourceName'].startswith('World Bank'):
                     terms_url = 'https://datacatalog.worldbank.org/public-licenses'
                 elif metric['sourceName'].startswith('Eurostat'):
                     terms_url = 'https://ec.europa.eu/eurostat/help/copyright-notice'
@@ -180,7 +196,7 @@ def build():
             breadcrumb = {'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':c['home'],'item':ORIGIN+'/'},{'@type':'ListItem','position':2,'name':c['hub'],'item':ORIGIN+page_path(lang)},{'@type':'ListItem','position':3,'name':entry[lang],'item':ORIGIN+path}]}
             target = ROOT/path.lstrip('/')/'index.html'
             target.parent.mkdir(parents=True,exist_ok=True)
-            target.write_text(document(lang,entry['seo_title_'+lang],entry['description_'+lang],path,alternate,body,[dataset,breadcrumb]),encoding='utf-8')
+            target.write_text(document(lang,entry['seo_title_'+lang],entry['description_'+lang],path,alternate,body,[dataset,breadcrumb],image=f'/assets/social/{entry["slug"]}-{lang}.png'),encoding='utf-8')
             urls.append(path)
     for lang in ['en','el']:
         c = COPY[lang]

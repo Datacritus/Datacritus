@@ -4,10 +4,14 @@ import json
 import re
 import unittest
 import xml.etree.ElementTree as ET
+import sys
+from PIL import Image
 from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/'scripts'))
+from build_public_context import government_table
 
 
 class Links(HTMLParser):
@@ -52,6 +56,17 @@ class SEO(unittest.TestCase):
                 self.assertNotIn(title,titles)
                 titles.add(title)
                 self.assertIn('<h1>',html)
+                self.assertIn('content="summary_large_image"',html)
+                self.assertIn(f'/assets/social/{entry["slug"]}-{lang}.png',html)
+                with Image.open(ROOT/f'assets/social/{entry["slug"]}-{lang}.png') as image:
+                    self.assertEqual(image.size,(1200,630))
+                self.assertIn('Coverage / years' if lang=='en' else 'Κάλυψη / έτη',html)
+                self.assertIn(f'href="/{lang}/methodology/"',html)
+                if entry['slug']=='unemployment':
+                    self.assertIn('ELSTAT' if lang=='en' else 'ΕΛΣΤΑΤ',html)
+                    self.assertIn('modelled' if lang=='en' else 'Μοντελοποιημένη',html)
+                if lang=='el':
+                    self.assertIn('μετάφραση Datacritus',html)
                 self.assertIn('type="application/ld+json"',html)
                 for match in re.findall('<script type="application/ld\\+json">(.*?)</script>',html):
                     schema = json.loads(match)
@@ -75,6 +90,29 @@ class SEO(unittest.TestCase):
         self.assertIn('href="/en/indicators/"',html)
         self.assertIn('href="/el/indicators/"',html)
         self.assertIn('https://www.datacritus.gr/sitemap.xml',(ROOT/'robots.txt').read_text())
+
+    def test_public_pages(self):
+        for lang in ['el','en']:
+            for slug in ['about','methodology']:
+                page=(ROOT/lang/slug/'index.html').read_text()
+                self.assertIn(f'/{lang}/{slug}/',page)
+                self.assertIn(f'https://www.datacritus.gr/{lang}/{slug}/',(ROOT/'sitemap.xml').read_text())
+                self.assertNotIn('dashboard.html#page=about',page)
+
+    def test_government_table_missing_and_transition_years(self):
+        metric={'series':{'GRC':[[2015,99],[2016,10],[2017,None],[2018,7],[2019,99]]},'title':{'en':'Example'},'unit':'%','change':'pp'}
+        history={'verifiedAt':'2020-01-01','governments':[{'start':'2015-09-21','end':'2019-07-08','name':{'en':'PM'},'coalition':{'en':'Party'}}]}
+        table=government_table(metric,history,'en',lambda n,lang:str(n))
+        self.assertIn('2016: 10',table)
+        self.assertIn('2018: 7',table)
+        self.assertIn('-3 pp',table)
+        self.assertIn('8.5',table)
+        self.assertIn('2/3',table)
+        self.assertNotIn('2015: 99',table)
+        metric['series']['GRC']=[[2016,0]]
+        table=government_table(metric,history,'en',lambda n,lang:str(n))
+        self.assertIn('2016: 0',table)
+        self.assertIn('<td>— </td>',table)
 
 
 if __name__ == '__main__':
