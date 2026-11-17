@@ -2,6 +2,7 @@
 (function(root){
  'use strict';
  const valid=rows=>rows.filter(p=>Number.isInteger(p[0])&&typeof p[1]==='number'&&Number.isFinite(p[1])).sort((a,b)=>a[0]-b[0]);
+ function displayUnit(unit,lang){if(lang!=='el')return unit;return({'EUR per year':'ευρώ ανά έτος','constant 2015 US$':'δολάρια ΗΠΑ, σταθερές τιμές 2015','current US$':'δολάρια ΗΠΑ, τρέχουσες τιμές','% annual average price change':'% ετήσια μέση μεταβολή τιμών','% of population':'% του πληθυσμού','% of GDP':'% του ΑΕΠ','years':'έτη','hours per week':'ώρες την εβδομάδα','% of households':'% νοικοκυριών','% of disposable household income':'% διαθέσιμου εισοδήματος νοικοκυριών','% of people aged 16+':'% ατόμων ηλικίας 16+','index (0–1)':'δείκτης (0–1)','0–100 index':'δείκτης 0–100'})[unit]||unit;}
  function within(rows,start,end){return valid(rows).filter(p=>p[0]>=start&&p[0]<=end);}
  function latest(rows){const points=valid(rows);return points.length?points[points.length-1]:null;}
  function change(rows,start,end){const p=within(rows,start,end);return p.length>=2?{first:p[0],last:p.at(-1),delta:p.at(-1)[1]-p[0][1],count:p.length}:null;}
@@ -20,6 +21,6 @@
   const low=Math.floor(min/step)*step,high=Math.ceil(max/step)*step;
   return Array.from({length:Math.round((high-low)/step)+1},(_,i)=>Number((low+i*step).toPrecision(12)));
  }
- const api={valid,within,latest,change,sameYearGap,yearFraction,fullYears,termStats,segments,csv,axisTicks};
+ const api={displayUnit,valid,within,latest,change,sameYearGap,yearFraction,fullYears,termStats,segments,csv,axisTicks};
  if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.DatacritusCore=api;
 })(typeof window!=='undefined'?window:globalThis);

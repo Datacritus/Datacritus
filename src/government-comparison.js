@@ -45,7 +45,7 @@
   const title=label(m.title,lang);let size=portrait?39:44;while(size>22&&wrap(title,Math.floor((W-2*M)/(size*.85))).length>2)size-=2;
   wrap(title,Math.floor((W-2*M)/(size*.85))).forEach((line,i)=>text(M,145+i*size*1.12,line,size,'#fff',700));
   const nominal=m.unit.includes('EUR')||m.unit.includes('current');
-  text(M,222,`${el?'Ελλάδα':'Greece'} · ${m.unit}${nominal?' · '+(el?'ονομαστικές τιμές':'nominal values'):''}`,portrait?21:24,'#cce0e6');
+  text(M,222,`${el?'Ελλάδα':'Greece'} · ${C.displayUnit(m.unit,lang)}${nominal?' · '+(el?'ονομαστικές τιμές':'nominal values'):''}`,portrait?21:24,'#cce0e6');
   const cw=portrait?W-2*M:(W-2*M-24)/2,ch=portrait?594:602;
   periods.forEach((p,i)=>{
    const x=portrait?M:M+i*(cw+24),y=portrait?273+i*(ch+22):273,color=i===0?'#086a88':'#93691e';
@@ -64,6 +64,7 @@
   });
   const footer=portrait?1528:910;rect(M,footer-18,W-2*M,1,'#dce5e9');
   lines(M,footer+10,el?'Πλήρη ημερολογιακά έτη μόνο · ίδια κατακόρυφη κλίμακα · τα κενά δεν συμπληρώνονται.':'Full calendar years only · shared vertical scale · missing years remain gaps.',portrait?19:21,W-2*M,muted);
+  text(M,footer+40,el?'Πρώτη / τελευταία: διαθέσιμα ετήσια στοιχεία, όχι τιμές ημέρας ανάληψης / λήξης.':'First / last: available annual observations, not inauguration / departure-day values.',14,muted);
   const flags=[...new Set(periods.flatMap(p=>p.flags.map(f=>f.flag)))];
   lines(M,footer+68,`${m.sourceName} · ${m.code} · ${el?'Ανάκτηση':'Retrieved'} ${m.retrievedAt.slice(0,10)}${flags.length?' · '+(el?'Σημάνσεις':'Flags')+': '+flags.join(', '):''}`,portrait?14:16,W-2*M,muted);
   text(M,footer+96,m.sourceUrl,portrait?15:17,muted);

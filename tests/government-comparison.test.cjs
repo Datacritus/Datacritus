@@ -1,6 +1,7 @@
 const assert=require('node:assert/strict'),C=require('../src/core.js'),G=require('../src/government-comparison.js');
 const metric={code:'TEST',title:{en:'<Rate & example>',el:'Δείκτης'},providerTitle:'Rate',unit:'%',change:'pp',sourceName:'Eurostat',sourceUrl:'https://example.org/source',retrievedAt:'2026-10-03T00:00:00Z',series:{GRC:[[2018,99],[2019,8],[2020,null],[2021,0],[2022,5],[2023,7],[2024,10],[2025,20],[2026,30]]},flags:{GRC:{2019:'b',2021:'e',2026:'p'}}};
 const terms=[{id:'A',name:{en:'<Leader A>',el:'Α'},coalition:{en:'Coalition A',el:'Α'},start:'2018-07-01',end:'2022-05-01'},{id:'B',name:{en:'Leader B',el:'Β'},coalition:{en:'Coalition B',el:'Β'},start:'2022-05-01',end:null}];
+assert.equal(C.displayUnit('EUR per year','el'),'ευρώ ανά έτος');assert.equal(C.displayUnit('EUR per year','en'),'EUR per year');
 const m=G.model({metric,terms,asOf:'2026-10-03'});
 assert.deepEqual(m.periods[0].eligible,[2019,2020,2021]);assert.deepEqual(m.periods[0].missing,[2020]);assert.equal(m.periods[0].mean,4);assert.equal(m.periods[0].delta,-8);assert.equal(m.periods[0].last[1],0);assert.deepEqual(m.periods[1].points,[[2023,7],[2024,10],[2025,20]]);assert.equal(m.periods[1].delta,13);assert.ok(!m.periods[1].flags.length);
 assert.deepEqual(m.ticks,C.axisTicks([8,0,7,10,20]));
@@ -13,6 +14,27 @@ for(const lang of ['en','el'])for(const format of ['landscape','portrait']){cons
 const data=require('../data/indicators.json'),history=require('../data/history.json');let exportCount=0;
 for(const item of data.metrics){const cmp=G.model({metric:item,terms:history.governments.filter(t=>['2015-09-21','2019-07-08'].includes(t.id)),asOf:history.verifiedAt});for(const lang of ['en','el'])for(const format of ['landscape','portrait']){const image=G.build({comparison:cmp,lang,format});assert.ok(!/NaN|undefined/.test(image.svg),item.code);assert.ok(image.svg.includes(item.code));exportCount++;}}
 console.log(`Government comparison: correct full years, gaps, zero, averages, flags, pp, escaped text, CSV and ${exportCount} catalogue exports`);
+
+// Independently audit every published indicator/cabinet combination using UTC boundaries.
+let auditedPeriods=0;
+for(const item of data.metrics)for(const term of history.governments){
+ const end=term.end||history.verifiedAt,eligible=[];
+ for(let year=Number(term.start.slice(0,4));year<=Number(end.slice(0,4));year++){
+  if(Date.UTC(year,0,1)>=Date.parse(term.start+'T00:00:00Z')&&Date.UTC(year+1,0,1)<=Date.parse(end+'T00:00:00Z'))eligible.push(year);
+ }
+ const points=item.series.GRC.filter(([year,value])=>eligible.includes(year)&&typeof value==='number'&&Number.isFinite(value)).sort((a,b)=>a[0]-b[0]);
+ const actual=G.model({metric:item,terms:[term,term],asOf:history.verifiedAt}).periods[0];
+ const context=item.code+' / '+term.id;
+ assert.deepEqual(actual.eligible,eligible,context);
+ assert.deepEqual(actual.points,points,context);
+ assert.deepEqual(actual.first,points[0]||null,context);
+ assert.deepEqual(actual.last,points.at(-1)||null,context);
+ assert.equal(actual.mean,points.length?points.reduce((sum,p)=>sum+p[1],0)/points.length:null,context);
+ assert.equal(actual.delta,points.length>1?points.at(-1)[1]-points[0][1]:null,context);
+ assert.deepEqual(actual.missing,eligible.filter(year=>!points.some(p=>p[0]===year)),context);
+ auditedPeriods++;
+}
+console.log(`Independent calendar-boundary audit: ${auditedPeriods} indicator/cabinet combinations passed`);
 
 // Annual credible bounds belong to source estimates, not arithmetic term averages.
 const estimate={...metric,unit:'model index',change:'absolute',license:'CC BY-SA 4.0',termsUrl:'https://creativecommons.org/licenses/by-sa/4.0/',attribution:'V-Dem Project, Dataset v16',sourceVersion:'16',uncertaintyLevel:.68,uncertainty:{GRC:{2019:[-2,10],2021:[-3,2],2023:[4,11],2024:[6,14],2025:[15,25]}}};
