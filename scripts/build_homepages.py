@@ -3,6 +3,7 @@ import re
 from html import escape
 from html.parser import HTMLParser
 from urllib.parse import parse_qsl, urlencode
+from build_seo import chart
 
 class LanguageHTML(HTMLParser):
     def __init__(self, other):
@@ -17,6 +18,10 @@ class LanguageHTML(HTMLParser):
     def handle_endtag(self, tag):
         if self.skip: self.skip-=1
         else: self.parts.append('</'+tag+'>')
+    def handle_startendtag(self, tag, attrs):
+        classes=dict(attrs).get('class','').split()
+        if not self.skip and not any(c in classes for c in ('seo-'+self.other,'ds-copy-'+self.other)):
+            self.parts.append(self.get_starttag_text())
     def handle_data(self, data):
         if not self.skip:self.parts.append(data)
     def handle_entityref(self, name):
@@ -31,13 +36,17 @@ class LanguageHTML(HTMLParser):
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 ORIGIN='https://www.datacritus.gr'
-def render_homepages(landing):
+def render_homepages(landing, comparison_metric):
     block=re.search(r"const copy=\{en:\{(.*?)\},el:\{(.*?)\}\};",landing,re.S)
     if not block:
         raise ValueError('Missing bilingual landing copy')
     for lang,part in zip(('en','el'),block.groups()):
+        # Render labels and number formats in the target language, not by text replacement.
+        localized_chart=chart(comparison_metric,lang)
         copy=dict(re.findall(r"(\w+):'([^']*)'",part))
         page=re.sub(r'<html lang="[^"]*">',f'<html lang="{lang}">',landing,count=1)
+        page,count=re.subn(r'<svg class="chart".*?</svg>',lambda _:localized_chart,page,count=1,flags=re.S)
+        if count!=1:raise ValueError('Missing homepage fallback chart')
         for key in ('label','motto','description','metrics','enter','compare','challenge','footer'):
             pattern=r'(<[^>]+id="dp-'+key+r'"[^>]*>).*?(</(?:div|h1|p|span|a)>)'
             page,n=re.subn(pattern,lambda m:m[1]+copy[key]+m[2],page,count=1,flags=re.S)

@@ -48,7 +48,7 @@ def build():
             prefix+'_GOVERNMENT_EN':term['coalition']['en'],prefix+'_GOVERNMENT_EL':term['coalition']['el'],
             prefix+'_TERM':term['start'][:4]+'–'+term['end'][:4],
             prefix+'_YEARS':str(years[0])+'–'+str(years[-1])})
-    landing=landing.replace('/*__HISTORY_CHART__*/',history_chart(metrics['SL.UEM.TOTL.ZS'],'el'))
+    landing=landing.replace('/*__HISTORY_CHART__*/',history_chart(metrics['SL.UEM.TOTL.ZS'],'en'))
     internet=[p for p in metrics['ESTAT.INTERNET.HOUSEHOLDS']['series']['GRC'] if p[1] is not None][-1]
     for marker,value in {'KPI_COUNT':len(metrics),**comparison_markers,'INTERNET':f"{internet[1]:.2f}",'INTERNET_YEAR':internet[0]}.items():
         landing=landing.replace('/*__'+marker+'__*/',str(value))
@@ -57,6 +57,6 @@ def build():
     (ROOT/'.nojekyll').touch()
     (ROOT/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: https://www.datacritus.gr/sitemap.xml\n')
     build_seo()
-    render_homepages(landing)
+    render_homepages(landing,metrics['SL.UEM.TOTL.ZS'])
     print('Built dashboard.html:',len(template.encode()),'bytes')
 if __name__=='__main__':build()

@@ -98,6 +98,34 @@ class SEO(unittest.TestCase):
                 self.assertIn(f'/{lang}/{slug}/',page)
                 self.assertIn(f'https://www.datacritus.gr/{lang}/{slug}/',(ROOT/'sitemap.xml').read_text())
                 self.assertNotIn('dashboard.html#page=about',page)
+                if slug=='about':
+                    self.assertNotIn('Ioannis',page)
+                    self.assertNotIn('Beris',page)
+                    self.assertIn('private initiative' if lang=='en' else 'ιδιωτική πρωτοβουλία',page)
+                    self.assertIn('self-funded' if lang=='en' else 'αυτοχρηματοδοτούμενο',page)
+
+    def test_homepage_chart_language_parity(self):
+        charts={}
+        for path,lang in [('index.html','el'),('el/index.html','el'),('en/index.html','en')]:
+            html=(ROOT/path).read_text()
+            svg=re.search(r'<svg class="chart".*?</svg>',html,re.S).group(0)
+            root=ET.fromstring(svg)
+            description=root.find('{*}desc').text
+            labels=[n.text for n in root.findall('.//{*}text')]
+            numeric=[v for v in labels if '.' in v or ',' in v]
+            self.assertTrue(numeric)
+            if lang=='en':
+                self.assertIn('Missing years',description)
+                self.assertFalse(re.search('[\u0370-\u03ff]', ''.join(root.itertext())))
+                self.assertTrue(all('.' in v for v in numeric))
+            else:
+                self.assertIn('Τα έτη',description)
+                self.assertTrue(all(',' in v for v in numeric))
+            # Localisation must change labels, never the underlying observations.
+            paths=[n.get('d') for n in root.findall('.//{*}path')]
+            charts[path]=paths
+        self.assertEqual(charts['el/index.html'],charts['en/index.html'])
+        self.assertEqual(charts['index.html'],charts['el/index.html'])
 
     def test_government_table_missing_and_transition_years(self):
         metric={'series':{'GRC':[[2015,99],[2016,10],[2017,None],[2018,7],[2019,99]]},'title':{'en':'Example'},'unit':'%','change':'pp'}
