@@ -44,33 +44,39 @@
 #dc-poster .dp-tool-grid>.dp-random-button{order:2}
 @media(max-width:760px){#dc-poster .dp-tool-grid>.dp-tool[data-tool-page="comparison"]{display:flex}}
 #dc-poster .dp-tool-grid>.dp-tool[data-tool-page="comparison"]{grid-column:1/-1}#dc-poster .dp-tool[data-tool-page="comparison"] .dp-tool-art{display:grid;grid-template-columns:1fr 1fr;gap:16px}#dc-poster .dp-tool[data-tool-page="comparison"] .dp-tool-art>strong,#dc-poster .dp-tool[data-tool-page="comparison"] .dp-tool-art>span,#dc-poster .dp-tool[data-tool-page="comparison"] .dp-tool-art>img,#dc-poster .dp-tool[data-tool-page="comparison"] .dp-tool-art>svg,#dc-poster .dp-tool[data-tool-page="comparison"] .dp-tool-art>small,#dc-poster .dp-mini-periods{grid-column:1/-1}#dc-poster .dp-tool-art>small{font-size:12px;line-height:1.6}#dc-poster .dp-random-period small{font-size:13px;line-height:1.5}#dc-poster .dp-tool-art>.chart{max-width:100%;height:auto}#dc-poster .dp-random-period{min-width:0}#dc-poster .dp-random-period strong{overflow-wrap:anywhere}@media(max-width:550px){#dc-poster .dp-tool[data-tool-page="comparison"] .dp-tool-art{display:flex}}
-/* Separate government cards: shared scales, individual stories. */
-#dc-poster .dp-tool[data-tool-page="comparison"] .dp-tool-art{padding:24px;gap:18px;background:#edf3f3}
-#dc-poster .dp-tool[data-tool-page="comparison"] .dp-tool-art>strong{font-size:clamp(23px,3vw,31px);letter-spacing:-.035em}
-#dc-poster .dp-comparison-unit{color:#526a73;font-size:13px;margin-top:-8px}
-#dc-poster .dp-random-period{--period-accent:#086a88;display:flex;flex-direction:column;gap:12px;background:#fff;padding:24px;border-radius:12px;border:1px solid #d8e4e7;border-top:4px solid var(--period-accent);box-shadow:0 4px 12px #073b4c06}
+/* Comparison typography and proportions: one consistent hierarchy. */
+#dc-poster .dp-tool[data-tool-page="comparison"]{box-shadow:none}
+#dc-poster .dp-tool[data-tool-page="comparison"] .dp-tool-caption{padding:24px 28px;border-bottom:1px solid #d8e4e7;align-items:center}
+#dc-poster .dp-tool[data-tool-page="comparison"] .dp-tool-caption strong{font-size:clamp(24px,2.4vw,30px);line-height:1.25;letter-spacing:-.025em;font-weight:700}
+#dc-poster .dp-tool[data-tool-page="comparison"] .dp-tool-caption small{font-size:15px;line-height:1.5;margin-top:6px;color:#45616b}
+#dc-poster .dp-tool[data-tool-page="comparison"] .dp-tool-art{padding:24px 28px;gap:14px;background:#f0f5f5;width:100%;margin:0}
+#dc-poster .dp-tool[data-tool-page="comparison"] .dp-tool-art>strong{font-size:clamp(20px,2vw,24px);line-height:1.35;letter-spacing:-.02em;color:#123b48}
+#dc-poster .dp-tool[data-tool-page="comparison"] .dp-mini-label{font-size:12px;line-height:1.5;letter-spacing:.06em;color:#45616b}
+#dc-poster .dp-comparison-unit{color:#45616b;font-size:14px;line-height:1.5;margin-top:-6px}
+#dc-poster .dp-random-period{--period-accent:#086a88;container-type:inline-size;display:flex;flex-direction:column;gap:12px;background:#fff;padding:20px;border-radius:10px;border:1px solid #d8e4e7;border-top:3px solid var(--period-accent);box-shadow:none}
 #dc-poster .dp-period-gold{--period-accent:#93691e}
-#dc-poster .dp-random-period .dp-random-government{font-size:19px;line-height:1.4;min-height:2.8em;color:#073b4c}
-#dc-poster .dp-period-leader{font-size:13px;color:#526a73;line-height:1.6;min-height:3.2em}
-#dc-poster .dp-period-endpoints{display:grid;grid-template-columns:minmax(0,1fr) 25px minmax(0,1fr);align-items:center;gap:10px;padding-top:8px}
-#dc-poster .dp-period-endpoints small{display:block;font-size:12px;color:#526a73;margin-bottom:7px}
-#dc-poster .dp-period-endpoints strong{font-size:clamp(23px,3vw,35px);letter-spacing:-.045em;line-height:1.2;color:#073b4c}
-#dc-poster .dp-period-arrow{color:#7a949d;font-size:24px;text-align:center}
-#dc-poster .dp-period-change{display:flex;flex-direction:column;gap:5px;background:#f0f5f6;padding:13px 16px;border-radius:8px;min-height:77px}
+#dc-poster .dp-random-period .dp-random-government{font-size:20px;line-height:1.35;min-height:2.7em;font-weight:700;letter-spacing:-.015em;color:#073b4c}
+#dc-poster .dp-period-leader{font-size:15px;color:#45616b;line-height:1.5;min-height:0}
+#dc-poster .dp-period-endpoints{display:grid;grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr);align-items:center;gap:8px;padding-top:10px}
+#dc-poster .dp-period-endpoints small{display:block;font-size:14px;line-height:1.5;color:#45616b;margin-bottom:5px}
+#dc-poster .dp-period-endpoints strong{font-size:28px;font-size:clamp(18px,7cqw,28px);font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:-.025em;line-height:1.2;color:#073b4c}
+#dc-poster .dp-period-arrow{color:#526a73;font-size:20px;text-align:center}
+#dc-poster .dp-period-change{display:flex;flex-direction:column;gap:4px;background:#edf4f6;padding:11px 13px;border-radius:6px;min-height:0}
 #dc-poster .dp-period-gold .dp-period-change{background:#f8f4eb}
-#dc-poster .dp-period-change strong{font-size:20px;line-height:1.35;color:var(--period-accent)}
-#dc-poster .dp-period-change small{font-size:12px;color:#526a73}
-#dc-poster .dp-period-trend{display:block;width:100%;height:auto;margin-top:auto}
-#dc-poster .dp-period-average{font-size:12px;line-height:1.6;color:#526a73;border-top:1px solid #e0e8eb;padding-top:12px}
-#dc-poster .dp-comparison-scale{font-size:12px;color:#526a73}
-#dc-poster .dp-history-context{grid-column:1/-1;order:2;background:#fff;border:1px solid #d8e4e7;border-radius:10px;padding:0 18px;color:#073b4c}
-#dc-poster .dp-history-context summary{font-size:14px;font-weight:650;padding:16px 0;cursor:pointer;min-height:48px}
-#dc-poster .dp-history-context img{display:block;width:100%;height:auto;max-width:950px;margin:auto}
-#dc-poster .dp-history-context small{display:block;font-size:12px;line-height:1.6;padding:10px 0 18px}
-#dc-poster .dp-tool-grid>.dp-comparison-next{order:1}
+#dc-poster .dp-period-change strong{font-size:18px;line-height:1.4;color:var(--period-accent);font-variant-numeric:tabular-nums}
+#dc-poster .dp-period-change small{font-size:14px;line-height:1.5;color:#45616b}
+#dc-poster .dp-period-trend{display:block;width:100%;height:150px;object-fit:contain;margin-top:auto}
+#dc-poster .dp-period-average{font-size:14px;line-height:1.5;color:#45616b;border-top:1px solid #e0e8eb;padding-top:10px}
+#dc-poster .dp-comparison-scale,#dc-poster .dp-tool[data-tool-page="comparison"] .dp-tool-art>small{font-size:14px;line-height:1.6;color:#45616b}
+#dc-poster .dp-random-note{max-width:85ch}
+#dc-poster .dp-history-context{grid-column:1/-1;order:2;background:#fff;border:1px solid #d8e4e7;border-radius:8px;padding:0 18px;color:#073b4c}
+#dc-poster .dp-history-context summary{font-size:15px;line-height:1.5;font-weight:650;padding:14px 0;cursor:pointer;min-height:48px}
+#dc-poster .dp-history-context img{display:block;width:100%;height:auto;max-width:850px;margin:auto}
+#dc-poster .dp-history-context small{display:block;font-size:14px;line-height:1.6;padding:10px 0 16px}
+#dc-poster .dp-tool-grid>.dp-comparison-next{order:1;font-size:15px}
 #dc-poster .dp-tool-grid>.dp-tool:not([data-tool-page="comparison"]){order:3}
 #dc-poster .dp-tool-grid>.dp-random-button:not(.dp-comparison-next){order:4}
-@media(max-width:550px){#dc-poster .dp-tool[data-tool-page="comparison"] .dp-tool-art{padding:16px}#dc-poster .dp-random-period{padding:19px}#dc-poster .dp-random-period .dp-random-government,#dc-poster .dp-period-leader{min-height:0}#dc-poster .dp-period-endpoints strong{font-size:27px}}
+@media(max-width:700px){#dc-poster .dp-tool[data-tool-page="comparison"] .dp-tool-art{display:flex;padding:18px;gap:14px}#dc-poster .dp-tool[data-tool-page="comparison"] .dp-tool-caption{padding:20px 18px}#dc-poster .dp-random-period{padding:18px;gap:10px}#dc-poster .dp-random-period .dp-random-government{min-height:0;font-size:20px}#dc-poster .dp-period-leader{font-size:15px}#dc-poster .dp-period-endpoints{gap:6px}#dc-poster .dp-period-trend{height:150px}#dc-poster .dp-period-endpoints small{font-size:13px}}
 #dc-poster .dp-sources{padding:38px 5% 32px;background:#edf2f0;color:#073b4c;border-top:1px solid #d7e2e4}
 #dc-poster .ds-heading{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:22px}
 #dc-poster .ds-eyebrow{font-size:11px;font-weight:700;letter-spacing:.15em;color:#567079;margin-bottom:9px}
@@ -209,11 +215,13 @@ r.querySelector('.dp-lang').addEventListener('click',()=>{lang=lang==='en'?'el':
       deltaLabel.textContent=el?'Μεταβολή παρατηρήσεων':'Observed change';
       summary.append(deltaValue,deltaLabel);
       row.append(leader,name,value,summary);
+      art.append(row);
       const points=metric.history.filter(point=>period.years.includes(point[0]));
-      const x=year=>68+(year-period.years[0])/(period.years.at(-1)-period.years[0]||1)*224;
+      const chartWidth=Math.max(220,(row.clientWidth||360)-40);
+      const x=year=>78+(year-period.years[0])/(period.years.at(-1)-period.years[0]||1)*(chartWidth-100);
       const y=value=>112-(value-scaleLow)/(scaleHigh-scaleLow)*90;
-      let svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 150">';
-      for(const tick of [low,(low+high)/2,high])svg+='<path d="M68 '+y(tick)+'H302" stroke="#dce5e9"/><text x="58" y="'+(y(tick)+4)+'" text-anchor="end" fill="#526a73" font-family="Arial" font-size="12">'+format(tick)+'</text>';
+      let svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+chartWidth+' 150">';
+      for(const tick of [low,(low+high)/2,high])svg+='<path d="M78 '+y(tick)+'H'+(chartWidth-12)+'" stroke="#dce5e9"/><text x="68" y="'+(y(tick)+4)+'" text-anchor="end" fill="#526a73" font-family="Arial" font-size="13">'+format(tick)+'</text>';
       const color=index?'#93691e':'#086a88';
       let previous;
       for(const point of points){if(previous&&point[0]===previous[0]+1)svg+='<path d="M'+x(previous[0])+','+y(previous[1])+'L'+x(point[0])+','+y(point[1])+'" fill="none" stroke="'+color+'" stroke-width="3"/>';svg+='<circle cx="'+x(point[0])+'" cy="'+y(point[1])+'" r="4" fill="'+color+'"/>';previous=point;}
@@ -221,7 +229,6 @@ r.querySelector('.dp-lang').addEventListener('click',()=>{lang=lang==='en'?'el':
       svg+='</svg>';
       const trend=document.createElement('img');trend.className='dp-period-trend';trend.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);trend.alt=text(period.name)+' · '+points.map(p=>p[0]+': '+format(p[1])).join(' · ')+' '+unit;row.append(trend);
       const average=document.createElement('small');average.className='dp-period-average';average.textContent=(el?'Μέσος όρος: ':'Period average: ')+format(period.mean)+' · '+(el?'Πλήρη έτη ':'Full years ')+period.years[0]+'–'+period.years.at(-1);row.append(average);
-      art.append(row);
     }
     const scaleNote=document.createElement('small');scaleNote.className='dp-comparison-scale';scaleNote.textContent=el?'Ίδια κατακόρυφη κλίμακα · ξεχωριστή πορεία για κάθε κυβέρνηση':'Same vertical scale · a separate trend for each government';art.append(scaleNote);
     historyPanel.replaceChildren();
@@ -255,6 +262,7 @@ r.querySelector('.dp-lang').addEventListener('click',()=>{lang=lang==='en'?'el':
   button.addEventListener('click',draw);
   document.querySelector('.dp-lang').addEventListener('click',update);
   draw();
+  if(typeof window!=='undefined'){let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(update,150);});}
 
   const previewCard = document.querySelector('[data-tool-page="infographic"]');
   if (previewCard) {

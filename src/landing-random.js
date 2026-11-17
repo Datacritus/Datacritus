@@ -69,11 +69,13 @@
       deltaLabel.textContent=el?'Μεταβολή παρατηρήσεων':'Observed change';
       summary.append(deltaValue,deltaLabel);
       row.append(leader,name,value,summary);
+      art.append(row);
       const points=metric.history.filter(point=>period.years.includes(point[0]));
-      const x=year=>68+(year-period.years[0])/(period.years.at(-1)-period.years[0]||1)*224;
+      const chartWidth=Math.max(220,(row.clientWidth||360)-40);
+      const x=year=>78+(year-period.years[0])/(period.years.at(-1)-period.years[0]||1)*(chartWidth-100);
       const y=value=>112-(value-scaleLow)/(scaleHigh-scaleLow)*90;
-      let svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 150">';
-      for(const tick of [low,(low+high)/2,high])svg+='<path d="M68 '+y(tick)+'H302" stroke="#dce5e9"/><text x="58" y="'+(y(tick)+4)+'" text-anchor="end" fill="#526a73" font-family="Arial" font-size="12">'+format(tick)+'</text>';
+      let svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+chartWidth+' 150">';
+      for(const tick of [low,(low+high)/2,high])svg+='<path d="M78 '+y(tick)+'H'+(chartWidth-12)+'" stroke="#dce5e9"/><text x="68" y="'+(y(tick)+4)+'" text-anchor="end" fill="#526a73" font-family="Arial" font-size="13">'+format(tick)+'</text>';
       const color=index?'#93691e':'#086a88';
       let previous;
       for(const point of points){if(previous&&point[0]===previous[0]+1)svg+='<path d="M'+x(previous[0])+','+y(previous[1])+'L'+x(point[0])+','+y(point[1])+'" fill="none" stroke="'+color+'" stroke-width="3"/>';svg+='<circle cx="'+x(point[0])+'" cy="'+y(point[1])+'" r="4" fill="'+color+'"/>';previous=point;}
@@ -81,7 +83,6 @@
       svg+='</svg>';
       const trend=document.createElement('img');trend.className='dp-period-trend';trend.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);trend.alt=text(period.name)+' · '+points.map(p=>p[0]+': '+format(p[1])).join(' · ')+' '+unit;row.append(trend);
       const average=document.createElement('small');average.className='dp-period-average';average.textContent=(el?'Μέσος όρος: ':'Period average: ')+format(period.mean)+' · '+(el?'Πλήρη έτη ':'Full years ')+period.years[0]+'–'+period.years.at(-1);row.append(average);
-      art.append(row);
     }
     const scaleNote=document.createElement('small');scaleNote.className='dp-comparison-scale';scaleNote.textContent=el?'Ίδια κατακόρυφη κλίμακα · ξεχωριστή πορεία για κάθε κυβέρνηση':'Same vertical scale · a separate trend for each government';art.append(scaleNote);
     historyPanel.replaceChildren();
@@ -115,6 +116,7 @@
   button.addEventListener('click',draw);
   document.querySelector('.dp-lang').addEventListener('click',update);
   draw();
+  if(typeof window!=='undefined'){let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(update,150);});}
 
   const previewCard = document.querySelector('[data-tool-page="infographic"]');
   if (previewCard) {
