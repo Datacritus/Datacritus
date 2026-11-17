@@ -214,6 +214,7 @@ r.querySelector('.dp-lang').addEventListener('click',()=>{lang=lang==='en'?'el':
       previewButton.textContent = el ? 'Άλλος δείκτης σε μια ματιά' : 'Preview another indicator';
     }
     previewButton.addEventListener('click', drawPreview);
+    document.querySelector('.dp-lang').addEventListener('click', renderPreview);
     drawPreview();
   }
 

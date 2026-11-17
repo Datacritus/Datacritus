@@ -54,7 +54,7 @@
     caveat.textContent = el ? 'Μέσοι όροι πλήρων ετών μέσα σε κάθε κυβερνητική περίοδο· εξαιρούνται τα έτη αλλαγής κυβέρνησης. Εξωτερικά γεγονότα (π.χ. COVID-19) και η καθυστερημένη επίδραση πολιτικών επίσης επηρεάζουν τα αποτελέσματα· η σύγκριση δεν αποδεικνύει αιτιότητα.' : 'Averages use full years within each government period; transition years are excluded. External events (such as COVID-19) and policy lags also affect outcomes; the comparison does not establish cause.';
     art.append(caveat);
     const query = new URLSearchParams({page:'comparison',indicator:metric.code,periodA:current.pair[0].id,periodB:current.pair[1].id,lang});
-    card.href = 'dashboard.html#' + query;
+    card.href = '/dashboard.html#' + query;
     button.textContent = el ? 'Άλλη τυχαία σύγκριση' : 'Try another comparison';
   }
   button.addEventListener('click',draw);
@@ -102,6 +102,7 @@
       previewButton.textContent = el ? 'Άλλος δείκτης σε μια ματιά' : 'Preview another indicator';
     }
     previewButton.addEventListener('click', drawPreview);
+    document.querySelector('.dp-lang').addEventListener('click', renderPreview);
     drawPreview();
   }
 

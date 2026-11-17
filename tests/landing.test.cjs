@@ -83,6 +83,7 @@ for(const lang of ['en','el']){
  const doc={documentElement:{lang},createElement:randomElement,querySelector:k=>k==='[data-tool-page="comparison"]'?card:k==='.dp-lang'?langButton:null};
  vm.runInNewContext(randomScript,{document:doc,URLSearchParams,Intl,Math:{random:()=>0,floor:Math.floor}});
  for(let draw=0;draw<20;draw++){
+  assert.ok(card.href.startsWith('/dashboard.html#'),'Random links must work from language subdirectories');
   const q=new URLSearchParams(card.href.split('#')[1]);const rows=art.children.filter(e=>e.className==='dp-random-period');assert.equal(rows.length,2);
   for(const [i,key] of ['periodA','periodB'].entries()){
    const term=timeline.governments.find(g=>g.id===q.get(key));
