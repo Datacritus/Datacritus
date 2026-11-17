@@ -4,9 +4,12 @@
   if (!groups.length || !card) return;
   const button = document.createElement('button');
   button.type = 'button';
-  button.className = 'dp-random-button';
+  button.className = 'dp-random-button dp-comparison-next';
   card.after(button);
   const greekUnits = {"constant 2015 US$":"δολάρια ΗΠΑ, σε σταθερές τιμές 2015","0–100 index":"δείκτης 0–100","% of population":"% του πληθυσμού","EUR per year":"ευρώ ανά έτος","% of children under 18":"% των παιδιών κάτω των 18","% of disposable household income":"% του διαθέσιμου εισοδήματος νοικοκυριών","% annual average price change":"% ετήσια μέση μεταβολή τιμών","index (0–1)":"δείκτης 0–1","% of population ages 15–24":"% του πληθυσμού 15–24 ετών","% of labour force ages 15–74":"% του εργατικού δυναμικού 15–74 ετών","% of employed people aged 18+":"% των εργαζομένων 18 ετών και άνω","% of part-time workers aged 20–64":"% των εργαζομένων μερικής απασχόλησης 20–64 ετών","hours per week":"ώρες την εβδομάδα","index (2020=100)":"δείκτης (2020=100)","years":"έτη","per 1,000 live births":"ανά 1.000 γεννήσεις ζώντων","per 1,000 people":"ανά 1.000 άτομα","% of GDP":"% του ΑΕΠ","% of current health expenditure":"% των τρεχουσών δαπανών υγείας","% of people aged 16+":"% των ατόμων 16 ετών και άνω","pupils per teacher":"μαθητές ανά εκπαιδευτικό","% of population ages 18–24":"% του πληθυσμού 18–24 ετών","% of population ages 25–34":"% του πληθυσμού 25–34 ετών","% of recent graduates aged 20–34":"% των πρόσφατων αποφοίτων 20–34 ετών","t CO₂e/person":"τόνοι ισοδυνάμου CO₂ ανά άτομο","% of final energy consumption":"% της τελικής κατανάλωσης ενέργειας","% of electricity output":"% της παραγωγής ηλεκτρικής ενέργειας","% of energy use":"% της χρήσης ενέργειας","% of municipal waste":"% των αστικών αποβλήτων","arrivals":"αφίξεις","current US$":"δολάρια ΗΠΑ, σε τρέχουσες τιμές","per 100,000 people":"ανά 100.000 άτομα","WGI estimate":"εκτίμηση WGI","births per woman":"γεννήσεις ανά γυναίκα","% of households":"% των νοικοκυριών"};
+  const historyPanel = document.createElement('details');
+  historyPanel.className = 'dp-history-context';
+  card.after(historyPanel);
   let current;
   const pick = items => items[Math.floor(Math.random() * items.length)];
   function draw() {
@@ -31,26 +34,58 @@
     note.className = 'dp-mini-label';
     note.textContent = el ? 'ΤΥΧΑΙΑ ΣΥΓΚΡΙΣΗ · ΕΤΗΣΙΑ ΕΞΕΛΙΞΗ' : 'RANDOM COMPARISON · ANNUAL TREND';
     art.append(note);
-    for (const period of current.pair) {
+    const unit = el ? greekUnits[metric.unit] || metric.unit : metric.unit;
+    const unitLabel = document.createElement('span');
+    unitLabel.className = 'dp-comparison-unit';
+    unitLabel.textContent = (el ? 'Ελλάδα · ' : 'Greece · ') + unit;
+    art.append(unitLabel);
+    const visiblePoints = current.pair.flatMap(period => metric.history.filter(point => period.years.includes(point[0])));
+    const values = visiblePoints.map(point=>point[1]), low = Math.min(...values), high = Math.max(...values), pad = (high-low)*.15 || 1;
+    const scaleLow=low-pad, scaleHigh=high+pad;
+    for (const [index,period] of current.pair.entries()) {
       const row = document.createElement('div');
-      row.className = 'dp-random-period';
+      row.className = 'dp-random-period ' + (index ? 'dp-period-gold' : 'dp-period-blue');
       const leader = document.createElement('strong');
       leader.className = 'dp-random-government';
       leader.textContent = text(period.government || period.party);
       const name = document.createElement('span');
+      name.className = 'dp-period-leader';
       const term = period.termYears[0] + '–' + (period.ongoing ? (el ? 'σήμερα' : 'present') : period.termYears[1]);
-      const pm = text(period.name);
-      name.textContent = pm + (el ? ' · Κυβέρνηση ' : ' · Government ') + term + (el ? ' · πλήρη έτη ' : ' · full years ') + period.years[0] + '–' + period.years.at(-1);
-      const value = document.createElement('strong');
-      value.textContent = format(period.first) + ' → ' + format(period.last) + ' ' + (el ? greekUnits[metric.unit] || metric.unit : metric.unit);
-      const summary = document.createElement('small');
+      name.textContent = text(period.name) + (el ? ' · Κυβέρνηση ' : ' · Government ') + term;
+      const value = document.createElement('div');
+      value.className = 'dp-period-endpoints';
+      for (const [position,year,number] of [[0,period.years[0],period.first],[1,period.years.at(-1),period.last]]) {
+        if(position){const arrow=document.createElement('span');arrow.className='dp-period-arrow';arrow.textContent='→';value.append(arrow);}
+        const endpoint=document.createElement('div'),label=document.createElement('small'),figure=document.createElement('strong');
+        label.textContent=(position ? (el?'Τελευταία':'Last') : (el?'Πρώτη':'First'))+' · '+year;
+        figure.textContent=format(number);endpoint.append(label,figure);value.append(endpoint);
+      }
+      const summary = document.createElement('div');
+      summary.className='dp-period-change';
       const delta = period.last-period.first;
-      const changeUnit = metric.unit.startsWith('%') ? (el ? 'π.μ.' : 'pp') : (el ? greekUnits[metric.unit] || metric.unit : metric.unit);
-      summary.textContent = (el ? 'Μεταβολή: ' : 'Change: ') + (delta>0?'+':'') + format(delta) + ' ' + changeUnit + (el ? ' · Μέσος όρος: ' : ' · Average: ') + format(period.mean);
-
+      const changeUnit = metric.unit.startsWith('%') ? (el ? 'π.μ.' : 'pp') : unit;
+      const deltaValue=document.createElement('strong'),deltaLabel=document.createElement('small');
+      deltaValue.textContent=(delta>0?'↑ +':delta<0?'↓ ':'')+format(delta)+' '+changeUnit;
+      deltaLabel.textContent=el?'Μεταβολή παρατηρήσεων':'Observed change';
+      summary.append(deltaValue,deltaLabel);
       row.append(leader,name,value,summary);
+      const points=metric.history.filter(point=>period.years.includes(point[0]));
+      const x=year=>68+(year-period.years[0])/(period.years.at(-1)-period.years[0]||1)*224;
+      const y=value=>112-(value-scaleLow)/(scaleHigh-scaleLow)*90;
+      let svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 150">';
+      for(const tick of [low,(low+high)/2,high])svg+='<path d="M68 '+y(tick)+'H302" stroke="#dce5e9"/><text x="58" y="'+(y(tick)+4)+'" text-anchor="end" fill="#526a73" font-family="Arial" font-size="12">'+format(tick)+'</text>';
+      const color=index?'#93691e':'#086a88';
+      let previous;
+      for(const point of points){if(previous&&point[0]===previous[0]+1)svg+='<path d="M'+x(previous[0])+','+y(previous[1])+'L'+x(point[0])+','+y(point[1])+'" fill="none" stroke="'+color+'" stroke-width="3"/>';svg+='<circle cx="'+x(point[0])+'" cy="'+y(point[1])+'" r="4" fill="'+color+'"/>';previous=point;}
+      for(const year of [period.years[0],period.years.at(-1)])svg+='<text x="'+x(year)+'" y="140" text-anchor="middle" fill="#526a73" font-family="Arial" font-size="13">'+year+'</text>';
+      svg+='</svg>';
+      const trend=document.createElement('img');trend.className='dp-period-trend';trend.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);trend.alt=text(period.name)+' · '+points.map(p=>p[0]+': '+format(p[1])).join(' · ')+' '+unit;row.append(trend);
+      const average=document.createElement('small');average.className='dp-period-average';average.textContent=(el?'Μέσος όρος: ':'Period average: ')+format(period.mean)+' · '+(el?'Πλήρη έτη ':'Full years ')+period.years[0]+'–'+period.years.at(-1);row.append(average);
       art.append(row);
     }
+    const scaleNote=document.createElement('small');scaleNote.className='dp-comparison-scale';scaleNote.textContent=el?'Ίδια κατακόρυφη κλίμακα · ξεχωριστή πορεία για κάθε κυβέρνηση':'Same vertical scale · a separate trend for each government';art.append(scaleNote);
+    historyPanel.replaceChildren();
+    const historySummary=document.createElement('summary');historySummary.textContent=el?'Δείτε το ευρύτερο ιστορικό πλαίσιο':'See the wider historical context';historyPanel.append(historySummary);
     if (metric.history?.length > 1) {
       const rows = metric.history, first=rows[0][0], last=rows.at(-1)[0];
       const values=rows.map(p=>p[1]), low=Math.min(...values), high=Math.max(...values), pad=(high-low)*.12||1;
@@ -63,8 +98,8 @@
       for(const point of rows){if(previous&&point[0]===previous[0]+1)svg+='<path d="M'+x(previous[0]+.5)+','+y(previous[1])+'L'+x(point[0]+.5)+','+y(point[1])+'" stroke="#073b4c" stroke-width="3" fill="none"/>';previous=point;}
       for(const year of [first,last])svg+='<text x="'+x(year+.5)+'" y="150" text-anchor="middle" fill="#123b48" font-family="Arial" font-size="14">'+year+'</text>';
       svg+='</svg>';
-      const trend=document.createElement('img');trend.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);trend.alt=(el?'Πλήρης ιστορική εξέλιξη. Σκιασμένες οι δύο επιλεγμένες κυβερνήσεις.':'Full historical trend. Shading marks the two selected governments.')+' '+metric.unit;trend.style.width='100%';trend.style.height='auto';art.append(trend);
-      const context=document.createElement('small');context.textContent=el?'Πλήρης διαθέσιμη ιστορία · μπλε σκίαση: πρώτη κυβέρνηση · χρυσή: δεύτερη':'Full available history · blue shading: first government · gold: second';art.append(context);
+      const trend=document.createElement('img');trend.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);trend.alt=(el?'Πλήρης ιστορική εξέλιξη. Σκιασμένες οι δύο επιλεγμένες κυβερνήσεις.':'Full historical trend. Shading marks the two selected governments.')+' '+metric.unit;trend.style.width='100%';trend.style.height='auto';historyPanel.append(trend);
+      const context=document.createElement('small');context.textContent=el?'Πλήρης διαθέσιμη ιστορία · μπλε σκίαση: πρώτη κυβέρνηση · χρυσή: δεύτερη':'Full available history · blue shading: first government · gold: second';historyPanel.append(context);
     }
     const source = document.createElement('small');
     source.textContent = el && metric.source.startsWith('ILO modelled') ? 'Μοντελοποιημένη εκτίμηση ILO, μέσω World Bank WDI' : metric.source;

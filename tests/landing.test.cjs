@@ -84,9 +84,9 @@ for(const lang of ['en','el']){
  vm.runInNewContext(randomScript,{document:doc,URLSearchParams,Intl,Math:{random:()=>0,floor:Math.floor,min:Math.min,max:Math.max}});
  for(let draw=0;draw<20;draw++){
   assert.ok(card.href.startsWith('/dashboard.html#'),'Random links must work from language subdirectories');
-  const trend=art.children.find(e=>e.src?.startsWith('data:image/svg+xml'));assert.ok(trend,'Every random comparison needs full-history context');
+  const context=nextButtons.find(e=>e.className==='dp-history-context');const trend=context.children.find(e=>e.src?.startsWith('data:image/svg+xml'));assert.ok(trend,'Every random comparison needs full-history context');
   const graphic=decodeURIComponent(trend.src.split(',').slice(1).join(','));assert.ok(!graphic.includes('NaN'));assert.equal((graphic.match(/<rect /g)||[]).length,2);
-  const q=new URLSearchParams(card.href.split('#')[1]);const rows=art.children.filter(e=>e.className==='dp-random-period');assert.equal(rows.length,2);
+  const q=new URLSearchParams(card.href.split('#')[1]);const rows=art.children.filter(e=>e.className?.split(' ').includes('dp-random-period'));assert.equal(rows.length,2);assert.ok(rows.every(row=>row.children.some(e=>e.className==='dp-period-trend')),'Each government must have its own trend');
   for(const [i,key] of ['periodA','periodB'].entries()){
    const term=timeline.governments.find(g=>g.id===q.get(key));
    assert.equal(rows[i].children[0].textContent,term.coalition[lang]);
