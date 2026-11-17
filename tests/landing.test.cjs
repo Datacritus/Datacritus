@@ -89,6 +89,8 @@ for(const lang of ['en','el']){
   const q=new URLSearchParams(card.href.split('#')[1]);const rows=art.children.filter(e=>e.className?.split(' ').includes('dp-random-period'));assert.equal(rows.length,2);assert.ok(rows.every(row=>row.children.some(e=>e.className==='dp-period-trend')),'Each government must have its own trend');
   for(const [i,key] of ['periodA','periodB'].entries()){
    const term=timeline.governments.find(g=>g.id===q.get(key));
+   const legend=context.children.find(e=>e.className==='dp-history-legend');assert.equal(legend.children.length,2);
+   const legendItem=legend.children[i];assert.equal(legendItem.children[0].style.backgroundColor,timeline.parties[term.party].color);assert.ok(legendItem.children[1].textContent.includes(term.name[lang]));assert.ok(graphic.includes('fill="'+timeline.parties[term.party].color+'"'));
    assert.equal(rows[i].children[0].textContent,term.coalition[lang]);
    assert.ok(rows[i].children[1].textContent.includes(term.name[lang]));
    assert.ok(rows[i].children[1].textContent.includes((lang==='el'?'Κυβέρνηση ':'Government ')+term.start.slice(0,4)+'–'+term.end.slice(0,4)));
