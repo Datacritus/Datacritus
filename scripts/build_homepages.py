@@ -70,7 +70,11 @@ def render_homepages(landing, comparison_metric):
         if lang=='en':page=page.replace('Σχετικά με το Datacritus','About Datacritus')
         page=page.replace('data-lang="en"',f'data-lang="{lang}"')
         other='en' if lang=='el' else 'el'
-        page=re.sub(r'<button type="button" class="dp-lang"[^>]*>.*?</button>',f'<a class="dp-lang" href="/{other}/" aria-label="Switch language to {other}">'+('EN' if lang=='el' else 'ΕΛ')+'</a>',page,count=1)
+        switch_url = 'https://datacritus.com/' if lang == 'el' else ORIGIN + '/el/'
+        switch_label = 'Μετάβαση στα αγγλικά' if lang == 'el' else 'Switch language to Greek'
+        page=re.sub(r'<button type="button" class="dp-lang"[^>]*>.*?</button>',
+                    f'<a class="dp-lang" href="{switch_url}" lang="{other}" aria-label="{switch_label}">'+
+                    ('EN' if lang=='el' else 'ΕΛ')+'</a>',page,count=1)
         page=page.replace('<body>','<body><style>html[lang="'+lang+'"] .seo-'+other+',html[lang="'+lang+'"] .ds-copy-'+other+'{display:none}</style>',1)
         parser=LanguageHTML(other)
         parser.feed(page)
@@ -83,6 +87,17 @@ def render_homepages(landing, comparison_metric):
         page=re.sub(r'href="/dashboard.html#([^"]*)"',dashboard_link,page)
         page=page.replace('class="dp-logo" href="./"',f'class="dp-logo" href="/{lang}/"')
         if lang=='el':
+            labels = {
+                'DATACRITUS home': 'Αρχική σελίδα Datacritus',
+                'DATACRITUS tools': 'Εργαλεία Datacritus',
+                'Explore Greece’s data': 'Εξερευνήστε τα δεδομένα της Ελλάδας',
+                'Indicator guides': 'Οδηγοί δεικτών',
+                'Project information': 'Πληροφορίες για το έργο',
+                'DATACRITUS — Data Decision Democracy': 'DATACRITUS — Δεδομένα, Αποφάσεις, Δημοκρατία',
+            }
+            for attribute in ('aria-label', 'alt'):
+                for english, greek in labels.items():
+                    page = page.replace(f'{attribute}="{english}"', f'{attribute}="{greek}"')
             page=page.replace('DATACRITUS / GREECE /','DATACRITUS / ΕΛΛΑΔΑ /').replace('All indicator guides in English','Οδηγοί στα αγγλικά')
             page=page.replace('GREECE · DEMOCRACY','ΕΛΛΑΔΑ · ΔΗΜΟΚΡΑΤΙΑ').replace('ILO modelled estimate via World Bank','Μοντελοποιημένη εκτίμηση ILO μέσω Παγκόσμιας Τράπεζας')
             page=re.sub(r'(<b>)(\d+)\.(\d+)(%</b>)',r'\1\2,\3\4',page)

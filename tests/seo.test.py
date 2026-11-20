@@ -91,6 +91,23 @@ class SEO(unittest.TestCase):
         self.assertIn('href="/el/indicators/"',html)
         self.assertIn('https://www.datacritus.gr/sitemap.xml',(ROOT/'robots.txt').read_text())
 
+    def test_language_switch_and_shared_page_structure(self):
+        for path in ('', 'indicators/', 'indicators/unemployment/'):
+            greek = (ROOT/'el'/path/'index.html').read_text()
+            english = (ROOT/'en'/path/'index.html').read_text()
+            self.assertIn('href="https://datacritus.com/'+('en/'+path if path else '')+'"', greek)
+            self.assertIn('href="https://www.datacritus.gr/el/'+path+'"', english)
+            for tag in ('main', 'nav', 'section', 'table', 'footer'):
+                self.assertEqual(len(re.findall(r'<'+tag+r'[ >]', greek)),
+                                 len(re.findall(r'<'+tag+r'[ >]', english)), (path, tag))
+        homepage = (ROOT/'el/index.html').read_text()
+        self.assertIn('aria-label="Μετάβαση στα αγγλικά"', homepage)
+        self.assertIn('aria-label="Οδηγοί δεικτών"', homepage)
+        self.assertNotIn('aria-label="Indicator guides"', homepage)
+        self.assertIn('Δεδομένα, Αποφάσεις, Δημοκρατία', homepage)
+        unemployment = (ROOT/'el/indicators/unemployment/index.html').read_text()
+        self.assertIn('μέσω της Παγκόσμιας Τράπεζας (WDI)', unemployment)
+
     def test_public_pages(self):
         for lang in ['el','en']:
             for slug in ['about','methodology']:

@@ -12,7 +12,7 @@ UNEMPLOYMENT = {'SL.UEM.TOTL.ZS', 'SL.UEM.1524.ZS'}
 
 def source_label(metric, lang):
     if metric['code'] in UNEMPLOYMENT:
-        return 'Μοντελοποιημένη εκτίμηση ILO, μέσω World Bank WDI' if lang == 'el' else 'ILO modelled estimate, via World Bank WDI'
+        return 'Μοντελοποιημένη εκτίμηση ILO μέσω της Παγκόσμιας Τράπεζας (WDI)' if lang == 'el' else 'ILO modelled estimate, via World Bank WDI'
     return metric['sourceName']
 
 

@@ -100,7 +100,7 @@
       for(const point of rows){if(previous&&point[0]===previous[0]+1)svg+='<path d="M'+x(previous[0]+.5)+','+y(previous[1])+'L'+x(point[0]+.5)+','+y(point[1])+'" stroke="#073b4c" stroke-width="3" fill="none"/>';previous=point;}
       for(const year of [first,last])svg+='<text x="'+x(year+.5)+'" y="150" text-anchor="middle" fill="#123b48" font-family="Arial" font-size="14">'+year+'</text>';
       svg+='</svg>';
-      const trend=document.createElement('img');trend.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);trend.alt=(el?'Πλήρης ιστορική εξέλιξη. Σκιασμένες οι δύο επιλεγμένες κυβερνήσεις.':'Full historical trend. Shading marks the two selected governments.')+' '+metric.unit;trend.style.width='100%';trend.style.height='auto';historyPanel.append(trend);
+      const trend=document.createElement('img');trend.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);trend.alt=(el?'Πλήρης ιστορική εξέλιξη. Σκιασμένες οι δύο επιλεγμένες κυβερνήσεις.':'Full historical trend. Shading marks the two selected governments.')+' '+unit;trend.style.width='100%';trend.style.height='auto';historyPanel.append(trend);
       const legend=document.createElement('ul');legend.className='dp-history-legend';
       for(const period of current.pair){
         const item=document.createElement('li'),swatch=document.createElement('span'),label=document.createElement('span');
@@ -112,7 +112,7 @@
       const context=document.createElement('small');context.textContent=el?'Πλήρης διαθέσιμη ιστορία · οι σκιάσεις δείχνουν τις δύο επιλεγμένες κυβερνητικές περιόδους. Χρώματα από το πολιτικό χρονολόγιο του Datacritus.':'Full available history · shading marks the two selected government periods. Colours follow the Datacritus political timeline.';historyPanel.append(context);
     }
     const source = document.createElement('small');
-    source.textContent = el && metric.source.startsWith('ILO modelled') ? 'Μοντελοποιημένη εκτίμηση ILO, μέσω World Bank WDI' : metric.source;
+    source.textContent = metric.source[lang];
     art.append(source);
     const caveat = document.createElement('small');
     caveat.className = 'dp-random-note';
@@ -161,7 +161,7 @@
       const title = document.createElement('strong');
       title.textContent = metric.title[lang] || metric.title.en;
       const source = document.createElement('span');
-      source.textContent = el && metric.source.startsWith('ILO modelled') ? 'Μοντελοποιημένη εκτίμηση ILO, μέσω World Bank WDI' : metric.source;
+      source.textContent = metric.source[lang];
       panel.append(brand,figure,unit,title,source);
       art.append(panel);
       previewCard.href = '/dashboard.html#' + new URLSearchParams({page:'explore',indicator:metric.code,lang});

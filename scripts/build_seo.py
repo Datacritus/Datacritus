@@ -93,6 +93,7 @@ def chart(metric, lang):
 def document(lang, title, description, path, alternate, body, schema, image=None):
     c = COPY[lang]
     other = 'el' if lang == 'en' else 'en'
+    switch_url = 'https://datacritus.com' + alternate if other == 'en' else ORIGIN + alternate
     jsonld = json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')
     return f'''<!doctype html>
 <html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -110,7 +111,7 @@ def document(lang, title, description, path, alternate, body, schema, image=None
 <link rel="stylesheet" href="/assets/indicators.css"><meta name="theme-color" content="#073b4c">
 <script type="application/ld+json">{jsonld}</script></head><body>
 <a class="skip" href="#main">{c['explore']}</a>
-<header><div><a class="brand" href="/{lang}/">DATACRITUS</a><nav aria-label="{'Πλοήγηση' if lang=='el' else 'Navigation'}"><a href="{page_path(lang)}">{c['hub']}</a><a href="/dashboard.html#lang={lang}">{c['explore']}</a><a href="{alternate}" lang="{other}" hreflang="{other}">{'Ελληνικά' if other=='el' else 'English'}</a></nav></div></header>
+<header><div><a class="brand" href="/{lang}/">DATACRITUS</a><nav aria-label="{'Πλοήγηση' if lang=='el' else 'Navigation'}"><a href="{page_path(lang)}">{c['hub']}</a><a href="/dashboard.html#lang={lang}">{c['explore']}</a><a href="{switch_url}" lang="{other}" hreflang="{other}">{'Ελληνικά' if other=='el' else 'English'}</a></nav></div></header>
 <main id="main">{body}</main><footer>{c['foot']} <a href="/{lang}/about/">{'Σχετικά' if lang=='el' else 'About'}</a> · <a href="/{lang}/methodology/">{'Μεθοδολογία' if lang=='el' else 'Methodology'}</a></footer></body></html>'''
 
 
