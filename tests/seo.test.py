@@ -158,7 +158,7 @@ class SEO(unittest.TestCase):
         table=government_table(metric,history,'en',lambda n,lang:str(n))
         self.assertIn('2016: 10',table)
         self.assertIn('2018: 7',table)
-        self.assertIn('-3 pp',table)
+        self.assertIn('-3 percentage points',table)
         self.assertIn('8.5',table)
         self.assertIn('2/3',table)
         self.assertNotIn('2015: 99',table)

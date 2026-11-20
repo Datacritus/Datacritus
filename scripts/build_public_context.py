@@ -45,7 +45,7 @@ def government_table(metric, history, lang, number):
         first,last = years[0],years[-1]
         delta = values[last]-values[first] if len(years)>1 else None
         change = '—' if delta is None else ('+' if delta>0 else '')+number(delta,lang)
-        unit = ('π.μ.' if el else 'pp') if metric.get('change')=='pp' else metric['unit']
+        unit = ('ποσοστιαίες μονάδες' if el else 'percentage points') if metric.get('change')=='pp' else metric['unit']
         name = escape(term['coalition'][lang]+' · '+term['name'][lang])
         dates = term['start']+' → '+(term['end'] or ('σε εξέλιξη' if el else 'ongoing'))
         expected = sum(term['start'] <= f'{y}-01-01' and f'{y+1}-01-01' <= end for y in range(int(term['start'][:4]),int(end[:4])+1))

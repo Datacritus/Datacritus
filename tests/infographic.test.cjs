@@ -6,7 +6,7 @@ const options={metric:fixture,countries:['GRC','EUU'],countryInfo:D.countries,fr
 const exported=I.build(options);
 // Different latest years must not produce a false comparison. 2020 is common.
 assert.match(exported.svg,/>\+1<\/text>/);
-assert.match(exported.svg,/>2020 · pp<\/text>/);
+assert.match(exported.svg,/>2020 · percentage points<\/text>/);
 assert.match(exported.svg,/>-8<\/text>/);
 assert.match(exported.svg,/Source flags: p/);
 // Missing 2019 splits both lines. The 2021 Greek zero remains an observation.

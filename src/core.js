@@ -21,6 +21,7 @@
   const low=Math.floor(min/step)*step,high=Math.ceil(max/step)*step;
   return Array.from({length:Math.round((high-low)/step)+1},(_,i)=>Number((low+i*step).toPrecision(12)));
  }
- const api={displayUnit,valid,within,latest,change,sameYearGap,yearFraction,fullYears,termStats,segments,csv,axisTicks};
+ const percentagePoints=lang=>lang==='el'?'ποσοστιαίες μονάδες':'percentage points';
+ const api={percentagePoints,displayUnit,valid,within,latest,change,sameYearGap,yearFraction,fullYears,termStats,segments,csv,axisTicks};
  if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.DatacritusCore=api;
 })(typeof window!=='undefined'?window:globalThis);

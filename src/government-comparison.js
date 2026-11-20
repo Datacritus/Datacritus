@@ -55,10 +55,10 @@
    text(x+26,y+140,`${p.term.start} → ${p.term.end||(el?'σε εξέλιξη':'ongoing')}`,20,muted);
    lines(x+26,y+171,label(p.term.coalition,lang),18,cw-52,muted);
    text(x+26,y+229,el?'ΜΕΣΟΣ ΟΡΟΣ ΠΑΡΑΤΗΡΗΣΕΩΝ':'OBSERVED ANNUAL AVERAGE',18,muted,600);
-   text(x+26,y+279,format(p.mean,lang),48,navy,700);
+   text(x+26,y+279,format(p.mean,lang)+(p.mean!=null&&m.unit.startsWith('%')?'%':''),48,navy,700);
    const dx=(cw-52)/3;
-   const cells=[{name:el?'Πρώτη':'First',value:p.first?.[1],year:p.first?.[0]},{name:el?'Τελευταία':'Last',value:p.last?.[1],year:p.last?.[0]},{name:el?'Μεταβολή':'Change',value:p.delta,year:m.change==='pp'?(el?'π.μ.':'pp'):(el?'ίδιες μονάδες':'same unit')}];
-   cells.forEach((c,j)=>{const xx=x+26+j*dx;text(xx,y+317,c.name+(j<2&&c.year?' · '+c.year:''),18,muted);text(xx,y+351,(j===2&&c.value>0?'+':'')+format(c.value,lang),30,ink,700);if(j===2)lines(xx,y+377,c.year,15,dx-12,muted);});
+   const cells=[{name:el?'Πρώτη':'First',value:p.first?.[1],year:p.first?.[0]},{name:el?'Τελευταία':'Last',value:p.last?.[1],year:p.last?.[0]},{name:el?'Μεταβολή':'Change',value:p.delta,year:m.change==='pp'?C.percentagePoints(lang):(el?'ίδιες μονάδες':'same unit')}];
+   cells.forEach((c,j)=>{const xx=x+26+j*dx;text(xx,y+317,c.name+(j<2&&c.year?' · '+c.year:''),18,muted);text(xx,y+351,(j===2&&c.value>0?'+':'')+format(c.value,lang)+(j<2&&c.value!=null&&m.unit.startsWith('%')?'%':''),30,ink,700);if(j===2)lines(xx,y+372,c.year,14,dx-12,muted);});
    const svg=chart({period:p,ticks:comparison.ticks,color,lang}).replace('width="600" height="220"',`x="${x+18}" y="${y+391}" width="${cw-36}" height="160"`);out.push(svg);
    const years=p.points.map(v=>v[0]).join(', ')||'—';lines(x+26,y+566,`${el?'Έτη':'Years'}: ${years} · ${p.points.length}/${p.eligible.length} ${el?'παρατηρήσεις':'observations'}`,16,cw-52,muted);
   });

@@ -58,15 +58,15 @@
         if(position){const arrow=document.createElement('span');arrow.className='dp-period-arrow';arrow.textContent='→';value.append(arrow);}
         const endpoint=document.createElement('div'),label=document.createElement('small'),figure=document.createElement('strong');
         label.textContent=(position ? (el?'Τελευταία':'Last') : (el?'Πρώτη':'First'))+' · '+year;
-        figure.textContent=format(number);endpoint.append(label,figure);value.append(endpoint);
+        figure.textContent=format(number)+(metric.unit.startsWith('%')?'%':'');endpoint.append(label,figure);value.append(endpoint);
       }
       const summary = document.createElement('div');
       summary.className='dp-period-change';
       const delta = period.last-period.first;
-      const changeUnit = metric.unit.startsWith('%') ? (el ? 'π.μ.' : 'pp') : unit;
+      const changeUnit = metric.change === 'pp' ? (el ? 'ποσοστιαίες μονάδες' : 'percentage points') : unit;
       const deltaValue=document.createElement('strong'),deltaLabel=document.createElement('small');
-      deltaValue.textContent=(delta>0?'↑ +':delta<0?'↓ ':'')+format(delta)+' '+changeUnit;
-      deltaLabel.textContent=el?'Μεταβολή παρατηρήσεων':'Observed change';
+      deltaValue.textContent=(delta>0?'↑ +':delta<0?'↓ ':'')+format(delta);
+      deltaLabel.textContent=changeUnit;
       summary.append(deltaValue,deltaLabel);
       row.append(leader,name,value,summary);
       art.append(row);

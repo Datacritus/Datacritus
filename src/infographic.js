@@ -9,7 +9,7 @@
   const credit=[m.license,m.attribution,m.sourceVersion].filter(Boolean).join(' · '),creditSize=portrait?15:17,creditHeight=wrap(credit,Math.max(8,Math.floor((W-2*M)/(creditSize*.62)))).length*creditSize*1.3,noteY=H+18+creditHeight+14,exportH=H+(m.license?Math.max(150,Math.ceil(noteY-H+70)):0);
   const label=o=>typeof o==='object'?(o[lang]||o.en):o;
   const fmt=n=>n===null||n===undefined?'—':new Intl.NumberFormat(el?'el-GR':'en-GB',{maximumFractionDigits:Math.abs(n)>0&&Math.abs(n)<.01?4:2,notation:Math.abs(n)>=1e6?'compact':'standard'}).format(Object.is(n,-0)?0:n);
-  const signed=n=>(n>0?'+':'')+fmt(n),unit=m.change==='pp'?(el?'π.μ.':'pp'):m.unit;
+  const signed=n=>(n>0?'+':'')+fmt(n),unit=m.change==='pp'?C.percentagePoints(lang):m.unit;
   const p=C.within(m.series.GRC,from,to),last=p.at(-1),change=C.change(m.series.GRC,from,to),peer=countries.find(c=>c!=='GRC'),gap=peer?C.sameYearGap(m.series.GRC,m.series[peer],from,to):null;
   const ink='#123b48',muted='#526a73',navy='#073b4c',gold='#ffd166';let out=[];
   const rect=(x,y,w,h,fill,rx=0)=>out.push(`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}" fill="${fill}"/>`);
@@ -23,7 +23,7 @@
   while(headingSize>28&&wrap(heading,Math.floor((W-2*M)/(headingSize*.62))).length>2)headingSize-=2;
   lines(M,160,heading,headingSize,W-2*M,'#ffffff',700);
   lines(M,254,`${label(m.title)} · ${m.unit}`,20,W-2*M,'#cce0e6');
-  const cards=[{label:`${label(countryInfo.GRC)} · ${last?last[0]:(el?'Χωρίς δεδομένα':'No data')}`,value:last?fmt(last[1]):'—',detail:m.unit},
+  const cards=[{label:`${label(countryInfo.GRC)} · ${last?last[0]:(el?'Χωρίς δεδομένα':'No data')}`,value:last?fmt(last[1])+(m.unit.startsWith('%')?'%':''):'—',detail:m.unit},
    {label:el?'Μεταβολή περιόδου':'Period change',value:change?signed(change.delta):'—',detail:change?`${change.first[0]}–${change.last[0]} · ${unit}`:(el?'Απαιτούνται 2 παρατηρήσεις':'Needs 2 observations')},
    {label:peer?`${el?'Διαφορά από':'Gap to'} ${label(countryInfo[peer])}`:(el?'Παρατηρήσεις':'Observations'),value:peer?(gap?signed(gap.delta):'—'):String(p.length),detail:peer?(gap?`${gap.year} · ${unit}`:(el?'Χωρίς κοινό έτος':'No common year')):`${from}–${to}`}];
   const cw=(W-2*M-32)/3;
