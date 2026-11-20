@@ -39,7 +39,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add el/index.html en/index.html index.html dashboard.html data/history.json sitemap.xml en/indicators el/indicators en/about el/about en/methodology el/methodology assets/social data/seo
+          git add el/index.html en/index.html index.html dashboard.html data/history.json sitemap.xml sitemap-en.xml en/indicators el/indicators en/about el/about en/methodology el/methodology assets/social data/seo
           if ! git diff --cached --quiet; then
             git commit -m 'Build validated Datacritus site'
             git push

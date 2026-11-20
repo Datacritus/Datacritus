@@ -1,8 +1,10 @@
 """Render crawlable language-specific homepages from the shared landing template."""
+import json
 import re
 from html import escape
 from html.parser import HTMLParser
 from urllib.parse import parse_qsl, urlencode
+from build_public_context import GREEK_ORIGIN, public_url
 from build_seo import chart
 
 class LanguageHTML(HTMLParser):
@@ -35,7 +37,7 @@ class LanguageHTML(HTMLParser):
 
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-ORIGIN='https://www.datacritus.gr'
+ORIGIN=GREEK_ORIGIN
 def render_homepages(landing, comparison_metric):
     block=re.search(r"const copy=\{en:\{(.*?)\},el:\{(.*?)\}\};",landing,re.S)
     if not block:
@@ -59,18 +61,27 @@ def render_homepages(landing, comparison_metric):
         page=re.sub(r'<title>.*?</title>','<title>'+title+'</title>',page,count=1)
         page=re.sub(r'(<meta (?:name="description"|property="og:description") content=")[^"]*',lambda m:m[1]+escape(description,quote=True),page)
         page=re.sub(r'(<meta property="og:title" content=")[^"]*',lambda m:m[1]+title,page)
-        url=ORIGIN+'/'+lang+'/'
+        url=public_url('/'+lang+'/')
         page=page.replace('<link rel="canonical" href="'+ORIGIN+'/">','<link rel="canonical" href="'+url+'">')
         page=page.replace('property="og:url" content="'+ORIGIN+'/"','property="og:url" content="'+url+'"')
-        alternates=''.join('<link rel="alternate" hreflang="'+code+'" href="'+ORIGIN+path+'">' for code,path in [('el','/el/'),('en','/en/'),('x-default','/')])
-        page=page.replace('</head>',alternates+'</head>')
+        alternates = ''.join(f'<link rel="alternate" hreflang="{code}" href="{public_url(path)}">'
+                             for code,path in [('el','/el/'),('en','/en/'),('x-default','/el/')])
+        image = ORIGIN + f'/assets/social/overview-{lang}.png'
+        locale = 'el_GR' if lang == 'el' else 'en_GB'
+        social = (f'<meta property="og:site_name" content="DATACRITUS"><meta property="og:locale" content="{locale}">'
+                  f'<meta name="twitter:title" content="{title}">'
+                  f'<meta name="twitter:description" content="{escape(description, quote=True)}">'
+                  f'<meta name="twitter:image" content="{image}">')
+        website = json.dumps({'@context':'https://schema.org', '@type':'WebSite',
+                              'name':'Datacritus', 'url':url, 'inLanguage':lang}, ensure_ascii=False)
+        page=page.replace('</head>',alternates+social+f'<script type="application/ld+json">{website}</script></head>')
         page=page.replace('href="dashboard.html','href="/dashboard.html').replace("'dashboard.html","'/dashboard.html").replace("fetch('data/","fetch('/data/")
         page=page.replace('/assets/social/overview-el.png',f'/assets/social/overview-{lang}.png')
         page=page.replace('href="/el/methodology/"',f'href="/{lang}/methodology/"').replace('href="/el/about/"',f'href="/{lang}/about/"')
         if lang=='en':page=page.replace('Σχετικά με το Datacritus','About Datacritus')
         page=page.replace('data-lang="en"',f'data-lang="{lang}"')
         other='en' if lang=='el' else 'el'
-        switch_url = 'https://datacritus.com/' if lang == 'el' else ORIGIN + '/el/'
+        switch_url = public_url('/'+other+'/')
         switch_label = 'Μετάβαση στα αγγλικά' if lang == 'el' else 'Switch language to Greek'
         page=re.sub(r'<button type="button" class="dp-lang"[^>]*>.*?</button>',
                     f'<a class="dp-lang" href="{switch_url}" lang="{other}" aria-label="{switch_label}">'+

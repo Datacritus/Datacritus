@@ -10,6 +10,16 @@ ROOT = Path(__file__).resolve().parents[1]
 UNEMPLOYMENT = {'SL.UEM.TOTL.ZS', 'SL.UEM.1524.ZS'}
 
 
+GREEK_ORIGIN = 'https://www.datacritus.gr'
+ENGLISH_ORIGIN = 'https://datacritus.com'
+
+
+def public_url(path):
+    if path == '/en/':
+        return ENGLISH_ORIGIN + '/'
+    return (ENGLISH_ORIGIN if path.startswith('/en/') else GREEK_ORIGIN) + path
+
+
 def source_label(metric, lang):
     if metric['code'] in UNEMPLOYMENT:
         return 'Μοντελοποιημένη εκτίμηση ILO μέσω της Παγκόσμιας Τράπεζας (WDI)' if lang == 'el' else 'ILO modelled estimate, via World Bank WDI'
@@ -87,5 +97,5 @@ def public_pages(document):
             path=f'/{lang}/{slug}/';other='en' if el else 'el'
             body=f'<h1>{title}</h1>'+text+f'<h2>{"Διορθώσεις και επικοινωνία" if el else "Corrections and contact"}</h2><p><a href="mailto:info@datacritus.gr">info@datacritus.gr</a></p>'
             target=ROOT/path.lstrip('/')/'index.html';target.parent.mkdir(parents=True,exist_ok=True)
-            target.write_text(document(lang,title,title,path,f'/{other}/{slug}/',body,{'@context':'https://schema.org','@type':'AboutPage' if slug=='about' else 'WebPage','name':title,'url':'https://www.datacritus.gr'+path,'inLanguage':lang}),encoding='utf-8');paths.append(path)
+            target.write_text(document(lang,title,title,path,f'/{other}/{slug}/',body,{'@context':'https://schema.org','@type':'AboutPage' if slug=='about' else 'WebPage','name':title,'url':public_url(path),'inLanguage':lang}),encoding='utf-8');paths.append(path)
     return paths

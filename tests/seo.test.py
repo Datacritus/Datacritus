@@ -32,8 +32,13 @@ class SEO(unittest.TestCase):
     def test_indicator_pages(self):
         catalogue = {m['code']: m for m in json.loads((ROOT/'data/indicators.json').read_text())['metrics']}
         entries = json.loads((ROOT/'scripts/seo_indicators.json').read_text())
-        sitemap = ET.fromstring((ROOT/'sitemap.xml').read_text())
-        urls = {node.text for node in sitemap.findall('{*}url/{*}loc')}
+        urls = {
+            lang: {node.text for node in ET.parse(ROOT/filename).findall('{*}url/{*}loc')}
+            for lang, filename in [('el','sitemap.xml'), ('en','sitemap-en.xml')]
+        }
+        self.assertTrue(all(url.startswith('https://www.datacritus.gr/') for url in urls['el']))
+        self.assertTrue(all(url.startswith('https://datacritus.com/') for url in urls['en']))
+        self.assertIn('https://datacritus.com/', urls['en'])
         titles = set()
         for entry in entries:
             metric = catalogue[entry['code']]
@@ -47,11 +52,13 @@ class SEO(unittest.TestCase):
                 parser = Links()
                 parser.feed(html)
                 self.assertEqual(parser.language,lang)
-                self.assertIn('https://www.datacritus.gr'+path,urls)
+                pair = {'el': 'https://www.datacritus.gr/el/indicators/'+entry['slug']+'/',
+                        'en': 'https://datacritus.com/en/indicators/'+entry['slug']+'/'}
+                self.assertIn(pair[lang],urls[lang])
                 canonical = [a['href'] for tag,a in parser.links if a.get('rel')=='canonical']
-                self.assertEqual(canonical,['https://www.datacritus.gr'+path])
+                self.assertEqual(canonical,[pair[lang]])
                 alternates = {a['hreflang']:a['href'] for tag,a in parser.links if a.get('rel')=='alternate'}
-                self.assertEqual(set(alternates),{'en','el','x-default'})
+                self.assertEqual(alternates,{**pair,'x-default':pair['el']})
                 title = re.search('<title>(.*?)</title>',html).group(1)
                 self.assertNotIn(title,titles)
                 titles.add(title)
@@ -113,7 +120,8 @@ class SEO(unittest.TestCase):
             for slug in ['about','methodology']:
                 page=(ROOT/lang/slug/'index.html').read_text()
                 self.assertIn(f'/{lang}/{slug}/',page)
-                self.assertIn(f'https://www.datacritus.gr/{lang}/{slug}/',(ROOT/'sitemap.xml').read_text())
+                origin, filename = ('https://www.datacritus.gr', 'sitemap.xml') if lang == 'el' else ('https://datacritus.com', 'sitemap-en.xml')
+                self.assertIn(f'{origin}/{lang}/{slug}/',(ROOT/filename).read_text())
                 self.assertNotIn('dashboard.html#page=about',page)
                 if slug=='about':
                     self.assertNotIn('Ioannis',page)

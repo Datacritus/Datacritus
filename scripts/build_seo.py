@@ -6,9 +6,9 @@ import math
 from html import escape
 from pathlib import Path
 from urllib.parse import urlencode
-from build_public_context import government_table, public_pages, social_image, source_label, source_note
+from build_public_context import GREEK_ORIGIN, government_table, public_pages, public_url, social_image, source_label, source_note
 
-ORIGIN = 'https://www.datacritus.gr'
+ORIGIN = GREEK_ORIGIN
 ROOT = Path(__file__).resolve().parents[1]
 COPY = {
     'en': dict(home='Home', hub='Greece statistics and indicators', explore='Explore the data',
@@ -93,19 +93,21 @@ def chart(metric, lang):
 def document(lang, title, description, path, alternate, body, schema, image=None):
     c = COPY[lang]
     other = 'el' if lang == 'en' else 'en'
-    switch_url = 'https://datacritus.com' + alternate if other == 'en' else ORIGIN + alternate
+    canonical = public_url(path)
+    switch_url = public_url(alternate)
+    default_url = canonical if lang == 'el' else switch_url
     jsonld = json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')
     return f'''<!doctype html>
 <html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{escape(title)} | DATACRITUS</title>
 <meta name="description" content="{escape(description,quote=True)}">
-<link rel="canonical" href="{ORIGIN}{path}">
-<link rel="alternate" hreflang="{lang}" href="{ORIGIN}{path}">
-<link rel="alternate" hreflang="{other}" href="{ORIGIN}{alternate}">
-<link rel="alternate" hreflang="x-default" href="{ORIGIN}{path if lang=='en' else alternate}">
+<link rel="canonical" href="{canonical}">
+<link rel="alternate" hreflang="{lang}" href="{canonical}">
+<link rel="alternate" hreflang="{other}" href="{switch_url}">
+<link rel="alternate" hreflang="x-default" href="{default_url}">
 <meta property="og:type" content="website"><meta property="og:site_name" content="DATACRITUS">
 <meta property="og:title" content="{escape(title,quote=True)}"><meta property="og:description" content="{escape(description,quote=True)}">
-<meta property="og:url" content="{ORIGIN}{path}"><meta property="og:image" content="{ORIGIN}{image or "/assets/social/overview-"+lang+".png"}">
+<meta property="og:url" content="{canonical}"><meta property="og:image" content="{ORIGIN}{image or "/assets/social/overview-"+lang+".png"}">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="{escape(title,quote=True)}"><meta name="twitter:image" content="{ORIGIN}{image or "/assets/social/overview-"+lang+".png"}">
 <meta property="og:locale" content="{'el_GR' if lang=='el' else 'en_GB'}"><meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/indicators.css"><meta name="theme-color" content="#073b4c">
@@ -120,7 +122,7 @@ def build():
     catalogue = {m['code']:m for m in snapshot['metrics']}
     entries = json.loads((ROOT/'scripts/seo_indicators.json').read_text())
     categories = {c['id']:c for c in snapshot['categories']}
-    urls = ['/', '/dashboard.html']
+    urls = ['/el/', '/en/', '/dashboard.html']
     history = json.loads((ROOT/'data/history.json').read_text())
     translations = json.loads((ROOT/'scripts/definitions_el.json').read_text())
     overview = dict(catalogue['SL.UEM.TOTL.ZS'])
@@ -185,7 +187,7 @@ def build():
 <section class="panel"><details><summary>{c['data']}</summary><p class="note">{c['status']}</p><div class="table-wrap"><table><caption>{escape(entry[lang])} · {escape(unit)}</caption><thead><tr><th>{c['year']}</th><th>{c['greece']}</th><th>{c['eu'].split(' · ')[0]}</th><th>{c['flags']}</th></tr></thead><tbody>{table}</tbody></table></div></details></section>
 <section class="panel"><h2>{c['source']}</h2><p><a class="source-link" href="{escape(metric['sourceUrl'],quote=True)}">{escape(label)} · {escape(metric['code'])}</a></p><p class="meta">{c['retrieved']} · {escape(metric['retrievedAt'][:10])}<br>{c['updated']} · {escape(str(metric.get('sourceUpdatedAt') or '—')[:10])}</p>{'<p class="note">'+escape(metric['license'])+' · '+escape(metric.get('attribution',''))+'</p>' if metric.get('license') else ''}</section>
 <h2>{c['related']}</h2><ul class="related">{links}</ul>'''
-            dataset = dict(**{'@context':'https://schema.org','@type':'Dataset'},creator={'@type':'Organization','name':'DATACRITUS','url':ORIGIN},name=entry[lang],description=entry['meaning_'+lang],url=ORIGIN+path,identifier=metric['code'],inLanguage=lang,spatialCoverage={'@type':'Place','name':'Greece'},temporalCoverage=f'{min(rows["GRC"])}/{max(rows["GRC"])}',variableMeasured=metric['title'][lang],measurementTechnique=metric['definition'],isBasedOn=metric['sourceUrl'],citation=metric['sourceUrl'],distribution={'@type':'DataDownload','encodingFormat':'text/csv','contentUrl':ORIGIN+f'/data/seo/{entry["slug"]}.csv'})
+            dataset = dict(**{'@context':'https://schema.org','@type':'Dataset'},creator={'@type':'Organization','name':'DATACRITUS','url':ORIGIN},name=entry[lang],description=entry['meaning_'+lang],url=public_url(path),identifier=metric['code'],inLanguage=lang,spatialCoverage={'@type':'Place','name':'Greece'},temporalCoverage=f'{min(rows["GRC"])}/{max(rows["GRC"])}',variableMeasured=metric['title'][lang],measurementTechnique=metric['definition'],isBasedOn=metric['sourceUrl'],citation=metric['sourceUrl'],distribution={'@type':'DataDownload','encodingFormat':'text/csv','contentUrl':ORIGIN+f'/data/seo/{entry["slug"]}.csv'})
             terms_url = metric.get('termsUrl')
             if not terms_url:
                 if metric.get('source') in ('2','3') or metric['sourceName'].startswith('World Bank'):
@@ -194,7 +196,7 @@ def build():
                     terms_url = 'https://ec.europa.eu/eurostat/help/copyright-notice'
             if terms_url:
                 dataset['license'] = terms_url
-            breadcrumb = {'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':c['home'],'item':ORIGIN+'/'},{'@type':'ListItem','position':2,'name':c['hub'],'item':ORIGIN+page_path(lang)},{'@type':'ListItem','position':3,'name':entry[lang],'item':ORIGIN+path}]}
+            breadcrumb = {'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':c['home'],'item':public_url(f'/{lang}/')},{'@type':'ListItem','position':2,'name':c['hub'],'item':public_url(page_path(lang))},{'@type':'ListItem','position':3,'name':entry[lang],'item':public_url(path)}]}
             target = ROOT/path.lstrip('/')/'index.html'
             target.parent.mkdir(parents=True,exist_ok=True)
             target.write_text(document(lang,entry['seo_title_'+lang],entry['description_'+lang],path,alternate,body,[dataset,breadcrumb],image=f'/assets/social/{entry["slug"]}-{lang}.png'),encoding='utf-8')
@@ -212,11 +214,13 @@ def build():
         path = page_path(lang)
         target = ROOT/path.lstrip('/')/'index.html'
         target.parent.mkdir(parents=True,exist_ok=True)
-        target.write_text(document(lang,c['hub'],c['hubintro'],path,page_path('el' if lang=='en' else 'en'),body,{'@context':'https://schema.org','@type':'CollectionPage','name':c['hub'],'url':ORIGIN+path,'inLanguage':lang}),encoding='utf-8')
+        target.write_text(document(lang,c['hub'],c['hubintro'],path,page_path('el' if lang=='en' else 'en'),body,{'@context':'https://schema.org','@type':'CollectionPage','name':c['hub'],'url':public_url(path),'inLanguage':lang}),encoding='utf-8')
         urls.append(path)
-    sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-    sitemap += ''.join(f'<url><loc>{ORIGIN}{escape(path)}</loc></url>' for path in dict.fromkeys(urls+['/el/','/en/']))+'</urlset>\n'
-    (ROOT/'sitemap.xml').write_text(sitemap,encoding='utf-8')
+    for english, filename in [(False, 'sitemap.xml'), (True, 'sitemap-en.xml')]:
+        locs = [public_url(path) for path in urls if path.startswith('/en/') == english]
+        sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        sitemap += ''.join(f'  <url><loc>{escape(loc)}</loc></url>\n' for loc in locs) + '</urlset>\n'
+        (ROOT/filename).write_text(sitemap, encoding='utf-8')
     print(f'Built {len(entries)*2} indicator pages, 2 language indexes and {len(entries)} CSV extracts')
 
 
