@@ -9,6 +9,7 @@ on:
       - 'scripts/fonts/**'
       - 'assets/indicators.css'
       - 'tests/landing.test.cjs'
+      - 'tests/government-comparison.test.cjs'
       - '.github/workflows/build-site.yml'
 permissions:
   contents: write
@@ -42,7 +43,12 @@ jobs:
           git add el/index.html en/index.html index.html dashboard.html data/history.json sitemap.xml sitemap-en.xml en/indicators el/indicators en/about el/about en/methodology el/methodology assets/social data/seo
           if ! git diff --cached --quiet; then
             git commit -m 'Build validated Datacritus site'
-            git push
+            for attempt in 1 2 3; do
+              if git push; then break; fi
+              if [ "$attempt" -eq 3 ]; then exit 1; fi
+              git fetch origin main
+              git rebase origin/main
+            done
             echo 'changed=true' >> "$GITHUB_OUTPUT"
           fi
       - name: Request Pages deployment
