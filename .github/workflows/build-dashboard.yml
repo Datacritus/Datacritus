@@ -1,0 +1,33 @@
+name: Build Datacritus dashboard
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/app.js'
+      - '.github/workflows/build-dashboard.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install build dependencies
+        run: pip install -r scripts/requirements.txt
+      - name: Build published pages
+        run: python scripts/build.py
+      - name: Commit generated website
+        run: |
+          if ! git diff --quiet -- dashboard.html index.html; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add dashboard.html index.html
+            git commit -m "Build website with complete historical range"
+            git push
+          fi
