@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - 'src/app.js'
+      - 'src/government-comparison.js'
       - '.github/workflows/build-dashboard.yml'
   workflow_dispatch:
 permissions:
@@ -20,6 +21,10 @@ jobs:
           python-version: '3.12'
       - name: Install build dependencies
         run: pip install -r scripts/requirements.txt
+      - name: Validate comparison calculations
+        run: |
+          node tests/core.test.cjs
+          node tests/government-comparison.test.cjs
       - name: Build published pages
         run: python scripts/build.py
       - name: Commit generated website
@@ -28,6 +33,6 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add dashboard.html index.html
-            git commit -m "Build website with complete historical range"
+            git commit -m "Rebuild Datacritus dashboard from reviewed source changes"
             git push
           fi
