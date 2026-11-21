@@ -65,7 +65,7 @@ assert.equal(G.canExport([]),false);
 // Exercise the actual application URL and SVG functions without browser dependencies.
 const fs=require('node:fs'),vm=require('node:vm'),app=fs.readFileSync(require.resolve('../src/app.js'),'utf8');
 const extract=(start,end)=>app.slice(app.indexOf(start),app.indexOf(end,app.indexOf(start)));
-const ctx={D:{metrics:[jobs,related,other,sparse],categories:[{id:'jobs'},{id:'environment'}],countries:{GRC:'Greece'}},H:{governments:terms},state:{metric:jobs.code,category:'jobs',page:'comparison',lang:'en',start:2000,end:2025,countries:['GRC'],bands:true,elections:false},comparisonState:{a:'A',b:'B',format:'landscape'},multiCodes:[related.code,sparse.code],MAX_YEAR:2025,ASOF:'2026-10-03',URLSearchParams,location:{hash:''},history:{replaceState(_a,_b,hash){ctx.location.hash=hash;}},metric:()=>ctx.D.metrics.find(m=>m.code===ctx.state.metric)};
+const ctx={D:{metrics:[jobs,related,other,sparse],categories:[{id:'jobs'},{id:'environment'}],countries:{GRC:'Greece'}},H:{governments:terms},state:{metric:jobs.code,category:'jobs',page:'comparison',lang:'en',start:2000,end:2025,countries:['GRC'],bands:true,elections:false},comparisonState:{a:'A',b:'B',format:'landscape'},multiCodes:[related.code,sparse.code],MIN_YEAR:1960,MAX_YEAR:2025,ASOF:'2026-10-03',URLSearchParams,location:{hash:''},history:{replaceState(_a,_b,hash){ctx.location.hash=hash;}},metric:()=>ctx.D.metrics.find(m=>m.code===ctx.state.metric)};
 vm.createContext(ctx);
 vm.runInContext(extract('function readURL()','readURL();')+extract('function multiMetrics()','function multiModels()'),ctx);
 ctx.writeURL();assert.ok(ctx.location.hash.includes('kpis='));ctx.multiCodes=[];ctx.readURL();assert.deepEqual(Array.from(ctx.multiCodes),[related.code,sparse.code]);
