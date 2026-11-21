@@ -12,8 +12,11 @@
    const stats=C.termStats(metric.series.GRC,term,asOf),observed=new Set(stats.points.map(p=>p[0]));
    const missing=stats.eligible.filter(y=>!observed.has(y));
    const mean=stats.points.length?stats.points.reduce((n,p)=>n+p[1],0)/stats.points.length:null;
+   const rateCodes=['NY.GDP.MKTP.KD.ZG','FP.CPI.TOTL.ZG'];
+   const complete=stats.eligible.length>0&&stats.points.length===stats.eligible.length;
+   const compounded=complete&&rateCodes.includes(metric.code)&&stats.points.every(p=>p[1]>-100)?(stats.points.reduce((v,p)=>v*(1+p[1]/100),1)-1)*100:null;
    const flags=stats.points.filter(p=>metric.flags?.GRC?.[p[0]]).map(p=>({year:p[0],flag:metric.flags.GRC[p[0]]}));
-   return{term,...stats,mean,missing,flags,uncertainty:metric.uncertainty?.GRC||{}};
+   return{term,...stats,mean,compounded,missing,flags,uncertainty:metric.uncertainty?.GRC||{}};
   });
   return{metric,periods,asOf,sameTerm:terms[0].id===terms[1].id,ticks:C.axisTicks(periods.flatMap(p=>p.points.flatMap(x=>[x[1],...(p.uncertainty[x[0]]||[])])))};
  }
@@ -54,8 +57,8 @@
    lines(x+26,y+79,label(p.term.name,lang),portrait?33:31,cw-52,ink,700);
    text(x+26,y+140,`${p.term.start} → ${p.term.end||(el?'σε εξέλιξη':'ongoing')}`,20,muted);
    lines(x+26,y+171,label(p.term.coalition,lang),18,cw-52,muted);
-   text(x+26,y+229,el?'ΜΕΣΟΣ ΟΡΟΣ ΠΑΡΑΤΗΡΗΣΕΩΝ':'OBSERVED ANNUAL AVERAGE',18,muted,600);
-   text(x+26,y+279,format(p.mean,lang)+(p.mean!=null&&m.unit.startsWith('%')?'%':''),48,navy,700);
+   text(x+26,y+229,el?'ΠΡΩΤΗ → ΤΕΛΕΥΤΑΙΑ':'FIRST → LAST OBSERVATION',18,muted,600);
+   text(x+26,y+279,(p.first?format(p.first[1],lang):'—')+' → '+(p.last?format(p.last[1],lang):'—'),38,navy,700);
    const dx=(cw-52)/3;
    const cells=[{name:el?'Πρώτη':'First',value:p.first?.[1],year:p.first?.[0]},{name:el?'Τελευταία':'Last',value:p.last?.[1],year:p.last?.[0]},{name:el?'Μεταβολή':'Change',value:p.delta,year:m.change==='pp'?C.percentagePoints(lang):(el?'ίδιες μονάδες':'same unit')}];
    cells.forEach((c,j)=>{const xx=x+26+j*dx;text(xx,y+317,c.name+(j<2&&c.year?' · '+c.year:''),18,muted);text(xx,y+351,(j===2&&c.value>0?'+':'')+format(c.value,lang)+(j<2&&c.value!=null&&m.unit.startsWith('%')?'%':''),30,ink,700);if(j===2)lines(xx,y+372,c.year,14,dx-12,muted);});
